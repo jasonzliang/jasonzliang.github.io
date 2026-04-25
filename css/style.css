@@ -121,20 +121,20 @@ em { color: var(--color-text); }
   .nav-toggle { display: flex; }
 }
 
-/* ------- Hero ------- */
+/* ------- Hero (Xin Qiu style) ------- */
 .hero {
-  padding: 3rem 1.5rem 1.5rem;
+  padding: 3.25rem 1.5rem 2rem;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
 }
-.avatar-wrap { position: sticky; top: 80px; }
+.avatar-wrap { text-align: center; }
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1d4ed8, #7c3aed);
   display: flex;
@@ -157,9 +157,8 @@ em { color: var(--color-text); }
 .social-links {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  margin: 0;
   display: flex;
-  justify-content: center;
   gap: 0.55rem;
   flex-wrap: wrap;
 }
@@ -186,42 +185,32 @@ em { color: var(--color-text); }
 
 .hero-text h1 {
   font-family: var(--font-serif);
-  font-size: 2.25rem;
-  margin: 0 0 0.3rem;
+  font-size: 2.4rem;
+  margin: 0 0 0.45rem;
   letter-spacing: -0.02em;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.15;
 }
-.hero-subtitle {
-  font-size: 1rem;
-  color: var(--color-text-soft);
-  margin: 0 0 0.8rem;
+.hero-role {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
   font-weight: 500;
 }
-.hero-tagline {
+.hero-affiliation {
+  font-size: 0.98rem;
+  color: var(--color-muted);
   margin: 0 0 1rem;
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-text);
-  font-size: 1.02rem;
-  border-left: 3px solid var(--color-accent);
-  padding-left: 0.75rem;
-  line-height: 1.5;
 }
-.hero-bio {
-  margin: 0 0 1rem;
-  font-size: 0.97rem;
-}
+.hero-affiliation a { color: var(--color-accent); }
 
 @media (max-width: 760px) {
   .hero { padding-top: 2rem; }
   .hero-grid { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; }
-  .hero-text { text-align: left; }
-  .hero-text h1 { font-size: 1.85rem; text-align: center; }
-  .hero-subtitle { text-align: center; }
-  .avatar-wrap { position: static; }
-  .avatar { width: 140px; height: 140px; font-size: 3rem; margin: 0 auto; }
+  .hero-text h1 { font-size: 1.95rem; }
+  .avatar { width: 160px; height: 160px; font-size: 3rem; margin: 0 auto; }
+  .social-links { justify-content: center; }
 }
 
 /* ------- Metrics ------- */
@@ -272,8 +261,88 @@ em { color: var(--color-text); }
 
 /* ------- Sections ------- */
 .section {
-  padding: 1.75rem 1.5rem;
+  padding: 2rem 1.5rem;
   border-top: 1px solid var(--color-border);
+}
+.block-heading {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.6rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.block-heading:first-child { margin-top: 0; }
+.featured-heading {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* Edu list simple (Xin Qiu style) */
+.edu-list-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.edu-list-simple li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 0.45rem 0;
+  font-size: 0.95rem;
+}
+.edu-icon {
+  color: var(--color-accent);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Featured publications (Xin Qiu style) */
+.featured-pubs {
+  display: flex;
+  flex-direction: column;
+}
+.featured-pub {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
+  align-items: start;
+}
+.featured-pub:last-child { border-bottom: none; }
+.conf-tag {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.18rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+.featured-date {
+  margin: 0.4rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+.featured-pub h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.featured-pub h3 a { color: var(--color-text); }
+.featured-pub h3 a:hover { color: var(--color-accent); }
+
+@media (max-width: 760px) {
+  .featured-pub { grid-template-columns: 1fr; gap: 0.4rem; }
+  .featured-date { margin-top: 0; }
 }
 .section-tight { padding: 1.5rem 1.5rem; }
 .section h2 {
