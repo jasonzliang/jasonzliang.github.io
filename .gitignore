@@ -7,3 +7,6 @@ node_modules/
 *:Zone.Identifier
 Thumbs.db
 desktop.ini
+
+# Claude Code
+.claude/
