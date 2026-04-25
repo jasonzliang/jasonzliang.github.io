@@ -444,11 +444,17 @@ em { color: var(--color-text); }
 .pub-compact li {
   display: grid;
   grid-template-columns: 80px 1fr;
-  gap: 0.75rem 1.25rem;
-  padding: 0.65rem 0;
+  grid-template-areas:
+    "year title"
+    "year meta";
+  column-gap: 1.25rem;
+  row-gap: 0.2rem;
+  padding: 0.8rem 0;
   border-bottom: 1px solid var(--color-border);
-  align-items: baseline;
 }
+.pub-compact .pub-year { grid-area: year; align-self: start; padding-top: 0.15rem; }
+.pub-compact .pub-title { grid-area: title; }
+.pub-compact .pub-meta { grid-area: meta; }
 .pub-compact li:last-child { border-bottom: none; }
 .pub-year {
   font-family: var(--font-serif);
@@ -475,8 +481,16 @@ em { color: var(--color-text); }
 }
 
 @media (max-width: 540px) {
-  .pub-compact li { grid-template-columns: 1fr; gap: 0.1rem; }
-  .pub-year { font-size: 0.8rem; }
+  .pub-compact li {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "year"
+      "title"
+      "meta";
+    row-gap: 0.15rem;
+  }
+  .pub-compact .pub-year { padding-top: 0; }
+  .pub-year { font-size: 0.85rem; }
 }
 
 /* ------- Compact experience timeline (homepage) ------- */
