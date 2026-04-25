@@ -16,10 +16,11 @@
   <div class="container nav-bar">
     <a href="index.html" class="brand">Jason Zhi Liang</a>
     <nav class="main-nav">
-      <a href="index.html">About</a>
+      <a href="index.html" class="active">About</a>
       <a href="publications.html">Publications</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
@@ -37,110 +38,126 @@
           <li><a href="https://github.com/jasonzliang" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a></li>
           <li><a href="https://linkedin.com/in/jason-liang-3189b249" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
           <li><a href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a></li>
+          <li><a href="cv.pdf" target="_blank" rel="noopener" title="CV"><i class="fas fa-file-pdf"></i></a></li>
         </ul>
       </div>
       <div class="hero-text">
         <h1>Jason Zhi Liang, Ph.D.</h1>
-        <p class="hero-subtitle">AI Research Scientist &amp; Principal Architect</p>
-        <p class="hero-affiliation"><a href="https://www.cognizant.com/us/en/ai-labs" target="_blank" rel="noopener">Cognizant AI Labs</a> · San Francisco, CA</p>
+        <p class="hero-subtitle">AI Research Scientist &amp; Principal Architect · <a href="https://www.cognizant.com/us/en/ai-labs" target="_blank" rel="noopener">Cognizant AI Labs</a> · San Francisco, CA</p>
         <p class="hero-tagline">Building agentic systems for System-2 reasoning. Scaling neuroevolution toward AGI.</p>
+        <p class="hero-bio">I work toward Artificial General Intelligence through nature-inspired computation — at the intersection of <strong>evolutionary optimization</strong>, <strong>complexity science</strong>, and <strong>inference-time compute</strong>. I architected <a href="projects.html">Caesar</a>, an autonomous deep-research agent that scales test-time compute through adversarial self-refinement; earlier I invented <strong>CoDeepNEAT</strong>, the evolutionary neural-architecture-search algorithm now cited 1,500+ times. The throughline of a decade of work: <em>population-based search and emergent structure as a path past gradient-only AI.</em></p>
+        <div class="metrics">
+          <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
+            <span class="metric-value">2,845</span><span class="metric-label">citations</span>
+          </a>
+          <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
+            <span class="metric-value">18</span><span class="metric-label">h-index</span>
+          </a>
+          <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
+            <span class="metric-value">24</span><span class="metric-label">i10</span>
+          </a>
+          <a class="metric-card" href="publications.html">
+            <span class="metric-value">8</span><span class="metric-label">patents</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="container section">
-    <h2>About</h2>
-    <p>I'm an AI Research Scientist working toward Artificial General Intelligence through nature-inspired computation. My work sits at the intersection of <em>evolutionary optimization</em>, <em>complexity science</em>, and <em>inference-time compute</em> — moving beyond static scaling laws toward open-ended learning and recursive self-improvement.</p>
-    <p>At <a href="https://www.cognizant.com/us/en/ai-labs" target="_blank" rel="noopener">Cognizant AI Labs</a>, I architected <strong>Caesar</strong>, an autonomous deep-research agent that scales test-time compute through adversarial self-refinement and a self-organizing knowledge graph — achieving state-of-the-art creative synthesis. Earlier, I invented <strong>CoDeepNEAT</strong>, the evolutionary neural-architecture-search algorithm now cited 1,500+ times. The throughline of a decade of work: <em>population-based search and emergent structure as a path past gradient-only AI</em>.</p>
-    <p>I earned my Ph.D. in Computer Science from <a href="https://www.cs.utexas.edu/" target="_blank" rel="noopener">UT Austin</a> (2018) under <a href="https://www.cs.utexas.edu/users/risto/" target="_blank" rel="noopener">Risto Miikkulainen</a>, and my B.S. in EECS from <a href="https://eecs.berkeley.edu/" target="_blank" rel="noopener">UC Berkeley</a> (2013). Native Mandarin Chinese speaker; full professional English.</p>
-
-    <div class="metrics">
-      <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
-        <span class="metric-value">2,845</span>
-        <span class="metric-label">Citations</span>
-      </a>
-      <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
-        <span class="metric-value">18</span>
-        <span class="metric-label">h-index</span>
-      </a>
-      <a class="metric-card" href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">
-        <span class="metric-value">24</span>
-        <span class="metric-label">i10-index</span>
-      </a>
+  <section class="container section section-tight two-col">
+    <div>
+      <h2>Research Interests</h2>
+      <ul class="interest-list compact">
+        <li>Evolutionary approaches to AGI</li>
+        <li>Emergent reasoning in LLMs &amp; multi-agent systems</li>
+        <li>Meta-learning &amp; open-ended optimization</li>
+        <li>Neuroevolution for control &amp; RL</li>
+        <li>Evolutionary neural-architecture search</li>
+        <li>Hybrid symbolic &amp; subsymbolic AI</li>
+        <li>Inference-time compute &amp; emergent capabilities</li>
+      </ul>
     </div>
-    <p class="muted metrics-note">Per Google Scholar.</p>
+    <div>
+      <h2>Education</h2>
+      <ul class="edu-compact">
+        <li>
+          <strong>Ph.D., Computer Science</strong> — UT Austin, 2018<br>
+          <span class="muted">Neuroevolution &amp; Deep Learning · advisor Risto Miikkulainen</span>
+        </li>
+        <li>
+          <strong>B.S., EECS</strong> — UC Berkeley, 2013
+        </li>
+      </ul>
+      <h2 class="mt">Languages</h2>
+      <p class="muted compact-p">English (full professional) · Mandarin Chinese (native).</p>
+    </div>
   </section>
 
-  <section class="container section">
-    <h2>Research Interests</h2>
-    <ul class="interest-list">
-      <li>Novel evolutionary approaches to Artificial General Intelligence</li>
-      <li>Emergent intelligence and reasoning in LLMs and multi-agent systems</li>
-      <li>Generalization via meta-learning and open-ended optimization</li>
-      <li>Neuroevolution for complex control and reinforcement learning</li>
-      <li>Evolutionary adaptation of neural architectures</li>
-      <li>Hybrid subsymbolic / symbolic AI systems</li>
-      <li>Scaling laws, inference-time compute, and emergent capabilities</li>
+  <section class="container section section-tight">
+    <div class="section-head">
+      <h2>Selected Publications</h2>
+      <a class="see-link" href="publications.html">All publications &rarr;</a>
+    </div>
+    <ol class="pub-compact">
+      <li>
+        <span class="pub-year">2026</span>
+        <a href="https://www.researchgate.net/publication/402554537_Caesar_Deep_Agentic_Web_Exploration_for_Creative_Answer_Synthesis" target="_blank" rel="noopener" class="pub-title">Caesar: Deep Agentic Web Exploration for Creative Answer Synthesis</a>
+        <span class="pub-meta">Liang, Meyerson, Miikkulainen — preprint, under review at ICML 2026.</span>
+      </li>
+      <li>
+        <span class="pub-year">2024</span>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S1568494624000115" target="_blank" rel="noopener" class="pub-title">Asynchronous Evolution of Deep Neural Network Architectures</a>
+        <span class="pub-meta">Liang, Shahrzad, Miikkulainen — Applied Soft Computing 152, 111209.</span>
+      </li>
+      <li>
+        <span class="pub-year">2021</span>
+        <a href="https://dl.acm.org/doi/10.1145/3449639.3459366" target="_blank" rel="noopener" class="pub-title">Regularized Evolutionary Population-Based Training</a>
+        <span class="pub-meta">Liang, Gonzalez, Shahrzad, Miikkulainen — GECCO 2021.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="https://arxiv.org/abs/1703.00548" target="_blank" rel="noopener" class="pub-title">Evolving Deep Neural Networks</a>
+        <span class="pub-meta">Miikkulainen, Liang, Meyerson, Rawal, Fink, Francon, Raju, et al. — <strong>1,544 citations.</strong></span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="https://dl.acm.org/doi/10.1145/3205455.3205489" target="_blank" rel="noopener" class="pub-title">Evolutionary Architecture Search for Deep Multitask Networks</a>
+        <span class="pub-meta">Liang, Meyerson, Miikkulainen — GECCO 2018. <em>Introduces CoDeepNEAT.</em></span>
+      </li>
+      <li>
+        <span class="pub-year">2015</span>
+        <a href="https://dl.acm.org/doi/10.1145/2739480.2754685" target="_blank" rel="noopener" class="pub-title">Evolutionary Bilevel Optimization for Complex Control Tasks</a>
+        <span class="pub-meta">Liang, Miikkulainen — GECCO 2015.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section class="container section section-tight">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <a class="see-link" href="experience.html">Full timeline &rarr;</a>
+    </div>
+    <ul class="exp-compact">
+      <li><span class="exp-when">2018 — Now</span> <strong>Research Scientist &amp; Principal Architect</strong>, Cognizant AI Labs. Multi-agent reasoning, Caesar, FSM-orchestrated LLM teams, EPBT.</li>
+      <li><span class="exp-when">2017 — 2018</span> <strong>Research Scientist</strong>, Sentient Technologies. Scaled CoDeepNEAT to hundreds of GPUs; production AutoML.</li>
+      <li><span class="exp-when">2015 — 2017</span> <strong>Research Intern</strong>, Sentient Technologies. Foundational neuroevolution + DL infra.</li>
+      <li><span class="exp-when">2013 — 2018</span> <strong>Ph.D. Candidate</strong>, UT Austin. Invented CoDeepNEAT and MEA bilevel optimization.</li>
+      <li><span class="exp-when">2015</span> <strong>Research Intern</strong>, Open Source Robotics Foundation. Gazebo + RoboCup.</li>
+      <li><span class="exp-when">2012 — 2013</span> <strong>Research Assistant</strong>, UC Berkeley. Vision-based indoor localization.</li>
+      <li><span class="exp-when">2011</span> <strong>Intern</strong>, Qualcomm. AR-application benchmarking on Android.</li>
     </ul>
   </section>
 
-  <section class="container section">
-    <h2>Education</h2>
-    <div class="edu-list">
-      <article class="edu-item">
-        <h3>Ph.D. in Computer Science</h3>
-        <p class="edu-meta">The University of Texas at Austin · 2013 – 2018</p>
-        <p class="edu-detail">Neuroevolution &amp; Deep Learning. Dissertation: <em>Evolutionary Neural Architecture Search for Deep Learning</em>. Advisor: Risto Miikkulainen.</p>
-      </article>
-      <article class="edu-item">
-        <h3>B.S. in Electrical Engineering and Computer Science</h3>
-        <p class="edu-meta">University of California, Berkeley · 2009 – 2013</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="container section">
-    <h2>Featured Publications</h2>
-    <div class="pub-list">
-      <article class="pub-item">
-        <p class="pub-date">2026</p>
-        <h3><a href="https://www.researchgate.net/publication/402554537_Caesar_Deep_Agentic_Web_Exploration_for_Creative_Answer_Synthesis" target="_blank" rel="noopener">Caesar: Deep Agentic Web Exploration for Creative Answer Synthesis</a></h3>
-        <p class="pub-authors">Jason Liang, Elliot Meyerson, Risto Miikkulainen</p>
-        <p class="pub-venue">Preprint · Under review at ICML 2026</p>
-      </article>
-      <article class="pub-item">
-        <p class="pub-date">2025</p>
-        <h3>Self-Transcendence: Achieving AGI via Chaotic Dynamics and Thermodynamic Attractors</h3>
-        <p class="pub-authors">Jason Liang</p>
-        <p class="pub-venue">TechRxiv Preprint</p>
-      </article>
-      <article class="pub-item">
-        <p class="pub-date">2024</p>
-        <h3>Asynchronous Evolution of Deep Neural Network Architectures</h3>
-        <p class="pub-authors">Jason Liang, Hormoz Shahrzad, Risto Miikkulainen</p>
-        <p class="pub-venue">Applied Soft Computing, Vol. 152</p>
-      </article>
-      <article class="pub-item">
-        <p class="pub-date">2021</p>
-        <h3>Regularized Evolutionary Population-Based Training</h3>
-        <p class="pub-authors">Jason Liang, Santiago Gonzalez, Hormoz Shahrzad, Risto Miikkulainen</p>
-        <p class="pub-venue">GECCO 2021</p>
-      </article>
-      <article class="pub-item">
-        <p class="pub-date">2018</p>
-        <h3>Evolutionary Architecture Search for Deep Multitask Networks</h3>
-        <p class="pub-authors">Jason Liang, Elliot Meyerson, Risto Miikkulainen</p>
-        <p class="pub-venue">GECCO 2018 — introduced CoDeepNEAT</p>
-      </article>
-    </div>
-    <p class="see-all"><a href="publications.html">See all publications &rarr;</a></p>
+  <section class="container section section-tight">
+    <h2>Get in Touch</h2>
+    <p class="compact-p">For collaborations, talks, or roles in agentic / evolutionary AI: <a href="mailto:jasonzliang@utexas.edu">jasonzliang@utexas.edu</a> · <a href="https://linkedin.com/in/jason-liang-3189b249" target="_blank" rel="noopener">LinkedIn</a> · <a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>.</p>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> Jason Zhi Liang. All rights reserved.</p>
-    <p class="muted">Built with HTML &amp; CSS.</p>
+    <p>&copy; <span id="year"></span> Jason Zhi Liang. <a href="cv.pdf" target="_blank" rel="noopener">CV</a> · <a href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">Scholar</a> · <a href="https://github.com/jasonzliang" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="muted">Built with HTML &amp; CSS — no frameworks.</p>
   </div>
 </footer>
 
