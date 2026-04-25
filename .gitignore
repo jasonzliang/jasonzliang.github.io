@@ -8,5 +8,6 @@ node_modules/
 Thumbs.db
 desktop.ini
 
-# Claude Code
+# Claude Code (any depth)
 .claude/
+**/.claude/
