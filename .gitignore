@@ -2,3 +2,8 @@
 *.swp
 node_modules/
 .vscode/
+
+# Windows / WSL metadata
+*:Zone.Identifier
+Thumbs.db
+desktop.ini
