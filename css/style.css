@@ -78,16 +78,7 @@ em { color: var(--color-text); }
   white-space: nowrap;
 }
 .main-nav a:hover { color: var(--color-accent); text-decoration: none; }
-.main-nav a.active { color: var(--color-accent); }
-.main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--color-accent);
-}
+.main-nav a.active { color: var(--color-accent); font-weight: 600; }
 
 .nav-toggle {
   display: none;
@@ -119,7 +110,6 @@ em { color: var(--color-text); }
   }
   .main-nav.open { display: flex; }
   .main-nav a { margin: 0.4rem 0; }
-  .main-nav a.active::after { display: none; }
   .nav-toggle { display: flex; }
 }
 
