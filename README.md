@@ -1,4 +1,4 @@
-# Jason Zhi Liang — Personal Website
+# Jason Liang — Personal Website
 
 Static personal/academic website inspired by the Hugo Blox Builder layout used at [vsonicv.github.io](https://vsonicv.github.io). Hand-written HTML/CSS — no build step required.
 
