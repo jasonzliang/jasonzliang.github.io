@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects &amp; Skills | Jason Zhi Liang</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="brand">Jason Zhi Liang</a>
+    <nav class="main-nav">
+      <a href="index.html">About</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="page-header container">
+    <h1>Research Projects</h1>
+    <p>Selected projects spanning agentic LLMs, neural architecture search, and evolutionary optimization.</p>
+  </section>
+
+  <section class="container section">
+    <h2>Current</h2>
+    <div class="project-grid">
+      <article class="project-card">
+        <h3>Multi-Agent LLM Systems</h3>
+        <p>An FSM-based framework for orchestrating multi-agent software-development workflows — automated code generation, testing, and execution against benchmarks like HumanEval+. Includes hierarchical expert teams that decompose hard problems via specialized roles, plus evolutionary optimization of prompts and team composition.</p>
+        <span class="project-tag">FSM</span>
+        <span class="project-tag">LLM</span>
+        <span class="project-tag">Multi-Agent</span>
+        <span class="project-tag">Evolution</span>
+      </article>
+      <article class="project-card">
+        <h3>Caesar — Autonomous Knowledge Agents</h3>
+        <p>Autonomous web-exploration agent that constructs a graph-based knowledge base from its discoveries. Performs creative Q&amp;A synthesis through iterative knowledge-graph querying and adversarial refinement, scaling inference-time compute toward state-of-the-art creative outputs.</p>
+        <span class="project-tag">Agents</span>
+        <span class="project-tag">Knowledge Graph</span>
+        <span class="project-tag">Inference-Time Compute</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Foundational Work</h2>
+    <div class="project-grid">
+      <article class="project-card">
+        <h3>CoDeepNEAT — Neural Architecture Search</h3>
+        <p>A novel algorithm that automatically discovers optimal deep architectures by coevolving both macro and micro structure. Scaled to large distributed environments with hundreds of GPUs and applied across vision and language tasks.</p>
+        <span class="project-tag">NAS</span>
+        <span class="project-tag">Neuroevolution</span>
+        <span class="project-tag">Distributed</span>
+      </article>
+      <article class="project-card">
+        <h3>MEA — Evolutionary Bilevel Optimization</h3>
+        <p>Meta-evolutionary bilevel algorithm for complex control problems, applied to challenging tasks including helicopter hovering and sparse-reward RL — optimizing topology and weights simultaneously where gradient-based RL struggles to converge.</p>
+        <span class="project-tag">Evolution</span>
+        <span class="project-tag">RL</span>
+        <span class="project-tag">Control</span>
+      </article>
+      <article class="project-card">
+        <h3>EPBT — Population-Based Training</h3>
+        <p>Evolves neural-network hyperparameters and loss functions during training. Backed by scalable distributed infrastructure for large-scale evolutionary optimization in parallel with gradient-based learning.</p>
+        <span class="project-tag">PBT</span>
+        <span class="project-tag">AutoML</span>
+        <span class="project-tag">Distributed</span>
+      </article>
+      <article class="project-card">
+        <h3>Code Archaeologist</h3>
+        <p>Agentic system that reasons over repository histories (Git/LFS) to detect architectural patterns, surface technical debt, and support large-scale code understanding.</p>
+        <span class="project-tag">Agents</span>
+        <span class="project-tag">Code Analysis</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Technical Skills &amp; Expertise</h2>
+    <div class="skill-grid">
+      <article class="skill-card">
+        <h3>Core Research</h3>
+        <p>Inference-Time Compute Scaling · Agentic Reasoning (System 2) · Associative Synthesis · Population-Based Optimization · Neural Architecture Search · Neuroevolution · Recursive Self-Improvement · Meta-Learning</p>
+      </article>
+      <article class="skill-card">
+        <h3>Agent Infrastructure</h3>
+        <p>Graph-Augmented RAG · Stateful Agentic Memory · Multi-Agent Orchestration · FSM-Based Coordination · LLM-as-a-Judge Evaluation · Evolutionary Prompt Optimization</p>
+      </article>
+      <article class="skill-card">
+        <h3>Languages &amp; Tooling</h3>
+        <p>Python (Advanced) · Keras / TensorFlow · Frontier LLM APIs · Multi-Agent Frameworks (AutoGen, MetaGPT) · Automated Web Parsing</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Jason Zhi Liang. All rights reserved.</p>
+    <p class="muted">Built with HTML &amp; CSS.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+  document.querySelector('.main-nav').classList.toggle('open');
+});
+</script>
+</body>
+</html>
