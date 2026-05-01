@@ -115,7 +115,7 @@ em { color: var(--color-text); }
 
 /* ------- Hero (Xin Qiu style) ------- */
 .hero {
-  padding: 3.25rem 1.5rem 2rem;
+  padding: 1.75rem 1.5rem 2rem;
 }
 .hero-grid {
   display: grid;
@@ -205,7 +205,7 @@ em { color: var(--color-text); }
 .hero-affiliation a { color: var(--color-accent); }
 
 @media (max-width: 760px) {
-  .hero { padding-top: 2rem; }
+  .hero { padding-top: 1.25rem; }
   .hero-grid { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; }
   .hero-text h1 { font-size: 1.95rem; }
   .avatar { width: 160px; height: 160px; font-size: 3rem; margin: 0 auto; }
@@ -606,7 +606,7 @@ em { color: var(--color-text); }
 
 /* ------- Page header ------- */
 .page-header {
-  padding: 2.5rem 1.5rem 0.5rem;
+  padding: 1.25rem 1.5rem 0.5rem;
 }
 .page-header h1 {
   font-family: var(--font-serif);
