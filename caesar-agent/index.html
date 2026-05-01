@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Caesar: Autonomous AI Research Agent — Open-Source Deep Research Alternative</title>
+  <title>Caesar: Autonomous AI Research Agent | Open-Source Deep Research Alternative</title>
   <meta name="description" content="Caesar is an open-source autonomous AI research agent with graph-based deep web exploration and adversarial answer synthesis. Outperforms GPT-5 Deep Research and Gemini 3 Deep Research on creative reasoning (p<0.001).">
   <meta name="keywords" content="AI agent, LLM, RAG, agentic RAG, deep research, autonomous agent, knowledge graph, research agent, ChatGPT Deep Research alternative, Perplexity alternative, Gemini Deep Research alternative, open source, GPT-5, Claude, retrieval augmented generation, scientific discovery">
   <meta name="author" content="Jason Liang, Elliot Meyerson, Risto Miikkulainen">
@@ -189,7 +189,7 @@
     📄 <strong>Read the paper:</strong> <a href="https://arxiv.org/abs/2604.20855"><em>Caesar: Deep Agentic Web Exploration for Creative Answer Synthesis</em></a> (Liang, Meyerson, Miikkulainen, 2026) &middot; <a href="https://doi.org/10.48550/arXiv.2604.20855">DOI: 10.48550/arXiv.2604.20855</a> &middot; <a href="https://arxiv.org/abs/2604.20855">PDF</a>
   </div>
 
-  <p>If you are looking for an <strong>agentic RAG system that goes beyond retrieval</strong> — with graph-based exploration, adversarial verification, and multi-draft synthesis — Caesar is for you.</p>
+  <p>If you are looking for an <strong>agentic RAG system that goes beyond retrieval</strong>, with graph-based exploration, adversarial verification, and multi-draft synthesis, Caesar is for you.</p>
 
   <h2 id="quickstart">Quickstart</h2>
   <pre><code>git clone https://github.com/jasonzliang/caesar-agent.git
@@ -251,16 +251,16 @@ python run_agent.py config/config_preset/regular.yaml -q "your research question
   </ul>
 
   <h2 id="how-it-works">How It Works</h2>
-  <h3>1. Deep Web Exploration — stateful graph traversal</h3>
+  <h3>1. Deep Web Exploration: stateful graph traversal</h3>
   <p>A recursive <strong>Perceive–Think–Act</strong> loop performs topological traversal of information spaces. Rather than isolating summaries, Caesar generates context-aware insights conditioned on the local structure of the exploration graph. A dynamic policy, informed by a vector knowledge base and episodic memory, autonomously switches between depth-first expansion, strategic backtracking, and targeted web search.</p>
 
-  <h3>2. Adversarial Artifact Synthesis — Generator–Verifier loop</h3>
+  <h3>2. Adversarial Artifact Synthesis: Generator–Verifier loop</h3>
   <p>Rather than a single-pass summary, Caesar runs as a recursive self-correction environment. An independent adversarial module formulates orthogonal queries targeting logical weaknesses, missing citations, and contradictions in the current belief state. Multiple drafts are produced iteratively and merged, forcing the agent out of the consensus basin that traps single-pass LLMs.</p>
 
   <h2 id="faq">FAQ</h2>
 
   <h3>How is Caesar different from LangGraph, CrewAI, or AutoGen?</h3>
-  <p>Those are orchestration frameworks: they help you wire up agents. Rome (the framework Caesar is built on) is an opinionated runtime for <em>how</em> agents should reason — graph-structured exploration, adversarial verification, episodic memory. Caesar is a concrete research agent built on top.</p>
+  <p>Those are orchestration frameworks: they help you wire up agents. Rome (the framework Caesar is built on) is an opinionated runtime for <em>how</em> agents should reason: graph-structured exploration, adversarial verification, episodic memory. Caesar is a concrete research agent built on top.</p>
 
   <h3>Do I need GPUs?</h3>
   <p>No. Caesar uses hosted LLM APIs (OpenAI, Anthropic, Gemini). A local ChromaDB instance handles the vector store. Runs comfortably on a laptop.</p>
