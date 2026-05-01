@@ -184,6 +184,14 @@ em { color: var(--color-text); }
   color: var(--color-text);
   line-height: 1.15;
 }
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
 .hero-role {
   font-size: 1.05rem;
   color: var(--color-text);
@@ -394,6 +402,17 @@ em { color: var(--color-text); }
   top: 0;
 }
 .interest-list.compact li { line-height: 1.5; }
+
+.interest-cta {
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0.95rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(0, 0, 0, 0.025);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  border-radius: 2px;
+}
+.interest-cta a { color: var(--color-accent); font-weight: 500; }
 
 /* Education compact */
 .edu-compact {
