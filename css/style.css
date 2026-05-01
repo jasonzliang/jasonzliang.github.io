@@ -185,10 +185,9 @@ em { color: var(--color-text); }
   line-height: 1.15;
 }
 .hero-tagline {
-  font-family: var(--font-serif);
-  font-style: italic;
   font-size: 1.05rem;
-  color: var(--color-accent);
+  font-weight: 700;
+  color: #000;
   margin: 0 0 0.6rem;
   line-height: 1.35;
 }
