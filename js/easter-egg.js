@@ -29,10 +29,19 @@
 
   function runAttractor(done) {
     running = true;
+
+    const veil = document.createElement('div');
+    veil.style.cssText =
+      'position:fixed;inset:0;background:radial-gradient(ellipse at center,' +
+      'rgba(8,12,24,0.85),rgba(0,0,0,0.95));pointer-events:none;' +
+      'z-index:9998;opacity:0;transition:opacity 0.4s ease';
+    document.body.appendChild(veil);
+    requestAnimationFrame(() => { veil.style.opacity = '1'; });
+
     const canvas = document.createElement('canvas');
     canvas.style.cssText =
       'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;' +
-      'z-index:9999;opacity:0;transition:opacity 0.5s ease';
+      'z-index:9999;opacity:0;transition:opacity 0.4s ease';
     const dpr = window.devicePixelRatio || 1;
     const W = window.innerWidth;
     const H = window.innerHeight;
@@ -43,42 +52,68 @@
 
     const ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     const cx = W / 2;
-    const cy = H / 2 + Math.min(W, H) * 0.15;
-    const scale = Math.min(W, H) / 60;
+    const cy = H / 2 + Math.min(W, H) * 0.18;
+    const scale = Math.min(W, H) / 38;
 
     const sigma = 10, rho = 28, beta = 8 / 3;
     const dt = 0.005;
-    let x = 0.1, y = 0, z = 0;
-    let prev = null;
-    let hue = 200;
 
-    const TOTAL = 360;
-    const FADE_START = TOTAL - 60;
+    // Three trajectories with infinitesimally different initial conditions —
+    // they diverge chaotically, which is the whole point of the attractor.
+    const trails = [
+      { x: 0.10, y: 0, z: 0, prev: null, hue: 200 },
+      { x: 0.10001, y: 0, z: 0, prev: null, hue: 320 },
+      { x: 0.09999, y: 0, z: 0, prev: null, hue: 80 }
+    ];
+
+    const TOTAL = 520;
+    const FADE_START = TOTAL - 80;
     let frame = 0;
 
     function step() {
-      for (let i = 0; i < 10; i++) {
-        const dx = sigma * (y - x) * dt;
-        const dy = (x * (rho - z) - y) * dt;
-        const dz = (x * y - beta * z) * dt;
-        x += dx; y += dy; z += dz;
-        const px = cx + x * scale;
-        const py = cy + (z - 25) * scale;
-        if (prev) {
-          ctx.strokeStyle = `hsla(${hue % 360}, 75%, 60%, 0.55)`;
-          ctx.lineWidth = 1.3;
-          ctx.beginPath();
-          ctx.moveTo(prev.x, prev.y);
-          ctx.lineTo(px, py);
-          ctx.stroke();
-          hue += 0.35;
+      for (let i = 0; i < 14; i++) {
+        for (const t of trails) {
+          const dx = sigma * (t.y - t.x) * dt;
+          const dy = (t.x * (rho - t.z) - t.y) * dt;
+          const dz = (t.x * t.y - beta * t.z) * dt;
+          t.x += dx; t.y += dy; t.z += dz;
+          const px = cx + t.x * scale;
+          const py = cy + (t.z - 25) * scale;
+          if (t.prev) {
+            // Outer glow
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 65%, 0.18)`;
+            ctx.lineWidth = 9;
+            ctx.beginPath();
+            ctx.moveTo(t.prev.x, t.prev.y);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+            // Mid stroke
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 95%, 62%, 0.55)`;
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(t.prev.x, t.prev.y);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+            // Bright core
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 88%, 0.95)`;
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.moveTo(t.prev.x, t.prev.y);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+            t.hue += 0.5;
+          }
+          t.prev = { x: px, y: py };
         }
-        prev = { x: px, y: py };
       }
 
       if (frame > FADE_START) {
-        canvas.style.opacity = String(Math.max(0, 1 - (frame - FADE_START) / 60));
+        const o = Math.max(0, 1 - (frame - FADE_START) / 80);
+        canvas.style.opacity = String(o);
+        veil.style.opacity = String(o * 0.95);
       }
 
       frame++;
@@ -86,6 +121,7 @@
         requestAnimationFrame(step);
       } else {
         canvas.remove();
+        veil.remove();
         running = false;
         if (done) done();
       }
