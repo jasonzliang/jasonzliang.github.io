@@ -51,6 +51,89 @@
     });
   });
 
+  function startAudio(durationSec) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    let ctx;
+    try {
+      ctx = new Ctx();
+    } catch (e) {
+      return null;
+    }
+
+    const master = ctx.createGain();
+    master.gain.value = 0;
+    master.connect(ctx.destination);
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 320;
+    filter.Q.value = 3;
+    filter.connect(master);
+
+    // Three drone voices — A2, E3, A3 — give a stable, slightly hollow chord.
+    const baseFreqs = [110, 164.81, 220];
+    const voices = baseFreqs.map((freq, i) => {
+      const osc = ctx.createOscillator();
+      osc.type = i === 0 ? 'sine' : 'triangle';
+      osc.frequency.value = freq;
+      const g = ctx.createGain();
+      g.gain.value = 0.22;
+      osc.connect(g).connect(filter);
+      osc.start();
+      return { osc, gain: g, base: freq };
+    });
+
+    // Brief whoosh — filtered noise — synced to the white flash.
+    const noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 0.45, ctx.sampleRate);
+    const noiseData = noiseBuf.getChannelData(0);
+    for (let i = 0; i < noiseData.length; i++) {
+      noiseData[i] = (Math.random() * 2 - 1) * (1 - i / noiseData.length);
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = noiseBuf;
+    const noiseFilter = ctx.createBiquadFilter();
+    noiseFilter.type = 'bandpass';
+    noiseFilter.frequency.value = 1800;
+    noiseFilter.Q.value = 0.8;
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.value = 0.25;
+    noise.connect(noiseFilter).connect(noiseGain).connect(master);
+    noise.start();
+
+    const now = ctx.currentTime;
+    master.gain.cancelScheduledValues(now);
+    master.gain.setValueAtTime(0, now);
+    master.gain.linearRampToValueAtTime(0.22, now + 0.5);
+    master.gain.setValueAtTime(0.22, now + durationSec - 1.2);
+    master.gain.linearRampToValueAtTime(0, now + durationSec);
+
+    filter.frequency.setValueAtTime(320, now);
+    filter.frequency.linearRampToValueAtTime(2200, now + durationSec * 0.55);
+    filter.frequency.linearRampToValueAtTime(500, now + durationSec);
+
+    return {
+      update(trails) {
+        const t = ctx.currentTime;
+        trails.slice(0, voices.length).forEach((tr, i) => {
+          // x in ~[-22,22] → detune ±200 cents; z in ~[0,50] → small pitch lift
+          const detune = (tr.x / 22) * 200 + (tr.z - 25) * 1.5;
+          voices[i].osc.detune.setTargetAtTime(detune, t, 0.04);
+        });
+      },
+      stop() {
+        const t = ctx.currentTime;
+        master.gain.cancelScheduledValues(t);
+        master.gain.setTargetAtTime(0, t, 0.15);
+        setTimeout(() => {
+          voices.forEach(v => { try { v.osc.stop(); } catch (_) {} });
+          try { noise.stop(); } catch (_) {}
+          try { ctx.close(); } catch (_) {}
+        }, 500);
+      }
+    };
+  }
+
   function runAttractor(done) {
     running = true;
 
@@ -112,9 +195,11 @@
       sparks: []
     }));
 
-    const TOTAL = 720;
-    const FADE_START = TOTAL - 90;
+    const TOTAL = 480;
+    const FADE_START = TOTAL - 70;
     let frame = 0;
+
+    const audio = startAudio(TOTAL / 60);
 
     // body shake during the loud phase
     const originalTransform = document.body.style.transform;
@@ -192,11 +277,13 @@
       }
 
       if (frame > FADE_START) {
-        const o = Math.max(0, 1 - (frame - FADE_START) / 90);
+        const o = Math.max(0, 1 - (frame - FADE_START) / 70);
         canvas.style.opacity = String(o);
         veil.style.opacity = String(o * pulse);
         document.body.style.transform = originalTransform;
       }
+
+      if (audio && frame % 3 === 0) audio.update(trails);
 
       frame++;
       if (frame < TOTAL) {
@@ -205,6 +292,7 @@
         canvas.remove();
         veil.remove();
         document.body.style.transform = originalTransform;
+        if (audio) audio.stop();
         running = false;
         if (done) done();
       }
