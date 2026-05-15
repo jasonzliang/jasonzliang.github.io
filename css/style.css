@@ -156,23 +156,26 @@ em { color: var(--color-text); }
   cursor: pointer;
   border-radius: 50%;
   display: inline-block;
+  vertical-align: top;
 }
-.avatar-toggle .avatar-img {
+.avatar-toggle .avatar.avatar-img {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  display: block;
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.avatar-toggle .avatar-alt {
+.avatar-toggle .avatar.avatar-img.avatar-alt {
   opacity: 0;
   transform: scale(0.92) rotate(-6deg);
 }
-.avatar-toggle.flipped > .avatar-img:not(.avatar-alt) {
+.avatar-toggle.flipped .avatar.avatar-img:not(.avatar-alt) {
   opacity: 0;
   transform: scale(0.92) rotate(6deg);
 }
-.avatar-toggle.flipped .avatar-alt {
+.avatar-toggle.flipped .avatar.avatar-img.avatar-alt {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
