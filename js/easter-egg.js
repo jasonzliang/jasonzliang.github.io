@@ -1,4 +1,6 @@
 // Click "Jason Liang" in the nav to summon a Lorenz attractor.
+// After the animation, the attractor opens a random paper or patent
+// scraped live from publications.html.
 // Reference: Liang, "Self-Transcendence: Achieving AGI via Chaotic Dynamics
 // and Thermodynamic Attractors" (2025).
 
@@ -17,13 +19,35 @@
 
   let running = false;
 
+  // Resolve publications.html relative to whatever page we're on.
+  const pubsUrl = new URL('publications.html', location.href).href;
+
+  function fetchRandomLinks() {
+    return fetch(pubsUrl, { cache: 'no-store' })
+      .then(r => r.text())
+      .then(html => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        return Array.from(doc.querySelectorAll('.pub-title'))
+          .map(a => a.getAttribute('href'))
+          .filter(href => href && /^https?:/i.test(href));
+      })
+      .catch(() => []);
+  }
+
   brand.addEventListener('click', (e) => {
     if (running) return;
     e.preventDefault();
-    runAttractor(() => {
-      const path = location.pathname;
-      const onIndex = path === '/' || /(^|\/)index\.html?$/.test(path);
-      if (!onIndex) window.location.href = brand.getAttribute('href');
+    // Kick off the fetch in parallel with the animation so the URL list
+    // is ready (or already failed) by the time the attractor finishes.
+    const linksPromise = fetchRandomLinks();
+    runAttractor(async () => {
+      const links = await linksPromise;
+      if (links.length) {
+        window.location.href = links[Math.floor(Math.random() * links.length)];
+      } else {
+        // Fallback: drop the visitor on the publications page.
+        window.location.href = pubsUrl;
+      }
     });
   });
 
