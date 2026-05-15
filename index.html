@@ -72,7 +72,10 @@
   <section class="hero container">
     <div class="hero-grid">
       <div class="avatar-wrap">
-        <img class="avatar avatar-img" src="img/avatar.jpg?v=2" alt="Jason Liang" />
+        <button class="avatar-toggle" type="button" aria-label="Toggle avatar">
+          <img class="avatar avatar-img" src="img/avatar.jpg?v=2" alt="Jason Liang" />
+          <img class="avatar avatar-img avatar-alt" src="img/avatar2.jpg?v=1" alt="" aria-hidden="true" />
+        </button>
       </div>
       <div class="hero-text">
         <h1>Jason Liang</h1>
@@ -186,6 +189,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
 document.querySelector('.nav-toggle').addEventListener('click', () => {
   document.querySelector('.main-nav').classList.toggle('open');
 });
+const avatarToggle = document.querySelector('.avatar-toggle');
+if (avatarToggle) {
+  avatarToggle.addEventListener('click', () => {
+    avatarToggle.classList.toggle('flipped');
+  });
+}
 </script>
 <script src="js/easter-egg.js"></script>
 </body>
