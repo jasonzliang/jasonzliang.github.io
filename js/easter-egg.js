@@ -52,8 +52,7 @@
     const canvas = document.createElement('canvas');
     canvas.style.cssText =
       'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;' +
-      'z-index:9999;opacity:0;transition:opacity 0.35s ease;' +
-      'mix-blend-mode:screen';
+      'z-index:9999;opacity:0;transition:opacity 0.35s ease';
     const dpr = window.devicePixelRatio || 1;
     const W = window.innerWidth;
     const H = window.innerHeight;
@@ -66,7 +65,6 @@
     ctx.scale(dpr, dpr);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.globalCompositeOperation = 'lighter';
 
     // Lorenz: x in ~[-22,22], z in ~[0,50]. Fit the full z range vertically
     // with margin so neither lobe clips.
@@ -119,52 +117,52 @@
           const px = cx + t.x * scale;
           const py = cy + (t.z - 25) * scale;
           if (t.prev) {
-            // four-layer glow stroke
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 55%, 0.10)`;
+            // Layered glow — saturated colors, no near-white core.
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 50%, 0.08)`;
             ctx.lineWidth = 22;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
 
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 60%, 0.22)`;
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 55%, 0.20)`;
             ctx.lineWidth = 11;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
 
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 65%, 0.65)`;
-            ctx.lineWidth = 4.5;
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 60%, 0.55)`;
+            ctx.lineWidth = 5;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
 
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 92%, 1)`;
-            ctx.lineWidth = 1.8;
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 70%, 0.95)`;
+            ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
 
-            t.hue += 0.55;
+            t.hue += 0.05;
           }
           t.prev = { x: px, y: py };
         }
       }
 
-      // sparks at trail heads
+      // colored sparks at trail heads
       if (frame % 4 === 0) {
         for (const t of trails) {
           if (!t.prev) continue;
-          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 90%, 0.9)`;
+          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 60%, 0.55)`;
           ctx.beginPath();
           ctx.arc(t.prev.x, t.prev.y, 6 + Math.random() * 3, 0, Math.PI * 2);
           ctx.fill();
-          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 100%, 1)`;
+          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 75%, 0.95)`;
           ctx.beginPath();
-          ctx.arc(t.prev.x, t.prev.y, 2.2, 0, Math.PI * 2);
+          ctx.arc(t.prev.x, t.prev.y, 2.4, 0, Math.PI * 2);
           ctx.fill();
         }
       }
