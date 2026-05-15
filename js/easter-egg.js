@@ -42,12 +42,10 @@
     const linksPromise = fetchRandomLinks();
     runAttractor(async () => {
       const links = await linksPromise;
-      if (links.length) {
-        window.location.href = links[Math.floor(Math.random() * links.length)];
-      } else {
-        // Fallback: drop the visitor on the publications page.
-        window.location.href = pubsUrl;
-      }
+      const target = links.length
+        ? links[Math.floor(Math.random() * links.length)]
+        : pubsUrl;
+      window.open(target, '_blank', 'noopener,noreferrer');
     });
   });
 
