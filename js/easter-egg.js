@@ -53,13 +53,21 @@
 
   function startAudio(durationSec) {
     const Ctx = window.AudioContext || window.webkitAudioContext;
-    if (!Ctx) return null;
+    if (!Ctx) {
+      console.warn('[easter-egg] Web Audio API not available');
+      return null;
+    }
     let ctx;
     try {
       ctx = new Ctx();
     } catch (e) {
+      console.warn('[easter-egg] AudioContext failed:', e);
       return null;
     }
+
+    // Safari/Chrome often suspend the context until explicitly resumed
+    // inside a user-gesture handler.
+    if (ctx.state === 'suspended' && ctx.resume) ctx.resume();
 
     const master = ctx.createGain();
     master.gain.value = 0;
@@ -102,11 +110,13 @@
     noise.start();
 
     const now = ctx.currentTime;
+    const peak = 0.38;
     master.gain.cancelScheduledValues(now);
     master.gain.setValueAtTime(0, now);
-    master.gain.linearRampToValueAtTime(0.22, now + 0.5);
-    master.gain.setValueAtTime(0.22, now + durationSec - 1.2);
+    master.gain.linearRampToValueAtTime(peak, now + 0.5);
+    master.gain.setValueAtTime(peak, now + durationSec - 1.2);
     master.gain.linearRampToValueAtTime(0, now + durationSec);
+    console.log('[easter-egg] audio started, ctx.state =', ctx.state);
 
     filter.frequency.setValueAtTime(320, now);
     filter.frequency.linearRampToValueAtTime(2200, now + durationSec * 0.55);
