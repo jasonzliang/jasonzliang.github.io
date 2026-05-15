@@ -33,15 +33,27 @@
     const veil = document.createElement('div');
     veil.style.cssText =
       'position:fixed;inset:0;background:radial-gradient(ellipse at center,' +
-      'rgba(8,12,24,0.85),rgba(0,0,0,0.95));pointer-events:none;' +
-      'z-index:9998;opacity:0;transition:opacity 0.4s ease';
+      'rgba(4,8,20,0.92),rgba(0,0,0,0.98));pointer-events:none;' +
+      'z-index:9998;opacity:0;transition:opacity 0.35s ease';
     document.body.appendChild(veil);
     requestAnimationFrame(() => { veil.style.opacity = '1'; });
+
+    const flash = document.createElement('div');
+    flash.style.cssText =
+      'position:fixed;inset:0;background:#fff;pointer-events:none;' +
+      'z-index:10000;opacity:0;transition:opacity 0.5s ease';
+    document.body.appendChild(flash);
+    requestAnimationFrame(() => {
+      flash.style.opacity = '0.85';
+      setTimeout(() => { flash.style.opacity = '0'; }, 60);
+      setTimeout(() => flash.remove(), 700);
+    });
 
     const canvas = document.createElement('canvas');
     canvas.style.cssText =
       'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;' +
-      'z-index:9999;opacity:0;transition:opacity 0.4s ease';
+      'z-index:9999;opacity:0;transition:opacity 0.35s ease;' +
+      'mix-blend-mode:screen';
     const dpr = window.devicePixelRatio || 1;
     const W = window.innerWidth;
     const H = window.innerHeight;
@@ -54,27 +66,51 @@
     ctx.scale(dpr, dpr);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
+    ctx.globalCompositeOperation = 'lighter';
+
+    // Lorenz: x in ~[-22,22], z in ~[0,50]. Fit the full z range vertically
+    // with margin so neither lobe clips.
+    const margin = 60;
+    const scale = Math.min((W - margin * 2) / 50, (H - margin * 2) / 55);
     const cx = W / 2;
-    const cy = H / 2 + Math.min(W, H) * 0.18;
-    const scale = Math.min(W, H) / 38;
+    const cy = H / 2;
 
     const sigma = 10, rho = 28, beta = 8 / 3;
     const dt = 0.005;
 
-    // Three trajectories with infinitesimally different initial conditions —
-    // they diverge chaotically, which is the whole point of the attractor.
-    const trails = [
-      { x: 0.10, y: 0, z: 0, prev: null, hue: 200 },
-      { x: 0.10001, y: 0, z: 0, prev: null, hue: 320 },
-      { x: 0.09999, y: 0, z: 0, prev: null, hue: 80 }
-    ];
+    // Five trajectories with infinitesimally different initial conditions —
+    // they diverge chaotically. Sensitive dependence on initial conditions.
+    const baseHues = [200, 320, 80, 0, 160];
+    const trails = baseHues.map((hue, i) => ({
+      x: 0.1 + (i - 2) * 1e-5,
+      y: 0,
+      z: 0,
+      prev: null,
+      hue,
+      sparks: []
+    }));
 
-    const TOTAL = 520;
-    const FADE_START = TOTAL - 80;
+    const TOTAL = 720;
+    const FADE_START = TOTAL - 90;
     let frame = 0;
 
+    // body shake during the loud phase
+    const originalTransform = document.body.style.transform;
+
     function step() {
-      for (let i = 0; i < 14; i++) {
+      // breathing background pulse
+      const pulse = 0.92 + 0.08 * Math.sin(frame * 0.05);
+      veil.style.opacity = String(pulse);
+
+      // subtle screen shake while drawing
+      if (frame < FADE_START) {
+        const amp = 2.5;
+        const sx = (Math.random() - 0.5) * amp;
+        const sy = (Math.random() - 0.5) * amp;
+        document.body.style.transform = `translate(${sx}px,${sy}px)`;
+      }
+
+      for (let i = 0; i < 18; i++) {
         for (const t of trails) {
           const dx = sigma * (t.y - t.x) * dt;
           const dy = (t.x * (rho - t.z) - t.y) * dt;
@@ -83,37 +119,61 @@
           const px = cx + t.x * scale;
           const py = cy + (t.z - 25) * scale;
           if (t.prev) {
-            // Outer glow
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 65%, 0.18)`;
-            ctx.lineWidth = 9;
+            // four-layer glow stroke
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 55%, 0.10)`;
+            ctx.lineWidth = 22;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
-            // Mid stroke
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 95%, 62%, 0.55)`;
-            ctx.lineWidth = 4;
+
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 60%, 0.22)`;
+            ctx.lineWidth = 11;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
-            // Bright core
-            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 88%, 0.95)`;
-            ctx.lineWidth = 1.6;
+
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 65%, 0.65)`;
+            ctx.lineWidth = 4.5;
             ctx.beginPath();
             ctx.moveTo(t.prev.x, t.prev.y);
             ctx.lineTo(px, py);
             ctx.stroke();
-            t.hue += 0.5;
+
+            ctx.strokeStyle = `hsla(${t.hue % 360}, 100%, 92%, 1)`;
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(t.prev.x, t.prev.y);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+
+            t.hue += 0.55;
           }
           t.prev = { x: px, y: py };
         }
       }
 
+      // sparks at trail heads
+      if (frame % 4 === 0) {
+        for (const t of trails) {
+          if (!t.prev) continue;
+          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 90%, 0.9)`;
+          ctx.beginPath();
+          ctx.arc(t.prev.x, t.prev.y, 6 + Math.random() * 3, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = `hsla(${t.hue % 360}, 100%, 100%, 1)`;
+          ctx.beginPath();
+          ctx.arc(t.prev.x, t.prev.y, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
       if (frame > FADE_START) {
-        const o = Math.max(0, 1 - (frame - FADE_START) / 80);
+        const o = Math.max(0, 1 - (frame - FADE_START) / 90);
         canvas.style.opacity = String(o);
-        veil.style.opacity = String(o * 0.95);
+        veil.style.opacity = String(o * pulse);
+        document.body.style.transform = originalTransform;
       }
 
       frame++;
@@ -122,6 +182,7 @@
       } else {
         canvas.remove();
         veil.remove();
+        document.body.style.transform = originalTransform;
         running = false;
         if (done) done();
       }
