@@ -518,6 +518,20 @@ em { color: var(--color-text); }
   line-height: 1.4;
 }
 .pub-title:hover { color: var(--color-accent); text-decoration: none; }
+.pub-arxiv {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+.featured-pub h3 a.pub-arxiv { color: var(--color-accent); }
+.pub-compact .pub-title-row {
+  grid-area: title;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+}
 .pub-meta {
   display: block;
   color: var(--color-muted);
