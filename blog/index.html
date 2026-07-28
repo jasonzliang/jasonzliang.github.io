@@ -1,0 +1,31 @@
+---
+layout: default
+title: Blog
+description: Notes and essays on neuroevolution, agentic reasoning, inference-time compute, and the road to AGI.
+---
+<section class="page-header container">
+  <h1>Blog</h1>
+  <p>Notes and essays on neuroevolution, agentic reasoning, inference-time compute, and the road to AGI.</p>
+</section>
+
+<section class="container section">
+  {%- if site.posts.size > 0 %}
+  <ul class="blog-list">
+    {%- for post in site.posts %}
+    <li class="blog-entry">
+      <span class="blog-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
+      <div class="blog-entry-body">
+        <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="blog-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncate: 180 }}{% endif %}</p>
+        {%- if post.tags and post.tags.size > 0 %}
+        <p class="blog-tags">{% for tag in post.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}</p>
+        {%- endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <p class="muted">No posts yet — check back soon.</p>
+  {%- endif %}
+  <p class="see-more"><a href="/blog/feed.xml"><i class="fas fa-rss" aria-hidden="true"></i> Subscribe via RSS &rarr;</a></p>
+</section>

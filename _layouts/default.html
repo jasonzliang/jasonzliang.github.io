@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQ4D5VZCG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WSQ4D5VZCG');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Jason Liang" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+{%- seo -%}
+{%- feed_meta -%}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/style.css?v=11" />
+<link rel="stylesheet" href="/css/blog.css?v=1" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="/" class="brand">Jason Liang</a>
+    <nav class="main-nav">
+      <a href="/">About</a>
+      <a href="/publications.html">Publications</a>
+      <a href="/experience.html">Past</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/blog/" class="active">Blog</a>
+      <a href="/cv.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  {{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Jason Liang. This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+    <p class="muted"><a href="/blog/feed.xml">RSS</a> &middot; <a href="/cv.pdf" target="_blank" rel="noopener">CV</a> &middot; <a href="https://scholar.google.com/citations?user=h8yYr7oAAAAJ" target="_blank" rel="noopener">Scholar</a> &middot; <a href="https://github.com/jasonzliang" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+var navToggle = document.querySelector('.nav-toggle');
+if (navToggle) {
+  navToggle.addEventListener('click', function () {
+    document.querySelector('.main-nav').classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

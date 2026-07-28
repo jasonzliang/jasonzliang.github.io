@@ -1,0 +1,68 @@
+# ============================================================================
+# Jekyll config — powers the /blog/ section of jasonzliang.github.io
+# The hand-built pages (index.html, publications.html, etc.) have no front
+# matter, so Jekyll copies them through UNCHANGED. Only _posts, blog/, and
+# files using a layout are processed.
+# ============================================================================
+
+title: Jason Liang
+tagline: AI Research Scientist
+description: >-
+  Notes and essays on neuroevolution, agentic reasoning, inference-time
+  compute, and the road to AGI — by Jason Liang, Principal Research Scientist.
+url: https://jasonzliang.github.io
+baseurl: ""
+lang: en
+
+author:
+  name: Jason Liang
+  email: jasonzliang@utexas.edu
+
+# ---- Build ----
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /blog/:title/
+timezone: America/Los_Angeles
+
+# ---- Plugins (both are on the GitHub Pages allow-list) ----
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# jekyll-seo-tag inputs
+twitter:
+  card: summary
+social:
+  name: Jason Liang
+  links:
+    - https://github.com/jasonzliang
+    - https://linkedin.com/in/jason-liang-3189b249
+    - https://scholar.google.com/citations?user=h8yYr7oAAAAJ
+logo: /img/avatar.jpg
+
+# jekyll-feed → RSS at /blog/feed.xml
+feed:
+  path: /blog/feed.xml
+
+# ---- Defaults ----
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Jason Liang
+
+# ---- Keep non-site files out of the build output ----
+exclude:
+  - README.md
+  - BLOG.md
+  - new-post.sh
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .claude
+  - node_modules

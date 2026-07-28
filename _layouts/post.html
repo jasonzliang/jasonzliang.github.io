@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="post container">
+  <header class="post-header">
+    <p class="post-back"><a href="/blog/"><i class="fas fa-arrow-left" aria-hidden="true"></i> All posts</a></p>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {%- if page.tags and page.tags.size > 0 %}
+      <span class="post-tags">{% for tag in page.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}</span>
+      {%- endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <p class="muted">Written by {{ page.author | default: site.author.name }}. Questions or corrections? <a href="mailto:{{ site.author.email }}">Email me</a>.</p>
+    <p><a href="/blog/"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to all posts</a></p>
+  </footer>
+</article>

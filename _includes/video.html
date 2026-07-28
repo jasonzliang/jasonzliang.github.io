@@ -1,0 +1,14 @@
+{%- comment -%}
+Responsive video embed (16:9).
+YouTube:      {% include video.html id="dQw4w9WgXcQ" title="My talk" %}
+Self-hosted:  {% include video.html src="/img/blog/my-post/clip.mp4" poster="/img/blog/my-post/poster.jpg" %}
+{%- endcomment -%}
+<div class="video-embed">
+  {%- if include.id %}
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="{{ include.title | default: 'Video' }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  {%- elsif include.src %}
+  <video controls preload="metadata"{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %}>
+    <source src="{{ include.src | relative_url }}" />
+  </video>
+  {%- endif %}
+</div>

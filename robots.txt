@@ -27,3 +27,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://jasonzliang.github.io/sitemap.xml
+Sitemap: https://jasonzliang.github.io/blog/sitemap.xml

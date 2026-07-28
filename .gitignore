@@ -11,3 +11,10 @@ desktop.ini
 # Claude Code (any depth)
 .claude/
 **/.claude/
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
