@@ -58,7 +58,12 @@ post is SEO-clean with zero manual meta.
 Markdown covers headings, **bold**/*italic*, lists, > blockquotes, tables, and
 links.
 
-See `_posts/2026-07-28-welcome.md` for a live example of all of the above.
+A worked example of all of the above lived in `_posts/2026-07-28-welcome.md`,
+removed once the blog went live. To get the template back:
+
+```bash
+git show 7572284:_posts/2026-07-28-welcome.md > _posts/$(date +%F)-draft.md
+```
 
 ## Preview locally (optional)
 

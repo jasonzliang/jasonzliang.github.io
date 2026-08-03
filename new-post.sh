@@ -27,7 +27,7 @@ if [ -e "$POST" ]; then
   exit 1
 fi
 
-mkdir -p "$IMGDIR"
+mkdir -p "$(dirname "$POST")" "$IMGDIR"
 cat > "$POST" <<EOF
 ---
 layout: post
