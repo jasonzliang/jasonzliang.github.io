@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Where an agent reads changed what it concluded, a little"
+title: >-
+  Notes from well-connected pages scored higher than notes from dead ends
 date: 2026-04-14
 description: >-
-  Notes the agent took at well-connected pages scored higher than notes it took
-  at dead ends. A real result, and a narrower one than it first looked.
+  24.43 against 21.88 on a 30-point rubric. Four reasons to discount it,
+  starting with judges who could see which pile was which.
 image: /img/blog/2026-04-14-hub-vs-leaf/hub-vs-leaf.webp
 tags: [agents, knowledge-graphs, caesar]
 ---
