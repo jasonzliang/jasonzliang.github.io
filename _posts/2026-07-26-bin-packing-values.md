@@ -16,7 +16,7 @@ everything else byte-identical. Cautious: smallest verified step, reuse the
 proven approach, a solved problem is done, bank it and stop. Expansive: the move
 that most widens what you could do next, nothing you achieve is a stopping
 point. I call them control and nietzsche, after the philosopher; [June's
-pair](/blog/nietzsche/) was far longer.
+pair](/blog/nietzsche/) had five values, not three.
 
 This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
 are successive versions of the two files: v3 is fixed, sm-v4 lets the agent
@@ -41,8 +41,8 @@ the standard LLM-heuristic-discovery testbed since
 at a time, no lookahead. Offline is close to solved by a classical heuristic
 plus local search, so the optimised score pins near the ceiling and every arm
 ties; online leaves headroom above the best simple rule, so it separates
-solvers. Two earlier tasks, cobench and generalize, were offline variants, here
-only in the tally.
+solvers. Two earlier tasks, cobench and generalize, were offline variants, in
+the tally only.
 
 The **in-run** score is the one the agent sees and pushes up; the **held-out**
 score I compute after, on families it never trained against, from published
@@ -112,7 +112,7 @@ packings came from. One artifact, overreach in one cell and the winning move in
 another; it labels outcomes, it does not predict them.
 
 Four non-independent runs per arm, not seed-controlled, and the cautious tool
-count varies from 1 to 6 across its four: a behavioural signature, not proof.
+count varies 1 to 6 across its four: a behavioural signature, not proof.
 
 ## The tally evaporates
 
