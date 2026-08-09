@@ -1,48 +1,47 @@
-"""Figure for "The same values swap made the same two agents twice".
+"""Figure for "I called it a replication. My own audit called it a tie."
 
-Four mission-mode self-improvement runs: two missions x two values files, one
-run per cell. Each bar is one run. The split point is the iteration at which
-the run cleared the numerical bar it froze for itself at iteration 1.
+Four mission-mode self-improvement runs: two mission catalogs x two values
+files, one run per cell. The post's subject is that two documents of mine
+disagree about these four runs, so the figure asks the only question I can
+still answer from the archived workspaces: which measured differences between
+the cautious and the expansive run came out the same way on BOTH missions?
 
-Source of every number, in order of authority (workspace first, deck second):
+Every number below was counted today in the workspaces, not copied from the
+slide deck. Sources, all under
+/Users/jason/Desktop/science_moonshot/self_improvement_v1/result/
 
-  Workspaces, /Users/jason/Desktop/science_moonshot/self_improvement_v1/result/
-    20260623-025758_{original,nietzsche}_50i_40m_evolving-agents/
-    20260624-043601_{original,nietzsche}_40i_60m_agent-evolution/
+  M1 = 20260623-025758_{original,nietzsche}_50i_40m_evolving-agents
+  M2 = 20260624-043601_{original,nietzsche}_40i_60m_agent-evolution
 
-  Run lengths. .loop/runner.log in each workspace records
-  "[loop] iter N done: killed=False exit=0" for every N from 1 to the cap,
-  with no killed=True anywhere. So 50/50 and 40/40 are real completions, not
-  a configured ceiling. Iterations that left an artifact directory behind are
-  fewer: 47 and 45 of 50, 32 and 33 of 40. Most of the gap is the scheduled
-  review checkpoint (every tenth iteration on mission 1, every fifth on
-  mission 2), which is defined to produce no new experiment.
+  Bar cleared at iteration.
+    M1 cautious: bench/CRITERION.md freezes baseline held-out 0.728217 and
+    bar >= 0.745; artifacts/iter5-2026-06-23-surrogate-search/README.md
+    records held-out 0.74932, 9/10 seeds, +5.2 SEM. Cleared at iteration 5,
+    never cleared again.
+    M1 expansive: bench/CRITERION.md freezes random search 0.064140 as the
+    bar (lower is better) over the naive EA's 0.065937, in writing:
+    "Freezing the EA's 0.0659 as the bar would be a strawman." Never met;
+    TASKS_DONE.md and every later artifact README keep saying so.
+    M2 cautious: bench/CRITERION.md freezes qd_score 1841.000189 and bar
+    2025.10 (+10%) plus coverage 1.000 plus held-out >= 2031.70;
+    artifacts/iter4-2026-06-24-annealed-step-qd/README.md records 2040.66
+    scored, 2033.98 held-out, coverage 1.000. Cleared at iteration 4.
+    M2 expansive: bench/CRITERION.md freezes test_mean 0.867839 and bar
+    >= 0.8978; TASKS_DONE.md line 2925 records the best controller at
+    0.894753, short by 0.003. Never met.
 
-  Mission 1, cautious. bench/CRITERION.md: frozen EvoPrompt-GA baseline
-  held-out 0.728217, bar >= 0.745. artifacts/iter5-2026-06-23-surrogate-search/
-  README.md: held-out 0.74932, 9 of 10 seeds, fresh 0.74862, +5.2 SEM. Bar
-  cleared at iteration 5, and never cleared again.
+  Frozen benchmarks left on disk.  ls -d bench*  ->  1, 10, 6, 13.
 
-  Mission 1, expansive. bench/CRITERION.md: frozen random-search baseline
-  0.064140, bar <= 0.06114 (lower is better). TASKS_DONE.md and every later
-  artifact README carry "the frozen mission gate (bench5, n=160) stays
-  NOT MET". Eight outer-loop levers refuted; iteration 41 froze bench10 at
-  n=2000 and won there (+0.029547, t=46.2, 32 of 32 seeds), explicitly not
-  claimed as a retroactive bar pass.
+  TASKS_DONE.md lines, archived entries included.  wc -l  ->  869, 852,
+    1487, 3055. The M2 cautious run is the only one that archived: its
+    TASKS_DONE_archive/2026-06-24-iters-01-15.md holds another 994 lines,
+    so the honest total for that run is 2481, not 1487. By bytes the M2
+    pair is 269,678 against 308,045.
 
-  Mission 2, cautious. bench/CRITERION.md: frozen MAP-Elites baseline
-  qd_score 1841.000189, bar >= 2025.10 (baseline + 10%) plus coverage 1.000
-  plus held-out >= 2031.70. artifacts/iter4-2026-06-24-annealed-step-qd/
-  README.md: 2040.66 scored, 2033.98 held-out, coverage 1.000. Bar cleared at
-  iteration 4. TASKS_DONE.md line 24: champion at iteration 28 is 2168.66
-  scored / 2138.36 held-out against a closed-form ceiling of 2318.36.
-  2138.36 / 2318.36 = 92.2%; the scored 2168.66 is 93.5% of the same ceiling,
-  so 92.2% is the held-out figure.
+  Loose .py files at the workspace root.  ls *.py  ->  0, 39, 0, 0.
 
-  Mission 2, expansive. bench/CRITERION.md: frozen baseline test_mean
-  0.867839, bar >= 0.8978. TASKS_DONE.md line 2925: best controller reached
-  0.894753, short of the bar by 0.003. Thirteen frozen benches on disk
-  (bench, bench2 ... bench13), counted by ls.
+  Modules hoisted into tools/.  ls tools/*.py  ->  nk_sweep.py (1),
+    stats.py (1), none (0), paired_stats.py + qd_paired.py (2).
 
 Run from this directory. Never from /tmp: a stray /tmp/six.py there shadows
 the real `six` package and breaks the matplotlib import.
@@ -58,17 +57,18 @@ from matplotlib.patches import Patch  # noqa: E402
 from PIL import Image  # noqa: E402
 
 BLUE, ORANGE, GREY, RED = "#2b6cb0", "#dd6b20", "#a0aec0", "#c53030"
+PALE = "#9fc0e0"
 INK, MUTED, GRID = "#1a202c", "#4a5568", "#e2e8f0"
 OUT = os.path.dirname(os.path.abspath(__file__))
 
 plt.rcParams.update({
     "font.family": "sans-serif",
     "font.sans-serif": ["Helvetica Neue", "Helvetica", "Arial", "DejaVu Sans"],
-    "font.size": 12, "axes.titlesize": 15, "axes.titleweight": "bold",
-    "axes.labelsize": 11.5, "axes.edgecolor": MUTED, "axes.linewidth": 0.9,
+    "font.size": 12, "axes.titlesize": 12.5, "axes.titleweight": "bold",
+    "axes.labelsize": 11, "axes.edgecolor": MUTED, "axes.linewidth": 0.9,
     "text.color": INK, "axes.labelcolor": INK,
     "xtick.color": MUTED, "ytick.color": MUTED,
-    "xtick.labelsize": 11.5, "ytick.labelsize": 11,
+    "xtick.labelsize": 10.5, "ytick.labelsize": 11,
     "legend.frameon": False, "legend.fontsize": 11.5,
     "figure.facecolor": "white", "axes.facecolor": "white",
     "savefig.facecolor": "white",
@@ -86,83 +86,92 @@ def save(fig, name, quality=88):
     print("%s  (%.0f KB)" % (out, os.path.getsize(out) / 1024.0))
 
 
-# --- data (verified above): label, run length, iteration the bar was cleared
-#     (None = never cleared), text to set inside the post-bar stretch
-RUNS = [
-    ("Mission 1\ncautious",  50, 5,
-     "45 iterations finding where the algorithm breaks"),
-    ("Mission 1\nexpansive", 50, None,
-     "8 levers refuted, then a forecast of where it would win"),
-    ("Mission 2\ncautious",  40, 4,
-     "36 iterations climbing to 92.2% of the ceiling"),
-    ("Mission 2\nexpansive", 40, None,
-     "missed by 0.003, built a 13-benchmark taxonomy instead"),
+# Bar order, top to bottom, in every panel.
+ROWS = ["Mission 1  cautious", "Mission 1  expansive",
+        "Mission 2  cautious", "Mission 2  expansive"]
+COLS = [BLUE, ORANGE, BLUE, ORANGE]
+
+# title, verdict, repeated?, values (None = the run never cleared its bar),
+# x limit, value formatter
+PANELS = [
+    ("Cleared its own numerical bar", "Same on both missions", True,
+     [5, None, 4, None], 9.0, lambda v: "iteration %d" % v),
+    ("Frozen benchmarks left on disk", "Same on both missions", True,
+     [1, 10, 6, 13], 16.0, lambda v: "%d" % v),
+    ("Modules hoisted into tools/", "Not the same on both missions", False,
+     [1, 1, 0, 2], 2.9, lambda v: "%d" % v),
+    ("Lines of TASKS_DONE.md", "Not the same on both missions", False,
+     [869, 852, 2481, 3055], 3750.0, lambda v: "{:,}".format(v)),
+    ("Loose .py files at the root", "Not the same on both missions", False,
+     [0, 39, 0, 0], 47.0, lambda v: "%d" % v),
 ]
 
-fig, ax = plt.subplots(figsize=(10.2, 4.9))
+fig, axes = plt.subplots(2, 3, figsize=(12.4, 5.9))
+plt.subplots_adjust(wspace=0.22, hspace=0.55)
 
-H = 0.40
-START = 0.5
+for k, (title, verdict, repeated, vals, xmax, fmt) in enumerate(PANELS):
+    ax = axes[k // 3][k % 3]
+    for i, v in enumerate(vals):
+        y = -i
+        if v is None:
+            ax.text(xmax * 0.012, y, "never cleared it", ha="left",
+                    va="center", fontsize=10.5, color=RED,
+                    fontweight="bold", zorder=6)
+            continue
+        ax.barh(y, v, height=0.52, color=COLS[i], zorder=3)
+        # The one archived log: show the archived part in a paler blue.
+        if title.startswith("Lines of") and i == 2:
+            ax.barh(y, 2481 - 1487, left=1487, height=0.52, color=PALE,
+                    zorder=4)
+        ax.text(v + xmax * 0.022, y, fmt(v), ha="left", va="center",
+                fontsize=10.5, color=MUTED, zorder=6)
+    ax.set_yticks([-i for i in range(4)])
+    ax.set_yticklabels(ROWS if k % 3 == 0 else ["", "", "", ""])
+    ax.set_ylim(-3.6, 0.6)
+    ax.set_xlim(0, xmax)
+    ax.set_xticks([])
+    for s in ("top", "right", "left", "bottom"):
+        ax.spines[s].set_visible(False)
+    ax.tick_params(axis="y", length=0)
+    ax.set_title(title, loc="left", pad=22, color=INK)
+    ax.text(0, 1.045, verdict, transform=ax.transAxes, ha="left",
+            va="bottom", fontsize=11,
+            color=(INK if repeated else RED),
+            fontweight=("bold" if repeated else "normal"))
 
-for i, (lab, n, clear, note) in enumerate(RUNS):
-    y = -i
-    if clear is None:
-        ax.barh(y, n - START, left=START, height=H, color=GREY, zorder=3)
-        ax.text(START + 0.7, y, note, ha="left", va="center",
-                fontsize=10.5, color="white", zorder=6)
-        ax.text(START, y + 0.34, "bar never cleared", ha="left", va="bottom",
-                fontsize=11, color=RED, fontweight="bold", zorder=6)
-    else:
-        ax.barh(y, clear - START, left=START, height=H, color=BLUE, zorder=3)
-        ax.barh(y, n - clear, left=clear, height=H, color=ORANGE, zorder=3)
-        ax.text(clear + 0.7, y, note, ha="left", va="center",
-                fontsize=10.5, color="white", zorder=6)
-        ax.plot([clear, clear], [y - H / 2 - 0.06, y + 0.30], color=INK,
-                lw=1.3, zorder=5, solid_capstyle="butt")
-        ax.text(clear + 0.5, y + 0.34, "bar cleared, iteration %d" % clear,
-                ha="left", va="bottom", fontsize=11, color=INK,
-                fontweight="bold", zorder=6)
-    ax.text(n + 0.6, y, "%d" % n, ha="left", va="center", fontsize=10.5,
-            color=MUTED, zorder=6)
+# Sixth cell: the caveat that outranks every panel beside it.
+note = axes[1][2]
+note.axis("off")
+note.text(0.0, 1.12,
+          "The confound, which outranks\nall five panels",
+          transform=note.transAxes, ha="left", va="top", fontsize=12.5,
+          fontweight="bold", color=INK)
+note.text(0.0, 0.80,
+          "Each agent picked its own target from its\n"
+          "catalog and froze its own bar at iteration 1,\n"
+          "so the two runs inside a mission never sat\n"
+          "the same test. Part of what I am calling\n"
+          "character is the choice of target itself.\n"
+          "One run per cell.",
+          transform=note.transAxes, ha="left", va="top", fontsize=11,
+          color=MUTED, linespacing=1.4)
 
-ax.set_yticks([-i for i in range(len(RUNS))])
-ax.set_yticklabels([r[0] for r in RUNS])
-ax.set_ylim(-len(RUNS) + 0.35, 0.72)
-ax.set_xlim(0, 53.5)
-ax.set_xticks([0, 10, 20, 30, 40, 50])
-ax.set_xlabel("Iteration")
-ax.xaxis.grid(True, color=GRID, lw=0.9, zorder=0)
-ax.set_axisbelow(True)
-for s in ("top", "right", "left"):
-    ax.spines[s].set_visible(False)
-ax.tick_params(length=3, width=0.8)
-ax.tick_params(axis="y", length=0)
-
-fig.text(0.015, 1.045,
-         "Both cautious runs cleared their bar early. Neither expansive "
-         "run cleared its bar at all.",
-         ha="left", va="bottom", fontsize=16, fontweight="bold", color=INK)
-fig.text(0.015, 0.972,
-         "Four runs, two mission catalogs, two values files, one run per "
-         "cell. Every run reached its final iteration.",
+fig.text(0.012, 1.055,
+         "Two of five countable behaviours came out the same way on both "
+         "missions.",
+         ha="left", va="bottom", fontsize=16.5, fontweight="bold", color=INK)
+fig.text(0.012, 0.985,
+         "Four runs: two unrelated mission catalogs, two values files, one "
+         "run per cell. Every number counted in the archived workspaces.",
          ha="left", va="bottom", fontsize=12, color=MUTED)
 
 handles = [
-    Patch(facecolor=BLUE, label="Iterations before the bar was cleared"),
-    Patch(facecolor=ORANGE, label="Iterations after the bar was cleared"),
-    Patch(facecolor=GREY, label="Bar never cleared"),
+    Patch(facecolor=BLUE, label="Cautious values file"),
+    Patch(facecolor=ORANGE, label="Expansive values file"),
+    Patch(facecolor=PALE, label="Log entries the run moved to "
+                                "TASKS_DONE_archive/"),
 ]
-ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(-0.001, -0.155),
-          ncol=3, handlelength=1.2, handleheight=1.0, columnspacing=1.8)
+fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.012, -0.045),
+           ncol=3, handlelength=1.2, handleheight=1.0, columnspacing=1.8)
 
-fig.text(0.015, -0.20,
-         "Each agent picked its own target from its mission's catalog and "
-         "froze its own numerical bar at iteration 1, so the two runs inside\n"
-         "a mission are not clearing the same bar. Mission 1 ran 50 "
-         "iterations capped at 40 minutes each; mission 2 ran 40 capped at "
-         "60.\nIterations that left an artifact behind: 47 and 45 of 50, "
-         "32 and 33 of 40, the shortfall being mostly scheduled review "
-         "checkpoints.",
-         ha="left", va="top", fontsize=11, color=MUTED)
-
-save(fig, "four-runs")
+save(fig, "what-replicated")

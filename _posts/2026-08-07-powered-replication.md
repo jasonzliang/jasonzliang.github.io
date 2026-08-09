@@ -114,6 +114,15 @@ all three overfitter runs landing below the random floor on 5×5, and it is not
 re-tested here at all. My own report puts it flatly: it "is neither confirmed
 nor denied".
 
+I should add that "central contrast" is doing work it has not earned. The 5×5
+board was labelled a breadth check, not the primary endpoint, until twelve hours
+after those runs finished, and on the endpoint I had designated beforehand the
+overfitter generalized better than any of the other eight. That is set out in
+the [post about it](/blog/overfit/). It does not change anything on this page,
+which is a different study with a different design, but it does mean the thing
+this paragraph says was not re-tested was never as settled as the phrase
+implies.
+
 ## The part that killed my mechanism
 
 The first story also said self-modification was doing the work: values set a
