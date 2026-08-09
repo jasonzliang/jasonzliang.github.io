@@ -12,24 +12,24 @@ tags: [evaluation, human-evaluation, caesar]
 
 The previous post was about [what happens when you let language models grade
 research answers](/blog/judge-bias/), and in particular about catching one of
-our judges favouring its own family by 1.35 points.
+our judges favouring its own model family by 1.35 points.
 
 The obvious next question is whether the judges were right at all. So we asked
 people.
 
 ## The setup
 
-Each rater judged five head-to-head pairs, one per research challenge: an answer
-from [Caesar](https://jasonzliang.github.io/caesar-agent/), our research agent,
-against one from Gemini 3 Deep Research, the strongest baseline and second-best
-system on the automated evaluation. Blind to which was which, they picked the
-more creative under the same rubric the AI judges used: New, Useful and
-Surprising, the three axes summing to the 30-point total quoted below.
+Each rater judged up to five head-to-head pairs, one per research challenge: an
+answer from [Caesar](https://jasonzliang.github.io/caesar-agent/), our research
+agent, against one from Gemini 3 Deep Research, the strongest baseline and
+second-best system on the automated evaluation. Blind to which was which, they
+picked the more creative under the same rubric the AI judges used: New, Useful
+and Surprising, the three axes summing to the 30-point total quoted below.
 
 112 comparisons in total, and the shape of that number is worth a sentence.
-There are only five distinct pairs, so the 112 votes are roughly 22 people
-looking at the same five items. The paper reports 23 raters; the vote table
-behind it carries 21 distinct rater names across 23 sittings, two people having
+There are only five distinct pairs, so the 112 votes are roughly 22 looks at
+each of the same five items. Our paper reports 23 raters; the vote table behind
+it carries 21 distinct rater names across 23 sittings, two people having
 submitted twice. Seven of the 112 votes repeat a pair the same rater had already
 judged, and one of those repeats came back with the opposite answer.
 
@@ -50,10 +50,10 @@ just 5 words longer is one we won.
 ## 56.25%, and the machine verdict
 
 Our agent won **63 of 112**, which is **56.25%**. The paper calls that an odds
-ratio of 1.29; it is the odds, 63 to 49. The 95% interval around the share runs
-from **47% to 66%**, so it still spans 50%: this sample does not rule out a coin
-flip. And that is the generous interval, because it treats the 112 votes as 112
-independent trials when they are 21 people voting on five items.
+ratio of 1.29; it is really the odds, 63 to 49. The 95% interval around the
+share runs from **47% to 66%**, so it still spans 50%: this sample does not rule
+out a coin flip. And that is the generous interval, because it treats the 112
+votes as 112 independent trials when they are 21 people voting on five items.
 
 Set that next to the machine verdict. On the automated evaluation our agent beat
 the runner-up by 3.18 points on a 30-point scale, with effect sizes uniformly
@@ -66,10 +66,10 @@ Cliff's delta is worth two sentences: the unit it is computed at is easy to get
 wrong, and we have gotten it wrong before. It runs over the five challenges, on
 the mean score each produced: pick a Caesar challenge mean and a competitor's at
 random, how much more often is the Caesar one higher? A delta of 1.00 is strict
-dominance *at that unit*, meaning Caesar's worst challenge mean still sat above
-the competitor's best, not a claim that every individual Caesar answer beat
-every competing answer. At the level of individual scores the two distributions
-overlap.
+dominance *at that unit*, which would mean Caesar's worst challenge mean sat
+above the competitor's best, not a claim that every individual Caesar answer
+beat every competing answer. At the level of individual scores the two
+distributions overlap.
 
 The paper reports no p-values, and we should be careful how we say that.
 Mann-Whitney U was computed during the analysis and the run artifacts carry the
@@ -78,9 +78,9 @@ system received in a format, not the five challenge means the delta uses. What
 we chose to publish was the effect size, "aligned with our
 magnitude-of-difference framing rather than null-hypothesis testing," with the
 deltas presented as "estimates of stochastic dominance rather than p-values."
-Stochastic dominance is what Cliff's delta measures, just above. The question we
-answered in print was how big the gap is, not whether it is distinguishable from
-zero: a framing decision, fair to argue with, but not an absence of the test.
+Stochastic dominance is what Cliff's delta measures. The question we answered in
+print was how big the gap is, not whether it is distinguishable from zero: a
+framing decision, fair to argue with, but not an absence of the test.
 
 By that measure it was not close.
 
@@ -88,8 +88,8 @@ By that measure it was not close.
    src="/img/blog/2026-03-30-human-vs-machine/human-vs-machine.webp"
    alt="Two panels. Left: human preference for our agent at 56.25 percent, with
         a 95 percent interval that still spans 50 percent. Right: the same
-        pairing's Cliff's delta of 0.84, one bar past the 0.47 threshold for a
-        large effect, with no interval at all."
+        pairing's Cliff's delta of 0.84, a single bar reaching past the 0.47
+        threshold for a large effect, with no interval at all."
    caption="The same two systems on the same five challenges, judged two ways.
             Neither number is as precise as it looks: the left interval assumes
             112 independent votes, the right bar is a single figure over five
@@ -119,9 +119,9 @@ Our agent took three and lost two, and only one, meta-creativity at 13 votes to
 Our paper says this per-challenge pattern "mirrors the LLM judge results." It
 mirrors at the ends: cross-domain synthesis is the machine's largest lead and
 the people's most lopsided one, and open-ended synthesis is the machine's
-narrowest win and one of the two the people gave away. It does not mirror in the
-middle: constrained synthesis is the machine's second-largest lead of the five,
-+3.33 points, and the people went better than three to one the other way.
+narrowest win and one of the two the people gave away. It does not mirror
+elsewhere: constrained synthesis is the machine's second-largest lead of the
+five, +3.33 points, and the people went better than three to one the other way.
 
 "Mirrors" is a stronger word than the data supports, and we should have caught
 it before it went into the paper.
@@ -129,9 +129,9 @@ it before it went into the paper.
 ## Both numbers are real
 
 The temptation is to pick one: either the AI judges were inflated, or the humans
-were noisy and the real signal is in the larger sample. Neither reading survives
-contact with the details. **The two measurements are asking different
-questions.**
+were noisy and the real signal is in the repeated machine scoring. Neither
+reading survives contact with the details. **The two measurements are asking
+different questions.**
 
 The AI judges scored each answer *as written*, in full, one dimension at a time
 against a written rubric: five challenges, scored three times over by each of
@@ -140,17 +140,17 @@ of thing a tireless, literal-minded reader does well.
 
 The humans saw something else: six sentences a side, the core idea restated by
 another model. A deliberate and defensible design, and it changes what the
-number can mean: everything it removes, the structure, the citations, the
-evidence laid under each claim, the breadth of what got covered, was in front of
-the AI judges and not in front of the people.
+number can mean: everything it removes (structure, citations, the evidence laid
+under each claim, the breadth of what got covered) was in front of the AI judges
+and not in front of the people.
 
 Whether that material is what the AI judges were rewarding is a further step
 this data will not carry us to. The rubric does not ask about citations or
 coverage; it asks how rare the idea is, how workable, and how far from the
-obvious. Our verbosity check points the same way: inside the deep-research tier,
-the correlation between answer length and judge score is weakly negative, r =
--0.13. So "our agent's advantage lived in the material the normalization
-stripped out" is a hypothesis we find plausible and did not test.
+obvious. Our verbosity check points the same way: among the deep-research
+systems, the correlation between answer length and judge score is weakly
+negative, r = -0.13. Even so, "our agent's advantage lived in the material the
+normalization stripped out" is a hypothesis we find plausible and did not test.
 
 A second, smaller reason to expect divergence. "Which of these two is better" is
 a coarser instrument than "rate each of these on three axes from 1 to 10,"

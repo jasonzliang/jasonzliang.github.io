@@ -24,11 +24,12 @@ one stood on top of, and `code-reuse`, which earlier files it reused. The run
 reached iteration 60, but 60 was the configured ceiling rather than a count of
 finished work: 55 of those iterations left an artifact behind. (My own write-up
 of the run carries a correction note saying 56. That is its commit count, which
-is a different thing; the workspace has 55 artifact directories.) Across those,
-the two fields become a graph of the run's own intellectual history: this idea
-led to that tool, which enabled this result. The agent's own tooling calls it a
-DAG, a directed acyclic graph, meaning the arrows all run one way, from earlier
-work to later, and no chain of them ever loops back to where it started.
+is a different thing; the workspace has 55 artifact directories.) Across those
+iterations, the two fields become a graph of the run's own intellectual history:
+this idea led to that tool, which enabled this result. The agent's own tooling
+calls it a DAG, a directed acyclic graph, meaning the arrows all run one way,
+from earlier work to later, and no chain of them ever loops back to where it
+started.
 
 At iteration 3, the agent wrote a program to draw that graph.
 
@@ -37,8 +38,9 @@ true.
 
 ## Two out of eight
 
-The checker compared each claimed "I built on X" link against git: the one
-record the logbook cannot edit. The result, from the agent's own report:
+The checker compared each claimed link, every "I built on X" and every "I reused
+X", against git: the one record the logbook cannot edit. The result, from the
+agent's own report:
 
 ```
 ADVERSARIAL DAG — 8 claimed edge(s) checked against git:
@@ -110,20 +112,17 @@ The lesson it wrote in its own log is better than my summary:
 ## Neither number is a measurement
 
 I ran a second agent through the identical harness at the same time, same rules,
-same task, same everything, differing only in a short values document. That run
-built an integrity checker of its own at iteration 3, but it only lints the
-logbook's schema and runs the tool self-tests. Nothing in it ever put a lineage
-claim in front of git.
+same task, same everything, differing only in a short values document. Of the
+two June runs, the one that built the auditor had a values file written from
+Nietzsche; the other had the standard file. That second run built an integrity
+checker of its own at iteration 3, but it only lints the logbook's schema and
+runs the tool self-tests. Nothing in it ever put a lineage claim in front of
+git.
 
-These are two June runs that differ only in a values file: the one that built
-the auditor is the Nietzschean agent, the sibling here is the standard-values
-one. This post is about what happened when one of the two checked its own
-record.
-
-That second run reached iteration 60 too, left artifacts in 57 of its
-iterations, and closed by reporting **56** build-on edges, presented as the
-picture of how much its work compounded. (That 56 is a coincidence; the 56
-earlier in this post is the other run's commit count.)
+The second run reached iteration 60 too, left artifacts in 57 of its iterations,
+and closed by reporting **56** build-on edges, presented as the picture of how
+much its work compounded. (That 56 is a coincidence; the 56 earlier in this post
+is the other run's commit count.)
 
 The tempting move is to say those 56 are inflated the same way. They are not.
 That run's parser matched `iterNN` tokens in the `builds-on` field only, rather
@@ -134,17 +133,17 @@ log: all 56 edges run from an earlier iteration to a later one, and none of them
 come from a field that says `none`. The specific failure modes that produced the
 phantoms are absent here.
 
-What is absent is the other half. Nothing ever asked whether an iteration that
-named a parent actually used the parent's code, and nothing can now: the
-archived workspaces were stripped of their `.git` directories, so the record the
-audit depends on is gone.
+What is missing is the other half of the check. Nothing ever asked whether an
+iteration that named a parent actually used the parent's code, and nothing can
+now: the archived workspaces were stripped of their `.git` directories, so the
+record the audit depends on is gone.
 
 I want to be clear that this is my error, not the agent's. Back on the first
 run, the audit tool existed. That agent even promoted an instruction to run it
 into the standing lessons at the top of its own logbook, where every fresh
 iteration would read it before starting. No later entry records running it, the
 follow-up task to wire it into the graph renderer was still sitting unchecked in
-the to-do list when the run ended, and the checks an iteration had to pass
+the to-do list when the run ended, and the checks I made each iteration pass
 before committing never included it.
 
 The one time the tool was pointed at the finished log, by my own audit pass

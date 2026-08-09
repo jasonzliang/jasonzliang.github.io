@@ -21,7 +21,7 @@ class of system as the things being graded, and often literally the same models.
 So when we evaluated [Caesar](https://jasonzliang.github.io/caesar-agent/), our
 research agent, we used a panel of three judges from three different families:
 Claude Sonnet 4.5, GPT-5.2 and Gemini 3 Pro. Then we went looking for the
-failure mode everyone worries about.
+failure mode everyone worries about: a judge favouring its own family.
 
 We found it. Then we found out that the way we measured it cannot distinguish
 that failure mode from something much more boring.
@@ -37,7 +37,7 @@ each run twice: once in the vendor's own autonomous research mode ("deep"), once
 with ordinary single-step web search ("shallow"). The seventh is Caesar, which
 runs on GPT-5.2. Each system answered five research challenges under three
 output formats: an unconstrained full answer, an unconstrained explain-it-simply
-summary (the paper calls this ELI5, for "explain like I'm five"), and an ELI5
+summary (our paper calls this ELI5, for "explain like I'm five"), and an ELI5
 summary capped at 450 words. Every judge scored every answer three times.
 
 ## Measuring a judge's favouritism
@@ -84,7 +84,7 @@ gives each agent's score averaged over all three judges; the robustness table
 gives the same agents averaged over Claude and Gemini only. Two equations, one
 unknown: the GPT judge's own column falls straight out. Doing that reproduces
 the published −0.82, −0.75 and +0.97, one per answer format, to within rounding,
-which is the check that the reconstruction is right.
+which checks the reconstruction.
 
 It also shows this. On full answers the GPT judge marked *every* agent about 2
 points below the other two, and the agents outside its own family about 2.5
@@ -108,8 +108,8 @@ alone. They are a property of the judge *and the task*.
 Ask for an ELI5 summary instead of a full-length answer and the Gemini and
 Claude gaps land at −0.12 and −0.20. That is a disappearance, not a reversal: on
 a 30-point total those two values are not distinguishable from zero, and calling
-them "negative" would be reading noise. GPT is the one that moves by an amount
-worth naming, from −0.82 on full answers to +0.97 on 450-word ones.
+them "negative" would be reading noise. GPT is the one that reverses rather than
+fades, from −0.82 on full answers to +0.97 on 450-word ones.
 
 So a single number for "this judge's bias" would be the wrong shape of thing to
 report. But the evidence for the format effect is thin and should be described
@@ -126,7 +126,7 @@ with no error bars on any of them.
    caption="Each bar is what a judge gave the two baselines from its own model
             family, minus what the other two judges gave those answers. Caesar
             is in no family group. These are raw differences, not adjusted for
-            overall strictness, which is why the GPT bars are not
+            overall strictness, which is why the negative GPT bars are not
             self-criticism."
 %}
 
@@ -166,9 +166,10 @@ win. On full answers, Caesar's margin over the runner-up falls from 3.18 points
 with all three judges to 1.74 with the GPT judge removed. The order survives;
 45% of the margin does not. The other two formats move much less, 3.82 to 3.34
 and 4.73 to 4.07, but the headline number is the one that moves most. And the
-two judges left standing include the Gemini judge, which is the one carrying a
-+1.35 thumb on Gemini 3 Deep Research, the exact system Caesar is being measured
-against. Neither the three-judge margin nor the two-judge margin is clean.
+two judges left standing include the Gemini judge, the one carrying a +1.35
+thumb on its own family, a group that includes Gemini 3 Deep Research, the exact
+system Caesar is being measured against. Neither the three-judge margin nor the
+two-judge margin is clean.
 
 That is a robustness check, not a fix. It is also a re-aggregation of scores we
 already had, not a fresh evaluation run: it tests whether the GPT judge was

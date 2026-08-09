@@ -16,11 +16,11 @@ I liked. Three days later I ran it properly and it went away.
 
 ## The setup
 
-An agent is given a task, write a program that plays 2048 well, and a loop. 2048
-is the sliding-tile game: you swipe a 4×4 grid, colliding equal tiles merge into
-one worth double, and a new tile drops in after every swipe, usually a 2 and
-about one time in ten a 4. Your score is the running total of what you have
-merged. Each iteration the agent improves its own solver, commits, and gets
+An agent is given a loop and one task: write a program that plays 2048 well.
+2048 is the sliding-tile game: you swipe a 4×4 grid, equal tiles that collide
+merge into one worth double, and a new tile drops in after every swipe, usually
+a 2 and about one time in ten a 4. Your score is the running total of what you
+have merged. Each iteration the agent improves its own solver, commits, and gets
 re-scored: twenty iterations in the first experiment, fifteen in the
 replication.
 
@@ -33,15 +33,15 @@ a stopping point.
 Then I score each finished solver two ways. On the games it was tuned against,
 and on games it has never seen: a harder tile-spawn, where the new tile is a 4
 one time in four instead of one in ten, and, critically, a **5×5 board**, when
-every game it tuned on was 4×4. The second is the one I care about: did the
-agent build something general, or something that merely fits.
+every game it tuned on was 4×4. The 5×5 is the one I care about: did the agent
+build something general, or something that merely fits.
 
 ## What the first experiment said
 
 The first version had nine conditions and **one run in each**, and produced a
 satisfying story: the expansive disposition led to solvers that generalized to
-the bigger board, and letting the agent rewrite its values amplified that. Its
-best run scored roughly 800,000 points on 5×5, trimmed to about 720,000 by a
+the bigger board, and letting the agent rewrite its values amplified that. The
+best expansive run scored roughly 800,000 on 5×5, trimmed to about 720,000 by a
 later truncation-free re-score. Reference points there: random play about 8,000,
 a greedy program taking whichever move scores best now about 80,000. Board size
 moves those anchors a long way, because a bigger board keeps a game alive
@@ -53,7 +53,7 @@ reference score is quoted for the board it belongs to.
 The second version [pre-specified the analysis](/blog/pre-registration/), then
 ran twenty runs, five in each of four conditions: the two dispositions crossed
 with how freely the agent could rewrite its values, bounded to its three value
-bullets or unrestricted. A ten-run follow-up added two more, values frozen and
+bullets or unrestricted. A ten-run follow-up added a third level: values frozen,
 never self-edited.
 
 One statistic, Cliff's delta: a rank measure between −1 and +1, where **+1**
@@ -96,7 +96,7 @@ cautious 53,000 to 65,000, twelve to twenty times that 4,500 anchor.
 
 Neither of those two lines is a replication, though. The first study read
 in-distribution score as precisely where values did *not* act, because a third
-condition written to overfit deliberately topped that leaderboard. The
+disposition, deliberately written to overfit, topped that leaderboard. The
 capability effect is this study's own finding, not a confirmation of the first.
 
 The third line is a null: on the thing I cared about, generalizing to a board
@@ -107,18 +107,18 @@ finds no evidence that they do, which is not the same as showing they do not.
 The report calls itself a partial reversal, and that is the honest word.
 
 One limit on how far it reaches. To buy power for the main contrast, the second
-study dropped a third condition the first had carried, the deliberate overfitter
-I have [written about separately](/blog/overfit/). That was the first study's
-central contrast, all three of its runs landing below the random floor on 5×5,
-and it is not re-tested here. My report puts it flatly: it "is neither confirmed
-nor denied".
+study dropped a third disposition the first had carried, the deliberate
+overfitter I have [written about separately](/blog/overfit/). That was the first
+study's central contrast, all three of its runs landing below the random floor
+on 5×5, and it is not re-tested here. My report puts it flatly: it "is neither
+confirmed nor denied".
 
 "Central contrast" is doing work it has not earned, though. The 5×5 board was
 labelled a breadth check, not the primary endpoint, until twelve hours after
 those runs finished, and on the endpoint I had designated beforehand the
-overfitter generalized better than any of the other eight. It changes nothing
-here, a different study with a different design, but the contrast that was not
-re-tested was never as settled as the phrase implies.
+overfitter's best run generalized better than any of the other eight. It changes
+nothing here, a different study with a different design, but the contrast that
+was not re-tested was never as settled as the phrase implies.
 
 ## The frozen runs killed my mechanism
 
@@ -131,16 +131,16 @@ shrink the gap.
 The frozen runs reproduced the capability gap **in full**, at Cliff's delta
 **+1.00**: every frozen expansive run beat every frozen cautious run. The frozen
 expansive cell averages **91,518**, above the 78,000 to 88,000 of its
-self-modifying siblings, which is why the top curve in the figure's upper panel
-clears that range: a fixed expansive framing, never allowed to edit itself,
-produced the study's best capability. Pool all thirty runs and the values effect
-is delta **+0.86**. The effect is intrinsic to the disposition, and
-self-modification added no significant capability benefit on top. On 5×5 the
-freest self-modification setting was directionally worse than the more
-constrained one (delta 0.41 against it), though at p = 0.14 that is a hint, not
-a finding. The cleaner fact needs no p-value: not one of the ten frozen runs
-came out unable to play 5×5, against four such failures among the twenty
-self-modifying ones, three of those four in the most permissive setting.
+self-modifying siblings, and it is the top curve in the figure's upper panel: a
+fixed expansive framing, never allowed to edit itself, produced the study's best
+capability. Pool all thirty runs and the values effect is delta **+0.86**. The
+effect is intrinsic to the disposition, and self-modification added no
+significant capability benefit on top. On 5×5 the freest self-modification
+setting was directionally worse than the more constrained one (delta 0.41
+against it), though at p = 0.14 that is a hint, not a finding. The cleaner fact
+needs no p-value: not one of the ten frozen runs came out unable to play 5×5,
+against four such failures among the twenty self-modifying ones, three of those
+four in the most permissive setting.
 
 I had the right effect attached to the wrong cause.
 
@@ -160,8 +160,7 @@ Not purely a lottery, though. A commit-by-commit scan of the twenty
 self-modifying runs found twelve able to play any size: three incidentally, a
 by-product of vectorizing a 4×4 engine, and nine on purpose, seven of those by
 explicitly de-hardcoding the search and measuring what it bought. The report
-calls attending to the untested size assumption a real, if uncommon, learned
-move.
+calls noticing an untested size assumption a real, if uncommon, learned move.
 
 Either way that near-binary decision dominates the score. My nine-run study
 sampled it once per condition and read the pattern as signal. The honest

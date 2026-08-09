@@ -20,10 +20,10 @@ That is not an interpretation, it is code. The note-taking prompt carries a
 block headed `RELATED INSIGHTS OF NEIGHBORING PAGES`, every entry stamped with
 its hop distance. "Neighbouring" is generous: it reaches three hops out and
 holds up to 24 entries, beside a second block of up to eight pages of traversal
-history every page gets regardless of position. So a well-connected page fills
-the block and a dead end does not. But a dead end is not writing blind: the link
-that led there is in the graph before the notes are written, so a leaf inherits
-whatever its one neighbour could see. Does that difference do any work?
+history, which every page gets regardless of position. So a well-connected page
+fills the block and a dead end does not. But a dead end is not writing blind:
+the link that led there is in the graph before the notes are written, so a leaf
+inherits whatever its one neighbour could see. Does that difference do any work?
 
 ## What was actually measured
 
@@ -34,7 +34,7 @@ on, rank each final graph's pages by neighbour count, and take two groups:
   Across these five graphs they have 5 to 36 neighbours and were visited 3 to 45
   times.
 - **Leaves**: the ten least-connected pages the agent visited exactly once.
-  Every one has a single neighbour: reached, read, never returned to.
+  Every one has a single neighbour: reached once, never returned to.
 
 Concatenate each group's notes into one file: two files per challenge, ten sets
 of notes apiece, each about 5,000 to 5,800 words, the leaf file longer on three
@@ -58,8 +58,8 @@ measured.
 | **Total** | **24.43** | **21.88** |
 
 Hub notes lead on all three dimensions pooled and on total score in all five
-challenges. Two of the fifteen per-challenge dimensions do not follow it: on the
-open-ended challenge leaf notes lead on Useful, 7.87 to 7.67, and on
+challenges. Two of the fifteen per-challenge dimensions break the pattern: on
+the open-ended challenge leaf notes lead on Useful, 7.87 to 7.67, and on
 cross-domain synthesis they tie there at 7.67.
 
 {% include figure.html
@@ -84,13 +84,13 @@ leaf mean, the condition the paper's Table 1 caption calls strict dominance, and
 what makes **delta = 1.00**, a statement about five numbers against five
 numbers.
 
-Drop to individual scorings, 75 a side, and the picture is coarser. Pick one hub
+Drop to individual scorings, 75 a side, and the picture is murkier. Pick one hub
 scoring and one leaf scoring at random: the hub one is higher 73% of the time,
 lower 19%, tied 8%. Cliff's delta over those pairings is **0.54**. Hub scores
 run from 18 to 29 out of 30, leaf scores from 15 to 28, distributions that
 overlap heavily.
 
-Both numbers are true, at their own units. The first version of this post quoted
+Both numbers are true, in their own units. The first version of this post quoted
 the 1.00 and glossed it as the second: pick any hub-sourced item and any
 leaf-sourced item and the hub one wins, every time. That is false. Close to one
 pairing in five goes the other way.
@@ -109,11 +109,11 @@ samples, and they are three judges scoring five texts, five times each.
 The same comparison was run over a second set of explorations, and this is the
 part I should have led with: it is the only replication I have. Those used the
 older note-taking prompt, one hop of neighbours and no traversal history; other
-config knobs differ too, so it is not a clean ablation, but that is the
-difference the run was set up to isolate. It was judged twice: three judges by
-three trials gave 23.29 against 21.76 over 45 scorings a side, and a second
-pass, minutes before the main one on the identical three-by-five design, gave
-23.49 against 22.17 over 75.
+config knobs differ too, so it is not a clean ablation, but the prompt is the
+difference that matters here. It was judged twice: three judges by three trials
+gave 23.29 against 21.76 over 45 scorings a side, and a second pass on the
+identical three-by-five design, run minutes before the main one, gave 23.49
+against 22.17 over 75.
 
 Both point the same way, both less emphatically. In both, one of the five
 challenges reverses, counterfactual reasoning, where the leaf pile wins. So the
@@ -140,7 +140,7 @@ eventually read the two piles, not just the score tables. Sixteen of the fifty
 leaf entries are the model writing about a bot check: a Cloudflare interstitial,
 a redirect, an access gate. One calls the page "a barricade, not information."
 Another observes that "the artifact here is *absence*." One of the fifty hub
-entries is like this, and they are not spread evenly. On the constrained
+entries is like this, and the sixteen are not spread evenly. On the constrained
 challenge nine of ten leaf notes are about pages that would not load, and that
 is the challenge with the largest gap, 4.20 points; on counterfactual reasoning
 it is six of ten; on the other three, one between them, and across those three
@@ -177,7 +177,7 @@ That is a smaller claim than I started with, and still worth having. The agent
 gathers more material than fits into a synthesis prompt, so something must
 choose what goes in, and the default is recency or retrieval score. Graph
 position is a cheap selection signal, free to anything that crawls before it
-writes, and here it carried enough even on the most deflationary reading, where
+writes, and here it did some work even on the most deflationary reading, where
 connectivity is mostly a proxy for the page having loaded and been worth
 returning to.
 

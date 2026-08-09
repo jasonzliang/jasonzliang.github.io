@@ -3,9 +3,9 @@ layout: post
 title: "An agent's map of the web stays a tree, and half its steps are revisits"
 date: 2026-05-12
 description: >-
-  The agent saved a snapshot of its exploration graph every 50 steps. Nobody had
-  ever plotted them. Here is what a thousand steps of curiosity looks like, and
-  where the one run I plotted turns out to be unrepresentative.
+  The agent saved a snapshot of its exploration graph every 50 steps and
+  nobody had plotted them. Across 77 runs the map stays a tree for a median of
+  150 steps, and nearly half of all steps revisit a page already seen.
 image: >-
   /img/blog/2026-05-12-graph-growth/graph-growth.webp
 tags: [agents, knowledge-graphs, visualization, caesar]
@@ -25,21 +25,21 @@ Somewhere along the way the system started saving a snapshot of that map every
 accumulated quietly: **2,382 of them, across 102 runs**, sitting on disk. As far
 as I can tell nobody had ever looked at them as a dataset.
 
-Two details, since I am quoting a count. There are 2,387 files, but five of them
-are one snapshot stored twice, plain and gzipped, so 2,382 is the number of
+Two details, since I am quoting a count. There are 2,387 files, but five
+snapshots are stored twice, plain and gzipped, so 2,382 is the number of
 distinct snapshots. And the 50-step interval covers 88 of the 102 runs: a batch
 of older ones wrote every 10 steps, and one wrote every 5.
 
 Only 80 of the 102 runs get all the way to step 1,000, and 77 of those are on
-the 50-step interval. Those 77 are the comparison set for every across-run
-number below, so that a run is never called early or late on the strength of a
-finer snapshot spacing.
+the 50-step interval. Those 77 are the comparison set below, so that a run is
+never called early or late on the strength of a finer snapshot spacing.
 
 ## Nearly half the steps are revisits
 
-Take one thousand-step run, on a constrained-creativity prompt: invent an
-emotion humans do not have. At step 50 the map has 26 nodes. At step 1,000 it
-has **522**. Other runs go further; the largest in the set reaches **941**.
+Take the 1,000-step run in the figure below, on a constrained-creativity prompt:
+invent an emotion humans do not have. At step 50 the map has 26 nodes. At step
+1,000 it has **522**. Other runs go further; the largest of the 77 reaches
+**941**.
 
 Over a thousand steps, then, that run added roughly five hundred pages. The rest
 of the time it was moving to somewhere it had already been. Every node carries a
@@ -79,16 +79,16 @@ without ever closing a loop.
 
 Then one loop appears, and for the next 350 steps there is still exactly one.
 The count only breaks open in the last fifth of the run, going 1, 7, 11, 11,
-**19** over the final two hundred steps. Across the whole set of runs the
-end-of-run count ranges from 0 to 126.
+**19** over the final two hundred steps. Across the 77 runs the end-of-run count
+ranges from 0 to 126.
 
 Then I plotted the other 76, and 400 steps turned out to be the tail rather than
 the rule. The median run closes its first loop at step **150**, not 400.
 Thirty-seven of the 77 have closed one inside their first 100 steps. Only 12 are
 still trees at step 400, and exactly one never closes a loop at all in a
-thousand steps. The run in the title is in that slow tail, and part of why is
-[the question it was given](/blog/adaptive-role/): constrained-creativity runs
-are the slowest as a group, median first loop at step 225, against step 100 for
+thousand steps. The run I plotted is in that slow tail, and part of why is [the
+question it was given](/blog/adaptive-role/): constrained-creativity runs are
+the slowest as a group, median first loop at step 225, against step 100 for
 open-ended ones.
 
 The late explosion is a property of this run too, more than of the set. For the
@@ -122,13 +122,12 @@ magnitude, is when.
 
 ## Depth comes in two bursts, not one
 
-Depth, in these snapshots, is the length of the path the agent was holding when
-it first reached a page: how many links from the starting page, counted along
-the route it actually took rather than the shortest one. The same run commits to
-one line and pushes it to a depth of 23 within the first 150 steps. Then it
-stops going deeper for 250 steps and widens instead. Then it descends a second
-time, to 26 by step 450 and 31 by step 500, and after that the deepest point on
-the map never moves again for the remaining half of the run.
+Depth, in these snapshots, is how many links a page sits from the starting page,
+counted along the route the agent first took to it rather than the shortest one.
+The same run commits to one line and pushes it to a depth of 23 within the first
+150 steps. Then it stops going deeper for 250 steps and widens instead. Then it
+descends a second time, to 26 by step 450 and 31 by step 500, and after that the
+deepest point on the map never moves again for the remaining half of the run.
 
 Nobody designed that schedule; the policy chooses step by step from local
 structure. I had been describing it to myself as depth first, then breadth,
@@ -145,12 +144,13 @@ of 84.
 ## Open-ended sprawls, constrained stays tree-like
 
 Different question types produce visibly different maps, though only part of
-what I first said about them survives a recount. Across the 60 runs that reach
-step 1,000 on the five types, twelve apiece, open-ended questions sprawl clearly
-the furthest: a median of 678 pages, against 531 to 544 for constrained
-creativity, cross-domain synthesis, meta-creativity and counterfactual
-reasoning, which are not distinguishable from each other. So the size contrast
-is not constrained against open, it is open-ended against everything else.
+what I first said about them survives a recount. Across the 60 of those 77 runs
+that carry one of five question types, twelve apiece, open-ended questions
+sprawl clearly the furthest: a median of 678 pages, against 531 to 544 for
+constrained creativity, cross-domain synthesis, meta-creativity and
+counterfactual reasoning, which are not distinguishable from each other. So the
+size contrast is not constrained against open-ended, it is open-ended against
+everything else.
 
 Interconnection is where constrained questions separate out. They end with 0.023
 cycles per page, the lowest of the five types, against 0.043 for cross-domain
@@ -161,7 +161,8 @@ about the same size as the others and a much more tree-like one.
 What I originally wrote here was that constrained questions produce the smallest
 graphs and cross-domain ones sprawl the furthest. Neither holds. The first was
 reading a three-page difference in a median as a result, and on the second the
-cross-domain median is 534 against constrained's 531.
+cross-domain median of 534 sits with constrained's 531, well below open-ended's
+678.
 
 ## The mildly embarrassing part
 

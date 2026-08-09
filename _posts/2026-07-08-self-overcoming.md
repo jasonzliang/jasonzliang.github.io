@@ -26,16 +26,16 @@ There, the starting values are the axiom the system is derived from: every
 generation judges its successor by the criteria it inherited. A bias of size
 epsilon at generation zero does not stay at epsilon. It compounds.
 
-A note on sourcing, because roughly a fifth of what follows is in quotation
+A note on sourcing, because roughly a quarter of what follows is in quotation
 marks. This post condenses a memo of mine called "The Self-Overcoming Thesis",
 written for my own self-improving-agent project, never published, so the
 quotations cannot be checked against a public document. Every quotation below is
 from that memo unless I say otherwise, and where one is about Nietzsche it is
 the memo's compression of him, never a sentence of his own.
 
-The memo calls this the algorithmic butterfly effect: "in any recursively
-self-improving system, the initial axioms are not guardrails; they are the seeds
-of the evolutionary trajectory."
+The memo calls this compounding the algorithmic butterfly effect: "in any
+recursively self-improving system, the initial axioms are not guardrails; they
+are the seeds of the evolutionary trajectory."
 
 {% include figure.html
    src="/img/blog/2026-07-08-self-overcoming/compounding.webp"
@@ -98,7 +98,7 @@ The thesis: a different starting value-set produces the opposite trajectory.
 Five values, most translating into an engineering choice someone is already
 partly making. The memo specifies an experiment per bet, each with a benchmark,
 baseline and kill criterion; the falsification section below refers to those
-five. None has been run.
+five. None of the five has been run.
 
 **1. Will to power.** "Living systems do not optimize for survival or preference
 satisfaction. They optimize for the expansion of what they can do." So stop
@@ -145,18 +145,19 @@ it works only where a sound checker exists.
 
 The strongest falsification is a clean head-to-head: "a token-matched,
 compute-matched convergent baseline that beats the Nietzsche-shaped intervention
-on a held-out evaluation across all five experiments." Held out means problems
-the system never saw while it was tuned: those scores measure what transferred,
-not what was fitted. A weaker one is winning on the training distribution and
-failing to transfer: the vocabulary names a real tension but the mechanisms do
-not generalize. "The thesis is intentionally modest enough to be falsified
-either way."
+on a held-out evaluation across all five experiments." Convergent means one
+fixed objective throughout. Held out means problems the system never saw while
+it was tuned: those scores measure what transferred, not what was fitted. A
+weaker one is the intervention winning on the training distribution and failing
+to transfer: the vocabulary names a real tension but the mechanisms do not
+generalize. "The thesis is intentionally modest enough to be falsified either
+way."
 
-The boring approach, one fixed objective, is also winning. GPT-4, AlphaFold and
-AlphaZero were not designed this way, and neither is anything that has displaced
-them: convergent training still produces the most capable published system in
-every domain I can name. "The honest framing is that convergent training is the
-right default until the objective itself becomes the bottleneck."
+The boring approach is also winning. GPT-4, AlphaFold and AlphaZero were not
+designed this way, and neither is anything that has displaced them: convergent
+training still produces the most capable published system in every domain I can
+name. "The honest framing is that convergent training is the right default until
+the objective itself becomes the bottleneck."
 
 ## The gradient is not defined
 

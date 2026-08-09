@@ -5,8 +5,9 @@ title: >-
   read
 date: 2026-05-20
 description: >-
-  Caesar finishes a research report, goes back to the pages it cited, scrapes
-  343 images, keeps four, and draws its own illustration from what it saw.
+  Caesar finishes a report, returns to the pages it cited, scrapes 343 images
+  and keeps four. Every clause of the illustration traces to one; 283 are
+  never seen.
 image: >-
   /img/blog/2026-05-20-image-generation/generated.webp
 tags: [caesar, agents, multimodal]
@@ -41,10 +42,10 @@ Every image on every cited page gets pulled. A boilerplate filter throws out any
 URL with a path segment that is exactly `logo`, `icon`, `favicon`, `avatar`,
 `pixel` or a dozen more, duplicates collapse, and 343 is what came out the far
 side, not what went in. Nothing is filtered on size, so plenty of junk survives:
-navigation graphics the token list does not name, author photographs, decorative
+navigation graphics the filter does not name, author photographs, decorative
 headers.
 
-Scoring all 343 with a vision model is the obvious next move and the pipeline
+Scoring all 343 with a vision model is the obvious next move, and the pipeline
 refuses. Scoring is capped at 60 candidates, so **only 60 of the 343 ever get
 looked at** and 283 are never seen. Each is scored 0 to 10 as a visual reference
 for the report's opening; anything under 4.0 is dropped, the survivors ranked,
@@ -95,19 +96,19 @@ opens:
 The lattice towers behind the structure are one reference showing through, and
 the glass towers with vertical planting on the right another, a city skyline.
 The inset technical panel with callout labels is the better example: nobody
-specified an inset, or callouts, or labels. All the prompt-writing step was told
-about the references was one line: "Anchors visual style, palette, composition,
-and lighting in the reference captions when available". The second reference was
-a *labelled* photograph of deep-sea sponges, which the vision model described
-as: "Red arrows and small white marks are overlaid on the image, giving it an
+specified an inset, or callouts, or labels. The template's guidance on
+references is style-level: "Anchors visual style, palette, composition, and
+lighting in the reference captions when available". One reference was a
+*labelled* photograph of deep-sea sponges, which the vision model described as:
+"Red arrows and small white marks are overlaid on the image, giving it an
 annotated, documentary look." The step read that as style and asked for a
 "documentary" inset: a quirk of one source photograph propagating into the
 finished illustration.
 
-Where the descriptions go, the errors go too. The first reference is a
-photograph looking up inside the Sagrada Família, whose branching columns are
-stone. The vision model called them "pale wood", the prompt asked for "pale wood
-branching ribs", and the finished picture is unmistakably wood.
+Where the descriptions go, the errors go too. Another reference is a photograph
+looking up inside the Sagrada Família, whose branching columns are stone. The
+vision model called them "pale wood", the prompt asked for "pale wood branching
+ribs", and the finished picture is unmistakably wood.
 
 Every clause of the prompt goes back to a reference, and from there to the
 picture by eye.
@@ -128,9 +129,11 @@ picture by eye.
 The illustration is specific to *these* sources, not the topic in the abstract:
 a different run, citing different pages, gets a different picture.
 
-So I pointed the same post-processor at four earlier reports on unrelated
-questions, changing nothing. They ran on a later build than the picture above,
-so they are comparable with each other rather than with it.
+## Four other reports
+
+I pointed the same pipeline at four earlier reports on unrelated questions,
+changing nothing. They ran on a later build than the picture above, so they are
+comparable with each other rather than with it.
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/gallery.webp"
@@ -151,11 +154,11 @@ palette and materials from vivid reference captions.
 The fourth is the useful one. On the creativity-scoring question the agent
 scraped **171** images and the best scored 4.0, well under the 7.0 gate, so no
 reference pixels were sent and the picture came from the text alone: the
-threshold in the next section doing its job, no references beating one mediocre
-one. It is weaker evidence than it looks, though: that report would have gone
-text-only regardless, because a regex over the report text had already routed it
-into diagram mode, which overrides that menu, drops reference images by design
-and forces the flat whitepaper look.
+threshold in the next section doing its job, a mediocre reference being worse
+than none. It is weaker evidence than it looks, though: that report would have
+gone text-only regardless, because a regex over the report text had already
+routed it into diagram mode, which overrides that menu, drops reference images
+by design and forces the flat whitepaper look.
 
 ## Two settings that matter
 

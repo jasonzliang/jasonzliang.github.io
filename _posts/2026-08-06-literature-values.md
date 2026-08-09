@@ -5,9 +5,9 @@ title: >-
   performance.
 date: 2026-08-06
 description: >-
-  My self-improving agents run on a values file of three to five bullets. One I
-  wrote from Nietzsche. This one I derived from cited papers, and then audited
-  every citation to see whether any of them were invented.
+  My self-improving agents run on a values file of three to five bullets. I
+  derived one from cited papers, then audited every citation: 22 of 22
+  resolved, none invented, and not one late addition earned a bullet.
 image: >-
   /img/blog/2026-08-06-literature-values/citation-ledger.webp
 tags: [self-improving-agents, agent-design, values]
@@ -40,8 +40,8 @@ That machinery is itself a language-model pipeline, and language-model pipelines
 invent citations: a plausible author and title, a well-formed arXiv number, and
 no such paper. If that happens even once, the file is not derived from the
 literature but from my taste with a bibliography stapled on. So every cited
-paper went through a separate **hallucination-audit pass**, run independently of
-the pipeline that produced the citations.
+paper went through a **hallucination-audit pass**, run independently of the
+pipeline that produced the citations.
 
 ## 22 of 22 citations resolved
 
@@ -65,7 +65,8 @@ misattributions.**
    alt="A two-column ledger of the 22 cited papers, each row giving the paper
         and the identifier the audit resolved. Part A on the left is the
         window-normalized top ten, Part B on the right the self-improving-agent
-        papers; five orange rows are the late additions."
+        papers; five orange rows are the late additions, and a dagger marks
+        Voyager."
    caption="Voyager, daggered, is the only late addition that changed a value."
 %}
 
@@ -84,7 +85,7 @@ ranking of that shape survived the same scrutiny the individual papers did.
 
 The best verifiable substitute is the NLLG quarterly arXiv report, which ranks
 papers by a **publication-week z-score** rather than absolute count, over
-**January 2023 to September 2024 only**. Both halves matter. Normalizing by week
+**January 2023 to September 2024 only**. Both limits matter. Normalizing by week
 measures how far a paper stood out from the papers around it, not how much it
 has been cited since. And the window excludes the pre-2023 canon: GPT-3, ViT,
 CLIP, Stable Diffusion, AlphaFold, Chinchilla and PaLM are all absent, not
@@ -94,12 +95,12 @@ ten, which changes what the Part A values are evidence *of*: they reflect what
 stood out in that twenty-one-month window of arXiv, not what the field has cited
 most.
 
-Part A is the weaker half in a second way, too. Part B's per-paper contributions
-are quoted from the primary sources; Part A's are drawn from established
-knowledge rather than lifted from the papers, with the verified GPT-4 abstract
-as the exception, and carry a **medium confidence** label. The papers in both
-halves are equally verified. The one-line accounts of what each contributed are
-not, and I am not presenting them as though they were.
+Part A is the weaker half in a second way. Part B's per-paper contributions are
+quoted from the primary sources; Part A's are drawn from established knowledge
+rather than lifted from the papers, with the verified GPT-4 abstract as the
+exception, and carry a **medium confidence** label. The papers in both halves
+are equally verified. The one-line accounts of what each contributed are not,
+and I am not presenting them as though they were.
 
 ## What actually came out
 
@@ -135,10 +136,10 @@ reads. I have [watched an uncapped value block grow from 17 lines to
 debate, two adversarial advocates and a neutral judge, which kept every bullet
 with one refinement.
 
-Voyager's disposition, saving a solution a verifier confirmed as a reusable
-skill and building on it later, was **folded into the existing verifier bullet
-as a clause** rather than appended as a sixth value: replace, do not accrete,
-with the three- and five-bullet caps holding. In the Part B list above it is the
+Voyager's disposition, saving a verifier-confirmed solution as a reusable skill
+and building on it later, was **folded into the existing verifier bullet as a
+clause** rather than appended as a sixth value: replace, do not accrete, with
+the three- and five-bullet caps holding. In the Part B list above it is the
 phrase "reusing verified solutions rather than re-deriving."
 
 The other four did not earn a bullet, each for a stated reason. GPT-4's lesson,

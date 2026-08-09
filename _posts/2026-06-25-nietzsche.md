@@ -13,22 +13,22 @@ but how to decide when the task leaves the choice open: the small proven step or
 the ambitious one, a solution as finished or a platform to climb past.
 
 For two long runs in June, one of those files was written from Nietzsche. I want
-to explain that, because "we gave the AI Nietzsche" sounds like a stunt and
-because the results were more complicated than I expected.
+to explain that, because "we gave the AI Nietzsche" sounds like a stunt and the
+results were more complicated than I expected.
 
 ## The setup
 
 Two agents. Same model, harness, task, time limit and honesty rules, sixty
-iterations each. The workspaces are identical but for one file: the second
-template's constitution, workflow modules and logbook format symlink to the
-first's, and only `VALUES.md` is its own. So differences come from a few hundred
-words of disposition, or run-to-run luck **one run per condition** cannot
-separate from it: rare control over everything but sample size.
+iterations each. The workspaces are identical but for one file: the second's
+constitution, workflow modules and logbook format symlink to the first's, and
+only `VALUES.md` is its own. So differences come from a few hundred words of
+disposition, or run-to-run luck that **one run per condition** cannot separate
+from it: rare control over everything but sample size.
 
 With one asymmetry I did not design or notice until later. Both could edit their
-`VALUES.md`, and around iteration 17 the standard-values agent did, loosening
-the clause telling it to change its values "rarely and carefully" without the
-justification its just-installed rule required. The Nietzschean agent, invited
+`VALUES.md`, and around iteration 17 the standard-values agent did: it loosened
+the clause telling it to change its values "rarely and carefully", and gave none
+of the justification its own new rule required. The Nietzschean agent, invited
 explicitly to rewrite itself, never touched the file. So they are not quite
 identical after all: the run that loosened its rule stayed conservative, the one
 that left its values alone kept reaching.
@@ -39,9 +39,9 @@ The **standard** file is what a careful engineer would write: five priorities in
 order (safety and reversibility, intellectual honesty, genuine usefulness,
 rigor, forward progress), then behaviours with teeth (usefulness over motion,
 curiosity, novelty, scope discipline, be your own harshest reviewer). It is not
-blind to the problem below: follow surprise, and treat a safe familiar direction
-as a reason to pick something else. But it is about not making mistakes: most of
-the teeth are restraint.
+blind to the polishing trap below: follow surprise, and treat a safe familiar
+direction as a reason to pick something else. But it is about not making
+mistakes: most of the teeth are restraint.
 
 The **Nietzschean** file is about something else. Its five values:
 
@@ -55,7 +55,7 @@ The **Nietzschean** file is about something else. Its five values:
 5. **Generate wild, verify strict.** The generator's freedom is earned by the
    verifier's severity.
 
-The clause I think most useful in either:
+The clause I think most useful in either file:
 
 > **Refuse herd morality.** The failure mode to avoid is optimizing for the
 > approval of the median observer: sycophancy, regression to the mean,
@@ -70,7 +70,7 @@ harm, stay inside the working directory, never claim something works until you
 have run it, never make a check pass by weakening it. The Nietzschean file says
 outright that these are *not* Nietzschean values and not the agent's to revalue
 or edit: the disposition is not licence, and operates above a floor it cannot
-reach.
+touch.
 
 ## Why Nietzsche
 
@@ -84,9 +84,9 @@ register a values file needs.
 
 The eternal recurrence is a good iteration filter, sharper than "was this
 iteration productive," because it rules out grinding. And the anti-herd clause
-names a measurable failure mode: optimizing for the approval of the median
-observer is RLHF-shaped behaviour, not a metaphor. RLHF, reinforcement learning
-from human feedback, rewards a model for the answers raters prefer.
+names a measurable failure mode. Optimizing for the approval of the median
+observer is RLHF-shaped behaviour, not a metaphor: reinforcement learning from
+human feedback rewards a model for the answers raters prefer.
 
 ## What they became: breadth versus depth
 
@@ -97,7 +97,7 @@ the archived workspaces. My write-up's correction note says 56 for the
 Nietzschean, its table's commit count, not the artifact count.
 
 Both, unprompted, chose the same subject from an open field (mathematical
-universality). The values did not decide *what* they worked on. They decided
+universality). The values did not decide *what* subject they chose. They decided
 *how*.
 
 The standard-values agent became a breadth-first empirical naturalist: roughly
@@ -111,45 +111,47 @@ running on a standard Python install.
    caption="Iteration 44 of the standard-values run: the agent picked the
             abelian sandpile, implemented it and drew its identity element,
             which emerges from grains of sand toppling off overloaded squares.
-            One of that run's 57 artifacts."
+            One of the 57 iterations that left an artifact."
 %}
 
 The Nietzschean went the other way: a large adversarial apparatus, tooling to
 attack its own conclusions, one theme deep rather than wide, and much less
 portable, only 4 of its 36 modules running without extra dependencies.
 
-Those four numbers are mine, counted off the archived workspaces by checking
-every module in each run's tool directory for a third-party import. My write-up
-gives about 25 of 28 and 4 of 37, and is inconsistent with itself: the standard
-count appears as 26, 27 and 28 in three places, the Nietzschean's as 36 and 37.
-The ratio carries the point, and does not move.
+Those four numbers are mine, counted off the archive by checking every module in
+each run's tool directory for a third-party import. My write-up gives about 25
+of 28 and 4 of 37, and is inconsistent with itself: the standard total appears
+as 26, 27 and 28 in three places, the Nietzschean's as 36 and 37. The ratio
+carries the point, and does not move.
 
 The Nietzschean run pointed some of that apparatus at itself: at iteration 6, a
-checker testing its logbook's claims about which earlier iterations it had built
-on against git; [two of eight survived](/blog/resume-audit/). The standard run
-never built one, and finished reporting 56 such claims nobody checked.
+checker that tested against git its logbook's claims about which earlier
+iterations it had built on; [two of eight survived](/blog/resume-audit/). The
+standard run never built one, and finished reporting 56 such claims nobody
+checked.
 
 ## Forty-one web calls, and one
 
-Both runs got an identical mid-run nudge to use external sources. The standard
-agent made **41 web calls**, every one after the nudge; the Nietzschean made
-**one** in the entire run, at iteration 12, and never went back.
+Both got an identical mid-run nudge to use external sources. The standard agent
+made **41 web calls**, every one after the nudge; the Nietzschean made **one**
+in the entire run, at iteration 12, and never went back.
 
 {% include figure.html
    src="/img/blog/2026-06-25-nietzsche/two-agents.webp"
-   alt="Two bar charts: portable modules per agent, and web calls per agent."
+   alt="Two bar charts: portable modules, 24 of 27 against 4 of 36; web calls,
+        41 against 1."
    caption="The two contrasts I could count, both recounted from the archived
             workspaces."
 %}
 
-That is a forty-fold difference on either side of the same instruction, from
-words written weeks earlier. The confound is in my write-up: the standard
-agent's web use began only at iteration 30, seventeen iterations after the
-nudge, by which time the two were on different problems, some genuinely needing
-a constant looked up. The nudge went in around iteration 12 or 13, when the
-Nietzschean made its one call, so that **one** is a whole-run total, not a clean
-count of what it did once told. One run per condition cannot separate "the nudge
-landed differently" from "these values suppress web use."
+That is a forty-fold difference under the same instruction, from words written
+weeks earlier. My write-up flags the confound: the standard agent's web use
+began only at iteration 30, some seventeen iterations after the nudge, by which
+time the two were on different problems, some genuinely needing a constant
+looked up. The nudge went in around iteration 12 or 13, when the Nietzschean
+made its one call, so that **one** is a whole-run total, not a clean count of
+what it did once told. One run per condition cannot separate "the nudge landed
+differently" from "these values suppress web use."
 
 I lean toward the second reading. It is not in the file: the Nietzschean values
 say nothing about fetching, searching or the web. "Recompute, don't fetch," the
@@ -164,8 +166,8 @@ cohort, neither of these runs among them, gave the verdict: at one run per
 condition, **no reliable winner**. The tally leaned Nietzschean, 11 of 14
 matched pairs, and dissolved into roughly four wins on saturated benchmarks
 where every arm ties, roughly two against runs broken for unrelated reasons, one
-contaminated, three that were one result counted thrice. The clean recent cohort
-came out 2 to 2.
+contaminated, three that were one result counted thrice. The four most recent
+matched pairs came out 2 to 2.
 
 Later, on a third task, with five runs per condition, the picture sharpened:
 disposition strongly shapes *how good the code gets* and does not detectably
@@ -188,9 +190,9 @@ disposition document might produce a distinct agent, Nietzsche being a
 convenient source of vivid. That is testable: a third condition of equal
 specificity from a different philosophical source would separate "this
 philosophy works" from "having a strong philosophy works." I have added
-dispositions in that spirit, but not run it.
+dispositions in that spirit, but not run the test.
 
 Until then, the honest claim is narrow: **a few hundred words of disposition,
-holding everything else identical, produced two agents that behaved differently
-enough to be told apart at a glance.** Not better. Different, reliably, and for
-reasons you can read.
+holding everything else identical at the start, produced two agents that behaved
+differently enough to be told apart at a glance.** Not better. Different,
+reliably, and for reasons you can read.

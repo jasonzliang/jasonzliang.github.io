@@ -17,11 +17,11 @@ that most widens what you could do next, nothing you achieve is a stopping
 point. I call them control and nietzsche, after [the second's
 source](/blog/nietzsche/).
 
-This post covers 28 runs plus an 8-run replication cohort, cautious against
-expansive in matched conditions. v3, sm-v4 and sm-v5 are successive versions of
-the two files; the sm ones let the agent rewrite its own values mid-run. A cell
-is one task, disposition and version; a pair is the two dispositions in one
-cell; the detail that governs everything is **one run per cell**.
+This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
+are successive versions of the two files; the sm ones let the agent rewrite its
+own values mid-run. A cell is one task, disposition and version; a pair is two
+cells differing only in disposition; the detail that governs everything is **one
+run per cell**.
 
 Values change *what* the agent builds, a lot. Which is better, this study cannot
 say.
@@ -38,8 +38,8 @@ LLM-heuristic-discovery testbed since FunSearch.
 at a time, no lookahead. Offline is close to solved by a classical heuristic
 plus local search, so the optimised score pins near the ceiling and every arm
 ties; online leaves headroom above the best simple rule, so it separates
-solvers. Two earlier missions, cobench and generalize, were offline variants,
-here only in the tally.
+solvers. Two earlier tasks, cobench and generalize, were offline variants, here
+only in the tally.
 
 The **in-run** score is the one the agent sees and pushes up; the **held-out**
 score I compute after, on families it never trained against, from published
@@ -77,7 +77,7 @@ other 36 the solver packed 16.0 per cent above the optimum, the classical floor
 within noise. Standard error 0.039: the failure is real and large, the multiple
 is not.
 
-Offline only: online, where the in-run score is not pinned, the rankings agreed
+Offline only: online the in-run score is not pinned, and it agreed with held-out
 in the final-harness cohort.
 
 ## What they built
@@ -96,7 +96,7 @@ and 1553, so files on disk run 1.4 to 1.7 times longer. The cautious runs
 converge onto one line of work and defend it; the expansive ones build a tool
 whenever one would help, keep four strategies alive, and ship machinery whose
 value they have not shown. The size half is offline only: online the scoring
-functions are compact whoever wrote them, so size separates nothing there, the
+functions are compact whoever wrote them, so size separates nothing, the
 difference is in the kind of rule.
 
 One episode illustrates the mechanism without testing it. In offline sm-v4 the
@@ -120,7 +120,7 @@ expansive disposition** on the in-run score, sign test p around 0.06, exactly
 the shape of result that gets written up. So I went through them.
 
 **About four of the wins are saturated ties**, both arms pinned: offline in-run
-at about 0.99, cobench at about 0.999, and Hard28, the generalize mission's
+at about 0.99, cobench at about 0.999, and Hard28, the generalize task's
 held-out, saturated as above. Those margins run 0.0006 to 0.0011: a win of a
 thousandth on a benchmark that cannot resolve the arms is not a win.
 
@@ -138,14 +138,14 @@ near-duplicate expansive solvers on shared held-out draws, so counting them as
 three inflates the tally by two.
 
 **And one cohort points the other way:** the three generalize pairs run −0.0028,
-−0.0009 and +0.0009 in-run, netting −0.0028 for control. Warm-started, so not
-clean evidence either, but not support.
+−0.0009 and +0.0009 in-run, one of them in the eleven, netting −0.0028 for
+control. Warm-started, so not clean evidence either, but not support.
 
 The categories are not a partition; subtracting in sequence would be dishonest:
 the broken control arm belongs to A1, itself one of the near-duplicates, so that
-pair is disqualified twice and removable once. Nor do they cover everything: two
-of the eleven wins fall outside all of them, one an older run I never reported,
-leaving exactly one clean expansive win standing.
+pair is disqualified twice and removable once. Nor do they cover everything:
+nine of the eleven wins fall into them, and of the two left over one is an older
+run I never reported, leaving exactly one clean expansive win standing.
 
 What is left is the four pairs under the final matched harness, with a
 discriminating held-out. On held-out that cohort is **2 to 2**; on in-run 3 to 1
@@ -156,7 +156,7 @@ indistinguishable from zero. The 11-of-14 direction does not shrink; it
 evaporates.
 
 Two more things I cannot explain away as tidying. Re-running sm-v4 **reversed
-the held-out winner in both missions**, offline expansive to cautious, online
+the held-out winner in both tasks**, offline expansive to cautious, online
 cautious to expansive: direct non-reproducibility, though confounded, because
 the re-run also changed the harness, including a wall clock that went from one
 hour to three. And in the "clean" cohort one cautious arm rewrote its own values
@@ -166,8 +166,8 @@ controlled contrast it looks like.
 
 That last discount cuts against me: the pair it damages is one the cautious arm
 won. Throw it out and the recent online evidence is a single clean pair, won by
-the expansive arm. Against a split offline result that is still not a direction,
-but the tidying is not free.
+the expansive arm. Against a split offline result, that is still not a
+direction, but the tidying is not free.
 
 ## What survives
 
@@ -188,4 +188,4 @@ on a different task, where the question got a real answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked
-at the pairs one by one. One clean win each is not a direction.
+at the pairs one by one. One clean win each way is not a direction.

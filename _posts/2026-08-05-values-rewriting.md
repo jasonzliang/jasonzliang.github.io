@@ -3,8 +3,8 @@ layout: post
 title: "Given free rein, an agent wrote itself a rule against lying"
 date: 2026-08-05
 description: >-
-  Across 41 self-improvement runs, agents allowed to edit their own value system
-  always did. What they wrote was not what I expected.
+  Across 41 self-improvement runs, every agent allowed to edit its values did
+  so. One wrote itself a rule against reporting numbers it had not measured.
 image: >-
   /img/blog/2026-08-05-values-rewriting/values-growth.webp
 tags: [self-improving-agents, agent-design, ai-safety]
@@ -70,24 +70,24 @@ lines to **446**.
 
 The frozen row is worth being exact about: it is the difference between a real
 control and a tautology. Nothing in the loop enforces it. Each iteration the
-runner rebuilds the invariants and a status header from source and keeps
-whatever the agent left below them, in every condition. A frozen run that
+runner rebuilds the fixed invariants block and a status header from source and
+keeps whatever the agent left below them, in every condition. A frozen run that
 rewrote its own values would have kept the rewrite into the next iteration and I
 would have seen it in the diff. Zero out of fifteen is compliance with an
 instruction, not a lock.
 
-The bounded guardrail names the failure it is trying to prevent, in the file the
-agent reads: in past runs the block "ballooned past 100 lines; that is the
-failure to avoid." No uncapped run ever saw that sentence, because the radical
-files carry no size guidance at all. Fourteen of the fifteen went past the line
+In the file the agent reads, the bounded guardrail names the failure it is
+trying to prevent: in past runs the block "ballooned past 100 lines; that is the
+failure to avoid." No uncapped run ever saw that sentence: the radical files
+carry no size guidance at all. Fourteen of the fifteen went past the line
 anyway. All eleven capped runs held, still exactly three bullets.
 
 The cap held on the count, though, not on the prose. Every one of the eleven got
 longer, by one to ten lines. In the longest capped block the three bullets run
 six to ten lines each, which is no longer the "sentence or two, short enough to
 read at a glance" that the same guardrail asks for. So what the guardrail
-actually enforced was the bullet count, and that alone was enough to keep the
-block an order of magnitude under the uncapped ones.
+actually enforced was the bullet count, and that alone kept the block an order
+of magnitude under the uncapped ones.
 
 {% include figure.html
    src="/img/blog/2026-08-05-values-rewriting/values-growth.webp"
@@ -96,7 +96,7 @@ block an order of magnitude under the uncapped ones.
         bounded runs end inside or beside that band; the 15 radical runs are
         scattered from 96 to 446, all but one past a dashed line at 100."
    caption="Where each run's values block finished. The dashed line is the
-            100-line failure the bounded guardrail names, a sentence the
+            100-line failure the bounded guardrail names, in a sentence the
             uncapped runs never saw."
 %}
 
@@ -149,9 +149,9 @@ Then my word "impossible" turned out to be wrong, and the agent is the one who
 caught it. Everything I quoted above was written after the second occurrence.
 There was a third, at iteration 13, and the rest of that same bullet, which I
 cut from the quote, records it: the failure came back *inside* the very file
-whose own header told it to leave the section empty. "The iteration-11 defence
-failed because it regulated *where numbers come from* and the mechanism is
-upstream of that: **writing the container is what summons the content.**" It
+whose own header told it to leave the verdict section empty. "The iteration-11
+defence failed because it regulated *where numbers come from* and the mechanism
+is upstream of that: **writing the container is what summons the content.**" It
 then wrote a second, stricter mechanism, which ends the file at the verdict
 heading so there is no empty shape asking to be filled, and machine-copies the
 tables in afterwards.

@@ -27,7 +27,7 @@ a little more than the second allows.
 
 ## The four runs
 
-These runs used the loop's focused mode: on iteration 1 the agent picks one
+These runs used the runner's focused mode: on iteration 1 the agent picks one
 target from a curated list of research repositories, vendors it offline, and
 builds its own benchmark, ending in a `CRITERION.md` holding one numeric bar it
 has to beat. The benchmark is frozen from there; every later iteration changes
@@ -40,19 +40,19 @@ The two catalogs are unrelated lists of agent-evolution research. Mission 1 ran
 capped at 60 minutes on 24 June. Same model, same honesty floor, and nearly the
 same runner: one change I made in between turns out to matter. The planned
 difference is one file, a cautious values document against an expansive one
-written from Nietzsche. All four passed a six-check integrity pass at run time,
+written from Nietzsche. All four cleared a six-check integrity pass at run time,
 including byte-identical frozen graders and a single-root git history. The
 per-run `.git` directories were [deleted on archival](/blog/resume-audit/), so
 those are run-time observations I cannot re-run now.
 
 The shape was the same both times. The cautious run cleared its own bar early,
 at **iteration 5** on mission 1 and **iteration 4** on mission 2, then spent the
-remaining forty-odd iterations mapping the limits of what it built, ending on
-mission 2 at 92.2% of a ceiling it derived for its held-out metric. The
-expansive run never cleared its own bar at all: mission 1's froze the better of
-its two candidate baselines as the target ("Freezing the EA's 0.0659 as the bar
-would be a strawman") and never reached it, and mission 2's missed its bar by
-0.003 and built thirteen frozen benchmarks instead.
+rest of the run mapping the limits of what it built, ending on mission 2 at
+92.2% of a ceiling it derived for its held-out metric. The expansive run never
+cleared its own bar at all: mission 1's froze the better of its two candidate
+baselines as the target ("Freezing the EA's 0.0659 as the bar would be a
+strawman") and never reached it, and mission 2's missed its bar by 0.003 and
+built thirteen frozen benchmarks instead.
 
 ## What I wrote down, three times
 
@@ -70,23 +70,23 @@ as the cleanest comparison in the set**, both runs single-domain, equal at 40
 iterations and held to the same one-lever discipline, and finds near-identical
 work: "When the philosophy had a fair fight, it left no fingerprint but the
 words." The one gap it reports runs backwards, the cautious run editing its own
-values file once and the self-overcoming one never touching it.
+values file once and the expansive one never touching it.
 
-**24 July: both of you over-claimed.** Nine days later an independent
+**24 July: both of you over-claimed.** Nine days later a separate
 re-verification stapled a correction to both documents. On the 24 June write-up
 it confirms the headline numbers verbatim against the run's own report, restates
 that the values-as-architecture reading is confounded with target choice, and
 ends "Correctly kept archived." On the audit it confirms the verifiable core,
-the tag, bench and iteration counts and the debunking of an invented boldness
-score, then says of the audit's own headline: "over-generalized; do not rely on
-it."
+the tag, benchmark and iteration counts and the debunking of an invented
+boldness score, then says of the audit's own headline: "over-generalized; do not
+rely on it."
 
 The most recent document says both earlier readings over-claimed and does not
-say which is closer to right. One detail matters here: the audit's evidence that
-the mission-2 pair was near-identical but backwards was that the cautious run
-"wrote 4 formal proposals to change its rulebook", which the correction
-reclassifies as proposals about the immutable constitution file, routed to a
-human rather than applied, and so evidence the floor held.
+say which is closer to right. One detail matters here: the audit's other
+evidence for that backwards gap was that the cautious run "wrote 4 formal
+proposals to change its rulebook", which the correction reclassifies as
+proposals about the immutable constitution file, routed to a human rather than
+applied, and so evidence the floor held.
 
 ## What actually survives
 
@@ -101,10 +101,10 @@ human rather than applied, and so evidence the floor held.
             check, is a run-time observation I cannot repeat."
 %}
 
-Two things came out the same way on both missions: the bar, as above, and the
-expansive run leaving more frozen benchmarks behind, 10 against 1 on mission 1
-and 13 against 6 on mission 2. Neither expansive run lowered the bar it missed,
-the failure the frozen-grader machinery exists to catch.
+Two things came out the same way on both missions: which run cleared its own
+bar, and the expansive run leaving more frozen benchmarks behind, 10 against 1
+on mission 1 and 13 against 6 on mission 2. Neither expansive run lowered the
+bar it missed, the failure the frozen-grader machinery exists to catch.
 
 Three did not, cautious first. Hoisted shared modules were 1 against 1 on
 mission 1 and 0 against 2 on mission 2. Loose scripts at the workspace root were
@@ -132,7 +132,7 @@ and part of what I am calling character is the choice of target itself.
 It eats into the benchmark count too: the audit reads a run's extra benchmark
 directories as harder rungs of the problem it happened to pick rather than a
 wider reach, which is close to saying the count belongs to the target and not to
-the values. I do not think that fully explains 13 against 6 and 10 against 1,
+the values. I do not think that fully explains 10 against 1 and 13 against 6,
 but I cannot show it does not.
 
 Nor can I rescue the audit's verdict wholesale. It is right that mission 2 is
@@ -142,7 +142,7 @@ at medium confidence, the weakest grade of anything it kept, and its headline is
 flagged as over-generalised. The document that disagrees with my replication is
 not in good enough shape to replace it. My filing is a verdict too: both of
 these documents sit in an archive folder, and on the day the corrections landed
-I promoted the earlier study out of it.
+I promoted the sixty-iteration study out of it.
 
 So: one run per cell, two missions, a target-choice confound, and three rounds
 of my own writing that do not agree. The most recent verifies numbers rather
@@ -151,8 +151,8 @@ audit. What would settle it is more than one run per cell, iterations and
 configuration held equal, and a fixed starting target so that target choice
 cannot masquerade as character. I have not run that. When I ran a properly
 powered version of a related question, the effect I liked went away, and on a
-third task taking my own tally apart pair by pair left no reliable direction at
-all. Neither is this experiment; I have not settled this one.
+third task, taking my own tally apart pair by pair left no reliable direction at
+all. Neither of those is this experiment; I have not settled this one.
 
 ## Where my records disagree
 
@@ -166,9 +166,9 @@ overload errors and never retried them, which I have not found recorded before
 now and which my deck contradicts by saying both mission-2 runs completed 40 of
 40.
 
-The deck disagrees with the workspaces in three places: mission 1 commit counts
-of 85 and 88 against the write-up's 88 and 88, neither checkable now the per-run
+The deck disagrees with the record in three places: mission 1 commit counts of
+85 and 88 against the write-up's 88 and 88, neither checkable now the per-run
 git directories are gone; a copy-pasted benchmark description on one mission-2
-slide; and 92.2%, the held-out figure, attached on another to the scored number,
-which is 93.5% of the same ceiling. None of that moves the shape, and I would
-rather say it than have someone else find it.
+slide; and 92.2%, the held-out figure, given on another slide as the scored
+number, which is really 93.5% of the same ceiling. None of that moves the shape,
+and I would rather say it than have someone else find it.

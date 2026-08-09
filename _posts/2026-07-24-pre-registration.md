@@ -3,9 +3,9 @@ layout: post
 title: "I froze my analysis, and it said I was underpowered"
 date: 2026-07-24
 description: >-
-  Medicine and psychology freeze their analysis before seeing the data. Almost
-  nobody does this in AI. Here is what it looks like when the experimental unit
-  is an agent run.
+  Medicine and psychology freeze their analysis before seeing the data; almost
+  nobody does this in AI. I tried it with agent runs as the unit, and the gate
+  came back underpowered.
 image: /img/blog/2026-07-24-pre-registration/verdict-gate.webp
 tags: [methodology, self-improving-agents, evaluation]
 ---
@@ -18,7 +18,7 @@ choices in it never changed.
 The experiment was four agent runs improving an online bin-packing heuristic, a
 program that drops arriving items into bins one at a time with no lookahead. One
 run got a control values document and one got a [Nietzsche-derived
-one](/blog/nietzsche/), at each of two versions of those documents. The runs
+one](/blog/nietzsche/); that pair ran at each of two document versions. The runs
 themselves were already finished and frozen. What was still ahead of me was
 scoring their programs on a held-out benchmark I had just rebuilt, and that
 scoring step is what the document locked down.
@@ -69,15 +69,15 @@ neither: it comes from a third document, a standing analysis playbook that says
 how any two runs in this project get compared.
 
 Between them the two pre-registrations pin down five things. I have marked which
-one each comes from, because three of the five are not in the frozen document,
-and a post that let you assume otherwise would be doing the thing this post is
-against.
+document each comes from, because three of the five are not in the frozen
+document, and a post that let you assume otherwise would be doing the thing this
+post is against.
 
 **The primary endpoint** (frozen and draft). Exactly one number: how the evolved
 program packs items whose sizes are drawn uniformly, when every item it trained
 on came from a Weibull distribution. That is the distribution shift. The metric
-is the mean excess over a lower bound on the optimal number of bins, and lower
-is better.
+is the mean percentage excess over a lower bound on the optimal number of bins,
+and lower is better.
 
 **The unit of analysis** (frozen and draft). This one is specific to agent
 research, and where I expect most people to get it wrong. My experimental unit
@@ -92,8 +92,9 @@ almost anything look significant.
 which condition each came from, and re-deal the labels. Every way of splitting
 the runs into two groups of equal size gives you one difference the experiment
 could have produced by luck alone. The p-value is the fraction of those re-dealt
-differences at least as large as the real one. This is nice: the re-dealt
-distribution *is* your pipeline's noise floor, measured rather than assumed.
+differences at least as large in magnitude as the real one. This is nice: the
+re-dealt distribution *is* your pipeline's noise floor, measured rather than
+assumed.
 
 My implementation does not sample those re-deals, it enumerates them, which at
 five runs per condition is 252 and not the ten thousand shuffles you usually
@@ -162,8 +163,8 @@ agent time, spent in one overnight batch. It is also correct, and I know it is
 correct rather than merely suspecting it, which is the entire return on writing
 the document.
 
-The follow-up is specified in that second document, honest about its own status
-in a way worth preserving: it is headed "Draft for review," it says confirmatory
+The follow-up is specified in the draft document, honest about its own status in
+a way worth preserving: it is headed "Draft for review," it says confirmatory
 work "must not begin until this doc is frozen," and it declines to assert a
 sample size, on the grounds that picking a number before the pilot would be
 unprincipled. It is a plan for a power analysis, not a power analysis.
