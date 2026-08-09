@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I called it a replication. My own audit called it a tie."
+title: "I called it a replication. Two of five measures held."
 date: 2026-07-02
 description: >-
   I ran the same one-file values swap on a second mission catalog, saw the same

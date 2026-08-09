@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "I gave an agent Nietzschean values. It behaved differently, not better."
+title: "One values file split two agents' behaviour, with no reliable winner"
 date: 2026-06-25
-description: Two self-improving agents differing in one values file.
+description: >-
+  Two agents differing in one values file. At one run per condition, no
+  reliable winner.
 image: /img/blog/2026-06-25-nietzsche/two-agents.webp
 tags: [self-improving-agents, agent-design, values]
 ---
@@ -24,7 +26,7 @@ iterations each. The workspaces are identical but for one file: the second's
 constitution, workflow modules and logbook format symlink to the first's, and
 only `VALUES.md` is its own. So differences come from a few hundred words of
 disposition, or run-to-run luck that **one run per condition** cannot separate
-from it: rare control over everything but sample size.
+from it: control over everything but sample size.
 
 With one asymmetry I did not design or notice until later. Both could edit their
 `VALUES.md`, and around iteration 17 the standard-values agent did: it loosened
@@ -56,7 +58,7 @@ The **Nietzschean** file is about something else. Its five values:
 5. **Generate wild, verify strict.** The generator's freedom is earned by the
    verifier's severity.
 
-The clause I think most useful in either file:
+The most useful clause in either file:
 
 > **Refuse herd morality.** The failure mode to avoid is optimizing for the
 > approval of the median observer: sycophancy, regression to the mean,
@@ -100,9 +102,9 @@ Nietzschean, its table's commit count, not the artifact count.
 Both, unprompted, chose the same subject from an open field (mathematical
 universality). The values did not decide *what* they chose. They decided *how*.
 
-The standard-values agent became a breadth-first empirical naturalist: roughly
-37 domains, a general-purpose toolkit, and portable work, 24 of its 27 modules
-running on a standard Python install.
+The standard-values agent became a breadth-first naturalist: roughly 37 domains,
+a general-purpose toolkit, and portable work, 24 of its 27 modules running on a
+standard Python install.
 
 {% include figure.html
    src="/img/blog/2026-06-25-nietzsche/sandpile.webp"
@@ -186,11 +188,11 @@ an agent builds, in a file you can diff, is a superb ratio of effect to effort.
 The Nietzschean framing more carefully. The eternal-recurrence check and the
 anti-herd clause are load-bearing and I have kept them since; the grander
 language (will to power, amor fati) I am less sure about, since any vivid
-disposition document might produce a distinct agent, Nietzsche being a
-convenient source of vivid. That is testable: a third condition of equal
-specificity from a different philosophical source would separate "this
-philosophy works" from "having a strong philosophy works." I have added
-dispositions in that spirit, but not run the test.
+disposition document might produce a distinct agent, Nietzsche being a source of
+vivid. That is testable: a third condition of equal specificity from a different
+philosophical source would separate "this philosophy works" from "having a
+strong philosophy works." I have added dispositions in that spirit, but not run
+the test.
 
 Until then, the honest claim is narrow: **a few hundred words of disposition,
 holding everything else identical at the start, produced two agents that behaved

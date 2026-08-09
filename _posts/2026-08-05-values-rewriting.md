@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Given free rein, an agent wrote itself a rule against lying"
+title: "Given free rein, an agent wrote itself a rule against inventing numbers"
 date: 2026-08-05
 description: >-
-  Across 41 self-improvement runs, every agent allowed to edit its values did
-  so. One wrote itself a rule against reporting numbers it had not measured.
+  Across 41 self-improvement runs, every agent allowed to edit its values
+  did so.
 image: >-
   /img/blog/2026-08-05-values-rewriting/values-growth.webp
 tags: [self-improving-agents, agent-design, ai-safety]

@@ -1,8 +1,6 @@
 ---
 layout: post
-title: >-
-  I derived an agent's values from the literature. All 22 citations held up;
-  whether the values do is untested.
+title: "Values from the literature: citations verified, values untested"
 date: 2026-08-06
 description: >-
   My self-improving agents run on a values file of three to five bullets. I

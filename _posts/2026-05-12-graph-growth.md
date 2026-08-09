@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An agent's map of the web stays a tree, and half its steps are revisits"
+title: "An agent's map of the web stops being a tree early"
 date: 2026-05-12
 description: >-
   The agent saved a snapshot of its exploration graph every 50 steps and

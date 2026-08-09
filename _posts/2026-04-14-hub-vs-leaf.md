@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes from hub pages scored higher, and why I doubt it"
+title: "Where an agent reads changed what it concluded, a little"
 date: 2026-04-14
 description: >-
   Notes the agent took at well-connected pages scored higher than notes it took

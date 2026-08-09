@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I took my own 11-win result apart. One clean win survived."
+title: "My 11-of-14 win tally evaporated under its own audit"
 date: 2026-07-26
 description: >-
   A tally said the expansive disposition won 11 of 14 matched pairs. Pair by

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "We asked three AIs to grade seven AIs. Our bias test missed one."
+title: "Our judge bias test confused strictness with favouritism"
 date: 2026-02-10
 description: >-
   Using language models as judges is now standard practice. We measured whether

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Our AI judges called it a landslide. The humans split 63 to 49."
+title: "AI judges called it decisive. Humans barely preferred it."
 date: 2026-03-30
 description: >-
-  Our AI judges gave our research agent a decisive win. Our human raters gave it
-  56.25%. The gap between those two numbers is the interesting result.
+  Our AI judges gave our research agent a decisive win. The humans preferred
+  it in 63 of 112 comparisons, an interval that still spans a coin flip.
 image: >-
   /img/blog/2026-03-30-human-vs-machine/human-vs-machine.webp
 tags: [evaluation, human-evaluation, caesar]

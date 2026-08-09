@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An agent checked its own logbook and found 2 of 8 claims held up"
+title: "An agent's claims about its own work erred in both directions"
 date: 2026-06-18
 description: >-
   An AI agent kept a log of which earlier work it had built on. Then it checked

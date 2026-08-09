@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Starting values are an axiom, not a fence"
+title: "Starting values as an axiom, not a fence"
 date: 2026-07-08
 description: >-
   In a system that rewrites itself, the values you start with are not a safety

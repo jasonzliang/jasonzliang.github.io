@@ -1,13 +1,10 @@
 ---
 layout: post
-title: >-
-  An agent illustrated its own report, and every image traces to a page it
-  read
+title: "An agent illustrated its own report from the pages it cited"
 date: 2026-05-20
 description: >-
-  Caesar finishes a report, returns to the pages it cited, scrapes 343 images
-  and keeps four. Every clause of the illustration traces to one; 283 are
-  never seen.
+  Caesar finishes a report, returns to the pages it cited, scrapes 343
+  images and keeps four. 283 are never seen.
 image: >-
   /img/blog/2026-05-20-image-generation/generated.webp
 tags: [caesar, agents, multimodal]

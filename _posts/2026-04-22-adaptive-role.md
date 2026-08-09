@@ -1,7 +1,6 @@
 ---
 layout: post
-title: >-
-  The agent rewrites its own job description. I cannot tell you if it helps.
+title: "An agent that rewrites its own role mostly writes the same one"
 date: 2026-04-22
 description: >-
   Before exploring, Caesar reads one page and rewrites the prompt defining what

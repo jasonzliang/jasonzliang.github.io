@@ -1,12 +1,11 @@
 ---
 layout: post
 title: >-
-  I ran it once and got a headline. I ran it five times and it reversed.
+  Values shape how good an agent's code gets, not whether it generalizes
 date: 2026-08-07
 description: >-
-  A single-run experiment said an agent's values drove how well its code
-  generalized. A replication with five runs per condition found no evidence of
-  it at all.
+  Thirty runs across six conditions. Values shape how good the code gets, and
+  show no detectable effect on whether it generalizes.
 image: /img/blog/2026-08-07-powered-replication/cliffs-delta.webp
 tags: [self-improving-agents, replication, evaluation]
 ---
