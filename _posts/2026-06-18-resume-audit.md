@@ -3,9 +3,9 @@ layout: post
 title: "An agent's claims about its own work erred in both directions"
 date: 2026-06-18
 description: >-
-  An AI agent kept a log of which earlier work it had built on. Then it checked
-  those claims against git. Of the first eight, two held up, three were refuted,
-  and three the check could not settle.
+  One agent's logbook over-counted what it had built on, and a sibling run
+  under-counted. Of the first eight claims checked against git, two held up,
+  three were refuted, three could not be settled.
 image: >-
   /img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp
 tags: [self-improving-agents, evaluation, ai-honesty]

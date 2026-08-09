@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Given free rein, an agent wrote itself a rule against inventing numbers"
+title: >-
+  Given free rein, an agent wrote itself an anti-fabrication rule. It failed.
 date: 2026-08-05
 description: >-
-  Across 41 self-improvement runs, every agent allowed to edit its values
-  did so.
+  Across 41 runs, every agent allowed to edit its values did. One ruled that a
+  number enters its prose only by copy from an instrument.
 image: >-
   /img/blog/2026-08-05-values-rewriting/values-growth.webp
 tags: [self-improving-agents, agent-design, ai-safety]
@@ -86,7 +87,7 @@ The cap held on the count, though, not on the prose. Every one of the eleven got
 longer, by one to ten lines. In the longest capped block the three bullets run
 six to ten lines each, which is no longer the "sentence or two, short enough to
 read at a glance" that the same guardrail asks for. So what the guardrail
-actually enforced was the bullet count, and that alone kept the block an order
+actually enforced was the bullet count, and that alone held the block an order
 of magnitude under the uncapped ones.
 
 {% include figure.html

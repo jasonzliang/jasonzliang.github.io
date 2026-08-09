@@ -3,8 +3,8 @@ layout: post
 title: "My 11-of-14 win tally evaporated under its own audit"
 date: 2026-07-26
 description: >-
-  A tally said the expansive disposition won 11 of 14 matched pairs. Pair by
-  pair, it was gone.
+  Eleven of fourteen matched pairs favoured the expansive disposition. Five
+  discounts later, one each way.
 image: /img/blog/2026-07-26-bin-packing-values/offline-inrun-vs-heldout.webp
 tags: [self-improving-agents, evaluation, values]
 ---

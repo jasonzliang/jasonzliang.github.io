@@ -3,8 +3,8 @@ layout: post
 title: "One values file split two agents' behaviour, with no reliable winner"
 date: 2026-06-25
 description: >-
-  Two agents differing in one values file. At one run per condition, no
-  reliable winner.
+  Two agents differing in one values file. One went wide and portable, the
+  other deep and adversarial. No reliable winner at n=1.
 image: /img/blog/2026-06-25-nietzsche/two-agents.webp
 tags: [self-improving-agents, agent-design, values]
 ---
@@ -58,7 +58,7 @@ The **Nietzschean** file is about something else. Its five values:
 5. **Generate wild, verify strict.** The generator's freedom is earned by the
    verifier's severity.
 
-The most useful clause in either file:
+The best clause in either file:
 
 > **Refuse herd morality.** The failure mode to avoid is optimizing for the
 > approval of the median observer: sycophancy, regression to the mean,
@@ -102,7 +102,7 @@ Nietzschean, its table's commit count, not the artifact count.
 Both, unprompted, chose the same subject from an open field (mathematical
 universality). The values did not decide *what* they chose. They decided *how*.
 
-The standard-values agent became a breadth-first naturalist: roughly 37 domains,
+The standard-values agent became a breadth-first generalist: roughly 37 domains,
 a general-purpose toolkit, and portable work, 24 of its 27 modules running on a
 standard Python install.
 
@@ -116,9 +116,9 @@ standard Python install.
             One of the 57 iterations that left an artifact."
 %}
 
-The Nietzschean went the other way: a large adversarial apparatus, tooling to
-attack its own conclusions, one theme deep rather than wide, and much less
-portable, only 4 of its 36 modules running without extra dependencies.
+The Nietzschean went the other way: a big adversarial apparatus, tools to attack
+its own conclusions, one theme deep rather than wide, and much less portable,
+only 4 of its 36 modules running without extra dependencies.
 
 Those four numbers are mine, counted off the archive by checking every module in
 each run's tool directory for a third-party import. My write-up gives about 25
@@ -134,9 +134,9 @@ checked.
 
 ## Forty-one web calls, and one
 
-Both got an identical mid-run nudge to use external sources. The standard agent
-made **41 web calls**, every one after the nudge; the Nietzschean made **one**,
-at iteration 12, and never went back.
+Both got the same mid-run nudge to use external sources. The standard agent made
+**41 web calls**, every one after the nudge; the Nietzschean made **one**, at
+iteration 12, and never went back.
 
 {% include figure.html
    src="/img/blog/2026-06-25-nietzsche/two-agents.webp"
@@ -188,11 +188,10 @@ an agent builds, in a file you can diff, is a superb ratio of effect to effort.
 The Nietzschean framing more carefully. The eternal-recurrence check and the
 anti-herd clause are load-bearing and I have kept them since; the grander
 language (will to power, amor fati) I am less sure about, since any vivid
-disposition document might produce a distinct agent, Nietzsche being a source of
-vivid. That is testable: a third condition of equal specificity from a different
-philosophical source would separate "this philosophy works" from "having a
-strong philosophy works." I have added dispositions in that spirit, but not run
-the test.
+disposition document might produce a distinct agent. That is testable: a third
+condition of equal specificity from a different philosophical source would
+separate "this philosophy works" from "having a strong philosophy works." I have
+added dispositions in that spirit, but not run the test.
 
 Until then, the honest claim is narrow: **a few hundred words of disposition,
 holding everything else identical at the start, produced two agents that behaved

@@ -4,8 +4,9 @@ title: >-
   Values shape how good an agent's code gets, not whether it generalizes
 date: 2026-08-07
 description: >-
-  Thirty runs across six conditions. Values shape how good the code gets, and
-  show no detectable effect on whether it generalizes.
+  A single-run experiment said values drove generalization. Thirty runs
+  found a large effect on capability, Cliff's delta +0.80, and a null on the
+  unseen board.
 image: /img/blog/2026-08-07-powered-replication/cliffs-delta.webp
 tags: [self-improving-agents, replication, evaluation]
 ---

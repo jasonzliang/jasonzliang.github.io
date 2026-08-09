@@ -3,9 +3,9 @@ layout: post
 title: "I called it a replication. Two of five measures held."
 date: 2026-07-02
 description: >-
-  I ran the same one-file values swap on a second mission catalog, saw the same
-  split, and wrote it up as a replication. Three weeks later I analysed the same
-  four runs again and called the two agents near-indistinguishable.
+  I ran the same one-file values swap on a second mission catalog and wrote
+  it up as a replication. Of five measures, two came out the same way on
+  both missions.
 image: >-
   /img/blog/2026-07-02-same-two-agents/what-replicated.webp
 tags: [self-improving-agents, values, replication]
