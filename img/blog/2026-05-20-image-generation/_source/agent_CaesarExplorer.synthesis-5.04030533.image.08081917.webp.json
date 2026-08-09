@@ -1,0 +1,45 @@
+{
+  "image_path": "/private/tmp/imggen_gallery/agent_CaesarExplorer.synthesis-5.04030533.image.08081917.webp",
+  "image_model": "gpt-image-2",
+  "prompt": "A crisp black-and-white textbook lithograph of a single 5x8 recipe card on a white enamel prep table, seen straight from above. The card\u2019s layout is the bold choice: four small glass jars drawn at the corners of a diamond, from separated oil and acid at left to one finished emulsified vinaigrette jar at right, with thin black arrows tracing two alternate legal paths around the diamond. Along each edge, small pencil tally marks and tiny serif numbers mark local cost; the upper path\u2019s sum visibly differs from the lower path\u2019s sum. Keep the square\u2019s center mostly empty except for a faint graphite smudge, as if the discrepancy is trapped inside the loop. Minimal grayscale palette, thin outlines, serif labels, flat even overhead light, clean symmetrical composition, white background, slight oil ring and worn card edges, visual language borrowed from mathematical line diagrams rather than photography.",
+  "caption": "Cookculus pins order effects to local loop defects: two pencil-marked routes around a vinaigrette diamond reach the same jar with different tally sums.",
+  "mode": "metaphor",
+  "picked_pool": [
+    {
+      "url": "https://math.libretexts.org/@api/deki/files/1991/4.3.4.png?revision=1",
+      "alt": "alt",
+      "score": 7.0,
+      "caption": "The image shows two side-by-side black-and-white line diagrams labeled \u201c(a) Region R with one hole\u201d and \u201c(b) Region R with two holes.\u201d In each panel, a large outlined oval encloses one or two smaller circular holes, with labels \\(R_1\\), \\(R_2\\), and boundary curves \\(C_1\\), \\(C_2\\), \\(C_3\\), plus small arrowheads indicating orientation and a dashed horizontal line through the center marked by short left-right arrows.\n\nThe composition is clean and symmetrical, with the left diagram simpler and the right diagram adding a second interior circle. The palette is minimal grayscale on a white background, and the style is a crisp textbook or mathematical illustration with thin black outlines, serif labels, and flat, even lighting."
+    },
+    {
+      "url": "https://media.springernature.com/w215h120/springer-static/image/art%3A10.1007%2Fs40753-026-00304-x/MediaObjects/40753_2026_304_Fig1_HTML.png",
+      "alt": "",
+      "score": 5.0,
+      "caption": "The image is a simple black-and-white diagram on a white background, made of six outlined ovals connected by labeled arrows arranged in a loose triangular layout. \u201cConstruction\u201d sits near the top center with \u201cVisualization\u201d to the upper left and \u201cProof\u201d to the upper right; below them are \u201cRepresentation\u201d on the left, \u201cArtifact\u201d at the bottom center, and \u201cReferential\u201d on the right, with thin vertical and diagonal arrows labeled with terms such as \u201cactive plan,\u201d \u201cstructure process,\u201d \u201cmaterial process,\u201d \u201cartifact process,\u201d and \u201creference process.\u201d"
+    },
+    {
+      "url": "https://media.springernature.com/w72/springer-static/cover/book/978-3-540-27755-2.jpg?as=webp",
+      "alt": "",
+      "score": 5.0,
+      "caption": "A green and dark blue book cover fills the image, with the title \u201cLectures on Colonialism and Publics\u201d set in small yellow text near the upper left and the author name \u201cMahmood Kooria\u201d below it in white. The composition is divided into horizontal color blocks, with a bright green band across the top and a large deep blue field below, plus small publisher marks and text along the lower left edge."
+    },
+    {
+      "url": "https://math.libretexts.org/@api/deki/files/1989/4.3.2.png?revision=1",
+      "alt": "alt",
+      "score": 5.0,
+      "caption": "A small black-background coordinate diagram shows white x- and y-axes crossing at the origin, with labels \u201cx,\u201d \u201cy,\u201d \u201c0,\u201d and a marked point near the top labeled \u201c(1, 2).\u201d Two narrow white line segments form a slim wedge from the origin to that point, with arrowheads along the segments, and the letter \u201cC\u201d appears beside the shape; the image is rendered as simple white line art with a stark monochrome palette."
+    }
+  ],
+  "refs_sent_to_api": [
+    "https://math.libretexts.org/@api/deki/files/1991/4.3.4.png?revision=1",
+    "https://media.springernature.com/w215h120/springer-static/image/art%3A10.1007%2Fs40753-026-00304-x/MediaObjects/40753_2026_304_Fig1_HTML.png",
+    "https://media.springernature.com/w72/springer-static/cover/book/978-3-540-27755-2.jpg?as=webp",
+    "https://math.libretexts.org/@api/deki/files/1989/4.3.2.png?revision=1"
+  ],
+  "generation_via": "images.edit",
+  "refs_passed_to_api": 4,
+  "candidate_count": 36,
+  "cited_urls_scraped": 15,
+  "size": "1792x1024",
+  "quality": "high"
+}

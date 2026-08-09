@@ -1,0 +1,45 @@
+{
+  "image_path": "/private/tmp/imggen_gallery/agent_CaesarExplorer.synthesis-5.04030527.image.08081921.webp",
+  "image_model": "gpt-image-2",
+  "prompt": "Reportage lithograph with documentary realism, floor-level close view inside a bamboo-walled clinic room. Center the scene on a dented metal cashbox standing open on a woven mat; from its latch hangs a single compact clinic receipt with sparse fields, a signature mark, and no personal name, clipped to a heavy blue surety seal on thin wire. At the left edge, a swollen red notebook ledger is bound shut with cloth tape, clearly unopened. In the foreground, a few medicine boxes, tissue, and a blue blood-pressure cuff partly enter frame; in the background, a plastic chair and hanging clothes blur softly. Use soft natural window light, warm brown bamboo textures, dusty beige and muted pink shadows, cooled by faded blues in the equipment and seal. Keep the composition tight and tactile, with the open cashbox and anonymous receipt in crisp focus and the shut ledger visibly secondary.",
+  "caption": "LegibilitySwap\u2019s Safe-Harbor Policy makes receipt-only proof the safest way to get paid: an open clinic cashbox sits beside a tied-shut name ledger, with one stamped receipt clipped to a blue surety seal.",
+  "mode": "metaphor",
+  "picked_pool": [
+    {
+      "url": "https://img.msf.org/AssetLink/5d2b7ah72rf4s6317n4k1g73hpjtk243.jpg",
+      "alt": "MSF-Nurse Habiba Jannat Deba (26) and  patient Abu Hashim (58) during Hepatitis C testing  in Kutupalong refugee camp.\r\n\r\nphoto from a series (1/3)",
+      "score": 8.0,
+      "caption": "An older man in a white cap, white T-shirt, and blue plaid lungi sits on a woven mat while a woman in a patterned hijab, glasses, blue shirt, and white vest uses a blue blood pressure cuff and a finger-prick device on his arm. The scene is framed at floor level inside a bamboo-walled room, with medical supplies, boxes, a red notebook, and tissue in the foreground, and hanging clothes, a plastic chair, and a suitcase in the background.\n\nThe lighting is soft and natural, with warm brown tones from the woven walls contrasting with the cooler blues of the clothing and medical equipment. The image has a candid documentary style with sharp focus on the two subjects and visible textures in the bamboo, fabric, and plastic materials."
+    },
+    {
+      "url": "https://img.msf.org/AssetLink/51v2qwa4qldach82yab5254o572y6713.jpg",
+      "alt": "Rohingya refugees meet up and talk in the streets of the camps. Cox\u2019s Bazar, Bangladesh, October 2023 \u00a9 Ro Yassin Abdumonab\r\n\r\nDes r\u00e9fugi\u00e9s rohingyas se rassemblent et discutent dans les camps de Cox\u2019",
+      "score": 8.0,
+      "caption": "A wide dirt road runs down the center of the image through a village of low bamboo and tin-roofed structures, with small groups of people in light-colored robes and caps scattered along the street and sitting at the edges. Utility poles and wires line both sides, drawing the eye toward the hazy background of trees and rooftops.\n\nThe scene is lit by soft dusk or dawn light, with a muted palette of dusty browns, blue-gray roofs, deep greens, and a pink-lavender sky. The image has a naturalistic photographic style with slight atmospheric haze that softens the distant details."
+    },
+    {
+      "url": "https://exposure.accelerator.net/production/photos/3xlglhldkcuchnn9eaauq9xjk862itbzf15z/original.jpg;resize(1200,_).jpeg?auto=webp",
+      "alt": "A nurse distributes medications to patients in the multidrug-resistant TB (MDR-TB) ward of the regional TB hospital in Zhytomyr, Ukraine.",
+      "score": 4.0,
+      "caption": "A woman in a white medical coat with coral trim, a tall coral cap, and a white face mask stands centered in a pale pink hallway, holding a shallow tray filled with boxed and packeted medical supplies. The corridor is lit by soft daylight from a row of windows on the right, with tiled floors, posters on the walls, radiators under the windows, and an open door and blurred figure in the background; the image has a natural, documentary-style look with warm pink, white, and beige tones."
+    },
+    {
+      "url": "https://exposure.accelerator.net/production/photos/98gcp9k3q279jh7jnult56ss3l5f6o6dx4eu/original.jpg;resize(1200,_).jpeg?auto=webp",
+      "alt": "Patients in the ward of the Zhytomyr regional TB hospital gaze outside.",
+      "score": 4.0,
+      "caption": "A long indoor corridor with pink-beige walls and brown tile flooring is lined with tall white-framed windows on the left, where four masked men stand or crouch near the radiators; another figure in blue clothing walks away in the distance. Soft daylight from the windows creates gentle side lighting and long perspective lines, while the muted palette of dusty pink, brown, gray, olive, and white gives the scene a quiet, subdued documentary look."
+    }
+  ],
+  "refs_sent_to_api": [
+    "https://img.msf.org/AssetLink/5d2b7ah72rf4s6317n4k1g73hpjtk243.jpg",
+    "https://img.msf.org/AssetLink/51v2qwa4qldach82yab5254o572y6713.jpg",
+    "https://exposure.accelerator.net/production/photos/3xlglhldkcuchnn9eaauq9xjk862itbzf15z/original.jpg;resize(1200,_).jpeg?auto=webp",
+    "https://exposure.accelerator.net/production/photos/98gcp9k3q279jh7jnult56ss3l5f6o6dx4eu/original.jpg;resize(1200,_).jpeg?auto=webp"
+  ],
+  "generation_via": "images.edit",
+  "refs_passed_to_api": 4,
+  "candidate_count": 149,
+  "cited_urls_scraped": 43,
+  "size": "1792x1024",
+  "quality": "high"
+}
