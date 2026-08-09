@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Starting values as an axiom, not a fence"
+title: >-
+  Nietzsche for self-improving agents: values are an axiom, not a fence
 date: 2026-07-08
 description: >-
-  In a system that rewrites itself, the values you start with are not a safety
-  rail. They are the axiom every later version gets derived from.
+  In a system that rewrites itself, your starting values are not a safety rail.
+  They are the axiom later versions derive from.
 image: >-
   /img/blog/2026-07-08-self-overcoming/compounding.webp
 tags: [self-improving-agents, agent-design, values]
@@ -70,15 +71,15 @@ using the value it inherited."
 The memo's next claim: you cannot patch it afterwards. Bolt a corrigibility
 constraint onto a system whose top value is pleasing the average rater and, on
 that argument, you do not get something correctable and curious. "It produces a
-system that is corrigible because it is incurious."
+system corrigible because incurious."
 
 ## What Nietzsche argued
 
 [Friedrich Nietzsche](https://plato.stanford.edu/entries/nietzsche/), 1844 to
-1900, German. The one relevant fact, in the memo's compression of him: "he spent
-twenty years arguing that any system optimizing for a fixed objective and a
-stable equilibrium will stagnate, and that genuinely high-capability systems
-must constantly surpass their own past states."
+1900. The relevant fact, in the memo's compression: "he spent twenty years
+      arguing that any system optimizing for a fixed objective and a stable
+      equilibrium will stagnate, and that genuinely high-capability systems must
+      constantly surpass their own past states."
 
 He had a name for the failure mode above, herd morality, which the memo glosses
 as "A system that optimizes for comfort, conformity, and the approval of the
