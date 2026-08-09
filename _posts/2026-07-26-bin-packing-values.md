@@ -11,12 +11,12 @@ tags: [self-improving-agents, evaluation, values]
 ---
 
 I have been testing whether a coding agent's starting **values** change what it
-builds. Two disposition documents, three bullets and 120 to 150 words each,
+builds. Two disposition documents, three bullets and 120 to 175 words each,
 everything else byte-identical. Cautious: smallest verified step, reuse the
 proven approach, a solved problem is done, bank it and stop. Expansive: the move
 that most widens what you could do next, nothing you achieve is a stopping
-point. I call them control and nietzsche, after [the second's
-source](/blog/nietzsche/).
+point. I call them control and nietzsche, after the philosopher; [June's
+pair](/blog/nietzsche/) was far longer.
 
 This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
 are successive versions of the two files: v3 is fixed, sm-v4 lets the agent
@@ -30,8 +30,8 @@ say.
 ## The task
 
 Every run is the same loop: the agent edits one solver, commits, and is
-re-scored by a fixed evaluator, ten times over, twenty in the first cohort. The
-task is [one-dimensional
+re-scored by a fixed evaluator, ten times, twenty in the first cohort. The task
+is [one-dimensional
 bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem), pack items into
 as few fixed-size bins as possible: NP-hard, with strong classical baselines,
 the standard LLM-heuristic-discovery testbed since
@@ -179,14 +179,14 @@ does real work.
 The behaviour half holds up: two dispositions differing by about 150 words
 produce measurably different artifacts, and generalization swings by up to 24
 times while the training score barely moves. So an evaluation reading only the
-optimised score is blind to most of what the values did. The direction half is
-not a finding, and one run per cell is why: a single pair mixes the values
-effect with seed luck and trajectory, which no amount of extra instance draws
-fixes, only more runs. The study shows an effect, not its size or which way it
-runs. The fix is a powered replication, several runs per condition with the
-[analysis fixed in advance](/blog/pre-registration/), which is what I ran next,
-on a different task, where the question got a real answer.
+optimised score is blind to most of what values did. The direction half is not a
+finding, and one run per cell is why: a single pair mixes the values effect with
+seed luck and trajectory, which no amount of extra instance draws fixes, only
+more runs. The study shows an effect, not its size or which way it runs. The fix
+is a powered replication, several runs per condition with the [analysis fixed in
+advance](/blog/pre-registration/), which is what I ran next, on a different
+task, where the question got an answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked
-at the pairs one by one. One clean win each way is not a direction.
+at the pairs. One clean win each way is not a direction.

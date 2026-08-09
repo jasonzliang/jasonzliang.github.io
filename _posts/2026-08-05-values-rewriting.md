@@ -34,8 +34,8 @@ to three short bullets and "replace, don't accrete." And **Radical** (uncapped),
 where the entire section is rewritable, every iteration.
 
 Those runs vary in at least six ways, not one: which of four dispositions they
-start from, cautious, expansive, myopic or restless, which of five tasks they
-are pointed at, which generation of the values files they were seeded with,
+start from, cautious, expansive, myopic or never-settling, which of five tasks
+they are pointed at, which generation of the values files they were seeded with,
 which of the three freedom settings they ran under, how long the run is (10, 15
 or 20 iterations, set per task), and which commit of the harness they ran on.
 That last one is the ugliest. There are six distinct harness commits across the
