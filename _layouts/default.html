@@ -13,7 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Jason Liang" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-{%- seo -%}
+{%- seo title=false -%}
+<title>{% if page.layout == 'post' %}{{ page.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 {%- feed_meta -%}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

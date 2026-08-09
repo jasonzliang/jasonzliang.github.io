@@ -4,9 +4,8 @@ title: >-
   Our test for AI judges playing favourites measured the wrong thing
 date: 2026-02-10
 description: >-
-  Using language models as judges is now standard practice. We measured whether
-  ours favoured their own model families. Two of three did. The test said the
-  third did the opposite, and the test was wrong.
+  We measured whether our AI judges favoured their own model families. Two
+  of three did. The third looked the opposite, and that reading was wrong.
 image: >-
   /img/blog/2026-02-10-judge-bias/judge-bias.webp
 tags: [evaluation, llm-as-judge, caesar]

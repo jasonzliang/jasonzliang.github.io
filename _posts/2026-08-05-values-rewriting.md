@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  Given free rein, an AI agent banned itself inventing numbers. It failed.
+  An AI agent banned itself from inventing numbers. Then it failed.
 date: 2026-08-05
 description: >-
   Across 41 runs, every agent allowed to edit its values did. One ruled a

@@ -1,13 +1,11 @@
 ---
 layout: post
 title: >-
-  An AI agent that rewrites its own job description mostly writes the same
-  one
+  An AI agent rewrites its own job description, mostly identically
 date: 2026-04-22
 description: >-
-  Before exploring, Caesar reads one page and rewrites the prompt defining what
-  researcher it is. On by default, 51 of 57 runs produced nearly the same role,
-  and I cannot tell you whether it helps.
+  Caesar reads one page and rewrites the prompt defining what researcher it
+  is. 51 of 57 runs produced nearly the same role.
 image: >-
   /img/blog/2026-04-22-adaptive-role/three-roles.webp
 tags: [caesar, agents, prompting]

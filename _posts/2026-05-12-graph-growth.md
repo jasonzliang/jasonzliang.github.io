@@ -4,9 +4,8 @@ title: >-
   An AI agent exploring the web starts looping back early
 date: 2026-05-12
 description: >-
-  The agent saved a snapshot of its exploration graph every 50 steps and
-  nobody had plotted them. Across 77 runs the map stays a tree for a median of
-  150 steps, and nearly half of all steps revisit a page already seen.
+  Across 77 crawls the map stays a tree for a median of 150 steps, and
+  nearly half of all steps revisit a page already seen.
 image: >-
   /img/blog/2026-05-12-graph-growth/graph-growth.webp
 tags: [agents, knowledge-graphs, visualization, caesar]

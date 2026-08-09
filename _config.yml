@@ -33,7 +33,7 @@ plugins:
 
 # jekyll-seo-tag inputs
 twitter:
-  card: summary
+  card: summary_large_image
 social:
   name: Jason Liang
   links:

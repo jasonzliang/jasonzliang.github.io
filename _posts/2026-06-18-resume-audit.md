@@ -4,9 +4,8 @@ title: >-
   An AI agent's log of its own past work was wrong in both directions
 date: 2026-06-18
 description: >-
-  One agent's logbook over-counted what it had built on, and a sibling run
-  under-counted. Of the first eight claims checked against git, two held up,
-  three were refuted, three could not be settled.
+  One agent's logbook over-counted what it had built on; a sibling
+  under-counted. Of eight claims checked against git, two held up.
 image: >-
   /img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp
 tags: [self-improving-agents, evaluation, ai-honesty]

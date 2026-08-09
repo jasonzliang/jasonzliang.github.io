@@ -1,13 +1,11 @@
 ---
 layout: post
 title: >-
-  I built an AI agent's values from cited papers: citations real, values
-  untested
+  An AI agent's values from papers: citations real, values untested
 date: 2026-08-06
 description: >-
-  My self-improving agents run on a values file of three to five bullets. I
-  derived one from cited papers and audited every citation: 22 of 22 real, none
-  invented, no late addition earning a bullet.
+  I derived an agent's values file from cited papers, then audited every
+  citation: 22 of 22 real, none invented, no new bullets earned.
 image: >-
   /img/blog/2026-08-06-literature-values/citation-ledger.webp
 tags: [self-improving-agents, agent-design, values]

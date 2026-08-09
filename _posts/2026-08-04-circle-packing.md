@@ -1,12 +1,11 @@
 ---
 layout: post
 title: >-
-  My AI agent's solver beat a world record for packing 27 unequal circles
+  My AI agent's solver beat a record for packing 27 unequal circles
 date: 2026-08-04
 description: >-
-  Five of six tied the best known packing of 26 circles, a saturated benchmark
-  that measures little. Run at other sizes, the fastest run's solver beat the
-  listed variable-radius record at 27.
+  Five of six runs tied the best known packing of 26 circles, a benchmark
+  that measures little. At 27, one beat the listed record.
 image: /img/blog/2026-08-04-circle-packing/packings-26-per-run.webp
 tags: [self-improving-agents, optimization, benchmarks]
 ---
@@ -121,11 +120,11 @@ excludes those twenty-two minutes.
 
 I ran the $2.48 run's extracted solver at every board size from 2 to 100, 120
 seconds each on one seed (26, the trained size, got more), against
-[Packomania](https://www.packomania.com/), the field's record book. Of the 98
-sizes where it produced a usable packing, it matched the record to within 4e-11
-on 27 of them, fell short on 70, several by more than 1%, and beat exactly one:
-**27 circles**, improving the listed entry by 0.000629, a gain of 0.023% on a
-value standing since 2011/12. Packomania listed it on 3 August 2026, crediting
+[Packomania](https://www.packomania.com/csqv/csqv.html), the record book. Of the
+98 sizes where it produced a usable packing, it matched the record to within
+4e-11 on 27 of them, fell short on 70, several by more than 1%, and beat exactly
+one: **27 circles**, improving the listed entry by 0.000629, a gain of 0.023% on
+a value standing since 2011/12. Packomania listed it on 3 August 2026, crediting
 the improvement over David Cantrell's earlier record and noting the packing's D1
 symmetry.
 
