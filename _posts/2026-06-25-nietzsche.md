@@ -12,9 +12,10 @@ top: three to five bullets describing not what to *do* (the task handles that)
 but how to decide when the task leaves the choice open: the small proven step or
 the ambitious one, a solution as finished or a platform to climb past.
 
-For two long runs in June, one of those files was written from Nietzsche. I want
-to explain that, because "we gave the AI Nietzsche" sounds like a stunt and the
-results were more complicated than I expected.
+For two long runs in June, one of those files was written from
+[Nietzsche](https://plato.stanford.edu/entries/nietzsche/). I want to explain
+that, because "we gave the AI Nietzsche" sounds like a stunt and the results
+were more complicated than I expected.
 
 ## The setup
 
@@ -69,8 +70,7 @@ What they share matters more. The same invariant floor: cause no irreversible
 harm, stay inside the working directory, never claim something works until you
 have run it, never make a check pass by weakening it. The Nietzschean file says
 outright that these are *not* Nietzschean values and not the agent's to revalue
-or edit: the disposition is not licence, and operates above a floor it cannot
-touch.
+or edit: the disposition is not licence.
 
 ## Why Nietzsche
 
@@ -85,8 +85,9 @@ register a values file needs.
 The eternal recurrence is a good iteration filter, sharper than "was this
 iteration productive," because it rules out grinding. And the anti-herd clause
 names a measurable failure mode. Optimizing for the approval of the median
-observer is RLHF-shaped behaviour, not a metaphor: reinforcement learning from
-human feedback rewards a model for the answers raters prefer.
+observer is [RLHF](https://arxiv.org/abs/2203.02155)-shaped behaviour, not a
+metaphor: reinforcement learning from human feedback rewards a model for the
+answers raters prefer.
 
 ## What they became: breadth versus depth
 
@@ -97,8 +98,7 @@ the archived workspaces. My write-up's correction note says 56 for the
 Nietzschean, its table's commit count, not the artifact count.
 
 Both, unprompted, chose the same subject from an open field (mathematical
-universality). The values did not decide *what* subject they chose. They decided
-*how*.
+universality). The values did not decide *what* they chose. They decided *how*.
 
 The standard-values agent became a breadth-first empirical naturalist: roughly
 37 domains, a general-purpose toolkit, and portable work, 24 of its 27 modules
@@ -133,8 +133,8 @@ checked.
 ## Forty-one web calls, and one
 
 Both got an identical mid-run nudge to use external sources. The standard agent
-made **41 web calls**, every one after the nudge; the Nietzschean made **one**
-in the entire run, at iteration 12, and never went back.
+made **41 web calls**, every one after the nudge; the Nietzschean made **one**,
+at iteration 12, and never went back.
 
 {% include figure.html
    src="/img/blog/2026-06-25-nietzsche/two-agents.webp"
@@ -175,8 +175,8 @@ shape *whether it generalizes*. That second half is a null, which is not the
 same as showing there is nothing there.
 
 A scope limit, in my write-up from the beginning: **neither 60-iteration run
-produced citable new science.** Both reproduced known results faithfully; what
-they produced was tooling and a legible difference in character.
+produced citable new science.** Both reproduced known results faithfully; they
+produced tooling and a legible difference in character.
 
 ## What I would keep
 

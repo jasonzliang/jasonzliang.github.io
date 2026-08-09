@@ -74,8 +74,7 @@ cross-domain synthesis they tie there at 7.67.
 ## Two units, two effect sizes
 
 The effect size we report is [Cliff's delta](/blog/human-vs-machine/), which
-asks how often a draw from one group lands above a draw from the other. This is
-where I went wrong the first time.
+asks how often a draw from one group lands above a draw from the other.
 
 The Caesar paper's unit is the challenge, five of them. Averaged within a
 challenge, hub notes scored 25.07, 23.93, 25.07, 24.40 and 23.67; leaf notes
@@ -100,7 +99,8 @@ by 2.6 to 4.2 points. On the fifth, the open-ended one, the gap is 23.67 against
 23.47, which is nothing. Strict dominance at n = 5 holds, by two tenths of a
 point.
 
-The analysis script also reports a Mann-Whitney U test on the 150 rows, p =
+The analysis script reports a [Mann-Whitney U
+test](https://en.wikipedia.org/wiki/Mann-Whitney_U_test) on the 150 rows, p =
 8.3e-09. I would not lean on it: it treats 75 scorings a side as 75 independent
 samples, and they are three judges scoring five texts, five times each.
 

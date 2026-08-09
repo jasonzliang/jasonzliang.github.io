@@ -1,8 +1,8 @@
 ---
 layout: post
 title: >-
-  Tying at 26 circles measured nothing. At 27, the same solver beat a record
-  from 2011.
+  My agent's solver beat the world's best known packing at 27 circles. At
+  26, everything ties.
 date: 2026-08-04
 description: >-
   Five of six tied the best known packing of 26 circles, a saturated benchmark

@@ -27,9 +27,10 @@ of the run carries a correction note saying 56. That is its commit count, which
 is a different thing; the workspace has 55 artifact directories.) Across those
 iterations, the two fields become a graph of the run's own intellectual history:
 this idea led to that tool, which enabled this result. The agent's own tooling
-calls it a DAG, a directed acyclic graph, meaning the arrows all run one way,
-from earlier work to later, and no chain of them ever loops back to where it
-started.
+calls it a DAG, a [directed acyclic
+graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), meaning the arrows
+all run one way, from earlier work to later, and no chain of them ever loops
+back to where it started.
 
 At iteration 3, the agent wrote a program to draw that graph.
 
@@ -114,10 +115,10 @@ The lesson it wrote in its own log is better than my summary:
 I ran a second agent through the identical harness at the same time, same rules,
 same task, same everything, differing only in a short values document. Of the
 two June runs, the one that built the auditor had a values file written from
-Nietzsche; the other had the standard file. That second run built an integrity
-checker of its own at iteration 3, but it only lints the logbook's schema and
-runs the tool self-tests. Nothing in it ever put a lineage claim in front of
-git.
+[Nietzsche](https://plato.stanford.edu/entries/nietzsche/); the other had the
+standard file. That second run built an integrity checker of its own at
+iteration 3, but it only lints the logbook's schema and runs the tool
+self-tests. Nothing in it ever put a lineage claim in front of git.
 
 The second run reached iteration 60 too, left artifacts in 57 of its iterations,
 and closed by reporting **56** build-on edges, presented as the picture of how

@@ -40,10 +40,11 @@ The two catalogs are unrelated lists of agent-evolution research. Mission 1 ran
 capped at 60 minutes on 24 June. Same model, same honesty floor, and nearly the
 same runner: one change I made in between turns out to matter. The planned
 difference is one file, a cautious values document against an expansive one
-written from Nietzsche. All four cleared a six-check integrity pass at run time,
-including byte-identical frozen graders and a single-root git history. The
-per-run `.git` directories were [deleted on archival](/blog/resume-audit/), so
-those are run-time observations I cannot re-run now.
+written from [Nietzsche](https://plato.stanford.edu/entries/nietzsche/). All
+four cleared a six-check integrity pass at run time, including byte-identical
+frozen graders and a single-root git history. The per-run `.git` directories
+were [deleted on archival](/blog/resume-audit/), so those are run-time
+observations I cannot re-run now.
 
 The shape was the same both times. The cautious run cleared its own bar early,
 at **iteration 5** on mission 1 and **iteration 4** on mission 2, then spent the
@@ -82,11 +83,10 @@ boldness score, then says of the audit's own headline: "over-generalized; do not
 rely on it."
 
 The most recent document says both earlier readings over-claimed and does not
-say which is closer to right. One detail matters here: the audit's other
-evidence for that backwards gap was that the cautious run "wrote 4 formal
-proposals to change its rulebook", which the correction reclassifies as
-proposals about the immutable constitution file, routed to a human rather than
-applied, and so evidence the floor held.
+say which is closer to right. The audit's other evidence for that backwards gap
+was that the cautious run "wrote 4 formal proposals to change its rulebook",
+which the correction reclassifies as proposals about the immutable constitution
+file, routed to a human rather than applied, and so evidence the floor held.
 
 ## What actually survives
 

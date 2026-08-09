@@ -11,8 +11,8 @@ tags: [evaluation, human-evaluation, caesar]
 ---
 
 The previous post was about [what happens when you let language models grade
-research answers](/blog/judge-bias/), and in particular about catching one of
-our judges favouring its own model family by 1.35 points.
+research answers](/blog/judge-bias/), and about catching one of our judges
+favouring its own model family by 1.35 points.
 
 The obvious next question is whether the judges were right at all. So we asked
 people.
@@ -26,12 +26,12 @@ second-best system on the automated evaluation. Blind to which was which, they
 picked the more creative under the same rubric the AI judges used: New, Useful
 and Surprising, the three axes summing to the 30-point total quoted below.
 
-112 comparisons in total, and the shape of that number is worth a sentence.
-There are only five distinct pairs, so the 112 votes are roughly 22 looks at
-each of the same five items. Our paper reports 23 raters; the vote table behind
-it carries 21 distinct rater names across 23 sittings, two people having
-submitted twice. Seven of the 112 votes repeat a pair the same rater had already
-judged, and one of those repeats came back with the opposite answer.
+112 comparisons in total. There are only five distinct pairs, so the 112 votes
+are roughly 22 looks at each of the same five items. Our paper reports 23
+raters; the vote table behind it carries 21 distinct rater names across 23
+sittings, two people having submitted twice. Seven of the 112 votes repeat a
+pair the same rater had already judged, and one of those repeats came back with
+the opposite answer.
 
 The raters also did not see the answers as written. Both first went through the
 same LLM normalization step, which rewrites each into a fixed two-paragraph
@@ -57,10 +57,11 @@ votes as 112 independent trials when they are 21 people voting on five items.
 
 Set that next to the machine verdict. On the automated evaluation our agent beat
 the runner-up by 3.18 points on a 30-point scale, with effect sizes uniformly
-large: Cliff's delta of at least 0.76, against a 0.47 threshold for "large."
-That 0.76 is the minimum across every baseline and answer format, so it is not
-the number to set beside the human study. For the raters' pairing, on full
-answers, the delta was **0.84**.
+large: [Cliff's delta](https://en.wikipedia.org/wiki/Cliff%27s_delta) of at
+least 0.76, against a 0.47 threshold for "large." That 0.76 is the minimum
+across every baseline and answer format, so it is not the number to set beside
+the human study. For the raters' pairing, on full answers, the delta was
+**0.84**.
 
 Cliff's delta is worth two sentences: the unit it is computed at is easy to get
 wrong, and we have gotten it wrong before. It runs over the five challenges, on
@@ -72,15 +73,16 @@ beat every competing answer. At the level of individual scores the two
 distributions overlap.
 
 The paper reports no p-values, and we should be careful how we say that.
-Mann-Whitney U was computed during the analysis and the run artifacts carry the
-statistic, at a different unit again: across the 45 individual judge scores each
-system received in a format, not the five challenge means the delta uses. What
-we chose to publish was the effect size, "aligned with our
-magnitude-of-difference framing rather than null-hypothesis testing," with the
-deltas presented as "estimates of stochastic dominance rather than p-values."
-Stochastic dominance is what Cliff's delta measures. The question we answered in
-print was how big the gap is, not whether it is distinguishable from zero: a
-framing decision, fair to argue with, but not an absence of the test.
+Mann-Whitney U was computed and the run artifacts carry the statistic, at a
+different unit again: across the 45 individual judge scores each system received
+in a format, not the five challenge means the delta uses. What we chose to
+publish was the effect size, "aligned with our magnitude-of-difference framing
+rather than null-hypothesis testing," with the deltas presented as "estimates of
+stochastic dominance rather than p-values." [Stochastic
+dominance](https://en.wikipedia.org/wiki/Stochastic_dominance) is what Cliff's
+delta measures. The question we answered in print was how big the gap is, not
+whether it is distinguishable from zero: a framing decision, fair to argue with,
+but not an absence of the test.
 
 By that measure it was not close.
 
@@ -180,8 +182,8 @@ informative thing we measured.
 ## The exchange rate
 
 The field adopted LLM judges because human evaluation is slow and expensive.
-That trade is often correct. But the exchange rate is not one-to-one, and it is
-not constant.
+That trade is often correct. But the exchange rate is not one-to-one, nor
+constant.
 
 Ours, on this task: a decisive automated margin on full answers corresponds to a
 56% human preference on normalized summaries, and that 56% is an average over
