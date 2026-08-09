@@ -42,8 +42,8 @@ same runner: one change I made in between turns out to matter. The planned
 difference is one file, a cautious values document against an expansive one
 written from Nietzsche. All four passed a six-check integrity pass at run time,
 including byte-identical frozen graders and a single-root git history. The
-per-run `.git` directories were deleted on archival, so those are run-time
-observations I cannot re-run now.
+per-run `.git` directories were [deleted on archival](/blog/resume-audit/), so
+those are run-time observations I cannot re-run now.
 
 The shape was the same both times. The cautious run cleared its own bar early,
 at **iteration 5** on mission 1 and **iteration 4** on mission 2, then spent the

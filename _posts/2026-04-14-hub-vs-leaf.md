@@ -38,9 +38,9 @@ on, rank each final graph's pages by neighbour count, and take two groups:
 
 Concatenate each group's notes into one file: two files per challenge, ten sets
 of notes apiece, each about 5,000 to 5,800 words, the leaf file longer on three
-of the five, so neither side wins on length. Then hand both to three LLM judges,
-five trials each, on our usual rubric: how new, how useful, how surprising, one
-to ten each, thirty in total.
+of the five, so neither side wins on length. Then hand both to [three LLM
+judges](/blog/judge-bias/), five trials each, on our usual rubric: how new, how
+useful, how surprising, one to ten each, thirty in total.
 
 One thing I need to be exact about, because the first version of this post said
 otherwise: there is no second writing step. The artifact scored is the raw pile
@@ -86,9 +86,9 @@ numbers.
 
 Drop to individual scorings, 75 a side, and the picture is coarser. Pick one hub
 scoring and one leaf scoring at random: the hub one is higher 73% of the time,
-lower 19%, tied the remaining 8%. Cliff's delta over those pairings is **0.54**.
-Hub scores run from 18 to 29 out of 30, leaf scores from 15 to 28, distributions
-that overlap heavily.
+lower 19%, tied 8%. Cliff's delta over those pairings is **0.54**. Hub scores
+run from 18 to 29 out of 30, leaf scores from 15 to 28, distributions that
+overlap heavily.
 
 Both numbers are true, at their own units. The first version of this post quoted
 the 1.00 and glossed it as the second: pick any hub-sourced item and any

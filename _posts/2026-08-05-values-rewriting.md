@@ -13,10 +13,11 @@ tags: [self-improving-agents, agent-design, ai-safety]
 If you build an agent that improves itself in a loop, you eventually face an
 awkward design question: should it be allowed to change what it is trying to be?
 
-Not its *task*, its dispositions. The short document that tells it whether to
-take the cautious step or the ambitious one, whether a solved problem is
-finished or a platform to climb past. In my setup that document is three bullet
-points in a file the agent reads at the start of every iteration.
+Not its *task*, [its dispositions](/blog/nietzsche/). The short document that
+tells it whether to take the cautious step or the ambitious one, whether a
+solved problem is finished or a platform to climb past. In my setup that
+document is three bullet points in a file the agent reads at the start of every
+iteration.
 
 A different system of mine does a one-shot version: the research agent [rewrites
 its own role description](/blog/adaptive-role/) from the first page it reads,
@@ -173,7 +174,8 @@ it is that the agent wrote it down.
 Each of these 41 runs is a single sample. I cannot tell you that uncapped
 self-modification produces better agents, or worse ones: the performance
 comparisons at one run per condition are dominated by run-to-run noise, and I
-have written separately about how badly that bit me when I tried.
+have written separately about [how badly that bit me when I
+tried](/blog/bin-packing-values/).
 
 What survives is narrower and, I think, more useful: **the countable part of the
 guardrail held in every run it applied to, and the shape of what gets written is

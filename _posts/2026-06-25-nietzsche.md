@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why I gave an AI agent Nietzsche"
+title: "I gave an agent Nietzschean values. It behaved differently, not better."
 date: 2026-06-25
 description: Two self-improving agents differing in one values file.
 image: /img/blog/2026-06-25-nietzsche/two-agents.webp
@@ -86,8 +86,7 @@ The eternal recurrence is a good iteration filter, sharper than "was this
 iteration productive," because it rules out grinding. And the anti-herd clause
 names a measurable failure mode: optimizing for the approval of the median
 observer is RLHF-shaped behaviour, not a metaphor. RLHF, reinforcement learning
-from human feedback, rewards a model for the answers raters prefer. What that
-does to a system allowed to edit itself is an argument I set out separately.
+from human feedback, rewards a model for the answers raters prefer.
 
 ## What they became: breadth versus depth
 

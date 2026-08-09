@@ -1,6 +1,8 @@
 ---
 layout: post
-title: "I tried deriving an agent's values from the literature"
+title: >-
+  I derived an agent's values from the literature. It bought provenance, not
+  performance.
 date: 2026-08-06
 description: >-
   My self-improving agents run on a values file of three to five bullets. One I
@@ -177,8 +179,8 @@ the verifier, and "where one exists" is doing real work.
 
 The honest status: I have not run these as a condition. Nothing here says a
 literature-derived values file produces a better agent than a hand-written one.
-That comparison needs several runs per condition, and I have written about what
-happens when I skip that step.
+That comparison needs several runs per condition, and I have written about [what
+happens when I skip that step](/blog/bin-packing-values/).
 
 What I have instead is provenance. Against the Nietzsche file, whose defence is
 that it did something interesting, the literature-derived set is the more

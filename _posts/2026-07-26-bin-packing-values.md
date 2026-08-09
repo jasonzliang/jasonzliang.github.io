@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I took my own result apart, pair by pair"
+title: "I took my own 11-win result apart. One clean win survived."
 date: 2026-07-26
 description: >-
   A tally said the expansive disposition won 11 of 14 matched pairs. Pair by
@@ -147,13 +147,13 @@ pair is disqualified twice and removable once. Nor do they cover everything: two
 of the eleven wins fall outside all of them, one an older run I never reported,
 leaving exactly one clean expansive win standing.
 
-What is left is the four pairs under the final matched harness, with the
-held-out that discriminates. On held-out that cohort is **2 to 2**; on in-run 3
-to 1 for the expansive arm, but two of those three are the saturated offline
-ties above and the two online pairs carry opposite signs and cancel.
+What is left is the four pairs under the final matched harness, with a
+discriminating held-out. On held-out that cohort is **2 to 2**; on in-run 3 to 1
+for the expansive arm, but two of those three are the saturated offline ties
+above and the two online pairs carry opposite signs and cancel.
 Recency-weighted, the pooled online effect on held-out is −0.0024,
-indistinguishable from zero. The 11-of-14 direction does not shrink so much as
-evaporate.
+indistinguishable from zero. The 11-of-14 direction does not shrink; it
+evaporates.
 
 Two more things I cannot explain away as tidying. Re-running sm-v4 **reversed
 the held-out winner in both missions**, offline expansive to cautious, online
@@ -183,8 +183,8 @@ not a finding, and one run per cell is why: a single pair mixes the values
 effect with seed luck and trajectory, which no amount of extra instance draws
 fixes, only more runs. The study shows an effect, not its size or which way it
 runs. The fix is a powered replication, several runs per condition with the
-analysis fixed in advance, which is what I ran next, on a different task, where
-the question got a real answer.
+[analysis fixed in advance](/blog/pre-registration/), which is what I ran next,
+on a different task, where the question got a real answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked

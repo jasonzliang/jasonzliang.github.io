@@ -84,9 +84,9 @@ research, and where I expect most people to get it wrong. My experimental unit
 is **the run**, not the instance the run's program is scored on. The primary
 held-out set is 50 packing instances, and a run that packs all 50 is one data
 point, not 50, because the 50 are not independent: they were all packed by the
-same evolved program from the same trajectory. Counting instances instead of
-runs would have multiplied my sample size by fifty and made almost anything look
-significant.
+same evolved program from the same trajectory. [Counting instances instead of
+runs](/blog/hub-vs-leaf/) would have multiplied my sample size by fifty and made
+almost anything look significant.
 
 **The test** (draft only). A permutation test: take the runs' scores, throw away
 which condition each came from, and re-deal the labels. Every way of splitting

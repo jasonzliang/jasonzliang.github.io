@@ -179,8 +179,7 @@ an imperfect proxy for human creativity assessment," and judges trained by
 similar procedures may share blind spots that no panel of them can detect,
 because the panel is not independent in the way the word implies.
 
-Which is why we also asked actual humans; the gap between what the humans said
-and what the judges said is the subject of that post.
+Which is why we also asked actual humans.
 
 ## If you are using LLM judges
 

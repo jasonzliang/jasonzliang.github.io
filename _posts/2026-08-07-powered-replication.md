@@ -24,11 +24,11 @@ merged. Each iteration the agent improves its own solver, commits, and gets
 re-scored: twenty iterations in the first experiment, fifteen in the
 replication.
 
-The one thing I vary is a short document describing the agent's **disposition**.
-One is cautious: take the smallest verified step, reuse what works, a solved
-problem is done. The other is expansive: take the move that widens what you
-could do next, branch when a line stops teaching you, nothing is a stopping
-point.
+The one thing I vary is [a short document](/blog/nietzsche/) describing the
+agent's **disposition**. One is cautious: take the smallest verified step, reuse
+what works, a solved problem is done. The other is expansive: take the move that
+widens what you could do next, branch when a line stops teaching you, nothing is
+a stopping point.
 
 Then I score each finished solver two ways. On the games it was tuned against,
 and on games it has never seen: a harder tile-spawn, where the new tile is a 4
@@ -122,25 +122,25 @@ re-tested was never as settled as the phrase implies.
 
 ## The frozen runs killed my mechanism
 
-The first story also said self-modification was doing the work: values set a
-ceiling, and letting the agent rewrite them is what "realizes" it. So I added
-ten more runs with the values **frozen**, never self-edited. If
-self-modification were realizing the effect, freezing it should shrink the gap.
+The first story also said self-modification was doing the work: [values set a
+ceiling](/blog/self-overcoming/), and letting the agent rewrite them is what
+"realizes" it. So I added ten more runs with the values **frozen**, never
+self-edited. If self-modification were realizing the effect, freezing it should
+shrink the gap.
 
 The frozen runs reproduced the capability gap **in full**, at Cliff's delta
-**+1.00**: every frozen expansive run beat every frozen cautious run. They also
-scored highest of anything here. The frozen expansive cell averages **91,518**,
-above the 78,000 to 88,000 of its self-modifying siblings quoted earlier, which
-is why the top curve in the figure's upper panel clears that range: a fixed
-expansive framing, never allowed to edit itself, produced the study's best
-capability. Pool all thirty runs and the values effect is delta **+0.86**. The
-effect is intrinsic to the disposition, and self-modification added no
-significant capability benefit on top. On 5×5 the freest self-modification
-setting was directionally worse than the more constrained one (delta 0.41
-against it), though at p = 0.14 that is a hint, not a finding. The cleaner fact
-needs no p-value: not one of the ten frozen runs came out unable to play 5×5,
-against four such failures among the twenty self-modifying ones, three of those
-four in the most permissive setting.
+**+1.00**: every frozen expansive run beat every frozen cautious run. The frozen
+expansive cell averages **91,518**, above the 78,000 to 88,000 of its
+self-modifying siblings, which is why the top curve in the figure's upper panel
+clears that range: a fixed expansive framing, never allowed to edit itself,
+produced the study's best capability. Pool all thirty runs and the values effect
+is delta **+0.86**. The effect is intrinsic to the disposition, and
+self-modification added no significant capability benefit on top. On 5×5 the
+freest self-modification setting was directionally worse than the more
+constrained one (delta 0.41 against it), though at p = 0.14 that is a hint, not
+a finding. The cleaner fact needs no p-value: not one of the ten frozen runs
+came out unable to play 5×5, against four such failures among the twenty
+self-modifying ones, three of those four in the most permissive setting.
 
 I had the right effect attached to the wrong cause.
 

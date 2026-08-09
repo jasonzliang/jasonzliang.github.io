@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The agent that audited its own résumé"
+title: "An agent checked its own logbook and found 2 of 8 claims held up"
 date: 2026-06-18
 description: >-
   An AI agent kept a log of which earlier work it had built on. Then it checked
@@ -115,11 +115,10 @@ built an integrity checker of its own at iteration 3, but it only lints the
 logbook's schema and runs the tool self-tests. Nothing in it ever put a lineage
 claim in front of git.
 
-These are the same two June runs I write about from the other side in why I gave
-an AI agent Nietzsche. The one that built the auditor is the Nietzschean agent;
-the sibling here is the standard-values one. That post is about what the two
-values files say and how differently the agents behaved because of them. This
-one is about what happened when one of the two checked its own record.
+These are two June runs that differ only in a values file: the one that built
+the auditor is the Nietzschean agent, the sibling here is the standard-values
+one. This post is about what happened when one of the two checked its own
+record.
 
 That second run reached iteration 60 too, left artifacts in 57 of its
 iterations, and closed by reporting **56** build-on edges, presented as the

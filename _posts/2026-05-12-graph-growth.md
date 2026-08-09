@@ -1,8 +1,6 @@
 ---
 layout: post
-title: >-
-  An agent's map of the web stays a tree, and I picked one of the runs where
-  it stayed longest
+title: "An agent's map of the web stays a tree, and half its steps are revisits"
 date: 2026-05-12
 description: >-
   The agent saved a snapshot of its exploration graph every 50 steps. Nobody had
@@ -15,8 +13,8 @@ tags: [agents, knowledge-graphs, visualization, caesar]
 
 [Caesar](https://jasonzliang.github.io/caesar-agent/), the research agent I work
 on, explores by building a map. Each page it visits becomes a node; each link it
-decides to follow becomes an edge. It writes its notes against that structure,
-and the map is what it reasons over.
+decides to follow becomes an edge. It [writes its notes against that
+structure](/blog/hub-vs-leaf/), and the map is what it reasons over.
 
 A *step*, throughout this post, is one turn of that loop: open one page, read
 it, choose the next link. So a thousand-step run is a thousand page-opens, not a
@@ -89,8 +87,9 @@ the rule. The median run closes its first loop at step **150**, not 400.
 Thirty-seven of the 77 have closed one inside their first 100 steps. Only 12 are
 still trees at step 400, and exactly one never closes a loop at all in a
 thousand steps. The run in the title is in that slow tail, and part of why is
-the question it was given: constrained-creativity runs are the slowest as a
-group, median first loop at step 225, against step 100 for open-ended ones.
+[the question it was given](/blog/adaptive-role/): constrained-creativity runs
+are the slowest as a group, median first loop at step 225, against step 100 for
+open-ended ones.
 
 The late explosion is a property of this run too, more than of the set. For the
 median run, 40% of the final loop count is already in place by step 500 and 76%

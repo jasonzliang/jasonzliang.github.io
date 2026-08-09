@@ -1,6 +1,8 @@
 ---
 layout: post
-title: "An agent illustrates its report from the pages it cited"
+title: >-
+  An agent illustrated its own report, and every image traces to a page it
+  read
 date: 2026-05-20
 description: >-
   Caesar finishes a research report, goes back to the pages it cited, scrapes

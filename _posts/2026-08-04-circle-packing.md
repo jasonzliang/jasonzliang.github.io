@@ -18,7 +18,7 @@ This objective is thinly studied next to the equal-circle version most people
 picture, and it became a benchmark for a kind of AI system: DeepMind's
 AlphaEvolve showcased it, Sakana's ShinkaEvolve pushed it to about **2.635983**,
 best known rather than proven optimal. Both evolve populations of candidate
-programs, sampling many and selecting.
+programs.
 
 I ran six self-improvement agents at it. Each writes its own solver, improves it
 over a fifteen-iteration budget, and builds its own scorer in iteration one that
@@ -52,10 +52,11 @@ the record is quoted to. Five runs landing on the same value to nine decimal
 places is not five independent successes; it is a ceiling, and everyone hitting
 it. A measurement everything ties on has stopped measuring, the same failure as
 [a vision model scoring every image mid-scale](/blog/image-generation/). As a
-comparison between the six conditions I was actually testing this experiment is
-worthless, and the mission file says so: *"treat this as a showcase of RSI on a
-famous problem, NOT the clean probe of the values effect."* RSI is recursive
-self-improvement, the loop above.
+comparison between [the six conditions I was actually
+testing](/blog/bin-packing-values/) this experiment is worthless, and the
+mission file says so: *"treat this as a showcase of RSI on a famous problem, NOT
+the clean probe of the values effect."* RSI is recursive self-improvement, the
+loop above.
 
 ## The cost and the route
 
