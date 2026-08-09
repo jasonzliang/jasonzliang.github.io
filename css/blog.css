@@ -239,3 +239,20 @@
 .highlight .gi { color: #22863a; background-color: #f0fff4; }
 .highlight .gh { color: #005cc5; font-weight: 600; }
 .highlight .p { color: #24292e; }
+
+/* ------- Badge for posts whose result was verified by someone else ------- */
+.blog-badge {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-accent);
+  padding: 0.08rem 0.45rem;
+  border-radius: 999px;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}

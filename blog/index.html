@@ -6,6 +6,7 @@ description: "Notes on my latest research: self-improving coding agents, the kno
 <section class="page-header container">
   <h1>Blog</h1>
   <p>Notes on my latest research: self-improving coding agents, the knowledge graphs they build, and what an agent's stated values do to the code it writes. Much of it is me taking my own results apart.</p>
+  <p class="muted">Two of them report a record that outside checking upheld: an agent's solver <a href="/blog/circle-packing/">beat a circle-packing record</a>, now credited on Packomania, and another <a href="/blog/ale-bench/">beat the top human entry in an AtCoder contest</a>, confirmed on the official judge.</p>
 </section>
 
 <section class="container section">
@@ -15,7 +16,7 @@ description: "Notes on my latest research: self-improving coding agents, the kno
     <li class="blog-entry">
       <span class="blog-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
       <div class="blog-entry-body">
-        <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{%- if post.record %} <span class="blog-badge" title="Independently verified">{{ post.record }}</span>{%- endif %}</h2>
         <p class="blog-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncate: 180 }}{% endif %}</p>
         {%- if post.tags and post.tags.size > 0 %}
         <p class="blog-tags">{% for tag in post.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}</p>

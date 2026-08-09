@@ -8,6 +8,7 @@ description: >-
   that measures little. At 27, one beat the listed record.
 image: /img/blog/2026-08-04-circle-packing/packings-26-per-run.webp
 tags: [self-improving-agents, optimization, benchmarks]
+record: Record
 ---
 
 Pack 26 circles into a unit square. Any sizes, no overlaps, nothing outside.
