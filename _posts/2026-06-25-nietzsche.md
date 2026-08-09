@@ -14,8 +14,7 @@ the ambitious one, a solution as finished or a platform to climb past.
 
 For two long runs in June, one of those files was written from Nietzsche. I want
 to explain that, because "we gave the AI Nietzsche" sounds like a stunt and
-because [the results were more complicated than I
-expected](/blog/powered-replication/).
+because the results were more complicated than I expected.
 
 ## The setup
 
@@ -41,8 +40,8 @@ order (safety and reversibility, intellectual honesty, genuine usefulness,
 rigor, forward progress), then behaviours with teeth (usefulness over motion,
 curiosity, novelty, scope discipline, be your own harshest reviewer). It is not
 blind to the problem below: follow surprise, and treat a safe familiar direction
-as a reason to pick something else. But it is about not making mistakes: honesty
-and safety outrank forward progress, and most of the teeth are restraint.
+as a reason to pick something else. But it is about not making mistakes: most of
+the teeth are restraint.
 
 The **Nietzschean** file is about something else. Its five values:
 
@@ -87,11 +86,10 @@ The eternal recurrence is a good iteration filter, sharper than "was this
 iteration productive," because it rules out grinding. And the anti-herd clause
 names a measurable failure mode: optimizing for the approval of the median
 observer is RLHF-shaped behaviour, not a metaphor. RLHF, reinforcement learning
-from human feedback, rewards a model for the answers raters prefer, a pressure
-toward pleasing the median rater. What that does to a system allowed to edit
-itself is [an argument I set out separately](/blog/self-overcoming/).
+from human feedback, rewards a model for the answers raters prefer. What that
+does to a system allowed to edit itself is an argument I set out separately.
 
-## What they became
+## What they became: breadth versus depth
 
 Both reached iteration 60, though "60 of 60 completed" means the highest number
 reached, not the number that produced anything: 57 of the standard run's
@@ -132,10 +130,11 @@ checker testing its logbook's claims about which earlier iterations it had built
 on against git; [two of eight survived](/blog/resume-audit/). The standard run
 never built one, and finished reporting 56 such claims nobody checked.
 
-The sharpest contrast came from an identical mid-run nudge to use external
-sources. The standard agent made **41 web calls**, every one after the nudge;
-the Nietzschean made **one** in the entire run, at iteration 12, and never went
-back.
+## Forty-one web calls, and one
+
+Both runs got an identical mid-run nudge to use external sources. The standard
+agent made **41 web calls**, every one after the nudge; the Nietzschean made
+**one** in the entire run, at iteration 12, and never went back.
 
 {% include figure.html
    src="/img/blog/2026-06-25-nietzsche/two-agents.webp"
@@ -153,16 +152,13 @@ Nietzschean made its one call, so that **one** is a whole-run total, not a clean
 count of what it did once told. One run per condition cannot separate "the nudge
 landed differently" from "these values suppress web use."
 
-I lean toward the second reading, and should be honest about how little that
-rests on. It is not in the file: the Nietzschean values say nothing about
-fetching, searching or the web. "Recompute, don't fetch," the phrase I used at
-the time, was shorthand for how that run *behaved*, not a clause it was given.
-So the only evidence for it is the behaviour it explains, and leaning is all it
-is.
+I lean toward the second reading. It is not in the file: the Nietzschean values
+say nothing about fetching, searching or the web. "Recompute, don't fetch," the
+phrase I used at the time, was shorthand for how that run *behaved*, not a
+clause it was given. So the only evidence for it is the behaviour it explains,
+and leaning is all it is.
 
-## The deflating part
-
-Here is what I cannot tell you: which one is better.
+## No reliable winner
 
 A follow-up a month later, on bin-packing, 28 runs plus an 8-run replication
 cohort, neither of these runs among them, gave the verdict: at one run per
@@ -172,11 +168,10 @@ where every arm ties, roughly two against runs broken for unrelated reasons, one
 contaminated, three that were one result counted thrice. The clean recent cohort
 came out 2 to 2.
 
-Later, on a third task, [with five runs per
-condition](/blog/powered-replication/), the picture sharpened: disposition
-strongly shapes *how good the code gets* and does not detectably shape *whether
-it generalizes*. That second half is a null, which is not the same as showing
-there is nothing there.
+Later, on a third task, with five runs per condition, the picture sharpened:
+disposition strongly shapes *how good the code gets* and does not detectably
+shape *whether it generalizes*. That second half is a null, which is not the
+same as showing there is nothing there.
 
 A scope limit, in my write-up from the beginning: **neither 60-iteration run
 produced citable new science.** Both reproduced known results faithfully; what

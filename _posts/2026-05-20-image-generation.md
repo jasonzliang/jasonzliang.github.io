@@ -80,7 +80,7 @@ opens:
 > wood branching ribs and faceted canopy panels form a clear load path, with
 > circular skylights and recessed round fixtures punctuating the ceiling.
 
-## The result
+## Where the image came from
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/generated.webp"
@@ -155,7 +155,7 @@ text-only regardless, because a regex over the report text had already routed it
 into diagram mode, which overrides that menu, drops reference images by design
 and forces the flat whitepaper look.
 
-## Two settings that carry the real lessons
+## Two settings that matter
 
 Most of this pipeline is plumbing. Two configuration values are not.
 
@@ -171,9 +171,8 @@ pipeline runs, produces output, and the selection stage silently does nothing.
 
 This failure shows up everywhere in evaluation work: a measurement that cannot
 discriminate is worse than none, because it looks like it is working. I have run
-into it with [saturated benchmarks](/blog/circle-packing/), where every method
-reaches the same ceiling; here, a vision model refusing to use the ends of its
-own scale.
+into it with saturated benchmarks, where every method reaches the same ceiling;
+here, a vision model refusing to use the ends of its own scale.
 
 **Weak references are worse than none.** The scraped images go to the image
 model directly as visual references only if the *best* one scores at least 7.0.

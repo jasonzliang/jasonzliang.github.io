@@ -107,7 +107,7 @@ The lesson it wrote in its own log is better than my summary:
 > a claim can never count as its own evidence (a `dynamics.py` in a docstring is
 > not an `import dynamics`).
 
-## The part that should make you uncomfortable
+## Neither number is a measurement
 
 I ran a second agent through the identical harness at the same time, same rules,
 same task, same everything, differing only in a short values document. That run
@@ -115,12 +115,11 @@ built an integrity checker of its own at iteration 3, but it only lints the
 logbook's schema and runs the tool self-tests. Nothing in it ever put a lineage
 claim in front of git.
 
-These are the same two June runs I write about from the other side in [why I
-gave an AI agent Nietzsche](/blog/nietzsche/). The one that built the auditor is
-the Nietzschean agent; the sibling here is the standard-values one. That post is
-about what the two values files say and how differently the agents behaved
-because of them. This one is about what happened when one of the two checked its
-own record.
+These are the same two June runs I write about from the other side in why I gave
+an AI agent Nietzsche. The one that built the auditor is the Nietzschean agent;
+the sibling here is the standard-values one. That post is about what the two
+values files say and how differently the agents behaved because of them. This
+one is about what happened when one of the two checked its own record.
 
 That second run reached iteration 60 too, left artifacts in 57 of its
 iterations, and closed by reporting **56** build-on edges, presented as the
@@ -163,7 +162,7 @@ So I do not know how much either run compounded. One number is a self-report
 with a known parse rule and a stated lower-bound caveat. The other is an audited
 number I can no longer re-derive. Neither is a measurement.
 
-## What I would take from this
+## An error of unknown sign
 
 The generalization I would have reached for is that a system's self-computed
 metrics flatter it. That is not what these two runs show. One over-counted its

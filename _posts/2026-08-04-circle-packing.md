@@ -98,23 +98,22 @@ incumbent; at 10, a 348-seed search finding nothing better and showing the
 winning structure a rare basin, reached by 2 of those 348 starts, 0.57%. Nobody
 told it to do any of that.
 
-## The honest ledger
+## Four ways this could be oversold
 
-Four ways this could be oversold. **Not novel techniques:** linear programming,
-Newton's method, basin hopping and rigidity certification are standard prior
-art; what is notable is the *composition*, assembled autonomously from the
-agents' own knowledge, so *"we claim architectural recombination and autonomous
-rediscovery, not technique novelty."* **Not a fair head-to-head on cost:** the
-evolutionary systems report low per-task costs, under different constraints, so
-$2.48 and one iteration is small in absolute terms, not a claim to be cheaper.
-**Cost to first tie, not total:** the tie came in iteration one, and the run
-went eleven more loop cycles, twelve in all, before I stopped it, at $52.42. **A
-discarded attempt:** all six runs were launched, killed by my own wall clock
-twenty-two minutes in, and restarted, five resuming where they stopped. The
-$2.48 run's had committed nothing, so its counter reset to iteration one, though
-its candidate packings were on disk, the best 2.583 and well short of the tie,
-and the agent read them before writing a fresh solver. The $2.48 excludes those
-twenty-two minutes.
+**Not novel techniques:** linear programming, Newton's method, basin hopping and
+rigidity certification are standard prior art; what is notable is the
+*composition*, assembled autonomously from the agents' own knowledge, so *"we
+claim architectural recombination and autonomous rediscovery, not technique
+novelty."* **Not a fair head-to-head on cost:** the evolutionary systems report
+low per-task costs, under different constraints, so $2.48 and one iteration is
+small in absolute terms, not a claim to be cheaper. **Cost to first tie, not
+total:** the tie came in iteration one, and the run went eleven more loop
+cycles, twelve in all, before I stopped it, at $52.42. **A discarded attempt:**
+all six runs were launched, killed by my own wall clock twenty-two minutes in,
+and restarted, five resuming where they stopped. The $2.48 run's had committed
+nothing, so its counter reset to iteration one, though its candidate packings
+were on disk, the best 2.583 and well short of the tie, and the agent read them
+before writing a fresh solver. The $2.48 excludes those twenty-two minutes.
 
 ## A separate result, at 27 circles
 

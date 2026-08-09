@@ -49,7 +49,7 @@ both arms and the reference heuristics all solving exactly 5 of its 28 to the
 proven optimum, a benchmark that has stopped measuring, its tie a property of
 the instrument, not a finding.
 
-## Offline, the training score says nothing
+## Offline, in-run says nothing
 
 {% include figure.html
    src="/img/blog/2026-07-26-bin-packing-values/offline-inrun-vs-heldout.webp"
@@ -113,7 +113,7 @@ another; it labels outcomes, it does not predict them.
 Four non-independent runs per arm, not seed-controlled, and the cautious tool
 count varies from 1 to 6 across its four. A behavioural signature, not proof.
 
-## The tally
+## The tally evaporates
 
 The number I wanted to be true: across 14 matched pairs, **11 favoured the
 expansive disposition** on the in-run score, sign test p around 0.06, exactly
@@ -183,8 +183,8 @@ not a finding, and one run per cell is why: a single pair mixes the values
 effect with seed luck and trajectory, which no amount of extra instance draws
 fixes, only more runs. The study shows an effect, not its size or which way it
 runs. The fix is a powered replication, several runs per condition with the
-analysis fixed in advance, which is what I ran next, [on a different task, where
-the question got a real answer](/blog/powered-replication/).
+analysis fixed in advance, which is what I ran next, on a different task, where
+the question got a real answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked

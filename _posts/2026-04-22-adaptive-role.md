@@ -86,7 +86,7 @@ app presets. So every default run does this. The one exception I can find is the
 web app's synthesis-only follow-up path, which turns the flag off along with the
 whole exploration loop, so there is nothing to adapt to.
 
-## What the roles actually look like
+## The roles are nearly all the same
 
 Here is what argues hardest against the feature, found while checking the
 figure.
@@ -153,7 +153,7 @@ once without, has not been run either. The adaptive role has never carried a
 claim of that kind, so nothing has ever pulled it into the open, and it sits in
 the default configuration, unmeasured, doing something.
 
-## The self-transcendence files, which are not switched on
+## The self-transcendence files, off by default
 
 Alongside the adaptive role are hand-written persona files with names like
 `self_transcend_role_v1`: a deliberate mashup of Nietzsche and Buddhism, naming
@@ -178,13 +178,12 @@ config, not a preset. On a default run the agent writes its own role from the
 page.
 
 The idea connects to a question I take up on a different system, a loop running
-a coding agent rather than Caesar: [what an agent writes when it can rewrite its
-own values](/blog/values-rewriting/). Across 41 runs there, every agent
-permitted to edit its values did so, and a guardrail on their length held every
-time. That study cannot say whether the resulting agents were better or worse,
-and it is a different system, so it is not an ablation of `adapt_role` and does
-not stand in for one. Nothing here has been ablated, and this feature is still
-unmeasured.
+a coding agent rather than Caesar: what an agent writes when it can rewrite its
+own values. Across 41 runs there, every agent permitted to edit its values did
+so, and a guardrail on their length held every time. That study cannot say
+whether the resulting agents were better or worse, and it is a different system,
+so it is not an ablation of `adapt_role` and does not stand in for one. Nothing
+here has been ablated, and this feature is still unmeasured.
 
 ## The honest summary
 

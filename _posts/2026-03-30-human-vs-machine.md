@@ -47,7 +47,7 @@ average. If the raters were rewarding length they did it badly: the pair where
 ours ran 42 words longer is one of the two we lost, and the pair where it ran
 just 5 words longer is one we won.
 
-## The result
+## 56.25%, and the machine verdict
 
 Our agent won **63 of 112**, which is **56.25%**. The paper calls that an odds
 ratio of 1.29; it is the odds, 63 to 49. The 95% interval around the share runs
@@ -98,7 +98,7 @@ By that measure it was not close.
 
 The humans said: slightly better than a coin flip.
 
-## Except that the 56% is an average over a split
+## The 56% hides a split
 
 Underneath the aggregate, the raters were not mildly in favour of anything. They
 were emphatic in both directions, depending on the challenge.
@@ -177,7 +177,7 @@ It would have been easy to report only that it came out in our favour. We
 published the number rather than the adjective because the gap is the most
 informative thing we measured.
 
-## The general point
+## The exchange rate
 
 The field adopted LLM judges because human evaluation is slow and expensive.
 That trade is often correct. But the exchange rate is not one-to-one, and it is

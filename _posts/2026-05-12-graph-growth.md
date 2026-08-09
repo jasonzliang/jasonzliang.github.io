@@ -37,7 +37,7 @@ the 50-step interval. Those 77 are the comparison set for every across-run
 number below, so that a run is never called early or late on the strength of a
 finer snapshot spacing.
 
-## It grows, but not the way you would guess
+## Nearly half the steps are revisits
 
 Take one thousand-step run, on a constrained-creativity prompt: invent an
 emotion humans do not have. At step 50 the map has 26 nodes. At step 1,000 it
@@ -62,10 +62,9 @@ snapshots do not support it. Cut every run into its 50-step intervals and the
 discovery rate wobbles about as much inside a single run as it does across runs
 (median within-run coefficient of variation 0.23, against 0.23 for the run
 averages), and only about a third of the variance in that rate is between-run.
-The growth curve below looks smooth because it is cumulative. Cumulative curves
-always do.
+The growth curve below looks smooth because it is cumulative.
 
-## The moment it stops being a tree
+## When it stops being a tree
 
 The measurement I like best is the simplest.
 
@@ -122,16 +121,15 @@ travel log and starts being a model. Nearly every run makes it: 76 of the 77,
 somewhere between step 50 and step 850. What varies, by more than an order of
 magnitude, is when.
 
-## What a thousand steps looks like
+## Depth comes in two bursts, not one
 
 Depth, in these snapshots, is the length of the path the agent was holding when
 it first reached a page: how many links from the starting page, counted along
-the route it actually took rather than the shortest one. The same run starts by
-driving downward. The agent commits to one line and pushes it to a depth of 23
-within the first 150 steps. Then it stops going deeper for 250 steps and widens
-instead. Then it descends a second time, to 26 by step 450 and 31 by step 500,
-and after that the deepest point on the map never moves again for the remaining
-half of the run.
+the route it actually took rather than the shortest one. The same run commits to
+one line and pushes it to a depth of 23 within the first 150 steps. Then it
+stops going deeper for 250 steps and widens instead. Then it descends a second
+time, to 26 by step 450 and 31 by step 500, and after that the deepest point on
+the map never moves again for the remaining half of the run.
 
 Nobody designed that schedule; the policy chooses step by step from local
 structure. I had been describing it to myself as depth first, then breadth,
@@ -144,6 +142,8 @@ run does take most of its depth early, 87% of its final depth by step 500, but
 48 of the 77 go deeper after that, and among those the median gain is another 36
 levels. This run is also a shallow one: it bottoms out at 31, against a median
 of 84.
+
+## Open-ended sprawls, constrained stays tree-like
 
 Different question types produce visibly different maps, though only part of
 what I first said about them survives a recount. Across the 60 runs that reach

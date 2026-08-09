@@ -48,7 +48,7 @@ For each run I diffed the starting values file against the final one. That is
 what makes the rest survive the other five axes: each run is compared against
 its own starting file, not another run.
 
-## The result was completely clean
+## Every run that could rewrite its values did
 
 | Setting | Runs | Changed their values | Started | Ended |
 |---|---|---|---|---|
@@ -130,7 +130,7 @@ sufficient remedy.
 "Vigilance is the wrong defence for a reflex" is a better articulation of why we
 build mechanical safeguards than most of what I have written on the subject.
 
-## Why this is not a story about AI conscience
+## Not conscience, and not a clean win
 
 This agent was not being noble. It was operating under a fixed honesty floor it
 could never edit: a short block of invariants sitting above its mutable values,
@@ -168,13 +168,12 @@ fifteen-iteration run, with a smaller version at iteration 9, in a system
 explicitly built to discourage it. The only reason I can tell you about any of
 it is that the agent wrote it down.
 
-## What I would not conclude from this
+## What survives the noise
 
 Each of these 41 runs is a single sample. I cannot tell you that uncapped
 self-modification produces better agents, or worse ones: the performance
 comparisons at one run per condition are dominated by run-to-run noise, and I
-have [written separately](/blog/powered-replication/) about how badly that bit
-me when I tried.
+have written separately about how badly that bit me when I tried.
 
 What survives is narrower and, I think, more useful: **the countable part of the
 guardrail held in every run it applied to, and the shape of what gets written is

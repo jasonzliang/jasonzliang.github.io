@@ -150,9 +150,8 @@ than adjudicating readings; it neither restores the replication nor endorses the
 audit. What would settle it is more than one run per cell, iterations and
 configuration held equal, and a fixed starting target so that target choice
 cannot masquerade as character. I have not run that. When I ran a properly
-powered version of a related question, [the effect I liked went
-away](/blog/powered-replication/), and on a third task [taking my own tally
-apart pair by pair](/blog/bin-packing-values/) left no reliable direction at
+powered version of a related question, the effect I liked went away, and on a
+third task taking my own tally apart pair by pair left no reliable direction at
 all. Neither is this experiment; I have not settled this one.
 
 ## Where my records disagree

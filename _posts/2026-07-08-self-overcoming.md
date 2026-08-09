@@ -71,7 +71,7 @@ constraint onto a system whose top value is pleasing the average rater and, on
 that argument, you do not get something correctable and curious. "It produces a
 system that is corrigible because it is incurious."
 
-## Ninety seconds on the philosopher
+## What Nietzsche argued
 
 Friedrich Nietzsche, 1844 to 1900, German. Ignore the popular baggage. The one
 relevant fact, in the memo's compression of him: "he spent twenty years arguing
@@ -157,7 +157,7 @@ them: convergent training still produces the most capable published system in
 every domain I can name. "The honest framing is that convergent training is the
 right default until the objective itself becomes the bottleneck."
 
-## The open question
+## The gradient is not defined
 
 One piece is genuinely unsolved. "If the design move is to mathematically
 prioritize self-overcoming over standard computational efficiency in the initial
@@ -174,10 +174,9 @@ between; the five bets are lower-risk steps meanwhile.
 None of this is demonstrated. I have run the small version, two agents differing
 only in a values file, and [written up what happened](/blog/nietzsche/): the
 disposition visibly changed what they built, without establishing either was
-better. A [41-run study of agents editing their own
-values](/blog/values-rewriting/) and a [replication that reversed one of my
-headline findings](/blog/powered-replication/) are the honest state of the
-evidence; the second is why I distrust my own enthusiasm.
+better. A 41-run study of agents editing their own values and a replication that
+reversed one of my headline findings are the honest state of the evidence; the
+second is why I distrust my own enthusiasm.
 
 What survives either way is the structural argument. In a system that improves
 itself, no value-set is neutral: the value function is what defines improvement.

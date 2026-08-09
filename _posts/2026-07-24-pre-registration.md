@@ -150,7 +150,7 @@ The rule that goes with it, in the playbook's own words: say "no detectable
 difference at this N," never "values don't affect performance." Those sentences
 describe different worlds.
 
-## What it cost me
+## Underpowered
 
 Applying that gate, the honest verdict on the experiment was **underpowered**.
 One run per condition cannot separate a real effect from run-to-run variation,
@@ -168,9 +168,9 @@ work "must not begin until this doc is frozen," and it declines to assert a
 sample size, on the grounds that picking a number before the pilot would be
 unprincipled. It is a plan for a power analysis, not a power analysis.
 
-And when I later [ran a powered version](/blog/powered-replication/) of the same
-question on a different task, it reversed a headline I had believed, which is
-the best argument I have for putting the machinery in place beforehand.
+And when I later ran a powered version of the same question on a different task,
+it reversed a headline I had believed, which is the best argument I have for
+putting the machinery in place beforehand.
 
 ## Why this is not bureaucracy
 

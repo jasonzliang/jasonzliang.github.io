@@ -41,7 +41,7 @@ literature but from my taste with a bibliography stapled on. So every cited
 paper went through a separate **hallucination-audit pass**, run independently of
 the pipeline that produced the citations.
 
-## The audit result is the finding
+## 22 of 22 citations resolved
 
 The first pass checked 17 cited papers. The gate was mechanical: the identifier
 has to resolve to the claimed title, first author and year. The identifier is an
@@ -124,7 +124,7 @@ Part B, from the self-improving-agent papers, at high confidence:
 > - Self-improve against an objective verifier where one exists, learning from
 >   your own trials and reusing verified solutions rather than re-deriving.
 
-## A structured debate decided what changed
+## Adding papers did not add bullets
 
 Does a new paper on the list mean a new bullet? The instinctive answer is yes,
 and the instinctive answer is how a values file turns into a document nobody
@@ -173,12 +173,12 @@ That last one matters most, because the strongest bullet in Part B leans on it:
 "Self-improve against an objective verifier where one exists" is only as good as
 the verifier, and "where one exists" is doing real work.
 
-## What I think this was worth
+## Provenance, not a better agent
 
 The honest status: I have not run these as a condition. Nothing here says a
 literature-derived values file produces a better agent than a hand-written one.
-That comparison needs several runs per condition, and I have [written about what
-happens when I skip that step](/blog/powered-replication/).
+That comparison needs several runs per condition, and I have written about what
+happens when I skip that step.
 
 What I have instead is provenance. Against the Nietzsche file, whose defence is
 that it did something interesting, the literature-derived set is the more

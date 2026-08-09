@@ -26,7 +26,7 @@ failure mode everyone worries about.
 We found it. Then we found out that the way we measured it cannot distinguish
 that failure mode from something much more boring.
 
-## The setup, in the terms the rest of this post uses
+## The scoring setup
 
 Every answer was scored on three dimensions, each 1 to 10: New, Useful and
 Surprising. Those sum to a **30-point total**, and every number below is in
@@ -100,7 +100,7 @@ Claude-only or Gemini-only column, so the same correction cannot be computed for
 the other two judges. Their +1.35 and +0.98 could be bigger or smaller than they
 look, and we cannot say which.
 
-## It still changes with answer format
+## The gaps move with answer format
 
 Whatever these numbers are measuring, they are not a property of the judge
 alone. They are a property of the judge *and the task*.
@@ -152,7 +152,7 @@ The limit on that claim is that we only ran it inside one tier. "Length buys
 nothing among peers" is established for the deep research group and untested for
 the shallow one.
 
-## What we did about it
+## What we did, and why it is not enough
 
 Two things, neither of which fully solves the problem.
 
@@ -179,9 +179,8 @@ an imperfect proxy for human creativity assessment," and judges trained by
 similar procedures may share blind spots that no panel of them can detect,
 because the panel is not independent in the way the word implies.
 
-Which is why we also [asked actual humans](/blog/human-vs-machine/); the gap
-between what the humans said and what the judges said is the subject of that
-post.
+Which is why we also asked actual humans; the gap between what the humans said
+and what the judges said is the subject of that post.
 
 ## If you are using LLM judges
 

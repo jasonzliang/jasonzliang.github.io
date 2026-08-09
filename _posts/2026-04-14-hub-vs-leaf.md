@@ -43,12 +43,12 @@ five trials each, on our usual rubric: how new, how useful, how surprising, one
 to ten each, thirty in total.
 
 One thing I need to be exact about, because the first version of this post said
-otherwise: there is no second writing step. Nobody handed these notes to a
-writer for a finished answer. The artifact scored is the raw pile of notes,
-concatenated, opening with the literal string `Insights:`. Two piles of notes
-were compared, not two written answers, a narrower thing to have measured.
+otherwise: there is no second writing step. The artifact scored is the raw pile
+of notes, concatenated, opening with the literal string `Insights:`. Two piles
+of notes were compared, not two written answers, a narrower thing to have
+measured.
 
-## The result
+## Hub notes scored higher
 
 | | Hub notes | Leaf notes |
 |---|---|---|
@@ -71,7 +71,7 @@ cross-domain synthesis they tie there at 7.67.
             one-to-ten scale. The panel could see which pile was which."
 %}
 
-## Which unit the effect size is measured at
+## Two units, two effect sizes
 
 The effect size we report is [Cliff's delta](/blog/human-vs-machine/), which
 asks how often a draw from one group lands above a draw from the other. This is
@@ -104,6 +104,8 @@ The analysis script also reports a Mann-Whitney U test on the 150 rows, p =
 8.3e-09. I would not lean on it: it treats 75 scorings a side as 75 independent
 samples, and they are three judges scoring five texts, five times each.
 
+## Strict dominance does not replicate
+
 The same comparison was run over a second set of explorations, and this is the
 part I should have led with: it is the only replication I have. Those used the
 older note-taking prompt, one hop of neighbours and no traversal history; other
@@ -116,7 +118,7 @@ pass, minutes before the main one on the identical three-by-five design, gave
 Both point the same way, both less emphatically. In both, one of the five
 challenges reverses, counterfactual reasoning, where the leaf pile wins. So the
 strict dominance behind delta = 1.00 does not replicate: the challenge-level
-delta is 0.92 on the first pass and 0.52 on the second, against 1.00 here, and
+delta is 0.92 on the first pass and 0.52 on the second, against 1.00 above, and
 the scoring-level delta is 0.33 and 0.30 against 0.54. Consistency across all
 five challenges is the whole basis for the 1.00, and the part that fails when I
 run it again.
