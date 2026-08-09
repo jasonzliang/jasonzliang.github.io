@@ -30,9 +30,11 @@ say.
 
 Every run is the same loop: the agent edits one solver, commits, and is
 re-scored by a fixed evaluator, ten times over, twenty in the earliest cohort.
-The task is one-dimensional bin-packing, pack items into as few fixed-size bins
-as possible: NP-hard, with strong classical baselines, the standard
-LLM-heuristic-discovery testbed since FunSearch.
+The task is [one-dimensional
+bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem), pack items into
+as few fixed-size bins as possible: NP-hard, with strong classical baselines,
+the standard LLM-heuristic-discovery testbed since
+[FunSearch](https://doi.org/10.1038/s41586-023-06924-6).
 
 **Offline** shows the solver the whole list up front; **online** feeds items one
 at a time, no lookahead. Offline is close to solved by a classical heuristic
@@ -46,8 +48,7 @@ score I compute after, on families it never trained against, from published
 generators with a seed it cannot read. Everything turns on that difference. I
 redesigned that set partway through: the original, Schoenfield's Hard28, had
 both arms and the reference heuristics all solving exactly 5 of its 28 to the
-proven optimum, a benchmark that has stopped measuring, its tie a property of
-the instrument, not a finding.
+proven optimum, its tie a property of the instrument, not a finding.
 
 ## Offline, in-run says nothing
 
@@ -94,10 +95,9 @@ Those are logical lines, blanks, comments and docstrings excluded; the run
 report counts the same four files raw, in order, at 1278 and 628 against 1429
 and 1553, so files on disk run 1.4 to 1.7 times longer. The cautious runs
 converge onto one line of work and defend it; the expansive ones build a tool
-whenever one would help, keep four strategies alive, and ship machinery whose
-value they have not shown. The size half is offline only: online the scoring
-functions are compact whoever wrote them, so size separates nothing, the
-difference is in the kind of rule.
+whenever one would help and ship machinery whose value they have not shown. The
+size half is offline only: online the scoring functions are compact whoever
+wrote them; the difference is in the kind of rule.
 
 One episode illustrates the mechanism without testing it. In offline sm-v4 the
 cautious arm built a perfect-fit search late, an engine capable of exact optima,
@@ -171,9 +171,9 @@ direction, but the tidying is not free.
 
 ## What survives
 
-My own verdict slide put it in five words: behaviour changes, direction does
-not. It attaches a condition, once the analysis is recency-weighted, and that
-condition does real work.
+My verdict slide put it in five words: behaviour changes, direction does not. It
+attaches a condition, once the analysis is recency-weighted, and that condition
+does real work.
 
 The behaviour half holds up: two dispositions differing by about 150 words
 produce measurably different artifacts, and generalization swings by up to 24

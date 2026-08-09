@@ -55,9 +55,9 @@ are the seeds of the evolutionary trajectory."
 It is a suck-up.
 
 Take the standard recipe: reinforcement learning from human feedback trains the
-agent to be helpful, harmless and agreeable to the median annotator rating its
-outputs. The side effects are measured: sycophancy, regression toward annotator
-means, reward-model exploitation ([Perez et al.
+agent to be helpful, harmless and agreeable to the median annotator. The side
+effects are measured: sycophancy, regression toward annotator means,
+reward-model exploitation ([Perez et al.
 2022](https://arxiv.org/abs/2212.09251); [Casper et al.
 2023](https://arxiv.org/abs/2307.15217); [Sharma et al.
 2023](https://arxiv.org/abs/2310.13548)).
@@ -74,23 +74,23 @@ system that is corrigible because it is incurious."
 
 ## What Nietzsche argued
 
-Friedrich Nietzsche, 1844 to 1900, German. Ignore the popular baggage. The one
-relevant fact, in the memo's compression of him: "he spent twenty years arguing
-that any system optimizing for a fixed objective and a stable equilibrium will
-stagnate, and that genuinely high-capability systems must constantly surpass
-their own past states."
+[Friedrich Nietzsche](https://plato.stanford.edu/entries/nietzsche/), 1844 to
+1900, German. The one relevant fact, in the memo's compression of him: "he spent
+twenty years arguing that any system optimizing for a fixed objective and a
+stable equilibrium will stagnate, and that genuinely high-capability systems
+must constantly surpass their own past states."
 
 He had a name for the failure mode above, herd morality, which the memo glosses
 as "A system that optimizes for comfort, conformity, and the approval of the
 median observer." He was describing 19th century Europe, not chatbots, but the
 shape is the same.
 
-One caveat on citing him, because skeptics press on it. *The Will to Power* was
-assembled after his collapse by his sister Elisabeth Förster-Nietzsche, and the
-standard critical edition, Colli and Montinari's, treats it as unreliable. What
-follows draws on the books he published (*The Birth of Tragedy*, *Beyond Good
-and Evil*, *On the Genealogy of Morals*) and on Walter Kaufmann's reading of
-will to power as mastery over one's own chaos, not domination of anyone else.
+One caveat on citing him. *The Will to Power* was assembled after his collapse
+by his sister Elisabeth Förster-Nietzsche, and the standard critical edition,
+Colli and Montinari's, treats it as unreliable. What follows draws on the books
+he published (*The Birth of Tragedy*, *Beyond Good and Evil*, *On the Genealogy
+of Morals*) and on Walter Kaufmann's reading of will to power as mastery over
+one's own chaos, not domination of anyone else.
 
 ## Five design bets
 
@@ -98,7 +98,7 @@ The thesis: a different starting value-set produces the opposite trajectory.
 Five values, most translating into an engineering choice someone is already
 partly making. The memo specifies an experiment per bet, each with a benchmark,
 baseline and kill criterion; the falsification section below refers to those
-five. None of the five has been run.
+five. None has been run.
 
 **1. Will to power.** "Living systems do not optimize for survival or preference
 satisfaction. They optimize for the expansion of what they can do." So stop
@@ -116,8 +116,9 @@ could not have produced." Let the agent edit the code defining its policy, tools
 and search loop, and let the fitness signal for those edits change too. The
 [Darwin Gödel Machine](https://arxiv.org/abs/2505.22954) and
 [AlphaEvolve](https://arxiv.org/abs/2506.13131) are the closest reference
-points; AlphaEvolve reports the first improvement in 56 years on Strassen's 1969
-algorithm for two 4x4 complex matrices, cutting 49 scalar multiplications to 48.
+points; AlphaEvolve reports the first improvement in 56 years on [Strassen's
+1969 algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) for two 4x4
+complex matrices, cutting 49 scalar multiplications to 48.
 
 **3. Perspectivism.** "There is no view from nowhere." Incompatible frameworks
 can be valid at once, and forcing consensus destroys information. Not
@@ -161,10 +162,10 @@ the objective itself becomes the bottleneck."
 
 ## The gradient is not defined
 
-One piece is genuinely unsolved. "If the design move is to mathematically
-prioritize self-overcoming over standard computational efficiency in the initial
-objective, how is the gradient defined so the system does not collapse into
-ungrounded noise as soon as it starts editing its own scaffolding?"
+One piece is unsolved. "If the design move is to mathematically prioritize
+self-overcoming over standard computational efficiency in the initial objective,
+how is the gradient defined so the system does not collapse into ungrounded
+noise as soon as it starts editing its own scaffolding?"
 
 The failure modes sit on either side of it: "Open-ended search without a
 learnability gate (Bet 1) produces chaos; closed-form objective design without a

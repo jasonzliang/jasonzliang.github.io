@@ -29,7 +29,8 @@ So the pipeline goes back and looks.
 
 ## The funnel
 
-For one run, on a question about biomimetic architecture:
+For one run, on a question about [biomimetic
+architecture](https://en.wikipedia.org/wiki/Biomimetic_architecture):
 
 | Stage | Count |
 |---|---|
@@ -46,18 +47,17 @@ navigation graphics the filter does not name, author photographs, decorative
 headers.
 
 Scoring all 343 with a vision model is the obvious next move, and the pipeline
-refuses. Scoring is capped at 60 candidates, so **only 60 of the 343 ever get
-looked at** and 283 are never seen. Each is scored 0 to 10 as a visual reference
-for the report's opening; anything under 4.0 is dropped, the survivors ranked,
-the top four kept, with a per-domain limit of two so no image-heavy source
-supplies the whole set.
+refuses. The cap is 60, so **only 60 of the 343 ever get looked at** and 283 are
+never seen. Each is scored 0 to 10 as a visual reference for the report's
+opening; anything under 4.0 is dropped, the survivors ranked, the top four kept,
+with a per-domain limit of two so no image-heavy source supplies the whole set.
 
-Which 60 is the part that has changed since. In this run there was no ranking:
-the cap just took 60 of the 343. The pipeline now ranks all 343 with a cheap
-text-only heuristic over alt text and URL keywords, takes the top 50, and adds
-10 at random from the tail, because a purely ranked pool only surfaces images
-whose alt text or URL already sounds relevant. Both Wikimedia references below
-arrived with alt text of exactly nothing.
+Which 60 has changed since. In this run there was no ranking: the cap just took
+60 of the 343. The pipeline now ranks all 343 with a cheap text-only heuristic
+over alt text and URL keywords, takes the top 50, and adds 10 at random from the
+tail, because a purely ranked pool only surfaces images whose alt text or URL
+already sounds relevant. Both Wikimedia references below arrived with alt text
+of exactly nothing.
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/funnel.webp"
@@ -69,11 +69,11 @@ arrived with alt text of exactly nothing.
             the scoring and reference budgets."
 %}
 
-The four here scored **8.0, 8.0, 8.0 and 7.0**. Two are Wikimedia Commons files
-embedded in the Wikipedia article the report cited, neither with alt text. The
-other two, from a blog post on the site of a company that sells video intercoms,
-have it: *"biomimetic architecture example trees"* and *"skyline of city using
-biomimetic architecture"*.
+The four here scored **8.0, 8.0, 8.0 and 7.0**. Two are [Wikimedia
+Commons](https://commons.wikimedia.org/) files embedded in the Wikipedia article
+the report cited, neither with alt text. The other two, from a blog post on a
+video intercom company's site, have it: *"biomimetic architecture example
+trees"* and *"skyline of city using biomimetic architecture"*.
 
 Then a vision model writes a dense description of each survivor, and a language
 model turns the report plus those descriptions into an image prompt, which
@@ -189,7 +189,7 @@ and interface chrome go.
 
 Below 7.0 the survivors are not even described in words: the captioning pass
 never runs and the prompt is written from the report alone. The run above
-cleared the gate, its best reference scoring 8.0.
+cleared the gate.
 
 ## Why I like this pattern
 

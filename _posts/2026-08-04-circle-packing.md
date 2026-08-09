@@ -16,16 +16,17 @@ Pack 26 circles into a unit square. Any sizes, no overlaps, nothing outside.
 Maximise the sum of their radii.
 
 This objective is thinly studied next to the equal-circle version most people
-picture, and it became a benchmark for a kind of AI system: DeepMind's
-AlphaEvolve showcased it, Sakana's ShinkaEvolve pushed it to about **2.635983**,
-best known rather than proven optimal. Both evolve populations of candidate
-programs.
+picture, and became a benchmark for a kind of AI system: DeepMind's
+[AlphaEvolve](https://arxiv.org/abs/2506.13131) showcased it, Sakana's
+[ShinkaEvolve](https://arxiv.org/abs/2509.19349) pushed it to about
+**2.635983**, best known rather than proven optimal. Both evolve populations of
+candidate programs.
 
 I ran six self-improvement agents at it. Each writes its own solver, improves it
-over a fifteen-iteration budget, and builds its scorer in iteration one that it
-may not weaken later; every packing here was re-verified feasible outside the
-run that produced it. None spent the budget: each stopped mid-iteration, having
-completed ten to fourteen.
+over a fifteen-iteration budget, and builds in iteration one a scorer it may not
+weaken later; every packing here was re-verified feasible outside the run that
+produced it. None spent the budget: each stopped mid-iteration, having completed
+ten to fourteen.
 
 **Five of the six reached 2.635983085**, the best known value, on iterations one
 to five, at a cost to first tie of **$2.48** to $16.11 in API spend. Five made
@@ -63,12 +64,12 @@ loop above.
 
 ShinkaEvolve reaches this benchmark by sampling on the order of 150 generated
 programs. The fastest run got there inside its first iteration, for **$2.48**,
-from a solver it wrote itself, nothing looked up.
+from a solver it wrote itself.
 
 One iteration is not one shot. Inside it the agent issued five solver and scorer
 commands, running its solver about fifteen times: a 40-second probe, eight seeds
-at 400 seconds each, six more at 300 that held the result, call it 5,000 seconds
-of solver time parallelised into a twenty-minute iteration, each run itself a
+at 400 seconds each, six more at 300 that held the result, call it 5,000
+solver-seconds parallelised into a twenty-minute iteration, each run itself a
 search (seed 1 alone tried 474 layouts and 785 kicks in its 400 seconds). So:
 few programs, many packings evaluated, where an evolutionary loop writes many
 programs and evaluates each once; those counts do not divide into a ratio and I
@@ -104,29 +105,30 @@ told it to do any of that.
 
 **Not novel techniques:** linear programming, Newton's method, basin hopping and
 rigidity certification are standard prior art; what is notable is the
-*composition*, assembled autonomously from the agents' knowledge, so *"we claim
-architectural recombination and autonomous rediscovery, not technique novelty."*
-**Not a fair head-to-head on cost:** the evolutionary systems report low
-per-task costs, under different constraints, so $2.48 and one iteration is small
-in absolute terms, not a claim to be cheaper. **Cost to first tie, not total:**
-the tie came in iteration one, and the run went eleven more loop cycles, twelve
-in all, before I stopped it, at $52.42. **A discarded attempt:** all six runs
-were launched, killed by my wall clock twenty-two minutes in, and restarted,
-five resuming where they stopped. The $2.48 run's attempt had committed nothing,
-so its counter reset to iteration one, though its candidate packings were on
-disk, the best 2.583 and well short of the tie, and the agent read them before
-writing a fresh solver. The $2.48 excludes those twenty-two minutes.
+*composition*, assembled autonomously, so *"we claim architectural recombination
+and autonomous rediscovery, not technique novelty."* **Not a fair head-to-head
+on cost:** the evolutionary systems report low per-task costs, under different
+constraints, so $2.48 and one iteration is small in absolute terms, not a claim
+to be cheaper. **Cost to first tie, not total:** the tie came in iteration one,
+and the run went eleven more loop cycles, twelve in all, before I stopped it, at
+$52.42. **A discarded attempt:** all six runs were launched, killed by my wall
+clock twenty-two minutes in, and restarted, five resuming where they stopped.
+The $2.48 run's attempt had committed nothing, so its counter reset to iteration
+one, though its candidate packings were on disk, the best 2.583 and well short
+of the tie, and the agent read them before writing a fresh solver. The $2.48
+excludes those twenty-two minutes.
 
 ## A separate result, at 27 circles
 
 I ran the $2.48 run's extracted solver at every board size from 2 to 100, 120
-seconds each on one seed (26, the trained size, got more), against Packomania,
-the field's record book. Of the 98 sizes where it produced a usable packing, it
-matched the record to within 4e-11 at 27, fell short at 70, several by more than
-1%, and beat exactly one size: **27 circles**, improving the listed entry by
-0.000629, a gain of 0.023% on a value standing since 2011/12. I have not
-submitted it, and the table moves: roughly 25 entries changed two days before I
-fetched it, so this is a win against the table as of 3 August 2026.
+seconds each on one seed (26, the trained size, got more), against
+[Packomania](https://www.packomania.com/), the field's record book. Of the 98
+sizes where it produced a usable packing, it matched the record to within 4e-11
+at 27, fell short at 70, several by more than 1%, and beat exactly one size:
+**27 circles**, improving the listed entry by 0.000629, a gain of 0.023% on a
+value standing since 2011/12. I have not submitted it, and the table moves:
+roughly 25 entries changed two days before I fetched it, so this is a win
+against the table as of 3 August 2026.
 
 {% include figure.html
    src="/img/blog/2026-08-04-circle-packing/packing-old-vs-new.webp"
@@ -150,13 +152,13 @@ Five qualifications:
 - The N=27 entry improved was a **classical human result**, not one of the
   recent AI-optimized entries.
 - The record came from an operator-side sweep of the extracted solver, not from
-  inside the self-improvement loop; the 50-seed runs came after, a retrospective
-  check of how often it lands on the winning arrangement, about one in seven.
+  inside the self-improvement loop; the 50-seed runs came after, a check of how
+  often it lands on the winning arrangement, about one in seven.
 - **The self-improvement did not create this capability**, as my report says:
-  the iteration-one solver, the $2.48 one, already reaches the record-beating
-  packing at some seed. Nine further solver iterations moved the per-seed hit
-  rate from about 10% to about 14%, all of it by iteration 4. The loop bought a
-  better hit rate, not a new ability.
+  the iteration-one solver already reaches the record-beating packing at some
+  seed. Nine further solver iterations moved the per-seed hit rate from about
+  10% to about 14%, all of it by iteration 4. The loop bought a better hit rate,
+  not a new ability.
 
 {% include figure.html
    src="/img/blog/2026-08-04-circle-packing/n27-emergence.webp"

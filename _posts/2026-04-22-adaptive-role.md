@@ -45,15 +45,15 @@ fetch the page back and ask for a replacement role. The instruction:
 > IMPORATNT: Your response must start with "Your role:" followed by the adapted
 > role description.
 
-That is the rendered prompt, not the template, and three differences are worth
-stating. The `~350` is a config value called `role_max_length`; 350 is its
-default and what all three command-line presets get, but benchmark configs raise
-it to 400, and until a change last December the line asked for tokens, not
-words. The clause "based on the starting query" appears only when the run starts
-from a query. If an insights file is configured, two further clauses appear
-asking the new role to build on it; no shipped preset configures one, so they
-are absent above. The misspelling in the last line is in the source, and that
-line is why every adapted role in the logs opens with "Your role:".
+That is the rendered prompt, not the template, and three differences matter. The
+`~350` is a config value called `role_max_length`; 350 is its default and what
+all three command-line presets get, but benchmark configs raise it to 400, and
+until a change last December the line asked for tokens, not words. The clause
+"based on the starting query" appears only when the run starts from a query. If
+an insights file is configured, two further clauses appear asking the new role
+to build on it; no shipped preset configures one, so they are absent above. The
+misspelling in the last line is in the source, and that line is why every
+adapted role in the logs opens with "Your role:".
 
 {% include figure.html
    src="/img/blog/2026-04-22-adaptive-role/three-roles.webp"
@@ -82,18 +82,18 @@ the search landed.
 This is not an experimental flag. The library default in `caesar_config.py` is
 `adapt_role: False`, but every shipped preset flips it on: `adapt_role: True` in
 all three command-line presets (`nano`, `mini`, `regular`) and in all four web
-app presets. So every default run does this. The one exception I can find is the
-web app's synthesis-only follow-up path, which turns the flag off along with the
-whole exploration loop, so there is nothing to adapt to.
+app presets. The one exception I can find is the web app's synthesis-only
+follow-up path, which turns the flag off along with the whole exploration loop,
+so there is nothing to adapt to.
 
 ## The roles are nearly all the same
 
 Here is what argues hardest against the feature, found while checking the
 figure.
 
-The run directory in my repo holds 57 runs with a role adaptation logged, across
-seven distinct starting queries. In **51 of the 57** the agent named itself some
-kind of *Cartographer*. In 42 the opening line contains the word *explorer*; 53
+My run directory holds 57 runs with a role adaptation logged, across seven
+distinct starting queries. In **51 of the 57** the agent named itself some kind
+of *Cartographer*. In 42 the opening line contains the word *explorer*; 53
 contain one or the other.
 
 That is not the model being unimaginative in a vacuum. The prompt hands it its
@@ -104,8 +104,8 @@ the mission statement. Speculative Affective, Culinary Calculus, White-Space
 Venture, Counterfactual Sensory. The noun and the sentence shape barely move.
 
 Whether a topic-specific modifier on a near-fixed template is worth anything is
-exactly the question this post cannot answer. I mention it so nobody reads the
-figure as more variety than it is.
+exactly what this post cannot answer. I mention it so nobody reads the figure as
+more variety than it is.
 
 ## Why it might work
 
@@ -123,18 +123,20 @@ instead, it is whatever real page you handed it. Turning that into a
 specialist's self-description is a cheap way to move it into the context that
 governs every later decision.
 
-There is also a less flattering reading: this is prompt engineering the system
-does to itself so a human does not have to. I think that is basically correct,
-and not a criticism.
+There is also a less flattering reading: this is [prompt
+engineering](https://en.wikipedia.org/wiki/Prompt_engineering) the system does
+to itself so a human does not have to. I think that is basically correct, and
+not a criticism.
 
 ## What I cannot tell you
 
 Whether it helps.
 
-There is no ablation. An ablation is the plainest comparison there is: run the
-system with the feature, run it again without, change nothing else, and see the
-difference. I have not done that. So I cannot tell you it improves answer
-quality, and I am not going to imply it while avoiding the claim.
+There is no [ablation](https://en.wikipedia.org/wiki/Ablation_study). An
+ablation is the plainest comparison: run the system with the feature, run it
+again without, change nothing else, and see the difference. I have not done
+that. So I cannot tell you it improves answer quality, and I am not going to
+imply it while avoiding the claim.
 
 That is uncomfortable to admit about a feature on by default in every preset,
 and worth being precise about why. Features like this get added because they are
@@ -163,10 +165,9 @@ Pathless Path," written to give the agent a disposition toward restlessness
 rather than closure.
 
 They are **commented out in all three command-line presets.** They were tuned as
-recently as April, and the default configuration does not load them. The
-commented-out lines point into `config/role/`, a directory that does not exist;
-the files live in `config/custom_role/`, so uncommenting them would load
-nothing.
+recently as April. The commented-out lines point into `config/role/`, a
+directory that does not exist; the files live in `config/custom_role/`, so
+uncommenting them would load nothing.
 
 To be exact rather than tidy: five other config files, none among the three
 presets, still name one of these files uncommented. Four point into that same

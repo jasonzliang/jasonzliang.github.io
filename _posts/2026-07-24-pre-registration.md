@@ -19,9 +19,9 @@ The experiment was four agent runs improving an online bin-packing heuristic, a
 program that drops arriving items into bins one at a time with no lookahead. One
 run got a control values document and one got a [Nietzsche-derived
 one](/blog/nietzsche/); that pair ran at each of two document versions. The runs
-themselves were already finished and frozen. What was still ahead of me was
-scoring their programs on a held-out benchmark I had just rebuilt, and that
-scoring step is what the document locked down.
+were already finished and frozen. What was still ahead of me was scoring their
+programs on a held-out benchmark I had just rebuilt, and that is what the
+document locked down.
 
 This is pre-registration. Clinical trials have done it for decades. Psychology
 took it up after its replication crisis. In machine learning it barely exists
@@ -30,26 +30,27 @@ keep paying for.
 
 ## The failure it prevents
 
-The failure has a name: HARKing, Hypothesizing After the Results are Known.
+The failure has a name: [HARKing](https://en.wikipedia.org/wiki/HARKing),
+Hypothesizing After the Results are Known.
 
 It does not require dishonesty. Here is the version that gets everybody. You run
-an experiment with a primary metric. The primary metric comes out flat. But
-while looking at the results you notice a secondary measurement that separates
-the conditions cleanly, and it has a plausible story. So you write that up.
+an experiment with a primary metric. It comes out flat. But while looking at the
+results you notice a secondary measurement that separates the conditions
+cleanly, and it has a plausible story. So you write that up.
 
 Nothing in that sequence feels like cheating. Each step is a reasonable response
-to what you are looking at. But if you had twelve measurements available and
-picked the one that separated, you have not run one experiment, you have run
-twelve and reported the winner, without the multiple-comparison correction that
-would require. Both pre-registrations below apply one, Holm's, to their
-secondary measurements as a family.
+to what you are looking at. But if you had twelve measurements and picked the
+one that separated, you have not run one experiment, you have run twelve and
+reported the winner, without the multiple-comparison correction that would
+require. Both pre-registrations below apply one, Holm's, to their secondary
+measurements as a family.
 
-The document I froze blocks the specific version of this I was most at risk of.
-It fixes the comparison as two-sided, predicting no direction at all, and says
-why: I had already seen the runs' scores on the set the agent optimizes against,
-and a pilot on the offline version of the same task had put the two conditions
-in the opposite order from those scores. Predicting a direction then would have
-been choosing my hypothesis to fit data I had already peeked at.
+The document I froze blocks the version of this I was most at risk of. It fixes
+the comparison as two-sided, predicting no direction at all, and says why: I had
+already seen the runs' scores on the set the agent optimizes against, and a
+pilot on the offline version of the same task had put the two conditions in the
+opposite order from those scores. Predicting a direction then would have been
+choosing my hypothesis to fit data I had already peeked at.
 
 I had already seen enough of the data to have a hunch. Writing down that I was
 not allowed to use it is the whole point.
@@ -62,7 +63,7 @@ The one I froze is `PREREGISTRATION.md`, committed seven minutes before the
 commit that re-scored the runs. It is deliberately modest: it calls itself a
 "descriptive case study" and sets **no accept/reject threshold at all**, because
 at one run per condition there was nothing a threshold could legitimately
-decide. The machinery for actually *testing* a hypothesis lives in
+decide. The machinery for *testing* a hypothesis lives in
 `PREREGISTRATION_POWERED.md`, written the next day for a powered follow-up, and
 that one is still marked draft. The verdict gate in the next section is in
 neither: it comes from a third document, a standing analysis playbook that says
@@ -88,13 +89,14 @@ same evolved program from the same trajectory. [Counting instances instead of
 runs](/blog/hub-vs-leaf/) would have multiplied my sample size by fifty and made
 almost anything look significant.
 
-**The test** (draft only). A permutation test: take the runs' scores, throw away
-which condition each came from, and re-deal the labels. Every way of splitting
-the runs into two groups of equal size gives you one difference the experiment
-could have produced by luck alone. The p-value is the fraction of those re-dealt
-differences at least as large in magnitude as the real one. This is nice: the
-re-dealt distribution *is* your pipeline's noise floor, measured rather than
-assumed.
+**The test** (draft only). A [permutation
+test](https://en.wikipedia.org/wiki/Permutation_test): take the runs' scores,
+throw away which condition each came from, and re-deal the labels. Every way of
+splitting the runs into two groups of equal size gives you one difference the
+experiment could have produced by luck alone. The p-value is the fraction of
+those re-dealt differences at least as large in magnitude as the real one. This
+is nice: the re-dealt distribution *is* your pipeline's noise floor, measured
+rather than assumed.
 
 My implementation does not sample those re-deals, it enumerates them, which at
 five runs per condition is 252 and not the ten thousand shuffles you usually
@@ -125,7 +127,7 @@ playbook's rule forces every result into one of four boxes, with no exits:
 
 - **Inconclusive by saturation**: every condition is pinned at a ceiling or a
   floor, so nothing could have been detected.
-- **Underpowered**: you cannot bound the effect at all.
+- **Underpowered**: you cannot bound the effect.
 - **Effect**: the difference has to survive being reported as an interval rather
   than a point, and it has to exceed the run-to-run noise.
 - **Null**: allowed only if the conditions had room to move *and* you state the
@@ -144,8 +146,8 @@ playbook's rule forces every result into one of four boxes, with no exits:
 The saturation box is the one that earns its keep, and the figure asks it first.
 If every condition scores 0.99 on a benchmark whose maximum is 1.0, you have not
 found that your intervention does nothing. You have found that your benchmark
-cannot see. Those are completely different conclusions and they get reported
-identically all the time.
+cannot see. Those are different conclusions and they get reported identically
+all the time.
 
 The rule that goes with it, in the playbook's own words: say "no detectable
 difference at this N," never "values don't affect performance." Those sentences
@@ -160,8 +162,8 @@ rather than letting me discover a reason afterwards.
 
 That is an unsatisfying outcome for four agent runs and about twenty hours of
 agent time, spent in one overnight batch. It is also correct, and I know it is
-correct rather than merely suspecting it, which is the entire return on writing
-the document.
+correct rather than suspecting it, which is the entire return on writing the
+document.
 
 The follow-up is specified in the draft document, honest about its own status in
 a way worth preserving: it is headed "Draft for review," it says confirmatory

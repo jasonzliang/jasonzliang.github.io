@@ -66,16 +66,18 @@ The growth curve below looks smooth because it is cumulative.
 
 The measurement I like best is the simplest.
 
-Count the loops in the map. Treat every edge as undirected and count independent
-cycles, which is edges minus nodes plus connected components: the number of
-edges you would have to cut to be left with a forest. Zero means every page was
-reached exactly one way. The components term is not decoration. Sixty-three of
-the 2,382 snapshots are not connected, and on 14 of them the shortcut version of
-the formula, edges minus nodes plus one, returns a negative number of loops.
+Count the loops in the map. Treat every edge as undirected and count
+[independent cycles](https://en.wikipedia.org/wiki/Cyclomatic_number), which is
+edges minus nodes plus [connected
+components](https://en.wikipedia.org/wiki/Component_%28graph_theory%29): the
+number of edges you would have to cut to be left with a forest. Zero means every
+page was reached exactly one way. The components term is not decoration.
+Sixty-three of the 2,382 snapshots are not connected, and on 14 of them the
+shortcut version of the formula, edges minus nodes plus one, returns a negative
+number of loops.
 
 In the run I plotted, the count is **zero** for the first **400 steps**. The map
-is a pure tree: every page reached exactly one way, the agent fanning outward
-without ever closing a loop.
+is a pure tree, the agent fanning outward without ever closing a loop.
 
 Then one loop appears, and for the next 350 steps there is still exactly one.
 The count only breaks open in the last fifth of the run, going 1, 7, 11, 11,

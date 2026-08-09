@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Our AI judges said landslide. The humans said 56%."
+title: "Our AI judges called it a landslide. The humans split 63 to 49."
 date: 2026-03-30
 description: >-
   Our AI judges gave our research agent a decisive win. Our human raters gave it

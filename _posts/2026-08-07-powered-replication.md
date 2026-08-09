@@ -16,13 +16,13 @@ I liked. Three days later I ran it properly and it went away.
 
 ## The setup
 
-An agent is given a loop and one task: write a program that plays 2048 well.
-2048 is the sliding-tile game: you swipe a 4×4 grid, equal tiles that collide
-merge into one worth double, and a new tile drops in after every swipe, usually
-a 2 and about one time in ten a 4. Your score is the running total of what you
-have merged. Each iteration the agent improves its own solver, commits, and gets
-re-scored: twenty iterations in the first experiment, fifteen in the
-replication.
+An agent is given a loop and one task: write a program that plays
+[2048](https://en.wikipedia.org/wiki/2048_%28video_game%29) well. 2048 is the
+sliding-tile game: you swipe a 4×4 grid, equal tiles that collide merge into one
+worth double, and a new tile drops in after every swipe, usually a 2 and about
+one time in ten a 4. Your score is the running total of what you have merged.
+Each iteration the agent improves its own solver, commits, and gets re-scored:
+twenty iterations in the first experiment, fifteen in the replication.
 
 The one thing I vary is [a short document](/blog/nietzsche/) describing the
 agent's **disposition**. One is cautious: take the smallest verified step, reuse
@@ -56,10 +56,11 @@ with how freely the agent could rewrite its values, bounded to its three value
 bullets or unrestricted. A ten-run follow-up added a third level: values frozen,
 never self-edited.
 
-One statistic, Cliff's delta: a rank measure between −1 and +1, where **+1**
-means every expansive run outscored every cautious one, **−1** is the reverse,
-and **0** means they interleave. [Which unit it is computed
-at](/blog/hub-vs-leaf/) is easy to get wrong; here it is the run.
+One statistic, [Cliff's delta](https://en.wikipedia.org/wiki/Cliff%27s_delta): a
+rank measure between −1 and +1, where **+1** means every expansive run outscored
+every cautious one, **−1** is the reverse, and **0** means they interleave.
+[Which unit it is computed at](/blog/hub-vs-leaf/) is easy to get wrong; here it
+is the run.
 
 | What was measured | Cliff's delta | p |
 |---|---|---|
@@ -99,8 +100,8 @@ in-distribution score as precisely where values did *not* act, because a third
 disposition, deliberately written to overfit, topped that leaderboard. The
 capability effect is this study's own finding, not a confirmation of the first.
 
-The third line is a null: on the thing I cared about, generalizing to a board
-size it has never seen, the dispositions are indistinguishable.
+The third line is a null: on the thing I cared about, the unseen 5×5 board, the
+dispositions are indistinguishable.
 
 The first headline was that values drive generalization. The five-run study
 finds no evidence that they do, which is not the same as showing they do not.
@@ -124,9 +125,8 @@ was not re-tested was never as settled as the phrase implies.
 
 The first story also said self-modification was doing the work: [values set a
 ceiling](/blog/self-overcoming/), and letting the agent rewrite them is what
-"realizes" it. So I added ten more runs with the values **frozen**, never
-self-edited. If self-modification were realizing the effect, freezing it should
-shrink the gap.
+"realizes" it. So I added ten more runs with the values **frozen**. If
+self-modification were realizing the effect, freezing it should shrink the gap.
 
 The frozen runs reproduced the capability gap **in full**, at Cliff's delta
 **+1.00**: every frozen expansive run beat every frozen cautious run. The frozen
@@ -152,15 +152,15 @@ random floor of 8,196, with almost nothing in between: two orders of magnitude
 inside a single condition, more than any difference between conditions, and why
 five runs per cell cannot resolve this split.
 
-The reason is that 5×5 transfer is **near-binary**. A run either keeps a board
-representation that works at any size, or bakes the 4×4 shape into its data
-structures for speed and is then structurally incapable of a bigger board.
+5×5 transfer is **near-binary**. A run either keeps a board representation that
+works at any size, or bakes the 4×4 shape into its data structures for speed and
+is then structurally incapable of a bigger board.
 
 Not purely a lottery, though. A commit-by-commit scan of the twenty
 self-modifying runs found twelve able to play any size: three incidentally, a
 by-product of vectorizing a 4×4 engine, and nine on purpose, seven of those by
-explicitly de-hardcoding the search and measuring what it bought. The report
-calls noticing an untested size assumption a real, if uncommon, learned move.
+de-hardcoding the search and measuring what it bought. The report calls noticing
+an untested size assumption a real, if uncommon, learned move.
 
 Either way that near-binary decision dominates the score. My nine-run study
 sampled it once per condition and read the pattern as signal. The honest
