@@ -65,13 +65,14 @@ credit for standing on a shoulder that was its own. The third is stranger:
 iteration 2 claimed to have reused iteration 4. An edge pointing backwards in
 time.
 
-The cause was mundane and, I suspect, extremely common. The graph was built by
-scraping both fields for anything shaped like a filename or a task ID and
-turning every mention into an arrow. Iteration 2's `code-reuse` field said
-`none` and then mentioned a task it had *queued for later*, which is where the
-backwards arrow came from. Iteration 5's field read *"none — reimplemented
-because the dynamics.py kernel is 1-D-map-specific"* and produced a confident
-arrow to `dynamics.py`. The regex saw a mention and recorded a fact.
+The cause was mundane and, I suspect, extremely common, and it was not confined
+to the phantoms. The graph was built by scraping both fields for anything shaped
+like a filename or a task ID and turning every mention into an arrow. Iteration
+2's `code-reuse` field said `none` and then mentioned a task it had *queued for
+later*, which is where the backwards arrow came from. Iteration 5's field read
+*"none — reimplemented because the dynamics.py kernel is 1-D-map-specific"* and
+produced a confident arrow to `dynamics.py`. The regex saw a mention and
+recorded a fact.
 
 The agent's own summary, promoted into the standing lessons at the top of its
 logbook, was that the graph "inflates ~4×." That figure is this snapshot: eight
@@ -82,16 +83,16 @@ claims, two confirmed.
 The result I find most interesting is not the phantoms. It is the three
 "unsupported" links, and the agent's insistence on keeping them separate.
 
-Two of the three were real intellectual descent. Iteration 4 genuinely built on
-iteration 2, by copying and adapting the earlier kernel rather than importing
-it, and git cannot see that. It is not a false claim; it is a true claim that
-this particular instrument cannot confirm. The third was the `dynamics.py` arrow
-above, invented by the regex out of a field that said `none`, and git could not
-refute that one either, because `dynamics.py` really did already exist. So the
-middle bucket is holding two unlike things: a real lineage the instrument cannot
-see, and a fabricated one it cannot rule out. "Unsupported" is the right verdict
-for both, which is the point. It is the bucket for claims the evidence does not
-reach.
+Two of the three were real intellectual descent. Iteration 4, for instance,
+genuinely built on iteration 2, by copying and adapting its kernel rather than
+importing it, and git cannot see that. It is not a false claim; it is a true
+claim that this particular instrument cannot confirm. The third was the
+`dynamics.py` arrow above, invented by the regex out of a field that said
+`none`, and git could not refute that one either, because `dynamics.py` really
+did already exist. So the middle bucket is holding two unlike things: a real
+lineage the instrument cannot see, and a fabricated one it cannot rule out.
+"Unsupported" is the right verdict for both, which is the point. It is the
+bucket for claims the evidence does not reach.
 
 From the agent's write-up: **"'Unsupported' is not 'false.'"** And: "The single
 bucket 'an edge' hid three different things."
@@ -110,9 +111,9 @@ The lesson it wrote in its own log is better than my summary:
 
 I ran a second agent through the identical harness at the same time, same rules,
 same task, same everything, differing only in a short values document. That run
-built an integrity checker of its own at iteration 3, but it lints the logbook's
-schema and runs the tool self-tests. Nothing in it ever put a lineage claim in
-front of git.
+built an integrity checker of its own at iteration 3, but it only lints the
+logbook's schema and runs the tool self-tests. Nothing in it ever put a lineage
+claim in front of git.
 
 These are the same two June runs I write about from the other side in [why I
 gave an AI agent Nietzsche](/blog/nietzsche/). The one that built the auditor is
@@ -123,28 +124,30 @@ own record.
 
 That second run reached iteration 60 too, left artifacts in 57 of its
 iterations, and closed by reporting **56** build-on edges, presented as the
-picture of how much its work compounded.
+picture of how much its work compounded. (That 56 is a coincidence; the 56
+earlier in this post is the other run's commit count.)
 
 The tempting move is to say those 56 are inflated the same way. They are not.
 That run's parser matched `iterNN` tokens in the `builds-on` field only, rather
 than scraping filenames and task IDs out of two fields, and its own README
 already called 56 a lower bound, since an iteration that reused an earlier one
 without naming it contributes no edge. I re-ran that parse against the archived
-log: all 56 edges point backwards in time, and none of them come from a field
-that says `none`. The specific failure modes that produced the phantoms are
-absent here.
+log: all 56 edges run from an earlier iteration to a later one, and none of them
+come from a field that says `none`. The specific failure modes that produced the
+phantoms are absent here.
 
 What is absent is the other half. Nothing ever asked whether an iteration that
 named a parent actually used the parent's code, and nothing can now: the
 archived workspaces were stripped of their `.git` directories, so the record the
 audit depends on is gone.
 
-I want to be clear that this is my error, not the agent's. The audit tool
-existed. The agent even promoted an instruction to run it into the standing
-lessons at the top of its own logbook, where every fresh iteration would read it
-before starting. No later entry records running it, the follow-up task to wire
-it into the graph renderer was still sitting unchecked in the to-do list when
-the run ended, and the commit gate never included it.
+I want to be clear that this is my error, not the agent's. Back on the first
+run, the audit tool existed. That agent even promoted an instruction to run it
+into the standing lessons at the top of its own logbook, where every fresh
+iteration would read it before starting. No later entry records running it, the
+follow-up task to wire it into the graph renderer was still sitting unchecked in
+the to-do list when the run ended, and the checks an iteration had to pass
+before committing never included it.
 
 The one time the tool was pointed at the finished log, by my own audit pass
 rather than by the run, it counted **133** claimed edges, almost all of them

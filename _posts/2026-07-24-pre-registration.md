@@ -37,19 +37,19 @@ an experiment with a primary metric. The primary metric comes out flat. But
 while looking at the results you notice a secondary measurement that separates
 the conditions cleanly, and it has a plausible story. So you write that up.
 
-Nothing in that sequence feels like cheating. Each individual step is a
-reasonable response to what you are looking at. But if you had twelve
-measurements available and picked the one that separated, you have not run one
-experiment, you have run twelve and reported the winner, without the
-multiple-comparison correction that would require. My pre-registrations both
-apply one, Holm's, to their secondary measurements as a family.
+Nothing in that sequence feels like cheating. Each step is a reasonable response
+to what you are looking at. But if you had twelve measurements available and
+picked the one that separated, you have not run one experiment, you have run
+twelve and reported the winner, without the multiple-comparison correction that
+would require. Both pre-registrations below apply one, Holm's, to their
+secondary measurements as a family.
 
 The document I froze blocks the specific version of this I was most at risk of.
 It fixes the comparison as two-sided, predicting no direction at all, and says
 why: I had already seen the runs' scores on the set the agent optimizes against,
 and a pilot on the offline version of the same task had put the two conditions
-in the opposite order. Predicting a direction then would have been choosing my
-hypothesis to fit data I had already peeked at.
+in the opposite order from those scores. Predicting a direction then would have
+been choosing my hypothesis to fit data I had already peeked at.
 
 I had already seen enough of the data to have a hunch. Writing down that I was
 not allowed to use it is the whole point.
@@ -77,32 +77,31 @@ against.
 program packs items whose sizes are drawn uniformly, when every item it trained
 on came from a Weibull distribution. That is the distribution shift. The metric
 is the mean excess over a lower bound on the optimal number of bins, and lower
-is better. Both documents spell out the metric and which direction counts as
-better.
+is better.
 
 **The unit of analysis** (frozen and draft). This one is specific to agent
-research and it is where I expect most people to get it wrong. My experimental
-unit is **the run**, not the instance the run's program is scored on. The
-primary held-out family is 50 packing instances, and a run that packs all 50 is
-one data point, not 50, because the 50 are not independent: they were all packed
-by the same evolved program from the same trajectory. Counting instances instead
-of runs would have multiplied my sample size by fifty and made almost anything
-look significant.
+research, and where I expect most people to get it wrong. My experimental unit
+is **the run**, not the instance the run's program is scored on. The primary
+held-out set is 50 packing instances, and a run that packs all 50 is one data
+point, not 50, because the 50 are not independent: they were all packed by the
+same evolved program from the same trajectory. Counting instances instead of
+runs would have multiplied my sample size by fifty and made almost anything look
+significant.
 
-**The test** (draft only). A permutation test. Take the runs' scores, throw away
-which condition each came from, and re-deal the labels: every way of splitting
+**The test** (draft only). A permutation test: take the runs' scores, throw away
+which condition each came from, and re-deal the labels. Every way of splitting
 the runs into two groups of equal size gives you one difference the experiment
 could have produced by luck alone. The p-value is the fraction of those re-dealt
-differences at least as large as the real one. This is nice because the re-dealt
+differences at least as large as the real one. This is nice: the re-dealt
 distribution *is* your pipeline's noise floor, measured rather than assumed.
 
-My implementation does not sample those re-deals, it enumerates every one of
-them, which at five runs per condition is 252 and not the ten thousand shuffles
-you usually see; only above ten runs per condition does it fall back to a
-fixed-seed sample of 200,000. Enumerating makes one limit visible that sampling
-hides. At three runs per condition there are only 20 possible splits, so the
-smallest two-sided p the design can produce is 0.1. A three-run pilot cannot
-reach p below 0.05 no matter what the data say.
+My implementation does not sample those re-deals, it enumerates them, which at
+five runs per condition is 252 and not the ten thousand shuffles you usually
+see; only above ten runs per condition does it fall back to a fixed-seed sample
+of 200,000. Enumerating makes one limit visible that sampling hides. At three
+runs per condition there are only 20 possible splits, so the smallest two-sided
+p the design can produce is 0.1. A pilot that size cannot reach p below 0.05 no
+matter what the data say.
 
 **The smallest effect worth caring about** (draft only). Mine is one percentage
 point of that excess metric, fixed in advance, revisable only before the pilot
@@ -116,14 +115,12 @@ report a null, with the minimum detectable effect stated alongside it: the
 smallest difference this many runs could have caught. Set that against the
 smallest effect worth caring about above, and if the first number is bigger than
 the second, the experiment could never have answered the question. The frozen
-document deliberately has no such rule, because with one run per condition there
-is nothing for a rule to decide.
+document deliberately has no such rule.
 
 ## The verdict gate
 
-The part I would most recommend stealing is the one that is in neither
-pre-registration. The standing playbook has a rule that forces every result into
-one of four boxes, with no exits:
+The part I would most recommend stealing is in that third document. The
+playbook's rule forces every result into one of four boxes, with no exits:
 
 - **Inconclusive by saturation**: every condition is pinned at a ceiling or a
   floor, so nothing could have been detected.
@@ -131,24 +128,23 @@ one of four boxes, with no exits:
 - **Effect**: the difference has to survive being reported as an interval rather
   than a point, and it has to exceed the run-to-run noise.
 - **Null**: allowed only if the conditions had room to move *and* you state the
-  noise band, meaning the smallest difference this many runs could have caught.
+  noise band.
 
 {% include figure.html
    src="/img/blog/2026-07-24-pre-registration/verdict-gate.webp"
-   alt="A flowchart with three questions. Could this benchmark have shown a
-        difference at all? If no, inconclusive by saturation. If yes, can you
-        bound the effect at this number of runs? If no, underpowered. If yes,
-        does the difference clear the measured noise floor? Yes gives Effect,
-        no gives Null."
-   caption="The gate as a decision rule. Writing it down before scoring is what
-            stops the last question from being the only one you ask."
+   alt="A flowchart. Could this benchmark have shown a difference at all? No:
+        inconclusive by saturation. Can you bound the effect at this number of
+        runs? No: underpowered. Does the difference clear the measured noise
+        floor? Yes: Effect. No: Null."
+   caption="Writing the gate down before scoring is what stops the last
+            question from being the only one you ask."
 %}
 
-The saturation box is the one that earns its keep, and the figure asks about it
-first for a reason. If every condition scores 0.99 on a benchmark whose maximum
-is 1.0, you have not found that your intervention does nothing. You have found
-that your benchmark cannot see. Those are completely different conclusions and
-they get reported identically all the time.
+The saturation box is the one that earns its keep, and the figure asks it first.
+If every condition scores 0.99 on a benchmark whose maximum is 1.0, you have not
+found that your intervention does nothing. You have found that your benchmark
+cannot see. Those are completely different conclusions and they get reported
+identically all the time.
 
 The rule that goes with it, in the playbook's own words: say "no detectable
 difference at this N," never "values don't affect performance." Those sentences
@@ -158,7 +154,7 @@ describe different worlds.
 
 Applying that gate, the honest verdict on the experiment was **underpowered**.
 One run per condition cannot separate a real effect from run-to-run variation,
-so nothing causal could be claimed, and the pre-registration said so in advance
+so nothing causal could be claimed, and the frozen document said so in advance
 rather than letting me discover a reason afterwards.
 
 That is an unsatisfying outcome for four agent runs and about twenty hours of
@@ -166,11 +162,11 @@ agent time, spent in one overnight batch. It is also correct, and I know it is
 correct rather than merely suspecting it, which is the entire return on writing
 the document.
 
-The follow-up is specified in that second document, which is honest about its
-own status in a way worth preserving: it is headed "Draft for review," it says
-confirmatory work "must not begin until this doc is frozen," and it declines to
-assert a sample size, on the grounds that picking a number before the pilot
-would be unprincipled. It is a plan for a power analysis, not a power analysis.
+The follow-up is specified in that second document, honest about its own status
+in a way worth preserving: it is headed "Draft for review," it says confirmatory
+work "must not begin until this doc is frozen," and it declines to assert a
+sample size, on the grounds that picking a number before the pilot would be
+unprincipled. It is a plan for a power analysis, not a power analysis.
 
 And when I later [ran a powered version](/blog/powered-replication/) of the same
 question on a different task, it reversed a headline I had believed, which is

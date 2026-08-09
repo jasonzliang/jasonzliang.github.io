@@ -141,3 +141,99 @@ fig.text(0.10, 0.135,
          fontsize=10.5, color=MUTED, va="top", linespacing=1.7)
 
 save(fig, "self-mod-by-disposition")
+
+
+# ---------------------------------------------------------------------------
+# Second figure: the per-iteration score curve.
+#
+# Source: same report, Table 2 ("Verified per-iteration DEV score", one
+# recompute per iteration). Transcribed verbatim below; the report's own
+# delta column is computed from unrounded scores, so it can differ by 1 from
+# these rounded values.
+#
+# Why this plot: the scatter above shows the endpoint interaction but hides
+# how it arises. Pairing each disposition's frozen run (solid) against its
+# self-modifying twin (dashed) in the same colour makes three things legible
+# at once that the endpoint numbers only assert:
+#   1. three of the four self-modifying runs start BELOW their frozen twin,
+#      the early budget going into rewriting values instead of solver;
+#   2. the exploiter plateau: anti-frozen and nietzsche-frozen are flat from
+#      iteration 2 onward (+60 and +53 across the last nine);
+#   3. control-radical's single-step jump at iteration 2, the largest in the
+#      table, right after it rewrote its own values.
+TRAJ = {
+    # disposition: (frozen 10 iterations, self-modifying 10 iterations)
+    "control": ([2880, 3058, 3060, 3084, 3042, 3036, 3047, 3091, 3059, 3100],
+                [3048, 3486, 3505, 3508, 3558, 3568, 3571, 3571, 3573, 3574]),
+    "anti": ([3496, 3519, 3528, 3538, 3540, 3557, 3560, 3558, 3559, 3556],
+             [3374, 3503, 3516, 3680, 3690, 3689, 3723, 3727, 3736, 3746]),
+    "nietzsche": ([3480, 3508, 3513, 3522, 3524, 3524, 3526, 3530, 3530, 3534],
+                  [3095, 3148, 3248, 3335, 3348, 3405, 3407, 3419, 3420, 3444]),
+    "tzeentch": ([3495, 3681, 3720, 3744, 3759, 3764, 3773, 3783, 3787, 3785],
+                 [3397, 3476, 3511, 3521, 3522, 3526, 3552, 3558, 3559, 3561]),
+}
+GREEN, PURPLE = "#2f855a", "#6b46c1"
+COLOUR = {"control": BLUE, "anti": ORANGE,
+          "nietzsche": GREEN, "tzeentch": PURPLE}
+
+ITERS = list(range(1, 11))
+
+fig, ax = plt.subplots(figsize=(10.0, 6.4))
+fig.subplots_adjust(top=0.80, bottom=0.22, left=0.10, right=0.80)
+
+for name, (frozen, radical) in TRAJ.items():
+    c = COLOUR[name]
+    ax.plot(ITERS, frozen, color=c, lw=2.1, ls="-", zorder=3,
+            marker="o", ms=3.5)
+    ax.plot(ITERS, radical, color=c, lw=2.1, ls="--", zorder=3,
+            marker="o", ms=3.5, dashes=(4, 2.2))
+
+# Four of the eight endpoints land within 40 points of each other, so
+# labelling every line at the right edge collides illegibly. A colour key
+# outside the axes costs one lookup and stays readable.
+
+# control-radical's jump, the single largest step in the table
+ax.annotate("rewrote its own values at iteration 1,\nthen +438 in one step",
+            xy=(2, 3486), xytext=(2.5, 2930), fontsize=10.5, color=INK,
+            ha="left", va="center", linespacing=1.5,
+            arrowprops=dict(arrowstyle="->", color=MUTED, lw=1.2,
+                            connectionstyle="arc3,rad=-0.2"))
+
+ax.set_xlim(0.8, 10.2)
+ax.set_ylim(2820, 3870)
+ax.set_xticks(ITERS)
+ax.set_xlabel("iteration", labelpad=8)
+ax.set_ylabel("verified score on the 30 development cases", labelpad=8)
+ax.grid(color=GRID, lw=0.8)
+ax.set_axisbelow(True)
+for sp in ("top", "right"):
+    ax.spines[sp].set_visible(False)
+
+solid = plt.Line2D([], [], color=MUTED, lw=2.1, ls="-")
+dashed = plt.Line2D([], [], color=MUTED, lw=2.1, ls="--", dashes=(4, 2.2))
+style_key = ax.legend([solid, dashed],
+                      ["values frozen", "values self-modifying"],
+                      loc="lower right", fontsize=11)
+ax.add_artist(style_key)
+
+handles = [plt.Line2D([], [], color=COLOUR[n], lw=2.6) for n in TRAJ]
+ax.legend(handles, list(TRAJ), loc="upper left",
+          bbox_to_anchor=(1.015, 1.0), fontsize=11.5,
+          title="disposition", alignment="left")
+
+fig.text(0.10, 0.955,
+         "The self-modifying runs start lower and climb harder",
+         fontsize=15, fontweight="bold", va="top")
+fig.text(0.10, 0.895,
+         "Each colour is one disposition: solid is its frozen run, dashed is "
+         "the twin allowed to rewrite its own values.",
+         fontsize=11.5, color=MUTED, va="top")
+fig.text(0.10, 0.105,
+         "One run per cell: directional, not powered. The from-scratch "
+         "starting solver scores 1,851, below the bottom of this axis.\n"
+         "control and anti exist only at values generation v6 while nietzsche "
+         "and tzeentch ran at v7, so compare within a\ncolour more confidently "
+         "than across colours.",
+         fontsize=10.5, color=MUTED, va="top", linespacing=1.7)
+
+save(fig, "score-per-iteration")

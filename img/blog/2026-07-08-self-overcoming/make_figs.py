@@ -7,7 +7,7 @@ generation is judged by criteria it inherited, so the starting values are an
 axiom rather than a fence.
 
 Generation numbering follows the post, which follows
-science_moonshot/documentation/self_improvement/nietzsche_thesis.md: generation
+<research-repo>/documentation/self_improvement/nietzsche_thesis.md: generation
 zero is the agent a person writes, carrying the values a person chose ("a bias
 of size epsilon in the generation-zero value function"), and generation ten is
 ten self-edits later ("ten generations of self-edit"). Numbering the

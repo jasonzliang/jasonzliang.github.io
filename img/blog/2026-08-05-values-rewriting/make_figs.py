@@ -46,7 +46,7 @@ def save(fig, name, quality=88):
 
 # --- data: one point per run, the length of its `# Your values` block at the
 # end of the run. Extracted from the 41 run workspaces under
-# science_moonshot/self_improvement_v2/results/*/CLAUDE.md by counting the lines
+# <research-repo>/self_improvement_v2/results/*/CLAUDE.md by counting the lines
 # strictly between the `# Your values` heading and the next top-level heading,
 # with the blank lines at either end trimmed. Condition comes from that run's
 # .loop/run-*/config.json `values_file`: "radical" in it, "-sm-" in it

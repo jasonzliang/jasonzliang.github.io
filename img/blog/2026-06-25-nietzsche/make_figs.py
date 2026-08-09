@@ -66,7 +66,9 @@ def save(fig, name, quality=88):
 
 
 # ---------------------------------------------------------------- 1. sandpile
-SRC = ("/Users/jason/Desktop/science_moonshot/self_improvement_v1/result/"
+# <research-repo> is a private tree that is not part of this repo;
+# point it at a local checkout to re-run.
+SRC = ("<research-repo>/self_improvement_v1/result/"
        "20260616-2346_original_30i_30m/artifacts/"
        "iter44-2026-06-17-abelian-sandpile/identity.png")
 SCALE = 3

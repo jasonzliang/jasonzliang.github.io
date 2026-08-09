@@ -11,7 +11,7 @@ Bottom: the same nine solvers on an unseen 5x5 board, log scale, against the
         random floor and the greedy 5x5 baseline. This is the endpoint that was
         relabelled primary 12.5 h AFTER the runs started, with results in hand.
 
-Source: science_moonshot/self_improvement_v2/results/heldout_9arm_20260802/
+Source: <research-repo>/self_improvement_v2/results/heldout_9arm_20260802/
         <arm>.heldout.json  ->  dev_mean (tuned games) and board_5x5.mean;
         control.heldout.json board_5x5 is {"na": true, "reason": "move-1
         crash: IndexError: tuple index out of range"}.

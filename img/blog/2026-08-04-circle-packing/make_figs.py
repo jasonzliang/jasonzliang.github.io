@@ -73,7 +73,7 @@ def save(fig, name, quality=88):
 # nothing in these PDFs. The only way out is to render the page and cut.
 #
 # The reports tree lives outside this repo; set REPORTS to wherever it is.
-REPORTS = "/Users/jason/Desktop/science_moonshot/self_improvement_v2/reports"
+REPORTS = "<research-repo>/self_improvement_v2/reports"
 SOTA_REPORT = "circle-packing/2026-08-02_circle-packing_sota-comparison_report.pdf"
 
 

@@ -8,7 +8,7 @@ the cautious and the expansive run came out the same way on BOTH missions?
 
 Every number below was counted today in the workspaces, not copied from the
 slide deck. Sources, all under
-/Users/jason/Desktop/science_moonshot/self_improvement_v1/result/
+<research-repo>/self_improvement_v1/result/
 
   M1 = 20260623-025758_{original,nietzsche}_50i_40m_evolving-agents
   M2 = 20260624-043601_{original,nietzsche}_40i_60m_agent-evolution
