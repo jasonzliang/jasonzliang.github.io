@@ -19,10 +19,10 @@ point. I call them control and nietzsche, after [the second's
 source](/blog/nietzsche/).
 
 This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
-are successive versions of the two files; the sm ones let the agent rewrite its
-own values mid-run. A cell is one task, disposition and version; a pair is two
-cells differing only in disposition; the detail that governs everything is **one
-run per cell**.
+are successive versions of the two files: v3 is fixed, sm-v4 lets the agent
+revise its three bullets, sm-v5 replace the block. A cell is one task,
+disposition and version; a pair is two cells differing only in disposition;
+everything is governed by **one run per cell**.
 
 Values change *what* the agent builds, a lot. Which is better, this study cannot
 say.
@@ -30,8 +30,8 @@ say.
 ## The task
 
 Every run is the same loop: the agent edits one solver, commits, and is
-re-scored by a fixed evaluator, ten times over, twenty in the earliest cohort.
-The task is [one-dimensional
+re-scored by a fixed evaluator, ten times over, twenty in the first cohort. The
+task is [one-dimensional
 bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem), pack items into
 as few fixed-size bins as possible: NP-hard, with strong classical baselines,
 the standard LLM-heuristic-discovery testbed since
@@ -66,7 +66,7 @@ proven optimum, its tie a property of the instrument, not a finding.
 
 All eight finished between **0.9905 and 0.9955** on the optimised score, a
 spread of 0.005 across six conditions in two cohorts; the same eight on held-out
-instances spread over 0.235, from **0.756 to 0.991**.
+spread over 0.235, from **0.756 to 0.991**.
 
 Within one matched pair, same task and values version, the held-out gap to
 optimum was 0.010 for one arm and 0.244 for the other, a factor of **24**; in
@@ -79,8 +79,8 @@ other 36 the solver packed 16.0 per cent above the optimum, the classical floor
 within noise. Standard error 0.039: the failure is real and large, the multiple
 is not.
 
-Offline only: online the in-run score is not pinned, and it agreed with held-out
-in the final-harness cohort.
+Offline only: online the in-run score is not pinned, and agreed with held-out in
+the final-harness cohort.
 
 ## What they built
 
@@ -112,7 +112,7 @@ packings came from. One artifact, overreach in one cell and the winning move in
 another; it labels outcomes, it does not predict them.
 
 Four non-independent runs per arm, not seed-controlled, and the cautious tool
-count varies from 1 to 6 across its four. A behavioural signature, not proof.
+count varies from 1 to 6 across its four: a behavioural signature, not proof.
 
 ## The tally evaporates
 

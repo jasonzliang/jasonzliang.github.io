@@ -18,10 +18,10 @@ choices in it never changed.
 The experiment was four agent runs improving an online bin-packing heuristic, a
 program that drops arriving items into bins one at a time with no lookahead. One
 run got a control values document and one got a [Nietzsche-derived
-one](/blog/nietzsche/); that pair ran at each of two document versions. The runs
-were already finished and frozen. What was still ahead of me was scoring their
-programs on a held-out benchmark I had just rebuilt, and that is what the
-document locked down.
+one](/blog/nietzsche/); that pair ran at each of two document versions, the
+second of which the agent could rewrite. The runs were already finished and
+frozen. What was still ahead of me was scoring their programs on a held-out
+benchmark I had just rebuilt, and that is what the document locked down.
 
 This is pre-registration. Clinical trials have done it for decades. Psychology
 took it up after its replication crisis. In machine learning it barely exists
@@ -161,15 +161,14 @@ so nothing causal could be claimed, and the frozen document said so in advance
 rather than letting me discover a reason afterwards.
 
 That is an unsatisfying outcome for four agent runs and about twenty hours of
-agent time, spent in one overnight batch. It is also correct, and I know it is
-correct rather than suspecting it, which is the entire return on writing the
-document.
+agent time in one overnight batch. It is also correct, and I know it is correct
+rather than suspecting it, which is the entire return on writing the document.
 
 The follow-up is specified in the draft document, honest about its own status in
 a way worth preserving: it is headed "Draft for review," it says confirmatory
 work "must not begin until this doc is frozen," and it declines to assert a
-sample size, on the grounds that picking a number before the pilot would be
-unprincipled. It is a plan for a power analysis, not a power analysis.
+sample size, since picking a number before the pilot would be unprincipled. It
+is a plan for a power analysis, not a power analysis.
 
 And when I later ran a powered version of the same question on a different task,
 it reversed a headline I had believed, which is the best argument I have for

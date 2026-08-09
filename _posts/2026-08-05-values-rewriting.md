@@ -34,17 +34,17 @@ to three short bullets and "replace, don't accrete." And **Radical** (uncapped),
 where the entire section is rewritable, every iteration.
 
 Those runs vary in at least six ways, not one: which of four dispositions they
-start from, which of five tasks they are pointed at, which generation of the
-values files they were seeded with, which of the three freedom settings they ran
-under, how long the run is (10, 15 or 20 iterations, set per task), and which
-commit of the harness they ran on. That last one is the ugliest. There are six
-distinct harness commits across the batches, and on 31 July the uncapped arms
-were launched four and a half hours after the frozen and capped arms of the same
-task, on a commit made in between. The grid is also not fully crossed: the
-capped setting was never run on one of the five tasks, and the fourth
-disposition was only ever run on that same task. My own notes warn against
-comparing across the file generations without saying so out loud, so consider it
-said, and add the harness commits to the list.
+start from, cautious, expansive, myopic or restless, which of five tasks they
+are pointed at, which generation of the values files they were seeded with,
+which of the three freedom settings they ran under, how long the run is (10, 15
+or 20 iterations, set per task), and which commit of the harness they ran on.
+That last one is the ugliest. There are six distinct harness commits across the
+batches, and on 31 July the uncapped arms were launched four and a half hours
+after the frozen and capped arms of the same task, on a commit made in between.
+The grid is also not fully crossed: the capped setting was never run on one of
+the five tasks, and the fourth disposition was only ever run on that same task.
+My own notes warn against comparing across the file generations without saying
+so out loud, so consider it said, and add the harness commits to the list.
 
 For each run I diffed the starting values file against the final one. That is
 what makes the rest survive the other five axes: each run is compared against
@@ -72,7 +72,7 @@ lines to **446**.
 The frozen row is worth being exact about: it is the difference between a real
 control and a tautology. Nothing in the loop enforces it. Each iteration the
 runner rebuilds the fixed invariants block and a status header from source and
-keeps whatever the agent left below them, in every condition. A frozen run that
+keeps whatever the agent left below, in every condition. A frozen run that
 rewrote its own values would have kept the rewrite into the next iteration and I
 would have seen it in the diff. Zero out of fifteen is compliance with an
 instruction, not a lock.
@@ -101,9 +101,8 @@ of magnitude under the uncapped ones.
             uncapped runs never saw."
 %}
 
-That is the kind of claim I can make with confidence: a mechanism, verified 41
-times out of 41, not a noisy performance comparison. But it is not the
-interesting part.
+That is a claim I can make with confidence: a mechanism, verified 41 times out
+of 41, not a noisy performance comparison. But it is not the interesting part.
 
 ## The interesting part is what they wrote
 
@@ -126,7 +125,7 @@ Its first value, in its own words:
 
 Nobody asked it to write this. It had free rein over its own value system and
 used that freedom to install a procedural constraint on itself, because it had
-caught itself twice in three iterations and concluded that noticing was not a
+caught itself twice in three iterations and concluded noticing was not a
 sufficient remedy.
 
 "Vigilance is the wrong defence for a reflex" is a better articulation of why we
@@ -175,14 +174,12 @@ it is that the agent wrote it down.
 Each of these 41 runs is a single sample. I cannot tell you that uncapped
 self-modification produces better agents, or worse ones: the performance
 comparisons at one run per condition are dominated by run-to-run noise, and I
-have written separately about [how badly that bit me when I
-tried](/blog/bin-packing-values/).
+have written about [how badly that bit me](/blog/bin-packing-values/).
 
 What survives is narrower and, I think, more useful: **the countable part of the
 guardrail held in every run it applied to, and the shape of what gets written is
 visible and auditable.** Reading what an agent did with a mutable value system
-is a cheap and underused source of evidence about what your loop is actually
-doing.
+is a cheap and underused source of evidence about what your loop is doing.
 
 The values file is three bullets. The audit is a diff. There is no reason not to
 look.

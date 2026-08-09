@@ -41,7 +41,8 @@ after it had already tied.
             reflection and relabelling: one optimum found five times, not five
             results. The published systems never released coordinates, so
             nothing is compared with theirs. Panel names are the report's
-            condition labels."
+            labels: cautious control or expansive nietzsche, each frozen,
+            bounded (-sm) or radical."
 %}
 
 ## A saturated benchmark
