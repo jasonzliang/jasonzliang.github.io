@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  Notes from well-connected pages scored higher than notes from dead ends
+  An AI agent wrote better answers from well-connected pages than dead ends
 date: 2026-04-14
 description: >-
   24.43 against 21.88 on a 30-point rubric. Four reasons to discount it,

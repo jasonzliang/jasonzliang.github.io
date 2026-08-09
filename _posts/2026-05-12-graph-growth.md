@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "An agent's map of the web stops being a tree early"
+title: >-
+  An AI agent exploring the web starts looping back early
 date: 2026-05-12
 description: >-
   The agent saved a snapshot of its exploration graph every 50 steps and

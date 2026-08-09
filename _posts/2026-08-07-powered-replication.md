@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  Values shape how good an agent's code gets, not whether it generalizes
+  An AI agent's values shape how good its code is, not whether it transfers
 date: 2026-08-07
 description: >-
   A single-run experiment said values drove generalization. Thirty runs

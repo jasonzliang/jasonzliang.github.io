@@ -1,6 +1,8 @@
 ---
 layout: post
-title: "Values from the literature: citations verified, values untested"
+title: >-
+  I built an AI agent's values from cited papers: citations real, values
+  untested
 date: 2026-08-06
 description: >-
   My self-improving agents run on a values file of three to five bullets. I

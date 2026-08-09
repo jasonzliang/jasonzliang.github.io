@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "I froze my analysis before scoring. The verdict: underpowered."
+title: >-
+  I froze my analysis before seeing results. It said underpowered.
 date: 2026-07-24
 description: >-
   Medicine and psychology freeze their analysis before seeing data; almost
-  nobody does this in AI. I tried it with agent runs as the unit; the gate
-  came back underpowered.
+  nobody does this in AI. I tried it with agent runs as the unit.
 image: /img/blog/2026-07-24-pre-registration/verdict-gate.webp
 tags: [methodology, self-improving-agents, evaluation]
 ---

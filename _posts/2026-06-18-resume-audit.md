@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "An agent's claims about its own work erred in both directions"
+title: >-
+  An AI agent's log of its own past work was wrong in both directions
 date: 2026-06-18
 description: >-
   One agent's logbook over-counted what it had built on, and a sibling run

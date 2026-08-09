@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Our judge bias test confused strictness with favouritism"
+title: >-
+  Our test for AI judges playing favourites measured the wrong thing
 date: 2026-02-10
 description: >-
   Using language models as judges is now standard practice. We measured whether

@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "My 11-of-14 win tally evaporated under its own audit"
+title: >-
+  My 11-of-14 win tally evaporated when I audited it
 date: 2026-07-26
 description: >-
   Eleven of fourteen matched pairs favoured the expansive disposition. Five

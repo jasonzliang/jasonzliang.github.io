@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  Nietzsche for self-improving agents: values are an axiom, not a fence
+  Nietzsche for self-improving AI agents: values are an axiom, not a fence
 date: 2026-07-08
 description: >-
   In a system that rewrites itself, your starting values are not a safety rail.

@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "AI judges called it decisive. Humans barely preferred it."
+title: >-
+  AI judges said our research agent won easily. Humans barely agreed.
 date: 2026-03-30
 description: >-
   Our AI judges gave our research agent a decisive win. The humans preferred

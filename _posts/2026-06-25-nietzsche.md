@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "One values file split two agents' behaviour, with no reliable winner"
+title: >-
+  Two AI agents differing by one values file, with no reliable winner
 date: 2026-06-25
 description: >-
   Two agents differing in one values file. One went wide and portable, the

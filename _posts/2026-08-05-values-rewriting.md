@@ -1,11 +1,11 @@
 ---
 layout: post
 title: >-
-  Given free rein, an agent wrote itself an anti-fabrication rule. It failed.
+  Given free rein, an AI agent banned itself inventing numbers. It failed.
 date: 2026-08-05
 description: >-
-  Across 41 runs, every agent allowed to edit its values did. One ruled that a
-  number enters its prose only by copy from an instrument.
+  Across 41 runs, every agent allowed to edit its values did. One ruled a
+  number enters its prose only by copy from an instrument's file.
 image: >-
   /img/blog/2026-08-05-values-rewriting/values-growth.webp
 tags: [self-improving-agents, agent-design, ai-safety]

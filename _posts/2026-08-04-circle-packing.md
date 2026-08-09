@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "My agent's solver beat a variable-radius packing record at 27 circles"
+title: >-
+  My AI agent's solver beat a world record for packing 27 unequal circles
 date: 2026-08-04
 description: >-
   Five of six tied the best known packing of 26 circles, a saturated benchmark
