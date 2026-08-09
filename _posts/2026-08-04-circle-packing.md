@@ -1,12 +1,13 @@
 ---
 layout: post
 title: >-
-  Five of six agents tied a famous packing benchmark. Getting there cost $2.48
-  to $16.11.
+  Tying at 26 circles measured nothing. At 27, the same solver beat a record
+  from 2011.
 date: 2026-08-04
 description: >-
-  Five of six agents tied the best known packing of 26 circles, the fastest for
-  $2.48 on iteration one. A saturated benchmark measures little.
+  Five of six tied the best known packing of 26 circles, a saturated benchmark
+  that measures little. Run at other sizes, the fastest run's solver beat the
+  listed variable-radius record at 27.
 image: /img/blog/2026-08-04-circle-packing/packings-26-per-run.webp
 tags: [self-improving-agents, optimization, benchmarks]
 ---
@@ -119,14 +120,13 @@ writing a fresh solver. The $2.48 excludes those twenty-two minutes.
 ## A separate result, at 27 circles
 
 I ran the $2.48 run's extracted solver at every board size from 2 to 100, 120
-seconds each on a single seed (26, the trained size, got more), against
-Packomania, the field's record book. Of the 98 sizes where it produced a usable
-packing, it matched the record to within 4e-11 at 27 of them, fell short at 70,
-several by more than 1%, and beat exactly one size: **27 circles**, improving
-the listed entry by 0.000629, a gain of 0.023% on an entry standing since
-2011/12. I have not submitted it, and the table moves: roughly 25 entries
-changed two days before I fetched it, so this is a win against the table as of 3
-August 2026.
+seconds each on one seed (26, the trained size, got more), against Packomania,
+the field's record book. Of the 98 sizes where it produced a usable packing, it
+matched the record to within 4e-11 at 27, fell short at 70, several by more than
+1%, and beat exactly one size: **27 circles**, improving the listed entry by
+0.000629, a gain of 0.023% on a value standing since 2011/12. I have not
+submitted it, and the table moves: roughly 25 entries changed two days before I
+fetched it, so this is a win against the table as of 3 August 2026.
 
 {% include figure.html
    src="/img/blog/2026-08-04-circle-packing/packing-old-vs-new.webp"
@@ -149,10 +149,9 @@ Five qualifications:
   did not beat it.
 - The N=27 entry improved was a **classical human result**, not one of the
   recent AI-optimized entries.
-- The record came from an operator-side sweep of the extracted solver, 120
-  seconds per board size on a single seed, not from inside the self-improvement
-  loop; the 50-seed runs came after, a retrospective check of how often it lands
-  on the winning arrangement, about one start in seven.
+- The record came from an operator-side sweep of the extracted solver, not from
+  inside the self-improvement loop; the 50-seed runs came after, a retrospective
+  check of how often it lands on the winning arrangement, about one in seven.
 - **The self-improvement did not create this capability**, as my report says:
   the iteration-one solver, the $2.48 one, already reaches the record-beating
   packing at some seed. Nine further solver iterations moved the per-seed hit
