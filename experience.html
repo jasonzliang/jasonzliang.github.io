@@ -11,9 +11,9 @@
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Career history of Jason Liang, AI Principal Research Scientist at Cognizant AI Lab. A decade of research and engineering at the intersection of evolutionary computation, deep learning, and agentic AI — including CoDeepNEAT and the Caesar autonomous research agent." />
+<meta name="description" content="Career history of Jason Liang, Principal Research Scientist at Cognizant AI Lab. A decade at the intersection of evolutionary computation, deep learning and agentic AI: CoDeepNEAT, the Caesar research agent, and self-improving agents that hold a listed circle-packing record." />
 <meta name="author" content="Jason Liang" />
-<meta name="keywords" content="Jason Liang experience, Cognizant AI Lab, Sentient Technologies, UT Austin Computer Science, neuroevolution research, agentic AI research" />
+<meta name="keywords" content="Jason Liang experience, Cognizant AI Lab, Sentient Technologies, UT Austin Computer Science, neuroevolution research, agentic AI research, self-improving agents, circle packing record" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 <link rel="canonical" href="https://jasonzliang.github.io/experience.html" />
 <meta property="og:type" content="profile" />
@@ -21,7 +21,7 @@
 <meta property="og:description" content="A decade of research at Cognizant AI Lab, Sentient Technologies, and UT Austin — neuroevolution, NAS, and agentic AI." />
 <meta property="og:url" content="https://jasonzliang.github.io/experience.html" />
 <meta property="og:image" content="https://jasonzliang.github.io/img/avatar.jpg" />
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Experience | Jason Liang" />
 <meta name="twitter:description" content="A decade of research at Cognizant AI Lab, Sentient Technologies, and UT Austin." />
 <meta name="twitter:image" content="https://jasonzliang.github.io/img/avatar.jpg" />
@@ -104,18 +104,24 @@
         <h3 class="exp-role">Principal Research Scientist</h3>
         <p class="exp-org">Cognizant AI Lab</p>
         <p class="exp-meta">San Francisco, CA · Dec 2018 – Present</p>
-        <p><strong>Lead Researcher for Multi-Agent Architectures and Evolutionary Optimization.</strong></p>
+        <p><strong>Lead Researcher driving the roadmap for the lab's automated AI research effort.</strong></p>
+        <p><em>Autonomous Self-Improvement Systems</em></p>
+        <ul>
+          <li>Built a <strong>values-based self-improvement framework</strong> in which an agent edits its own solver and its own values document across long iterative runs, organised around three questions: what founding values are seeded, which anti-reward-hacking invariants the agent cannot overwrite, and how much of its own instructions it may rewrite. Written up across an <a href="/blog/">eighteen-post research blog</a>, figures and generating scripts included.</li>
+          <li>On variable-radius circle packing the agent wrote its own solver, matching the best known value at N=26 for under $20 of compute to first tie with no web assistance. At N=27 the same solver beat a record standing since 2011 and is now the listed best known result, <a href="https://www.packomania.com/csqv/csqv.html" target="_blank" rel="noopener">credited on Packomania</a>.</li>
+          <li>On a real AtCoder heuristic contest, a run's solver outscored the top human leaderboard entry over the 150 official private seeds, confirmed on the official judge after the contest.</li>
+        </ul>
         <p><em>Caesar: Autonomous Reasoning &amp; Knowledge Synthesis</em></p>
         <ul>
-          <li>Architected <strong>Caesar</strong>, an autonomous research agent comparable to Gemini's Deep Research. Scaled inference-time compute via an adversarial refinement loop that critiques internal drafts, generates orthogonal queries to attack weaknesses, and consolidates findings through generative merge.</li>
+          <li>Architected <strong>Caesar</strong>, an autonomous Deep Research agent that outperforms the strongest of three frontier deep-research agents by 13&ndash;23% on a blinded, LLM-judged creative-synthesis benchmark (Cliff's &delta; &ge; 0.76). Scaled inference-time compute via an adversarial refinement loop that critiques internal drafts, generates orthogonal queries to attack weaknesses, and consolidates findings through generative merge.</li>
           <li>Replaced static RAG with a dynamic <em>Perceive-Think-Act</em> loop backed by a dynamic knowledge graph, enabling associative reasoning that surfaces non-obvious cross-disciplinary connections.</li>
-          <li>Designed an active information-foraging policy that detects stagnation and autonomously executes strategic backtracking to ensure open-ended learning over long horizons.</li>
+          <li>Designed an active information-foraging policy that detects stagnation and autonomously executes strategic backtracking over long horizons. Ablation: cutting the exploration budget from 1000 to 250 iterations measurably degrades long-form answer quality.</li>
         </ul>
         <p><em>Multi-Agent Systems &amp; Large-Scale Evolutionary Optimization</em></p>
         <ul>
           <li>Developed an <strong>FSM-based multi-agent code-generation framework</strong>, evolving the composition of specialized LLM teams to achieve strong performance on SciCode and HumanEval+.</li>
           <li>Designed a hierarchical expert-agent pipeline that decomposes hard coding problems and routes sub-tasks to specialized LLM roles.</li>
-          <li>Pioneered <strong>Evolutionary Population-Based Training (EPBT)</strong>, evolving hyperparameters and loss functions during training to reduce compute relative to grid search.</li>
+          <li>Pioneered <strong>Evolutionary Population-Based Training (EPBT)</strong>, evolving loss functions and hyperparameters jointly with weights. Beats the PBT baseline by 1.3pp on CIFAR-10 ResNet-32 (92.79% vs 91.53%) while exploring 520 candidate loss functions at 12.5&times; lower search cost than independent training (GECCO 2021).</li>
           <li>Pioneered <strong>evolutionary prompt optimization</strong>, improving LLM performance on challenging code-generation benchmarks.</li>
           <li>Created <strong>Code Archaeologist</strong>, an agentic system that reasons over Git/LFS repository histories to detect architectural patterns and technical debt.</li>
           <li>Scaled distributed ML systems to produce SOTA neural networks for vision and language tasks.</li>
@@ -127,8 +133,8 @@
         <p class="exp-org">Sentient Technologies</p>
         <p class="exp-meta">San Francisco, CA · Jun 2017 – Nov 2018</p>
         <ul>
-          <li>Invented and scaled <strong>CoDeepNEAT</strong> (evolutionary neural architecture search) to clusters of hundreds of GPUs, demonstrating that evolutionary search scales with parallel compute.</li>
-          <li>Achieved SOTA results on image captioning and object recognition by evolving topologies that share weights across tasks.</li>
+          <li>Scaled <strong>CoDeepNEAT</strong> (evolutionary neural architecture search, developed during my UT Austin PhD) to clusters of hundreds of GPUs, establishing asynchronous evolutionary optimisation at scale and forming the basis for multiple issued U.S. patents.</li>
+          <li>Achieved then state-of-the-art results on the 20-task Omniglot multi-task benchmark, 88% accuracy against Soft Ordering's 67%, by evolving modular topologies with cross-task weight sharing.</li>
           <li>Designed and deployed production AutoML systems for real-world use cases.</li>
         </ul>
       </article>
@@ -148,7 +154,7 @@
         <p class="exp-org">The University of Texas at Austin</p>
         <p class="exp-meta">Austin, TX · Sep 2013 – Dec 2018</p>
         <ul>
-          <li>Developed <strong>MEA</strong> (Meta-Evolutionary Algorithm), a bilevel optimization framework, applied to non-differentiable continuous-control tasks such as helicopter hovering where standard gradient-based RL struggles.</li>
+          <li>Developed <strong>MEA</strong> (Meta-Evolutionary Algorithm), a bilevel framework that evolves the hyperparameters of neuroevolution. The meta-level objective is non-convex and non-differentiable, so gradient methods do not apply there; applied to continuous-control tasks including helicopter hovering and double pole balancing.</li>
           <li>Created the original <strong>CoDeepNEAT</strong> algorithm, combining evolutionary computation with hierarchical coevolution to discover deep neural architectures.</li>
           <li>Published extensively in top venues including GECCO and Applied Soft Computing.</li>
         </ul>
@@ -192,8 +198,13 @@
         <p class="edu-detail">Funded by the BEACON Center for the Study of Evolution in Action for research on epigenetic mechanisms in neuroevolution and evolution of deep neural network architectures.</p>
       </article>
       <article class="edu-item">
-        <h3>Reviewer, GECCO</h3>
-        <p class="edu-meta">Genetic and Evolutionary Computation Conference · 2019 – Present</p>
+        <h3>Named Inventor, 5 Issued U.S. Patents</h3>
+        <p class="edu-meta">Evolutionary AI and neural architecture search · 2021 – 2025</p>
+        <p class="edu-detail">US 12,282,845 (multi-objective coevolution of architectures), US 11,507,844 (asynchronous evaluation), US 11,250,328 (cooperative evolution of network structures), US 11,030,529 (architectures for multitask networks), and US 11,003,994 (evolutionary architectures). Two further applications pending.</p>
+      </article>
+      <article class="edu-item">
+        <h3>Reviewer, ICML and GECCO</h3>
+        <p class="edu-meta">ICML Silver Reviewer · GECCO, 2019 – Present</p>
       </article>
       <article class="edu-item">
         <h3>Eta Kappa Nu (HKN) Honor Society</h3>
