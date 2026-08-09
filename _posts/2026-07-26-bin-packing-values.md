@@ -19,8 +19,8 @@ point. I call them control and nietzsche, after the philosopher; [June's
 pair](/blog/nietzsche/) had five values, not three.
 
 This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
-are successive versions of the two files: v3 is fixed, sm-v4 lets the agent
-revise its three bullets, sm-v5 replace the block. A cell is one task,
+are successive versions of the two files: sm-v4 makes revising the three bullets
+routine, sm-v5 opens the whole block, v3 neither. A cell is one task,
 disposition and version; a pair is two cells differing only in disposition;
 everything is governed by **one run per cell**.
 
