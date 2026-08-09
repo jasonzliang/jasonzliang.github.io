@@ -1,0 +1,31 @@
+{
+  "image_path": "/private/tmp/imggen_gallery/agent_CaesarExplorer.synthesis-5.04030524.image.08081915.webp",
+  "image_model": "gpt-image-2",
+  "prompt": "Architectural specimen-plate illustration of a single museum alcove, shown straight-on in clean cutaway view against a white page background. Center a shallow echo-relief wall panel made of standardized ceramic tiles: ribs, slots, shallow cavities, diffuser bumps, and a few soft porous inserts, all arranged as a deliberate composition. Directly below, the pale stone floor holds inset brass footprints and a thin semicircular sweep arc, with a few small tolerance notches at the panel edge. Make the floor instructions as visually important as the wall piece, so they read as one fused artwork. Use a muted scientific palette of blue-gray, dusty purple, soft pink, beige, and light gray, with thin black keylines, almost shadowless page light, crisp edges, and quiet institutional stillness. Precise, schematic, tactile, like a museum plate or scientific figure, not a chart, not futuristic, no people, no extra text.",
+  "caption": "A publishable echo-score requires Field, Script, and Invariants: a ribbed ceramic panel is paired with brass footprints and a floor sweep arc, so the work includes the way it must be probed.",
+  "mode": "hybrid",
+  "picked_pool": [
+    {
+      "url": "https://media.springernature.com/m312/springer-static/image/art%3A10.1038%2Fs41583-019-0206-5/MediaObjects/41583_2019_206_Fig4_HTML.png",
+      "alt": "",
+      "score": 9.0,
+      "caption": "The image is a multi-panel scientific-style diagram with a central blue sound-wave graphic and labeled sources (\u201cSource 1,\u201d \u201cSource 2,\u201d \u201cSource 3\u201d) on the left, plus several line and scatter plots on the right and bottom. It uses a muted palette of blue, purple, pink, gray, and beige, with simple flat vector shapes including stylized ears, a brain, waveforms, and dot-filled neural activity ovals connected by arrows. Lighting is absent in the flat infographic style, and the composition is clean and schematic with labels, axes, and evenly spaced panels on a white background."
+    },
+    {
+      "url": "https://media.springernature.com/w215h120/springer-static/image/art%3A10.1038%2Fs41598-025-11613-7/MediaObjects/41598_2025_11613_Fig1_HTML.png",
+      "alt": "",
+      "score": 8.0,
+      "caption": "The image is a scientific figure with two grayscale line plots on the left labeled \u201cLeft Ear\u201d and \u201cRight Ear,\u201d each showing oscillating waveforms over a white background, and three stacked rectangular heatmaps on the right connected by a black arrow. The right panels use bands of blue, green, yellow, and purple with small axis labels and titles including \u201cPhase Difference,\u201d \u201cLeft Ear,\u201d and \u201cRight Ear,\u201d arranged in a clean, diagrammatic layout with thin black borders and a white page background."
+    }
+  ],
+  "refs_sent_to_api": [
+    "https://media.springernature.com/m312/springer-static/image/art%3A10.1038%2Fs41583-019-0206-5/MediaObjects/41583_2019_206_Fig4_HTML.png",
+    "https://media.springernature.com/w215h120/springer-static/image/art%3A10.1038%2Fs41598-025-11613-7/MediaObjects/41598_2025_11613_Fig1_HTML.png"
+  ],
+  "generation_via": "images.edit",
+  "refs_passed_to_api": 2,
+  "candidate_count": 68,
+  "cited_urls_scraped": 41,
+  "size": "1792x1024",
+  "quality": "high"
+}

@@ -1,0 +1,22 @@
+{
+  "image_path": "/private/tmp/imggen_gallery/agent_CaesarExplorer.synthesis-5.04030532.image.08081919.webp",
+  "image_model": "gpt-image-2",
+  "prompt": "Clean whitepaper figure, centered equation diagram, generous whitespace, no backdrop. Black text on white with one blue accent and one gray accent only. Flat, evenly lit, sans-serif typography, all labels large and legible at thumbnail size. Place at center the equation \"\\Delta\\mathcal C_t = \\frac{b_t\\,p_t}{\\mathrm{cost}_t}\\Big( w_m\\,(G_{m,t-1}-G_{m,t})_+\\;+\\;w_s\\,(G_{s,t-1}-G_{s,t})_+\\Big)\\cdot a_t\". Below it place \"\\mathrm{CHSR}(0{:}T)=\\sum_{t=1}^{T}\\Delta\\mathcal C_t\". At right place smaller auxiliary equation \"G_{x,t}=\\mathrm{clip}_{[0,1]}\\frac{C_{x,t}-\\underline R_{x,n}(d_x)}{C_{x,0}-\\underline R_{x,n}(d_x)}\". Add callouts with arrows to exact labels: \"breadth\" pointing to \"b_t\", \"persistence\" to \"p_t\", \"cost\" to \"\\mathrm{cost}_t\", \"world-model gap shrinkage\" to \"w_m\\,(G_{m,t-1}-G_{m,t})_+\", \"skill/controllability gap shrinkage\" to \"w_s\\,(G_{s,t-1}-G_{s,t})_+\", \"attribution factor\" to \"a_t\", \"normalized remaining gap\" to \"G_{x,t}\". Add a top label \"shared probe q*\" above the diagram with a thin bracket spanning all terms.",
+  "caption": "CHSR scores creativity as the sum of per-step gains, counting only broad, durable, causally supported reductions in remaining prediction and control description length per unit cost.",
+  "mode": "diagram",
+  "picked_pool": [
+    {
+      "url": "https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-319-21690-4_12/MediaObjects/340508_1_En_12_Fig1_HTML.gif",
+      "alt": "figure 1",
+      "score": 4.0,
+      "caption": ""
+    }
+  ],
+  "refs_sent_to_api": [],
+  "generation_via": "images.generate",
+  "refs_passed_to_api": 0,
+  "candidate_count": 171,
+  "cited_urls_scraped": 30,
+  "size": "1792x1024",
+  "quality": "high"
+}
