@@ -237,3 +237,18 @@ fig.text(0.10, 0.105,
          fontsize=10.5, color=MUTED, va="top", linespacing=1.7)
 
 save(fig, "score-per-iteration")
+
+
+# ---------------------------------------------------------------------------
+# ahc039-standings.webp -- not generated, but a reproducible crop of the
+# official judge's own standings page after the post-contest submission.
+#
+#   source: screenshot of https://atcoder.jp/contests/ahc039/standings/extended
+#   crop:   one continuous region, (0, 0, 2830, 1201) of the 2830x1206 capture.
+#           y=1201 is the bottom border of the rank-4 row; nothing is composited
+#           or retouched. Resized to 1600px wide, WEBP quality 88, method 6.
+#
+# from PIL import Image
+# im = Image.open(SRC).convert("RGB").crop((0, 0, 2830, 1201))
+# im = im.resize((1600, round(1600 * im.height / im.width)), Image.LANCZOS)
+# im.save("ahc039-standings.webp", "WEBP", quality=88, method=6)
