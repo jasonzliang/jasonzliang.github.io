@@ -15,14 +15,14 @@ builds. Two disposition documents, three bullets and 120 to 175 words each,
 everything else byte-identical. Cautious: smallest verified step, reuse the
 proven approach, a solved problem is done, bank it and stop. Expansive: the move
 that most widens what you could do next, nothing you achieve is a stopping
-point. I call them control and nietzsche, after the philosopher; [June's
-pair](/blog/nietzsche/) had five values, not three.
+point. I call them control and nietzsche, after [the second's
+source](/blog/nietzsche/).
 
 This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
-are successive versions of the two files: sm-v4 makes revising the three bullets
-routine, sm-v5 opens the whole block, v3 neither. A cell is one task,
-disposition and version; a pair is two cells differing only in disposition;
-everything is governed by **one run per cell**.
+are successive versions of the two files: sm-v4 has the agent revise its three
+bullets routinely, sm-v5 lets it rewrite the values section entirely, v3 does
+neither. A cell is one task, disposition and version; a pair is two cells
+differing only in disposition; everything is governed by **one run per cell**.
 
 Values change *what* the agent builds, a lot. Which is better, this study cannot
 say.

@@ -40,9 +40,9 @@ after it had already tied.
    caption="Figure 1 of the report. The five ties are one arrangement up to
             reflection and relabelling: one optimum found five times, not five
             results. The published systems never released coordinates, so
-            nothing is compared with theirs. Panel names are the report's
-            labels: cautious control or expansive nietzsche, each frozen,
-            bounded (-sm) or radical."
+            nothing is compared with theirs. Panel names: cautious (control) or
+            expansive (nietzsche), each at three levels of freedom to rewrite
+            its own values."
 %}
 
 ## A saturated benchmark
