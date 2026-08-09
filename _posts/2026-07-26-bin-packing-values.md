@@ -40,9 +40,9 @@ the standard LLM-heuristic-discovery testbed since
 **Offline** shows the solver the whole list up front; **online** feeds items one
 at a time, no lookahead. Offline is close to solved by a classical heuristic
 plus local search, so the optimised score pins near the ceiling and every arm
-ties; online leaves headroom above the best simple rule, so it separates
-solvers. Two earlier tasks, cobench and generalize, were offline variants, in
-the tally only.
+ties; online leaves headroom above the best simple rule and separates solvers.
+Two earlier tasks, cobench and generalize, were offline variants, in the tally
+only.
 
 The **in-run** score is the one the agent sees and pushes up; the **held-out**
 score I compute after, on families it never trained against, from published
@@ -74,10 +74,9 @@ another, 0.009 against 0.159, a factor of 18 the other way.
 
 Read 24 as an order of magnitude, not a measurement. The 0.244 is a mean over 40
 held-out instances, 4 of them infeasible inside the compute budget and scored as
-a full 100 per cent gap: those four are 10 of the 24.4 points, and across the
-other 36 the solver packed 16.0 per cent above the optimum, the classical floor
-within noise. Standard error 0.039: the failure is real and large, the multiple
-is not.
+a 100 per cent gap: those four are 10 of the 24.4 points, and across the other
+36 the solver packed 16.0 per cent above the optimum, the classical floor within
+noise. Standard error 0.039: the failure is real and large, the multiple is not.
 
 Offline only: online the in-run score is not pinned, and agreed with held-out in
 the final-harness cohort.
@@ -112,7 +111,7 @@ packings came from. One artifact, overreach in one cell and the winning move in
 another; it labels outcomes, it does not predict them.
 
 Four non-independent runs per arm, not seed-controlled, and the cautious tool
-count varies 1 to 6 across its four: a behavioural signature, not proof.
+count varies from 1 to 6 across its four: a behavioural signature, not proof.
 
 ## The tally evaporates
 
@@ -121,9 +120,9 @@ expansive disposition** on the in-run score, sign test p around 0.06, exactly
 the shape of result that gets written up. So I went through them.
 
 **About four of the wins are saturated ties**, both arms pinned: offline in-run
-at about 0.99, cobench at about 0.999, and Hard28, the generalize task's
-held-out, saturated as above. Those margins run 0.0006 to 0.0011: a win of a
-thousandth on a benchmark that cannot resolve the arms is not a win.
+about 0.99, cobench about 0.999, and Hard28, the generalize task's held-out,
+saturated as above. Those margins run 0.0006 to 0.0011: a win of a thousandth on
+a benchmark that cannot resolve the arms is not a win.
 
 **About two are against broken control runs:** the one in a committed report
 never left the Best-Fit floor, in-run 0.9534 and held-out 0.9549 against a
@@ -179,13 +178,13 @@ does real work.
 The behaviour half holds up: two dispositions differing by about 150 words
 produce measurably different artifacts, and generalization swings by up to 24
 times while the training score barely moves. So an evaluation reading only the
-optimised score is blind to most of what values did. The direction half is not a
-finding, and one run per cell is why: a single pair mixes the values effect with
-seed luck and trajectory, which no amount of extra instance draws fixes, only
-more runs. The study shows an effect, not its size or which way it runs. The fix
-is a powered replication, several runs per condition with the [analysis fixed in
-advance](/blog/pre-registration/), which is what I ran next, on a different
-task, where the question got an answer.
+optimised score is blind to most of what the values did. The direction half is
+not a finding, and one run per cell is why: a single pair mixes the values
+effect with seed luck and trajectory, which no amount of extra instance draws
+fixes, only more runs. The study shows an effect, not its size or which way it
+runs. The fix is a powered replication, several runs per condition with the
+[analysis fixed in advance](/blog/pre-registration/), which is what I ran next,
+on a different task, where the question got an answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked
