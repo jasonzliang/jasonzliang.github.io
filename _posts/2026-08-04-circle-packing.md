@@ -92,12 +92,12 @@ A different run, control-sm, took until iteration five and $12.19 to tie,
 keeping a log like a competent researcher's week, numbered in its own iteration
 labels, which the report warns can drift from the loop's count at the relaunch
 below: exact radii by linear program at 2, beating greedy radii on all four
-seeds compared; Newton's method on the tangency equations at 4, the packing
-pinned by exactly 78 contacts, circle to circle and circle to wall, so the
-optimum solves an exact system rather than being crept towards; random kicks at
-5 landing on a better structure one contact swap away, verified at 2.635983085;
-at 6, enumerating the swaps instead of hoping, nothing within two swaps beating
-the incumbent; at 10, a 348-seed search finding nothing better and showing the
+seeds; Newton's method on the tangency equations at 4, the packing pinned by
+exactly 78 contacts, circle to circle and circle to wall, so the optimum solves
+an exact system rather than being crept towards; random kicks at 5 landing on a
+better structure one contact swap away, verified at 2.635983085; at 6,
+enumerating the swaps instead of hoping, nothing within two swaps beating the
+incumbent; at 10, a 348-seed search finding nothing better and showing the
 winning structure's basin rare, reached by 2 of those 348 starts, 0.57%. Nobody
 told it to do any of that.
 
@@ -125,10 +125,10 @@ seconds each on one seed (26, the trained size, got more), against
 [Packomania](https://www.packomania.com/csqv/csqv.html), the record book. Of the
 98 sizes where it produced a usable packing, it matched the record to within
 4e-11 on 27 of them, fell short on 70, several by more than 1%, and beat exactly
-one: **27 circles**, improving the listed entry by 0.000629, a gain of 0.023% on
-a value standing since 2011/12. Packomania listed it on 3 August 2026, crediting
-the improvement over David Cantrell's earlier record and noting the packing's D1
-symmetry.
+one: **27 circles**, lifting the record from **2.685350025228**, untouched since
+2011/12, to **2.685978684198**, a gain of 0.023%. Packomania listed it on 3
+August 2026, crediting the improvement over David Cantrell's record and noting
+the packing's D1 symmetry.
 
 {% include figure.html
    src="/img/blog/2026-08-04-circle-packing/packing-old-vs-new.webp"
