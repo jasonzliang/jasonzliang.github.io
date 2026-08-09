@@ -120,15 +120,15 @@ excludes those twenty-two minutes.
 
 ## A separate result, at 27 circles
 
-I ran the $2.48 run's extracted solver at every board size from 2 to 100, 120
-seconds each on one seed (26, the trained size, got more), against
-[Packomania](https://www.packomania.com/csqv/csqv.html), the record book. Of the
-98 sizes where it produced a usable packing, it matched the record to within
-4e-11 on 27 of them, fell short on 70, several by more than 1%, and beat exactly
-one: **27 circles**, lifting the record from **2.685350025228**, untouched since
-2011/12, to **2.685978684198**, a gain of 0.023%. Packomania listed it on 3
-August 2026, crediting the improvement over David Cantrell's record and noting
-the packing's D1 symmetry.
+I ran the $2.48 run's extracted solver at every size from 2 to 100 circles, one
+seed at 120 seconds each, against
+[Packomania](https://www.packomania.com/csqv/csqv.html), the record book; N=26,
+the size it trained on, got more. It produced a usable packing at 98 sizes,
+matched the listed record at 27 of them to within 4e-11, and fell short at 70,
+several by more than 1%. It beat exactly one. At **N=27** the record had stood
+at **2.685350025228** since 2011/12; the solver reaches **2.685978684198**, a
+gain of 0.023%. Packomania listed it on 3 August 2026, crediting the gain over
+David Cantrell's record and noting the packing's D1 symmetry.
 
 {% include figure.html
    src="/img/blog/2026-08-04-circle-packing/packing-old-vs-new.webp"
