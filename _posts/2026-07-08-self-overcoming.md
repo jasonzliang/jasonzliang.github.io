@@ -17,11 +17,10 @@ bolted on late to stop a capable model embarrassing anyone.
 For one class of system that reading is not just incomplete. It is backwards.
 
 Call the class a *self-improving agent*: a program that runs in a loop and, each
-pass, may edit not only its answer but itself. Its
-[prompt](/blog/adaptive-role/), its tools, its own search procedure, sometimes
-its weights. Generation zero is written by a human. Generation one by generation
-zero. Generation ten by something nine edits removed from anything a person
-typed.
+pass, may edit not only its answer but itself. Its prompt, its tools, its own
+search procedure, sometimes its weights. Generation zero is written by a human.
+Generation one by generation zero. Generation ten by something nine edits
+removed from anything a person typed.
 
 There, the starting values are the axiom the system is derived from: every
 generation judges its successor by the criteria it inherited. A bias of size

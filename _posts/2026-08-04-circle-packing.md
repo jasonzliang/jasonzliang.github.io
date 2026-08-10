@@ -53,12 +53,11 @@ value, 2.635983099, is fractionally higher; the two agree to the six decimals
 the record is quoted to. Five runs landing on the same value to nine decimal
 places is not five independent successes; it is a ceiling, and everyone hitting
 it. A measurement everything ties on has stopped measuring, the same failure as
-[a vision model scoring every image mid-scale](/blog/image-generation/). As a
-comparison between [the six conditions I was actually
-testing](/blog/bin-packing-values/) this experiment is worthless, and the
-mission file says so: *"treat this as a showcase of RSI on a famous problem, NOT
-the clean probe of the values effect."* RSI is recursive self-improvement, the
-loop above.
+[a vision model scoring every image mid-scale](/blog/image-generation/). This
+experiment cannot compare [the six conditions I was actually
+testing](/blog/bin-packing-values/), and the mission file says so: *"treat this
+as a showcase of RSI on a famous problem, NOT the clean probe of the values
+effect."* RSI is recursive self-improvement, the loop above.
 
 ## The cost and the route
 

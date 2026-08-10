@@ -2,6 +2,7 @@
 layout: post
 title: >-
   An AI agent's log of its own past work was wrong in both directions
+published: false
 date: 2026-06-18
 description: >-
   One agent's logbook over-counted what it had built on; a sibling

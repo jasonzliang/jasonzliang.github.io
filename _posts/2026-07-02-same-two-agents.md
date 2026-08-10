@@ -2,6 +2,7 @@
 layout: post
 title: >-
   I called it a replication. Only two of five measurements held up.
+published: false
 date: 2026-07-02
 description: >-
   I ran the same one-file values swap on a second mission catalog and wrote

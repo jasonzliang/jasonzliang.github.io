@@ -88,10 +88,9 @@ Then I plotted the other 76, and 400 steps turned out to be the tail rather than
 the rule. The median run closes its first loop at step **150**, not 400.
 Thirty-seven of the 77 have closed one inside their first 100 steps. Only 12 are
 still trees at step 400, and exactly one never closes a loop at all in a
-thousand steps. The run I plotted is in that slow tail, and part of why is [the
-question it was given](/blog/adaptive-role/): constrained-creativity runs are
-the slowest as a group, median first loop at step 225, against step 100 for
-open-ended ones.
+thousand steps. The run I plotted is in that slow tail, and part of why is the
+question it was given: constrained-creativity runs are the slowest as a group,
+median first loop at step 225, against step 100 for open-ended ones.
 
 The late explosion is a property of this run too, more than of the set. For the
 median run, 40% of the final loop count is already in place by step 500 and 76%

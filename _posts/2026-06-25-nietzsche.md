@@ -129,9 +129,8 @@ carries the point, and does not move.
 
 The Nietzschean run pointed some of that apparatus at itself: at iteration 6, a
 checker that tested against git its logbook's claims about which earlier
-iterations it had built on; [two of eight survived](/blog/resume-audit/). The
-standard run never built one, and finished reporting 56 such claims nobody
-checked.
+iterations it had built on; two of eight survived. The standard run never built
+one, and finished reporting 56 such claims nobody checked.
 
 ## Forty-one web calls, and one
 
@@ -177,8 +176,8 @@ disposition strongly shapes *how good the code gets* and does not detectably
 shape *whether it generalizes*. That second half is a null, which is not the
 same as showing there is nothing there.
 
-A scope limit, in my write-up from the beginning: **neither 60-iteration run
-produced citable new science.** Both reproduced known results faithfully; they
+A scope limit, in my write-up from the beginning: neither 60-iteration run
+produced citable new science. Both reproduced known results faithfully; they
 produced tooling and a legible difference in character.
 
 ## What I would keep

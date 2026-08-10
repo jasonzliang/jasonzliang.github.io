@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  I froze my analysis before seeing results. It said underpowered.
+    How to pre-register an experiment when the subject is an AI agent
 date: 2026-07-24
 description: >-
   Medicine and psychology freeze their analysis before seeing data; almost
