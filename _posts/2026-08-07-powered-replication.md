@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent's values shape code quality, not whether it transfers
+  An AI agent's values made its code better, but no more general
 date: 2026-08-07
 description: >-
   A single-run experiment said values drove generalization. Thirty runs
