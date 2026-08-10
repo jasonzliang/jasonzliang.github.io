@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-    How to pre-register an experiment when the subject is an AI agent
+  In AI agent experiments, one run is one data point, not fifty
 date: 2026-07-24
 description: >-
   Medicine and psychology freeze their analysis before seeing data; almost
