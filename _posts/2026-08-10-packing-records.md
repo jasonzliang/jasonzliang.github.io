@@ -40,8 +40,8 @@ infeasible** across the 92 sizes it solved. The wins are N = 50 to 55, 62, 63,
 
 One self-improvement run, ten substantive iterations, **$28.83** and 117 minutes
 of wall clock, single seed. It got an [expansive disposition](/blog/nietzsche/)
-and the freedom to rewrite that document wholesale each iteration. No web
-assistance, and no solver code copied from anywhere.
+and the freedom to [rewrite that document](/blog/values-rewriting/) wholesale
+each iteration. No web assistance, and no solver code copied from anywhere.
 
 The whole result arrives at **iteration 2**. Iteration 1 built a competent
 multistart search that landed 3.5e-4 *below* the N=54 record. Iteration 2 moved

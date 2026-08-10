@@ -1,8 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent banned itself from inventing numbers. Then it failed.
-published: false
+    An AI agent given free rein over its values used it to constrain itself
 date: 2026-08-05
 description: >-
   Across 41 runs, every agent allowed to edit its values did. One ruled a
@@ -21,11 +20,11 @@ solved problem is finished or a platform to climb past. In my setup that
 document is three bullet points in a file the agent reads at the start of every
 iteration.
 
-A different system of mine does a one-shot version: the research agent [rewrites
-its own role description](/blog/adaptive-role/) from the first page it reads,
-once, before exploring anything, and what that does to its answers has never
-been measured. This post is about the loop, where the rewrite happens every
-iteration and I can at least watch what accumulates.
+A different system of mine does a one-shot version: the research agent rewrites
+its own role description from the first page it reads, once, before exploring
+anything, and what that does to its answers has never been measured. This post
+is about the loop, where the rewrite happens every iteration and I can at least
+watch what accumulates.
 
 I ran 41 self-improvement runs across five different tasks. The axis this post
 is about is the agent's freedom to rewrite that file, and it has three settings.

@@ -129,9 +129,10 @@ Part B, from the self-improving-agent papers, at high confidence:
 
 Does a new paper on the list mean a new bullet? The instinctive answer is yes,
 and the instinctive answer is how a values file turns into a document nobody
-reads. I have watched an uncapped value block grow from 17 lines to 446. So the
-five late additions went to a structured debate, two adversarial advocates and a
-neutral judge, which kept every bullet with one refinement.
+reads. I have [watched an uncapped value block grow from 17 lines to
+446](/blog/values-rewriting/). So the five late additions went to a structured
+debate, two adversarial advocates and a neutral judge, which kept every bullet
+with one refinement.
 
 [Voyager](https://arxiv.org/abs/2305.16291)'s disposition, saving a
 verifier-confirmed solution as a reusable skill and building on it later, was
