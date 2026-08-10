@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent's values from papers: citations real, values untested
+  Deriving useful values for AI agents from popular research papers
 date: 2026-08-06
 description: >-
   I derived an agent's values file from cited papers, then audited every
