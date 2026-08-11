@@ -37,14 +37,15 @@ Those runs vary in at least six ways, not one: which of four dispositions they
 start from (cautious, expansive, myopic or never-settling), which of five tasks
 they are pointed at, which generation of the values files they were seeded with,
 which of the three freedom settings they ran under, how long the run is (10, 15
-or 20 iterations, set per task), and which commit of the harness they ran on.
-That last one is the ugliest. There are six distinct harness commits across the
-batches, and on 31 July the uncapped arms were launched four and a half hours
-after the frozen and capped arms of the same task, on a commit made in between.
-The grid is also not fully crossed: the capped setting was never run on one of
-the five tasks, and the fourth disposition was only ever run on that same task.
-My own notes warn against comparing across the file generations without saying
-so out loud, so consider it said, and add the harness commits to the list.
+or 20 iterations, set per task), and which commit of the harness, the runner
+driving the loop, they ran on. That last one is the ugliest. There are six
+distinct harness commits across the batches, and on 31 July the uncapped arms
+were launched four and a half hours after the frozen and capped arms of the same
+task, on a commit made in between. The grid is also not fully crossed: the
+capped setting was never run on one of the five tasks, and the fourth
+disposition was only ever run on that same task. My own notes warn against
+comparing across the file generations without saying so out loud, so consider it
+said, and add the harness commits to the list.
 
 For each run I diffed the starting values file against the final one. That is
 what makes the rest survive the other five axes: each run is compared against

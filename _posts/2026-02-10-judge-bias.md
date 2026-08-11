@@ -37,8 +37,9 @@ each run twice: once in the vendor's own autonomous research mode ("deep"), once
 with ordinary single-step web search ("shallow"). The seventh is Caesar, which
 runs on GPT-5.2. Each system answered five research challenges under three
 output formats: an unconstrained full answer, an unconstrained explain-it-simply
-summary (our paper calls this ELI5, for "explain like I'm five"), and an ELI5
-summary capped at 450 words. Every judge scored every answer three times.
+summary (our [paper](https://arxiv.org/abs/2604.20855) calls this ELI5, for
+"explain like I'm five"), and an ELI5 summary capped at 450 words. Every judge
+scored every answer three times.
 
 ## Measuring a judge's favouritism
 
