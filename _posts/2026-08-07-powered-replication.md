@@ -43,10 +43,9 @@ satisfying story: the expansive disposition led to solvers that generalized to
 the bigger board, and letting the agent rewrite its values amplified that. The
 best expansive run scored roughly 800,000 on 5×5, trimmed to about 720,000 by a
 later truncation-free re-score. Reference points there: random play about 8,000,
-a greedy program taking whichever move scores best now about 80,000. Board size
-moves those anchors a long way, because a bigger board keeps a game alive
-longer, and the same greedy program scores only about 4,500 on 4×4. Every
-reference score is quoted for the board it belongs to.
+a greedy program taking whichever move scores best now about 80,000. A bigger
+board keeps a game alive longer, so the same greedy program scores only about
+4,500 on 4×4. Every reference score is quoted for the board it belongs to.
 
 ## What happened with five runs per condition
 
@@ -116,17 +115,18 @@ confirmed nor denied".
 
 "Central contrast" is doing work it has not earned, though. The 5×5 board was
 labelled a breadth check, not the primary endpoint, until twelve and a half
-hours after those runs launched, and on the endpoint designated beforehand the
-overfitter's best run generalized better than the other eight. It changes
-nothing here, a different study with a different design, but the contrast that
-was not re-tested was never as settled as the phrase implies.
+hours after those runs launched, and on the endpoint I had designated beforehand
+the overfitter's best run generalized better than any of the other eight. It
+changes nothing here, a different study with a different design, but the
+contrast that was not re-tested was never as settled as the phrase implies.
 
 ## The frozen runs killed my mechanism
 
-The first story also said self-modification was doing the work: [values seed the
-trajectory](/blog/self-overcoming/), and letting the agent rewrite them is what
-"realizes" it. So I added ten more runs with the values **frozen**. If
-self-modification were realizing the effect, freezing it should shrink the gap.
+The first story also said [self-modification was doing the
+work](/blog/self-overcoming/): values set a ceiling, and letting the agent
+rewrite them is what "realizes" it. So I added ten more runs with the values
+**frozen**. If self-modification were realizing the effect, freezing it should
+shrink the gap.
 
 The frozen runs reproduced the capability gap **in full**, at Cliff's delta
 **+1.00**: every frozen expansive run beat every frozen cautious run. The frozen
