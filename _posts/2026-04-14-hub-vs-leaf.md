@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent answered better from well-connected pages than dead ends
+  My AI agent answered better from well-connected pages than dead ends
 date: 2026-04-14
 description: >-
   24.43 against 21.88 on a 30-point rubric. Four reasons to discount it,

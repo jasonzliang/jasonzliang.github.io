@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent rewrites its own job description, mostly identically
+  My AI agent rewrites its own job description, mostly identically
 published: false
 date: 2026-04-22
 description: >-

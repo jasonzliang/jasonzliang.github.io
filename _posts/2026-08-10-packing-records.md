@@ -56,7 +56,7 @@ records came from.
 ## Why it works
 
 One idea does the load-bearing work, and it is not mine or the agent's. **Fix
-the centres and the best radii are a linear program** — maximise the sum subject
+the centres and the best radii are a linear program**: maximise the sum subject
 to each pair of radii summing to no more than the distance between their
 centres, and each radius fitting its walls. That is
 [Eppstein's](https://arxiv.org/abs/1607.02184) formulation. It means the search
@@ -103,8 +103,8 @@ next week's table may absorb some of these.
 
 It already absorbed the last one. Packomania now lists 2.685978684198 at N=27,
 which is the number the earlier solver found, so that solver's sweep re-scored
-against today's table reads **0 wins, 28 ties, 70 short** — it ties the record
-it set. Records that hold get overwritten by their own holder.
+against today's table reads **0 wins, 28 ties, 70 short**. It ties the record it
+set. Records that hold get overwritten by their own holder.
 
 ## The follow-up that found nothing
 

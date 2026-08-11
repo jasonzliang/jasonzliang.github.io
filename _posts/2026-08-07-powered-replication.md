@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent's values affected its code quality and performance on 2048
+  My AI agent's values affected its code quality and performance on 2048
 date: 2026-08-07
 description: >-
   A single-run experiment said values drove generalization. Thirty runs

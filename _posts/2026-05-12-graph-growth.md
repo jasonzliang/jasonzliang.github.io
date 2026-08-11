@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent exploring the web starts looping back early
+  My AI agent exploring the web starts looping back early
 date: 2026-05-12
 description: >-
   Across 77 crawls the map stays a tree for a median of 150 steps, and

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-  An AI agent's log of its own past work was wrong in both directions
+  My AI agent's log of its own past work was wrong in both directions
 published: false
 date: 2026-06-18
 description: >-

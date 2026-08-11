@@ -1,7 +1,7 @@
 ---
 layout: post
 title: >-
-    An AI agent given free rein over its values used it to constrain itself
+    My AI agent given free rein over its values used it to constrain itself
 date: 2026-08-05
 description: >-
   Across 41 runs, every agent allowed to edit its values did. One ruled a
