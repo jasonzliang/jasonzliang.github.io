@@ -91,12 +91,12 @@ A different run, control-sm, took until iteration five and $12.19 to tie,
 keeping a log like a competent researcher's week, numbered in its own iteration
 labels, which the report warns can drift from the loop's count at the relaunch
 below: exact radii by linear program at 2, beating greedy radii on all four
-seeds; Newton's method on the tangency equations at 4, the packing pinned by
-exactly 78 contacts, circle to circle and circle to wall, so the optimum solves
-an exact system rather than being crept towards; random kicks at 5 landing on a
-better structure one contact swap away, verified at 2.635983085; at 6,
-enumerating the swaps instead of hoping, nothing within two swaps beating the
-incumbent; at 10, a 348-seed search finding nothing better and showing the
+seeds compared; Newton's method on the tangency equations at 4, the packing
+pinned by exactly 78 contacts, circle to circle and circle to wall, so the
+optimum solves an exact system rather than being crept towards; random kicks at
+5 landing on a better structure one contact swap away, verified at 2.635983085;
+at 6, enumerating the swaps instead of hoping, nothing within two swaps beating
+the incumbent; at 10, a 348-seed search finding nothing better and showing the
 winning structure's basin rare, reached by 2 of those 348 starts, 0.57%. Nobody
 told it to do any of that.
 
