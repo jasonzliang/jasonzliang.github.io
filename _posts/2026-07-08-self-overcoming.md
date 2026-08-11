@@ -177,9 +177,9 @@ between; the five bets are lower-risk steps meanwhile.
 None of this is demonstrated. I have run the small version, two agents differing
 only in a values file, and [written up what happened](/blog/nietzsche/): the
 disposition visibly changed what they built, without establishing either was
-better. A 41-run study of agents editing their own values and a replication that
-reversed one of my headline findings are the honest state of the evidence; the
-second is why I distrust my own enthusiasm.
+better. A 41-run study of how freely agents may edit their own values and a
+replication that reversed one of my headline findings are the honest state of
+the evidence; the second is why I distrust my own enthusiasm.
 
 What survives either way is the structural argument. In a system that improves
 itself, no value-set is neutral: the value function is what defines improvement.

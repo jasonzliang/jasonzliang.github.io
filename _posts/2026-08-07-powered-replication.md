@@ -115,16 +115,16 @@ on 5×5, and it is not re-tested here. My report puts it flatly: it "is neither
 confirmed nor denied".
 
 "Central contrast" is doing work it has not earned, though. The 5×5 board was
-labelled a breadth check, not the primary endpoint, until twelve hours after
-those runs finished, and on the endpoint I had designated beforehand the
-overfitter's best run generalized better than any of the other eight. It changes
+labelled a breadth check, not the primary endpoint, until twelve and a half
+hours after those runs launched, and on the endpoint designated beforehand the
+overfitter's best run generalized better than the other eight. It changes
 nothing here, a different study with a different design, but the contrast that
 was not re-tested was never as settled as the phrase implies.
 
 ## The frozen runs killed my mechanism
 
-The first story also said self-modification was doing the work: [values set a
-ceiling](/blog/self-overcoming/), and letting the agent rewrite them is what
+The first story also said self-modification was doing the work: [values seed the
+trajectory](/blog/self-overcoming/), and letting the agent rewrite them is what
 "realizes" it. So I added ten more runs with the values **frozen**. If
 self-modification were realizing the effect, freezing it should shrink the gap.
 

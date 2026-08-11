@@ -13,10 +13,9 @@ tags: [evaluation, human-evaluation, caesar]
 
 The previous post was about [what happens when you let language models grade
 research answers](/blog/judge-bias/), and about catching one of our judges
-favouring its own model family by 1.35 points.
+favouring its own model family by a raw 1.35 points.
 
-The obvious next question is whether the judges were right at all. So we asked
-people.
+The next question is whether the judges were right at all. So we asked people.
 
 ## The setup
 

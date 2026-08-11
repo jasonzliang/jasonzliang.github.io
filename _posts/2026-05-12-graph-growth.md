@@ -36,7 +36,7 @@ never called early or late on the strength of a finer snapshot spacing.
 
 ## Nearly half the steps are revisits
 
-Take the 1,000-step run in the figure below, on a constrained-creativity prompt:
+Take the 1,000-step run in the figure below, on a constrained-synthesis prompt:
 invent an emotion humans do not have. At step 50 the map has 26 nodes. At step
 1,000 it has **522**. Other runs go further; the largest of the 77 reaches
 **941**.
@@ -89,7 +89,7 @@ the rule. The median run closes its first loop at step **150**, not 400.
 Thirty-seven of the 77 have closed one inside their first 100 steps. Only 12 are
 still trees at step 400, and exactly one never closes a loop at all in a
 thousand steps. The run I plotted is in that slow tail, and part of why is the
-question it was given: constrained-creativity runs are the slowest as a group,
+question it was given: constrained-synthesis runs are the slowest as a group,
 median first loop at step 225, against step 100 for open-ended ones.
 
 The late explosion is a property of this run too, more than of the set. For the
@@ -148,7 +148,7 @@ Different question types produce visibly different maps, though only part of
 what I first said about them survives a recount. Across the 60 of those 77 runs
 that carry one of five question types, twelve apiece, open-ended questions
 sprawl clearly the furthest: a median of 678 pages, against 531 to 544 for
-constrained creativity, cross-domain synthesis, meta-creativity and
+constrained synthesis, cross-domain synthesis, meta-creativity and
 counterfactual reasoning, which are not distinguishable from each other. So the
 size contrast is not constrained against open-ended, it is open-ended against
 everything else.
