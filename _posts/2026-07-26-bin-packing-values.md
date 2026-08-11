@@ -74,9 +74,10 @@ another, 0.009 against 0.159, a factor of 18 the other way.
 
 Read 24 as an order of magnitude, not a measurement. The 0.244 is a mean over 40
 held-out instances, 4 of them infeasible inside the compute budget and scored as
-a 100 per cent gap: those four are 10 of the 24.4 points, and across the other
-36 the solver packed 16.0 per cent above the optimum, the classical floor within
-noise. Standard error 0.039: the failure is real and large, the multiple is not.
+a full 100 per cent gap: those four are 10 of the 24.4 points, and across the
+other 36 the solver packed 16.0 per cent above the optimum, the classical floor
+within noise. Standard error 0.039: the failure is real and large, the multiple
+is not.
 
 Offline only: online the in-run score is not pinned, and agreed with held-out in
 the final-harness cohort.
@@ -184,7 +185,7 @@ effect with seed luck and trajectory, which no amount of extra instance draws
 fixes, only more runs. The study shows an effect, not its size or which way it
 runs. The fix is a powered replication, several runs per condition with the
 [analysis fixed in advance](/blog/pre-registration/), which is what I ran next,
-on a different task, where the question got an answer.
+on a different task, where the question got a real answer.
 
 The uncomfortable part is how close I came to publishing 11 of 14: a plausible
 p-value, a mechanism and a story, and no tally that meant anything once I looked

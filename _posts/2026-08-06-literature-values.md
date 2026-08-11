@@ -13,8 +13,9 @@ tags: [self-improving-agents, agent-design, values]
 
 Every self-improving agent I build reads a values file at the top of each
 iteration: three to five bullets that do not say what to *do*, because the task
-says that, but how to decide when the task leaves the choice open: the small
-proven step or the ambitious one. Every one I wrote by hand. [One from
+says that, but how to decide when the task leaves the choice open: take the
+small proven step or the ambitious one, treat a working solution as finished or
+as a platform to climb past. Every one I wrote by hand. [One from
 Nietzsche](/blog/nietzsche/), run against an otherwise identical baseline,
 produced two agents that behaved differently enough to tell apart at a glance,
 without establishing that either was better.

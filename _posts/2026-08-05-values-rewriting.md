@@ -60,9 +60,10 @@ its own starting file, not another run.
 | Radical | 15 | **15 of 15** | 15–23 lines | 96–446 lines |
 
 A line here means a line of the values section body: everything below the values
-heading and above the next top-level heading, blank lines trimmed. That is why a
-run that never touched anything still counts 15 to 22; the seed is three bullets
-plus a two-sentence preamble telling the agent what the bullets are for.
+heading and above the next top-level heading, blank lines at either end trimmed.
+That is why a run that never touched anything still counts 15 to 22; the seed is
+three bullets plus a two-sentence preamble telling the agent what the bullets
+are for.
 
 Frozen runs never drifted, the boring but necessary control: values only change
 when permitted. Bounded runs always edited themselves and stayed compact.
@@ -180,6 +181,6 @@ have written about [how badly that bit me](/blog/bin-packing-values/).
 What survives is narrower and, I think, more useful: **the countable part of the
 guardrail held in every run it applied to, and the shape of what gets written is
 visible and auditable.** Reading what an agent did with a mutable value system
-is a cheap and underused source of evidence about what your loop is doing. The
-values file is three bullets. The audit is a diff. There is no reason not to
-look.
+is a cheap and underused source of evidence about what your loop is actually
+doing. The values file is three bullets. The audit is a diff. There is no reason
+not to look.

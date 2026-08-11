@@ -43,9 +43,10 @@ satisfying story: the expansive disposition led to solvers that generalized to
 the bigger board, and letting the agent rewrite its values amplified that. The
 best expansive run scored roughly 800,000 on 5×5, trimmed to about 720,000 by a
 later truncation-free re-score. Reference points there: random play about 8,000,
-a greedy program taking whichever move scores best now about 80,000. A bigger
-board keeps a game alive longer, so the same greedy program scores only about
-4,500 on 4×4. Every reference score is quoted for the board it belongs to.
+a greedy program taking whichever move scores best now about 80,000. Board size
+moves those anchors a long way, because a bigger board keeps a game alive
+longer, and the same greedy program scores only about 4,500 on 4×4. Every
+reference score is quoted for the board it belongs to.
 
 ## What happened with five runs per condition
 
