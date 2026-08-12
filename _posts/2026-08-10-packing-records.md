@@ -80,7 +80,8 @@ pipeline and tune the split between its two stages, unaided.
 
 ## The margins are not floating-point noise
 
-Each win was re-derived from its coordinates by a checker that shares no code
+Each win was re-derived from its coordinates by [a
+checker](https://github.com/jasonzliang/circle-packing-sota) that shares no code
 with the solver and re-counts the circles, containment, overlaps and total
 itself. The packings are strictly feasible with room to spare, not
 feasible-within-tolerance: at N=54 the tightest gap to a wall is 1.0e-11 and the

@@ -177,4 +177,5 @@ Five qualifications:
 It is small, but anyone can check it: the output is a list of coordinates, and a
 separate program sharing no code with the solver confirms it in a second. That
 is the property I would most like more AI results to have: not "trust the
-system," but "here is the artifact, and here is something that checks it."
+system," but "here is the artifact, and here is something that checks it." [Both
+are here](https://github.com/jasonzliang/circle-packing-sota).
