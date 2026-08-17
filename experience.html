@@ -113,7 +113,7 @@
         <p><em>Autonomous Self-Improvement Systems</em></p>
         <ul>
           <li>Built a <strong>values-based self-improvement framework</strong> in which an agent edits its own solver and its own values document across long iterative runs, organised around three questions: what founding values are seeded, which anti-reward-hacking invariants the agent cannot overwrite, and how much of its own instructions it may rewrite. Written up across an <a href="/blog/">research blog</a>, figures and generating scripts included.</li>
-          <li>On variable-radius circle packing the agent wrote its own solver, matching the best known value at N=26 for under $20 of compute to first tie with no web assistance. At N=27 the same solver beat a record standing since 2011 and is now the listed best known result, <a href="https://www.packomania.com/csqv/csqv.html" target="_blank" rel="noopener">credited on Packomania</a>.</li>
+          <li>On variable-radius circle packing the agent wrote its own solver, matching the best known value at N=26 for under $20 of compute to first tie with no web assistance. At N=27 the same solver beat a record standing since 2011 and is now the listed best known result, <a href="https://www.packomania.com/csqv/csqv.html" target="_blank" rel="noopener">credited on Packomania</a>. A later run produced a solver that beats 21 more of the published records, at sizes from 50 to 87 circles, each re-verified from its coordinates against the live table.</li>
           <li>On a real AtCoder heuristic contest, a run's solver outscored the top human leaderboard entry over the 150 official private seeds, confirmed on the official judge after the contest.</li>
         </ul>
         <p><em>Caesar: Autonomous Reasoning &amp; Knowledge Synthesis</em></p>
@@ -126,7 +126,7 @@
         <ul>
           <li>Developed an <strong>FSM-based multi-agent code-generation framework</strong>, evolving the composition of specialized LLM teams to achieve strong performance on SciCode and HumanEval+.</li>
           <li>Designed a hierarchical expert-agent pipeline that decomposes hard coding problems and routes sub-tasks to specialized LLM roles.</li>
-          <li>Pioneered <strong>Evolutionary Population-Based Training (EPBT)</strong>, evolving loss functions and hyperparameters jointly with weights. Beats the PBT baseline by 1.3pp on CIFAR-10 ResNet-32 (92.79% vs 91.53%) while exploring 520 candidate loss functions at 12.5&times; lower search cost than independent training (GECCO 2021).</li>
+          <li>Pioneered <strong>Evolutionary Population-Based Training (EPBT)</strong>, evolving loss functions and hyperparameters jointly with weights. Beats the PBT baseline by 1.3pp on CIFAR-10 ResNet-32 (92.79% vs 91.53%) while exploring 520 candidate loss functions at the cost of 40 trainings, a 13&times; reduction (GECCO 2021).</li>
           <li>Pioneered <strong>evolutionary prompt optimization</strong>, improving LLM performance on challenging code-generation benchmarks.</li>
           <li>Created <strong>Code Archaeologist</strong>, an agentic system that reasons over Git/LFS repository histories to detect architectural patterns and technical debt.</li>
           <li>Scaled distributed ML systems to produce SOTA neural networks for vision and language tasks.</li>
