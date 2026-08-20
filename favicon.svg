@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="JL">
+  <title>JL</title>
+  <rect width="64" height="64" rx="12" fill="#1d4ed8"/>
+  <!-- textLength pins the monogram to ~78% of the box regardless of which
+       fallback font renders it. A naturally-set "JL" is narrower and turns to
+       mush at 16px, which is the size that actually matters in a tab. -->
+  <text x="32" y="46" text-anchor="middle" textLength="50" lengthAdjust="spacingAndGlyphs"
+        font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="bold"
+        fill="#ffffff">JL</text>
+</svg>
