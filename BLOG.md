@@ -95,7 +95,6 @@ docker run --rm -v "$PWD:/srv/jekyll" -p 4000:4000 jekyll/jekyll:latest \
 | `_posts/` | Your posts (Markdown) |
 | `img/blog/` | Per-post images/media |
 | `new-post.sh` | Scaffolds a new post |
-| `Gemfile` | Local-dev only (GitHub Pages ignores it) |
 
 Nothing else on the site changed except a **"Blog" link added to the nav** on
 the four existing pages and a `/blog/` entry added to `sitemap.xml`.

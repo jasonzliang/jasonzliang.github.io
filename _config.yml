@@ -60,8 +60,6 @@ exclude:
   - README.md
   - BLOG.md
   - new-post.sh
-  - Gemfile
-  - Gemfile.lock
   - vendor
   - .claude
   - node_modules

@@ -17,7 +17,6 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 vendor/
-Gemfile.lock
 
 # Python bytecode
 __pycache__/
