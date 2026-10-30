@@ -4,8 +4,8 @@ title: >-
   Deriving agent values from research papers and auditing their sources
 date: 2026-09-23
 description: >-
-  A literature-derived values file had 22 verified citations. Its paper ranking
-  remained a proxy, and its effect on agent performance had not been tested.
+  Verified papers supplied proposed agent guidance, but checking citations did
+  not establish that the guidance would improve performance.
 image: >-
   /img/blog/2026-08-06-literature-values/citation-ledger.webp
 tags: [self-improving-agents, agent-design, values]
@@ -38,8 +38,8 @@ AlphaGo Zero used its Nature record. All seventeen passed. Four headline
 metrics used to support values were also checked against abstracts, with all
 four reported as supported verbatim.
 
-The lists were then expanded to ten papers apiece. Five additions—GPT-4,
-Chain-of-Thought, ReAct, Toolformer and Voyager—passed the same identifier gate.
+The lists were then expanded to ten papers apiece. Five additions—[GPT-4](https://arxiv.org/abs/2303.08774),
+[Chain-of-Thought](https://arxiv.org/abs/2201.11903), [ReAct](https://arxiv.org/abs/2210.03629), [Toolformer](https://arxiv.org/abs/2302.04761) and Voyager—passed the same identifier gate.
 Each addition's core contribution also had to be supported by a quotation from
 its own abstract. All five passed.
 
@@ -57,6 +57,8 @@ derived instructions improve an agent.
    caption="The citation audit's ledger. Voyager was the only late addition
             that changed the wording of a value."
 %}
+
+The [citation ledger data and plotting code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-08-06-literature-values/make_figs.py) preserve the reported audit.
 
 ## A verified source list with an unverified ranking
 
@@ -104,9 +106,8 @@ Part B:
 - Self-improve against an objective verifier where one exists, learning from
   trials and reusing verified solutions rather than re-deriving.
 
-These are proposed decision rules distilled from the selected literature.
-They are not conclusions that the source papers directly tested as a combined
-values document.
+The source papers did not test these decision rules as a combined values
+document.
 
 ## Updating a capped values file
 
@@ -133,20 +134,19 @@ was useful: an uncapped block had grown from seventeen to 446 lines.
 
 The supporting findings retained their original scope:
 
-- Reflexion reported HumanEval pass@1 rising from 80% to 91% against its own
+- [Reflexion](https://arxiv.org/abs/2303.11366) reported HumanEval pass@1 rising from 80% to 91% against its own
   GPT-4 baseline. The exercise recorded capability dependence and no gain for
   weak base models.
-- Self-Refine's roughly 20% absolute gain across seven tasks was driven by
-  non-reasoning tasks. Later work disputes intrinsic self-correction on
+- [Self-Refine](https://arxiv.org/abs/2303.17651)'s roughly 20% absolute gain across seven tasks was driven by
+  non-reasoning tasks. [Later work](https://arxiv.org/abs/2310.01798) disputes intrinsic self-correction on
   reasoning problems.
-- Constitutional AI's absence of human labels applied to harmlessness;
+- [Constitutional AI](https://arxiv.org/abs/2212.08073)'s absence of human labels applied to harmlessness;
   helpfulness still used human feedback, and people wrote the constitution.
-- Game self-play results relied on simulators, clear rewards and perfect
+- [Game self-play results](https://arxiv.org/abs/1712.01815) relied on simulators, clear rewards and perfect
   information. Applying them to coding agents was an analogy dependent on a
   strong verifier.
 
-At this stage, the output was a sourced instruction set, not a demonstrated
-improvement. Comparing it with hand-written values required independent runs
-per condition and a fixed evaluation, following the limitations exposed in the
-[earlier bin-packing study](/blog/bin-packing-values/). Later values research
+Testing the sourced instruction set against hand-written values required
+independent runs per condition and a fixed evaluation, following the limitations
+exposed in the [earlier bin-packing study](/blog/bin-packing-values/). Later values research
 constitutes separate evidence and should not be read back into this audit.

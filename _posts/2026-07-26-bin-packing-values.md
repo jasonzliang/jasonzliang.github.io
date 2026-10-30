@@ -4,8 +4,8 @@ title: >-
   Auditing an 11-of-14 tally in agent bin-packing experiments
 date: 2026-07-26
 description: >-
-  An exploratory comparison found different solver designs, but saturation,
-  failed runs and shared evaluations weakened its apparent performance trend.
+  An apparent advantage in packing performance weakened under audit, while the
+  agents' different approaches to building solvers remained visible.
 image: /img/blog/2026-07-26-bin-packing-values/offline-inrun-vs-heldout.webp
 tags: [self-improving-agents, evaluation, values]
 ---
@@ -25,9 +25,9 @@ values section to change. Each task–disposition–version cell had **one run**
 A matched pair compared the two dispositions within a task and version.
 
 An initial tally favored the expansive condition in 11 of 14 pairs. An audit
-found that many comparisons could not support that interpretation. The retained
-artifacts showed different development patterns; the design did not establish
-which disposition performed better.
+found that many comparisons could not support that interpretation. Agents built
+different kinds of solvers, but the design did not establish which disposition
+performed better.
 
 ## Optimization and held-out performance
 
@@ -64,8 +64,11 @@ range of 0.235. Within one pair, gaps to optimum were 0.010 and 0.244, roughly
 24-fold apart. Another pair had gaps of 0.009 and 0.159, roughly 18-fold apart
 in the opposite direction.
 
-The larger ratio needs qualification. The 0.244 mean covered 40 instances;
-four exceeded the compute budget and received a full 100% gap penalty. Those
+The [plotting data and code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-07-26-bin-packing-values/make_figs.py#L3-L31)
+record these eight runs' reported scores and the reference value.
+
+The 0.244 mean covered 40 instances; four exceeded the compute budget and
+received a full 100% gap penalty. Those
 failures contributed ten of the 24.4 percentage points. Across the remaining 36,
 packing used 16.0% more bins than optimum, near the classical reference within
 noise. The reported standard error was 0.039. The ratio is a rough description
@@ -130,8 +133,8 @@ and used iteration nine's solver rather than iteration ten's. Excluding that
 pair leaves one clean recent online pair, favoring expansive, alongside split
 offline results.
 
-The historical study therefore supports an audit of artifacts and evaluation
-failures, not a reliable performance ranking. More instance draws cannot
+These runs reveal differences in solver design and several evaluation failures,
+but cannot reliably rank the dispositions. More instance draws cannot
 replace independent agent runs. A powered follow-up with
 [analysis fixed in advance](/blog/pre-registration/) was conducted on a
 different task; its results belong to that separate experiment.

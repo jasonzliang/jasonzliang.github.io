@@ -5,20 +5,20 @@ title: >-
 published: false
 date: 2026-06-18
 description: >-
-  A lineage checker found confirmed, unsupported and contradictory claims
-  in an agent's log. Missing git history limits what can be checked now.
+  An agent's self-audit exposed how a logbook can overstate code reuse, and
+  why unverified claims are different from false ones.
 image: >-
   /img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp
 tags: [self-improving-agents, evaluation, ai-honesty]
 ---
 
-A coding agent's logbook can describe how its work accumulates without measuring
-that accumulation accurately. In one exploratory run, an agent built a graph of
-its earlier work, then built a checker that challenged the graph. At iteration
+A coding agent's logbook can overstate how much new work builds on earlier work.
+In one exploratory run, an agent built a graph of its earlier work, then built
+a checker that challenged the graph. At iteration
 6, only two of eight claimed links were confirmed against git history.
 
-The result exposed a parser error and a useful distinction: some claims were
-contradicted by the record, while others exceeded what the checker could establish.
+The audit exposed a parser error. Some claims conflicted with the record;
+others exceeded what the checker could establish.
 
 ## A graph built from prose
 
@@ -35,8 +35,8 @@ that produced artifacts. A later correction note reported 56, which matches the
 recorded commit count rather than the artifact count.
 
 The graph parser treated filename and task-ID mentions as dependency claims.
-That is easy to implement, but it loses the difference between mentioning a
-file and using it. At iteration 6, the agent added a verifier that looked for
+This treated a mention of a file as evidence that the agent had used it.
+At iteration 6, the agent added a verifier that looked for
 imports, file modifications and temporal consistency in the corresponding commits.
 Its saved report was:
 
@@ -44,6 +44,9 @@ Its saved report was:
 ADVERSARIAL DAG — 8 claimed edge(s) checked against git:
   2 ok · 3 unsupported · 3 PHANTOM · 0 unverifiable
 ```
+
+The [plotting data and code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-06-18-resume-audit/make_figs.py#L44-L54)
+record these reported counts.
 
 {% include figure.html
    src="/img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp"
@@ -101,8 +104,8 @@ could be higher or lower than the reported graph suggests.
 
 ## A useful check that was not preserved
 
-The first run's lineage audit also remained incomplete as a workflow. A
-standing lesson told later iterations to run it, but no later entry records
+The first run left the lineage audit outside its required workflow. A standing
+lesson told later iterations to run it, but no later entry records
 doing so. A task to connect it to the renderer remained unfinished, and the
 harness did not require it before committing.
 
@@ -113,9 +116,8 @@ Running the checker against the archive still extracts 133 claims, but returns
 132 as unverifiable; the remaining temporal contradiction can be checked
 without git.
 
-The evidence supports a practical lesson about measurement. Self-reported
-lineage, code dependencies and conceptual influence require different checks.
-A credible reuse metric needs a defined counting rule, a check against evidence
+Self-reported lineage, code dependencies and conceptual influence require
+different checks. A credible reuse metric needs a defined counting rule, a check against evidence
 outside the logbook, routine execution and preservation of the underlying
 record. These runs supplied parts of that process, leaving the total amount of
 compounding unresolved.

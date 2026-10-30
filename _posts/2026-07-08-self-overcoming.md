@@ -4,17 +4,17 @@ title: >-
   Values in self-improving agents: five design hypotheses
 date: 2026-07-08
 description: >-
-  A Nietzsche-inspired proposal connects initial values to curriculum,
-  self-modification and verification. The proposed trajectory remains unproven.
+  A proposal asks how starting values could shape the choices an agent makes
+  as it improves its own tools and methods.
 image: >-
   /img/blog/2026-07-08-self-overcoming/compounding.webp
 tags: [self-improving-agents, agent-design, values]
 ---
 
 A self-improving agent can change the tools, prompts or search procedures used
-to produce its next result. The criteria for accepting those changes therefore
-matter alongside the changes themselves. A process rewarded for benchmark
-performance may select different successors from one rewarded for broader
+to produce its next result. Which changes it accepts depends on what counts as
+an improvement. A process rewarded for benchmark performance may select
+different successors from one rewarded for broader
 capability, reliable verification or novel tasks.
 
 An unpublished project memo, *The Self-Overcoming Thesis*, develops that idea
@@ -47,7 +47,6 @@ that ten rounds of agent self-editing amplify sycophancy. They also do not
 establish the memo's claim that later corrections would be ineffective. Both
 extensions require experiments on the actual modification-and-selection loop.
 
-The philosophical connection is similarly interpretive.
 [Nietzsche's writing](https://plato.stanford.edu/entries/nietzsche/) discusses
 self-overcoming, value creation and competing perspectives; it does not supply
 a theory of machine-learning objectives. The memo turns those themes into
@@ -75,10 +74,10 @@ complex-valued matrices with 48 scalar multiplications, improving on the
 49-multiplication construction from applying Strassen's algorithm in that
 setting.
 
-These are concrete examples of program improvement. They do not demonstrate
-that changing the evaluator's objectives, or freely rewriting values, improves
-the trajectory. That additional proposal needs its own comparison and protected
-external evaluation.
+Both systems improve programs. Neither demonstrates that changing the
+evaluator's objectives, or freely rewriting values, improves the trajectory.
+Testing that proposal requires a separate comparison and protected external
+evaluation.
 
 **3. Perspectivism: retain alternatives long enough to test them.** A system
 could preserve incompatible hypotheses instead of collapsing them into an early
@@ -114,9 +113,9 @@ An intervention that improves only its training benchmark would not establish
 broader capability. Consistent losses to a fixed-objective baseline would
 undermine the proposed advantage.
 
-The cost of exploration also belongs in the comparison. Generating new tasks
-and retaining multiple candidates can consume resources without improving the
-final result. A fixed objective remains a strong baseline whenever it captures
+Generating new tasks and retaining multiple candidates can consume resources
+without improving the final result, so the comparison must account for those
+costs. A fixed objective remains a strong baseline whenever it captures
 the intended task well.
 
 The unresolved technical issue is how to reward expansion without rewarding
@@ -133,7 +132,6 @@ examined values editing across more runs, and a
 about generalization. Those experiments address parts of the motivation,
 rather than validating all five proposals or the predicted compounding mechanism.
 
-The remaining research task is to compare acceptance criteria for producing
-more capable and reliable successors under an external test. The five proposals
-organize possible interventions. Their value depends on the comparisons they
-survive.
+Testing the five proposals requires comparing how acceptance criteria affect
+the capability and reliability of successor agents, as measured by an external
+test.

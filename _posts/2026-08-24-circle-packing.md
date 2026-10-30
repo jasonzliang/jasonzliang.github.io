@@ -4,8 +4,8 @@ title: >-
   An AI-generated solver improved the 27-circle packing record
 date: 2026-08-24
 description: >-
-  Five of six agents matched the six-decimal benchmark for 26 unequal circles.
-  A separate sweep improved the listed 27-circle result by 0.023%.
+  A solver developed for a smaller packing problem improved a historical
+  best-known result, with saved coordinates for independent checks.
 image: /img/blog/2026-08-04-circle-packing/packings-26-per-run.webp
 tags: [self-improving-agents, optimization, benchmarks]
 record: Record
@@ -15,12 +15,12 @@ Packing unequal circles into a unit square means choosing their centres and
 radii so that every circle fits and none overlap. The objective is to maximize
 the sum of radii. A solver written by a self-improving agent produced a
 27-circle packing with total **2.685978684198**, improving the previous listed
-value of **2.685350025228** by **0.023%**. Packomania credited the result on
+value of **2.685350025228** by **0.023%**. [Packomania](https://www.packomania.com/csqv/csqv.html) credited the result on
 3 August 2026.
 
 The result came from a separate sweep of a solver developed on 26 circles.
-It provides a checkable optimization artifact, while the agent experiment
-itself offers limited evidence about the benefits of self-improvement.
+The agent experiment itself offers limited evidence about the benefits of
+self-improvement.
 
 ## Six runs on the 26-circle benchmark
 
@@ -75,7 +75,7 @@ candidates reaching about 2.583 before writing a fresh solver. Its eventual
 twelve-cycle run cost **$52.42**.
 
 The solver separated centre placement from radius selection. With centres
-fixed, a linear program finds the best radii, reducing the outer search from
+fixed, [a linear program](https://arxiv.org/abs/1607.02184) finds the best radii, reducing the outer search from
 78 variables to 52 coordinates. Perturbations helped escape local optima, and
 exact-fraction checks certified feasibility. In control-sm, LP radii beat
 greedy radii on all four seeds compared. That run added Newton refinement of
@@ -86,7 +86,7 @@ recombination and rediscovery of established techniques.
 
 ## The separate 27-circle result
 
-An operator-side sweep ran the extracted solver from **N=2 through N=100**,
+An [operator-side sweep](https://github.com/jasonzliang/circle-packing-sota/tree/main/sota/sm-radical-v6-n27) ran the extracted solver from **N=2 through N=100**,
 using one seed and 120 seconds per size, with extra compute for the training
 size N=26. Against the historical
 [Packomania table](https://www.packomania.com/csqv/csqv.html), it produced
@@ -127,6 +127,6 @@ that small change remains uncertain.
 
 The result improves one historical human-contributed entry. It establishes
 neither a global optimum nor superiority to recent AI systems on equal
-budgets. Its strongest evidence is the artifact itself: saved coordinates and
-[a separate verifier](https://github.com/jasonzliang/circle-packing-sota)
+budgets. [Saved coordinates](https://github.com/jasonzliang/circle-packing-sota/blob/main/sota/sm-radical-v6-n27/json/out27.json) and
+[a separate verifier](https://github.com/jasonzliang/circle-packing-sota#verify-the-results)
 allow the geometry and total to be checked independently of the agent's account.

@@ -4,24 +4,24 @@ title: >-
   Comparing creative research answers with CREST
 date: 2026-10-28
 description: >-
-  Three research workflows answered the same 50 questions. Balanced pairwise
-  judging strongly favored Caesar, with clear limits on what that preference means.
+  Caesar's answers won a strong preference from AI judges on shared creative
+  tasks, with public explanations that readers can inspect and challenge.
 image: >-
   /img/blog/crest-deep-research/ranking.svg
 tags: [evaluation, creativity, research-agents]
 ---
 
-CREST's [deep-research comparison](https://github.com/jasonzliang/crest/blob/main/docs/deep-research-creativity.html)
-asks how three research workflows respond to the same creative tasks. Its
+CREST (Creativity of Research Agents) asks how three research workflows respond
+to the same creative tasks in its [deep-research comparison](https://github.com/jasonzliang/crest/blob/main/docs/deep-research-creativity.html). Its
 50 questions produced 150 saved answers, followed by 600 pairwise judgments
 from two AI judges. Caesar received the strongest preference, followed by
 OpenAI's Sol workflow with web search and Google Deep Research.
 
 The result concerns the creative quality those judges perceived in those
 answers. It does not establish that human readers or domain experts would
-agree, or that the answers' factual claims are correct. The useful contribution
-is an inspectable comparison: the report preserves every question, answer,
-comparative explanation, and recorded configuration alongside the ranking.
+agree, or that the answers' factual claims are correct. The report preserves
+every question, answer, comparative explanation, and recorded configuration,
+so each preference can be inspected.
 
 ## Three workflows, shared questions
 
@@ -79,8 +79,7 @@ OpenAI beat Google in 84.0%.
 Both judges ranked Caesar first, but their other preferences differed. Astra
 gave OpenAI a 52.0% overall win rate and Google 0.0%; Argon gave them 36.0%
 and 17.0%. The judges disagreed on 40 of 300 matched presentations (13.3%).
-Balancing the panel therefore makes its composition visible without removing
-judge dependence.
+A balanced panel still leaves the ranking dependent on its judges.
 
 The intervals come from 1,000 resamples of the 50 questions, keeping all
 12 decisions for each sampled question together. This preserves the dependence
@@ -89,8 +88,6 @@ the observed question mix while holding the saved answers, judges, and rubric
 fixed. They exclude variation from generating new answers, choosing other
 judges, and uncertainty about whether the rubric captures creativity well.
 
-Caesar's lead is substantial within this evaluation. Establishing how far it
-extends requires additional tasks, repeated generations, independent factual
-checks, and comparison with human or domain-expert judgments. The saved
-evidence supports that next assessment while keeping the present finding
-specific: a strong preference from this balanced AI panel.
+Testing how far Caesar's lead extends requires additional tasks, repeated
+generations, independent factual checks, and comparison with human or
+domain-expert judgments.

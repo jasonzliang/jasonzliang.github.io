@@ -4,9 +4,8 @@ title: >-
   Thirty 2048 runs separated a capability effect from generalization
 date: 2026-08-23
 description: >-
-  Expansive agent instructions improved 4×4 performance. A replication found
-  no detectable advantage on an unseen 5×5 board, and frozen values retained
-  the capability gap.
+  Instructions encouraging exploration improved 2048 performance on the
+  familiar board size, without a detectable advantage on a larger board.
 image: /img/blog/2026-08-07-powered-replication/cliffs-delta.webp
 tags: [self-improving-agents, replication, evaluation]
 ---
@@ -61,6 +60,8 @@ means equal rates of higher and lower scores, allowing for ties. The
 | Held-out 4×4, harder tile spawn | **+0.60** | 0.024 |
 | Held-out 5×5 board | **−0.05** | 0.86 |
 
+The [reported effect sizes and plotting code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-08-07-powered-replication/make_figs.py) record these comparisons.
+
 The p-values are exact two-sided permutation tests. On development games,
 expansive conditions averaged approximately **78,000–88,000**, compared with
 **53,000–65,000** for cautious conditions. The harder spawn test retained a
@@ -86,12 +87,11 @@ a third, deliberately [overfitting disposition](/blog/overfit/), which the
 replication omitted. Its three runs had scored below the random baseline on
 5×5, so that contrast remains untested here.
 
-The original contrast also had an analysis-history limitation: 5×5 was labelled
-a breadth check until about twelve and a half hours after launch, rather than
-being the original primary endpoint. On the endpoint designated beforehand,
-the best overfitting run generalized better than the other eight runs. The
-nine-run study could support exploration, but could not establish the later
-broad claim about generalization.
+In the original study, 5×5 remained labelled a breadth check until about twelve
+and a half hours after launch, when it was promoted to the primary endpoint.
+On the endpoint designated beforehand, the best overfitting run generalized
+better than the other eight runs. Selecting the endpoint after scoring made
+the later broad claim about generalization exploratory.
 
 ## Frozen values retained the capability gap
 
@@ -133,7 +133,4 @@ produce a detectable disposition advantage on 5×5.
 Logged spending was approximately **$1,257** for thirty runs: $886 for the
 self-modifying twenty and $371 for the frozen ten, in addition to the original
 study's $515. The replication total is a lower bound because one frozen run
-logged costs for only eight of fifteen iterations. The additional runs exposed
-a distinction the original sample could not resolve: stronger performance on
-the training task and transfer to a structurally different task are separate
-outcomes.
+logged costs for only eight of fifteen iterations.

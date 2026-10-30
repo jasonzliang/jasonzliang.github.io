@@ -4,14 +4,13 @@ title: >-
   Pre-registering AI agent experiments at the run level
 date: 2026-07-24
 description: >-
-  A four-run bin-packing case study fixed its held-out analysis before scoring.
-  The result remained underpowered: each agent run was one data point.
+  More test problems do not make up for too few agent runs, even when the
+  analysis is written down before scoring.
 image: /img/blog/2026-07-24-pre-registration/verdict-gate.webp
 tags: [methodology, self-improving-agents, evaluation]
 ---
 
-A small bin-packing experiment illustrates both the purpose and the limits of
-pre-registration. Before four completed agent runs were re-scored on a rebuilt
+Before four completed agent runs on bin-packing were re-scored on a rebuilt
 held-out benchmark, a committed analysis document fixed the primary metric, its
 calculation and the conclusions the sample could support. It classified the
 experiment as a descriptive case study, with no hypothesis-testing threshold.
@@ -33,7 +32,7 @@ independent of prior results. The registered comparison was two-sided.
 
 ## Fixing the analysis before scoring
 
-[HARKing](https://en.wikipedia.org/wiki/HARKing), or hypothesizing after results
+[HARKing](https://www2.psych.ubc.ca/~schaller/528Readings/Kerr1998.pdf), or hypothesizing after results
 are known, can arise without deliberate misrepresentation. An experiment may
 have a flat primary outcome and an appealing secondary result. Selecting that
 result from twelve measurements creates a multiple-comparison problem, even
@@ -50,8 +49,8 @@ Three documents had distinct roles:
 - A standing analysis playbook supplied the verdict gate used to interpret
   comparisons between runs.
 
-Keeping those roles separate matters. A proposed confirmatory test cannot
-retroactively turn an exploratory case study into a powered experiment.
+A proposed confirmatory test cannot retroactively turn an exploratory case
+study into a powered experiment.
 
 ## The endpoint and the experimental unit
 
@@ -61,7 +60,7 @@ on uniformly distributed item sizes after optimization on Weibull-distributed
 sizes. Lower values indicate better packing under this distribution shift.
 
 The primary held-out set contained 50 packing instances. **One agent run was
-one experimental unit**, because all 50 instances were packed by the same
+one [experimental unit](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005282)**, because all 50 instances were packed by the same
 program produced by the same trajectory. Additional instances help estimate a
 program's performance; they do not supply additional independent agent runs.
 [Counting instances as runs](/blog/hub-vs-leaf/) would have inflated the sample
@@ -74,8 +73,8 @@ with the differences produced by those assignments. At five runs per condition,
 there are 252 possible assignments. The implementation enumerates assignments
 through ten runs per condition, then uses a fixed-seed sample of 200,000.
 
-This test also exposes small-sample limits. With three runs per condition,
-there are only 20 assignments, so the smallest attainable two-sided p-value is
+With three runs per condition, there are only 20 assignments, so the smallest
+attainable two-sided p-value is
 0.1. Such a design cannot reach p below 0.05, regardless of the observed gap.
 
 The draft defined one percentage point of the excess metric as the smallest
@@ -109,6 +108,9 @@ headroom. It does not establish that the intervention has no effect. Likewise,
 “no detectable difference at this sample size” states a narrower conclusion
 than a general claim that values do not affect performance.
 
+The diagram's [source code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-07-24-pre-registration/make_figs.py#L3-L14)
+reproduces the playbook's decision rule.
+
 The four-run case study was **underpowered**. One run per condition could not
 separate a disposition effect from variation between agent trajectories. The
 frozen document recorded that limit before held-out scoring.
@@ -119,6 +121,6 @@ that required a pilot and power analysis. Later powered work on a different
 task was a separate experiment.
 
 The frozen registration was 56 lines of Markdown. Five subsequent commits
-changed paths or terminology without changing an analysis choice. Its value
-was a reviewable record of the analysis decisions and their timing, including
-what the experiment could not establish.
+changed paths or terminology without changing an analysis choice. The commit
+history records the analysis decisions and their timing, including the limits
+on what the experiment could establish.

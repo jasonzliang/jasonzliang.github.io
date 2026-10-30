@@ -5,8 +5,8 @@ title: >-
 published: false
 date: 2026-07-02
 description: >-
-  Four exploratory runs repeated two of five descriptive patterns. Different
-  self-chosen targets and a runner change prevent a clean replication claim.
+  Some behavioral differences recurred, but letting agents choose their own
+  problems left the values comparison unresolved.
 image: >-
   /img/blog/2026-07-02-same-two-agents/what-replicated.webp
 tags: [self-improving-agents, values, replication]
@@ -19,8 +19,8 @@ recorded patterns did repeat, but the agents chose different problems and set
 their own success criteria. A runner change also removed one of the largest
 observed differences between missions.
 
-The records support a narrower account of what repeated. They do not establish
-that either values file caused a distinctive research style or better results.
+These runs do not establish that either values file caused a distinctive
+research style or better results.
 
 ## Four runs, four self-chosen tests
 
@@ -46,9 +46,9 @@ and iteration **4** in mission 2. The alternative never cleared its initial
 bar in either mission. In mission 1 it selected the stronger of two candidate
 baselines as its target; in mission 2 it missed the bar by 0.003.
 
-That repeated contrast is descriptive. A pass on one self-selected problem and
-a miss on another do not establish relative capability. Target selection may
-itself be interesting behavior, but this design does not separate its effects
+A pass on one self-selected problem and a miss on another do not establish
+relative capability. Target selection may itself be interesting behavior, but
+this design does not separate its effects
 from differences in the underlying problems.
 
 ## Which measurements repeated
@@ -76,9 +76,11 @@ The other three measures did not show a consistent separation:
 - **Task-log lines:** 869 versus 852 on mission 1, then 2,481 versus 3,055 on
   mission 2.
 
-The script-count change has a concrete explanation. Three hours before mission
-2, the runner regained a workspace-layout sweep at review checkpoints,
-prompted by the 39 loose scripts from mission 1. That intervention prevents
+The [plotting data and code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-07-02-same-two-agents/make_figs.py#L13-L44)
+record the five reported comparisons and their counting rules.
+
+Three hours before mission 2, the runner regained a workspace-layout sweep at
+review checkpoints, prompted by the 39 loose scripts from mission 1. That intervention prevents
 attributing the disappearance of the gap to either agent's disposition.
 
 The mission-2 log count also needed correction. The standard run archived its
@@ -87,8 +89,8 @@ only the current file gives 1,487, an incomplete total previously compared
 with the alternative's 3,055. Including the archive gives 2,481. Log length
 also measures verbosity and recordkeeping, rather than research quality.
 
-Benchmark count has its own ambiguity. Extra benchmarks may represent broader
-exploration, or harder variants of a particular selected problem. With one run
+Extra benchmarks may represent broader exploration, or harder variants of a
+particular selected problem. With one run
 per cell and different targets, the archive cannot distinguish those explanations.
 
 ## What remains unresolved
@@ -105,6 +107,6 @@ one session, so equal iteration ceilings did not provide equal completed work.
 
 A stronger replication would fix the starting problem and evaluation, hold the
 runner and iteration budget constant, and repeat each condition across seeds.
-These four runs preserve useful engineering observations, but leave the values
-comparison unresolved. Later studies on other tasks address related questions
-and do not retroactively resolve these confounds.
+The four runs document the benchmark choices and runner intervention, while
+leaving the values comparison unresolved. Later studies on other tasks do not
+resolve these confounds.

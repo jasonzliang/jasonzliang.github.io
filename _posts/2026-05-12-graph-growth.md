@@ -4,8 +4,8 @@ title: >-
   How Caesar's web exploration graphs grow and reconnect
 date: 2026-05-12
 description: >-
-  Across 77 comparable crawls, the first recorded cycle appears at a median
-  of 150 steps, and about 44% of steps revisit a page.
+  Saved web explorations show frequent returns to earlier pages and large
+  differences in how new routes and connections develop.
 image: >-
   /img/blog/2026-05-12-graph-growth/graph-growth.webp
 tags: [agents, knowledge-graphs, visualization, caesar]
@@ -16,10 +16,9 @@ as a graph. Pages become nodes; followed links become edges. That structure
 supplies context for [note-taking](/blog/hub-vs-leaf/) and records how the
 agent moves between sources.
 
-Saved snapshots reveal substantial revisiting and variation across runs. In a
-comparison set of **77 crawls**, the median run spends about **44% of its steps
-reopening pages**. The first recorded graph cycle appears at a median of
-**150 steps**. A single illustrative run develops cycles much later, showing
+In a comparison set of **77 crawls**, the median run spends about **44% of its
+steps reopening pages**. The first recorded graph cycle appears at a median of
+[**150 steps**](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-05-12-graph-growth/make_figs.py#L124-L143). A single illustrative run develops cycles much later, showing
 why one trajectory is an unreliable description of the whole system.
 
 ## The comparison set
@@ -28,11 +27,14 @@ A step is one turn of the exploration loop: open a page, read it and choose the
 next move. A 1,000-step crawl therefore need not contain 1,000 distinct pages.
 Each node's visit counter makes revisits directly countable.
 
-The archive contains 102 runs, of which 80 reached 1,000 steps. Of those, 77
+The archive contains 102 runs, of which 80 reached 1,000 steps
+([reported counts and plotting code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-05-12-graph-growth/make_figs.py#L15-L27)). Of those, 77
 saved snapshots every 50 steps and form the comparison set. The consistent
 interval makes their recorded timing comparable.
+Revisit rates, variance, depth and question-type comparisons use unpublished
+exploration snapshots.
 
-The plotted example explores a constrained-synthesis question about inventing
+The [plotted example](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-05-12-graph-growth/make_figs.py#L15-L20) explores a constrained-synthesis question about inventing
 an emotion humans do not experience. It grows from 26 nodes at step 50 to
 **522 at step 1,000**. The largest graph in the comparable set reaches 941.
 Revisits can reflect backtracking through earlier branches, so their frequency
@@ -45,7 +47,7 @@ and others in which progress slows.
 
 ## When cycles appear
 
-The cycle count uses the graph's undirected
+The [cycle count](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-05-12-graph-growth/make_figs.py#L71-L102) uses the graph's undirected
 [cycle rank](https://en.wikipedia.org/wiki/Cyclomatic_number):
 **edges − nodes + [connected components](https://en.wikipedia.org/wiki/Component_%28graph_theory%29)**.
 It counts independent cycles, or the number of edges that must be removed to
@@ -69,15 +71,16 @@ runs, the final count ranges from 0 to 126.
             later than most runs."
 %}
 
-The example is in the slow tail. Thirty-seven runs already contain a cycle by
-step 100; only 12 remain trees at step 400. Seventy-six eventually contain a
-cycle, first recorded between steps 50 and 850; one remains acyclic through
-step 1,000. Among runs that develop a cycle, the median first recorded onset is 150 steps. Constrained-synthesis runs have a median onset of 225, compared with 100
-for open-ended synthesis.
+Thirty-seven runs already contain a cycle by step 100; only 12 remain trees at
+step 400. Seventy-six eventually contain a cycle, first recorded between steps
+50 and 850; one remains acyclic through
+step 1,000. Among runs that develop a cycle, the median first recorded
+onset is 150 steps. Constrained-synthesis runs have a median onset of 225,
+compared with 100 for open-ended synthesis.
 
-Late cycle growth is also specific to the example. In the median run, 40% of
-the final cycle count is present by step 500 and 76% by step 800. Only 10 of 77
-runs gain more than half their cycles in the final fifth.
+In the median run, 40% of the final cycle count is present by step 500 and 76%
+by step 800. Only 10 of 77 runs gain more than half their cycles in the final
+fifth.
 
 A cycle records an additional connection between already connected pages. It
 may reflect convergence between lines of inquiry, but topology alone cannot
@@ -90,10 +93,10 @@ shortest path from the start. The example reaches depth 23 by step 150, stays
 there through step 400, then reaches 26 at step 450 and 31 at step 500. Its
 maximum depth remains 31 for the rest of the run.
 
-That two-burst pattern is descriptive of this trajectory. Across the full set,
-the median run reaches 87% of its final depth by step 500, but 48 runs continue
-deeper afterward. Among those, the median additional gain is 36 levels. The
-example is shallow beside the overall median final depth of 84.
+Across the full set, the median run reaches 87% of its final depth by step 500,
+but 48 runs continue deeper afterward. Among those, the median additional gain
+is 36 levels. The example is shallow beside the overall median final depth
+of 84.
 
 Sixty comparable runs carry one of five question types, with twelve runs per
 type. Open-ended synthesis produces the largest median graph, **678 pages**.
@@ -106,8 +109,5 @@ for counterfactual reasoning, 0.033 for meta-creativity and 0.036 for open-ended
 synthesis. These are descriptive comparisons from the archived runs, without
 uncertainty intervals or a controlled test of question type.
 
-The snapshots support three broad observations: substantial revisiting, early
-cycles in most runs, and continued variation in both depth and discovery rate.
-They also show the limits of an illustrative plot. The 400-step tree phase and
-flat second-half depth belong to one run; the archive supplies the denominator
-needed to interpret them.
+The 400-step tree phase and flat second-half depth belong to one run; the
+archive supplies the denominator needed to interpret them.

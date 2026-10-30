@@ -3,17 +3,16 @@ layout: post
 title: "CREST: comparing papers from five AI scientists"
 date: 2026-10-28
 description: >-
-  A comparison of released research papers across five AI scientist systems,
-  with 96 sampled paper pairs, 384 model judgments, and small paper pools
-  that limit the ranking's interpretation.
+  AI judges favored Sakana Agentic Scientist v3's released papers, but its
+  two-paper collection limits broader claims about the system.
 image: /img/blog/crest-ai-scientists/observed-ranking.svg
 tags: [creativity, ai-scientists, evaluation]
 ---
 
 AI scientist systems release papers on different questions, using different
-methods and resources. Comparing their work therefore starts with a choice
-about what counts as evidence. CREST's [released-paper comparison][report]
-examines the manuscripts available from five systems and asks two language
+methods and resources. CREST (Creativity of Research Agents) examines the
+manuscripts available from five systems in its [released-paper comparison][report]
+and asks two language
 models to choose between sampled pairs. Sakana Agentic Scientist (v3) leads
 the observed ranking, with a crucial qualification: its eligible collection
 contains only two papers.
@@ -29,7 +28,7 @@ difference in paper quality.
 
 The archive contains **411 downloaded papers**, of which **410 are eligible**
 for the primary comparison. One manuscript involving substantial human guidance and revision is excluded. Among the eligible papers, **86 appear in the sampled
-comparisons**. That distinction matters: 86 is the number of distinct selected
+comparisons**. Here, 86 is the number of distinct selected
 papers, rather than the number of pairs or judgments.
 
 The plan covers all ten matchups between the five systems, sampling up to ten

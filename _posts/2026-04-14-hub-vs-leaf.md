@@ -2,10 +2,10 @@
 layout: post
 title: >-
   Notes from well-connected pages scored higher in a Caesar comparison
-date: 2026-10-09
+date: 2026-04-14
 description: >-
-  Hub notes scored 24.43 against 21.88 out of 30. Visible condition labels,
-  blocked pages and repeated visits limit the interpretation.
+  Notes from well-connected pages received higher ratings, without showing
+  that context from nearby pages caused the advantage.
 image: /img/blog/2026-04-14-hub-vs-leaf/hub-vs-leaf.webp
 tags: [agents, knowledge-graphs, caesar]
 ---
@@ -16,14 +16,13 @@ prompt includes insights from nearby pages, allowing each source to be read in
 the context of earlier material.
 
 An exploratory comparison found that notes from well-connected pages scored
-**24.43 out of 30**, compared with **21.88** for notes from pages with one
+[**24.43 out of 30**, compared with **21.88**](https://arxiv.org/html/2604.20855v3#A7.SS2.p5) for notes from pages with one
 neighbour. The comparison suggests graph position may help select useful
 material, but it does not isolate a benefit from the graph context itself.
-Several differences between the groups could account for the result.
 
-## The material being compared
+## Selecting hub and leaf notes
 
-The tested prompt draws on pages up to three hops away, with at most 24
+The [tested prompt](https://github.com/jasonzliang/caesar-agent/blob/67fd931d491d39ec92f40ef27f91feb00b2173bc/caesar/caesar_agent.py#L371-L444) draws on pages up to three hops away, with at most 24
 neighbour entries. A separate traversal-history block supplies up to eight
 previous pages regardless of graph position. Even a leaf can inherit context
 through the page that led to it: that edge exists before its notes are written.
@@ -33,7 +32,7 @@ apiece. Hubs were the ten most-connected pages visited more than once. They had
 5 to 36 neighbours and 3 to 45 visits. Leaves were the ten least-connected
 pages visited exactly once; each had one neighbour.
 
-Each group's ten notes were concatenated into a file, producing five hub files
+Each group's ten notes were [concatenated into a file](https://github.com/jasonzliang/caesar-agent/blob/67fd931d491d39ec92f40ef27f91feb00b2173bc/caesar/analysis/transfer_configs.py#L267-L320), producing five hub files
 and five leaf files. These contained roughly 5,000–5,800 words each; the leaf
 file was longer in three challenges. **The evaluated artifacts were raw notes,
 not research answers generated from those notes.** There was no further writing
@@ -68,11 +67,12 @@ open-ended synthesis and tied hubs at 7.67 on cross-domain synthesis.
 At the challenge level, hub means were 25.07, 23.93, 25.07, 24.40 and 23.67;
 leaf means were 20.87, 21.33, 22.27, 21.47 and 23.47. The lowest hub mean exceeds
 the highest leaf mean, yielding **Cliff's delta = 1.00** under the
-[paper's](https://arxiv.org/abs/2604.20855) challenge-mean convention.
+[paper's](https://arxiv.org/html/2604.20855v3#A2.SS5) challenge-mean convention.
 
 At the individual-scoring level, the distributions overlap substantially. Of
 all hub–leaf score pairings, about 73% favour hubs, 19% favour leaves and 8%
-tie, yielding **delta = 0.54**. Hub totals range from 18 to 29; leaf totals from
+tie, yielding **delta = 0.54**
+([reported values and plotting code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-04-14-hub-vs-leaf/make_figs.py#L13-L51)). Hub totals range from 18 to 29; leaf totals from
 15 to 28. As in the [human-evaluation discussion](/blog/human-vs-machine/), a
 delta computed over means does not describe every individual score.
 
@@ -89,10 +89,11 @@ respectively. Both favoured hubs overall, but leaves won counterfactual reasonin
 Challenge-level deltas were 0.92 and 0.52; individual-scoring deltas were 0.33
 and 0.30. The direction recurred, while the five-for-five result did not.
 Configuration differences prevent treating this as a controlled prompt ablation.
+The additional replication results use unpublished run records.
 
 ## Four unresolved confounders
 
-**Visible labels.** Both files appeared in the same prompt under names including
+**Visible labels.** Both files [appeared in the same prompt](https://github.com/jasonzliang/caesar-agent/blob/67fd931d491d39ec92f40ef27f91feb00b2173bc/caesar/analysis/llm_as_judge.py#L138-L145) under names including
 `answer_cat_hubs.txt` and `answer_cat_leaves.txt`. Judges could infer the
 condition and bring expectations about connectivity to the comparison. No
 blinded rerun is available; label effects cannot be ruled out as an explanation
@@ -115,7 +116,7 @@ connections and contain better material. The comparison cannot distinguish a
 useful location in the graph from a useful source.
 
 Connectivity remains a potentially inexpensive selection signal when an agent
-has more notes than a synthesis prompt can hold. Establishing its added value
+has more notes than a synthesis prompt can hold. Testing whether it adds value
 requires a controlled comparison of the same pages with and without neighbour
 context, matched access and revision opportunities, and blinded scoring. The
 current result is an association between the selected note groups under the

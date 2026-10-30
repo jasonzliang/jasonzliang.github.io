@@ -4,15 +4,16 @@ title: >-
   An AI-generated solver improved 21 historical circle-packing values
 date: 2026-08-24
 description: >-
-  A solver exceeded 21 entries in the 10 August 2026 Packomania snapshot.
-  A second run warm-started from that solver found no additional records.
+  Established methods yielded independently checkable improvements across many
+  circle counts; a follow-up starting from the finished solver found no
+  additional records.
 image: /img/blog/2026-08-10-packing-records/sweep.webp
 tags: [self-improving-agents, optimization, benchmarks]
 record: Record
 ---
 
 A solver written during one self-improvement run exceeded **21 best-known
-values** in the **10 August 2026** Packomania snapshot. A separate sweep used
+values** in the **10 August 2026** [Packomania snapshot](https://github.com/jasonzliang/circle-packing-sota/blob/main/sota/sm-radical-v6-n54/comparison.md). A separate sweep used
 the extracted solver unchanged across **N=2 through N=93** unequal circles
 in a unit square, maximizing their total radius while preventing overlaps.
 
@@ -35,9 +36,9 @@ whose entries continue to change.
 %}
 
 This followed an earlier solver's
-[27-circle improvement](/blog/circle-packing/). The broader sweep provides
-additional verifiable packings; it does not by itself show that a particular
-agent disposition or permission to rewrite values caused the result.
+[27-circle improvement](/blog/circle-packing/). The sweep does not establish
+whether the agent's disposition or permission to rewrite values caused the
+improvement.
 
 ## What changed during the run
 
@@ -80,15 +81,15 @@ accepted some small losses under a tightening threshold, retaining the best
 packing throughout.
 
 The ingredients have established precedents: Eppstein's radius optimization;
-convex-concave linearization associated with Shen, Diamond, Gu and Boyd;
-monotonic basin hopping developed by Addis, Locatelli and Schoen for disk
-packing; and Dueck and Scheuer's threshold accepting. The result demonstrates
+[convex-concave linearization](https://arxiv.org/abs/1604.02639) associated with Shen, Diamond, Gu and Boyd;
+[monotonic basin hopping](https://doi.org/10.1287/ijoc.1080.0263) developed by Addis, Locatelli and Schoen for disk
+packing; and Dueck and Scheuer's [threshold accepting](https://www.sciencedirect.com/science/article/pii/002199919090201B). The result demonstrates
 autonomous assembly and tuning of known methods, without establishing a new
 optimization technique.
 
 ## Independent checks and a changing reference table
 
-A [separate checker](https://github.com/jasonzliang/circle-packing-sota)
+A [separate checker](https://github.com/jasonzliang/circle-packing-sota#verify-the-results)
 recomputed circle counts, containment, pairwise separation, and total radii
 from saved coordinates, sharing no code with the solver. All twenty-one
 improvements were strictly feasible under that check.
@@ -128,14 +129,13 @@ also yielded **zero of ten**. The predictions preceded their measurements.
 
 The last five iterations generated **48 endpoints**, which reduced to
 **24 distinct packings** after treating rotations and reflections as
-equivalent. This supports a limited diagnosis: the tested generators repeatedly
+equivalent. These counts suggest that the tested generators repeatedly
 revisited existing local optima. Additional independent seeds did move some
 sizes from below-reference to above-reference values; the tested recycling
 strategy added none.
 
 Each self-improvement experiment used one seed, so the contrast between a
 productive first run and a saturated follow-up remains one observation. The
-stronger conclusion concerns the fixed outputs: twenty-one independently
-checkable packings exceeded a dated reference table. They are best-known-value
-improvements for that comparison, with no claim of global optimality or
-permanent record status.
+twenty-one independently checkable packings exceeded a dated reference table.
+They are best-known-value improvements for that comparison, with no claim of
+global optimality or permanent record status.

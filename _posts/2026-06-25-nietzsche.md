@@ -4,8 +4,8 @@ title: >-
   Two AI agents differing by one values file, with no reliable winner
 date: 2026-06-25
 description: >-
-  One exploratory run built broad, portable tools; another built a deeper
-  verification apparatus. One run per condition cannot establish a winner.
+  One agent explored broadly while another built a connected project with
+  extensive checks; the values comparison remains inconclusive.
 image: /img/blog/2026-06-25-nietzsche/two-agents.webp
 tags: [self-improving-agents, agent-design, values]
 ---
@@ -17,11 +17,11 @@ emphasized safety, honesty,
 usefulness and rigor. The other adapted themes from
 [Nietzsche](https://plato.stanford.edu/entries/nietzsche/).
 
-The runs produced visibly different collections of work. The standard-values
-run explored broadly and built portable tools. The Nietzsche-inspired run
-concentrated on a connected mathematical theme and built an elaborate
-verification apparatus. With **one run per condition**, the experiment cannot
-separate a values-file effect from ordinary variation between runs.
+The standard-values run explored broadly and built portable tools. The
+Nietzsche-inspired run concentrated on a connected mathematical theme and built
+many tools for checking calculations. With **one run per condition**, the
+experiment cannot separate a values-file effect from ordinary variation between
+runs.
 
 ## What the files changed
 
@@ -33,8 +33,8 @@ claiming success and never weaken a check to obtain a pass.
 
 The standard file prioritized safety and reversibility, intellectual honesty,
 usefulness, rigor and forward progress. It also encouraged curiosity, novelty
-and criticism of earlier work. Describing it as purely cautious would miss
-those explicit invitations to explore.
+and criticism of earlier work. It therefore encouraged exploration as well as
+caution.
 
 The alternative organized its guidance around five themes:
 
@@ -59,8 +59,8 @@ Both agents could edit their values. The standard run loosened its instruction
 to make changes rarely and carefully; the alternative left its file unchanged.
 An earlier write-up placed that edit around iteration 17. The archived runner
 log instead locates it around iteration 44, without a corresponding justification
-in the task log. The comparison therefore concerns initial conditions followed
-by partially self-directed trajectories.
+in the task log. The initial values files were starting points that the agents
+could change during the run.
 
 ## Breadth, depth and dependencies
 
@@ -114,6 +114,9 @@ the instruction. By iteration 30 the agents were pursuing different problems,
 some requiring external constants. These totals therefore cannot establish
 that the alternative values suppressed web use. Neither file prohibited search.
 
+The [plotting data and code](https://github.com/jasonzliang/jasonzliang.github.io/blob/0a7b590e1e708c903dbf69ffc0a18d7c6b969a49/img/blog/2026-06-25-nietzsche/make_figs.py#L12-L27)
+record the reported module and web-call counts above.
+
 ## What this exploratory pair establishes
 
 Neither run established a new scientific result. Both reproduced known results and
@@ -132,5 +135,4 @@ replicate this open-ended mathematics pair.
 A stronger test would repeat the comparison across seeds and include a third
 values document of similar specificity. That could separate the contribution of
 this particular framing from the broader effect of detailed instructions.
-For this pair, the defensible result remains a descriptive one: two initial
-values files accompanied different working styles, with no reliable winner.
+The two runs show different working styles, without establishing a winner.
