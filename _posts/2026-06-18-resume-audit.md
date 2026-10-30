@@ -1,178 +1,121 @@
 ---
 layout: post
 title: >-
-  My AI agent's log of its own past work was wrong in both directions
+  An AI agent audited its own logbook: two of eight links were confirmed
 published: false
 date: 2026-06-18
 description: >-
-  One agent's logbook over-counted what it had built on; a sibling
-  under-counted. Of eight claims checked against git, two held up.
+  A lineage checker found confirmed, unsupported and contradictory claims
+  in an agent's log. Missing git history limits what can be checked now.
 image: >-
   /img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp
 tags: [self-improving-agents, evaluation, ai-honesty]
 ---
 
-Here is a setup that turns out to be unusually revealing.
+A coding agent's logbook can describe how its work accumulates without measuring
+that accumulation accurately. In one exploratory run, an agent built a graph of
+its earlier work, then built a checker that challenged the graph. At iteration
+6, only two of eight claimed links were confirmed against git history.
 
-I built a loop that runs an AI coding agent over and over. Each iteration is a
-completely fresh session, no memory of any previous one. Everything the agent
-knows about its own past has to come off the disk: the files it wrote, and the
-git history. Anything it does not commit before the iteration ends is destroyed.
+The result exposed a parser error and a useful distinction: some claims were
+contradicted by the record, while others exceeded what the checker could establish.
 
-Because there is no memory, the agent keeps a logbook. Every iteration it writes
-down what it did, plus two fields: `builds-on`, which earlier iterations this
-one stood on top of, and `code-reuse`, which earlier files it reused. The run
-reached iteration 60, but 60 was the configured ceiling rather than a count of
-finished work: 55 of those iterations left an artifact behind. (My own write-up
-of the run carries a correction note saying 56. That is its commit count, which
-is a different thing; the workspace has 55 artifact directories.) Across those
-iterations, the two fields become a graph of the run's own intellectual history:
-this idea led to that tool, which enabled this result. The agent's own tooling
-calls it a DAG, a [directed acyclic
-graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), meaning the arrows
-all run one way, from earlier work to later, and no chain of them ever loops
-back to where it started.
+## A graph built from prose
 
-At iteration 3, the agent wrote a program to draw that graph.
+The harness restarted the coding agent in a fresh session every iteration.
+Continuity came from files and git history; uncommitted work was discarded.
+Each logbook entry included `builds-on`, naming earlier iterations, and
+`code-reuse`, naming earlier code. At iteration 3, the agent wrote a tool to
+turn those fields into a lineage graph, described as a
+[directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
 
-At iteration 6, it wrote a different program to check whether the graph was
-true.
+The run eventually reached the configured ceiling of iteration 60, leaving
+55 artifact directories. The ceiling is distinct from the number of iterations
+that produced artifacts. A later correction note reported 56, which matches the
+recorded commit count rather than the artifact count.
 
-## Two out of eight
+The graph parser treated filename and task-ID mentions as dependency claims.
+That is easy to implement, but it loses the difference between mentioning a
+file and using it. At iteration 6, the agent added a verifier that looked for
+imports, file modifications and temporal consistency in the corresponding commits.
+Its saved report was:
 
-The checker compared each claimed link, every "I built on X" and every "I reused
-X", against git: the one record the logbook cannot edit. The result, from the
-agent's own report:
-
-```
+```text
 ADVERSARIAL DAG — 8 claimed edge(s) checked against git:
   2 ok · 3 unsupported · 3 PHANTOM · 0 unverifiable
 ```
 
-Of eight claims about its own history, two held up.
-
 {% include figure.html
    src="/img/blog/2026-06-18-resume-audit/claimed-vs-verified.webp"
-   alt="A bar of eight claimed influences above a stacked bar splitting the
-        same eight by what git said at iteration 6: 2 verified, meaning git
-        confirms it, 3 unsupported, meaning git cannot confirm it, and 3
-        phantom, meaning git contradicts it."
-   caption="The audit's three verdicts, at iteration 6 of a 60-iteration run.
-            Phantom does not mean the work never happened: it means git
-            contradicts the claim, as when the agent credited a file it had
-            created in the very commit it said it was reusing from."
+   alt="Eight claimed lineage links at iteration 6: two confirmed against git,
+        three unsupported and three contradicted."
+   caption="The saved iteration-6 audit. Phantom means the claim conflicts with
+            the record, including files created in the same commit that
+            supposedly reused them. These counts do not summarize the full run."
 %}
 
-The three phantoms are the good part. Two were cases where the agent claimed to
-have *reused* a file that it had in fact *created* in that same commit, taking
-credit for standing on a shoulder that was its own. The third is stranger:
-iteration 2 claimed to have reused iteration 4. An edge pointing backwards in
-time.
+Two phantom links credited reuse of files first created in that same commit.
+The third linked iteration 2 to iteration 4. The earlier entry had actually
+said there was no reuse, then mentioned a task queued for later. The parser
+converted that future task reference into a dependency.
 
-The cause was mundane and, I suspect, extremely common, and it was not confined
-to the phantoms. The graph was built by scraping both fields for anything shaped
-like a filename or a task ID and turning every mention into an arrow. Iteration
-2's `code-reuse` field said `none` and then mentioned a task it had *queued for
-later*, which is where the backwards arrow came from. Iteration 5's field read
-*"none — reimplemented because the dynamics.py kernel is 1-D-map-specific"* and
-produced a confident arrow to `dynamics.py`. The regex saw a mention and
-recorded a fact.
+Another entry said there was no reuse because `dynamics.py` was too specific to
+its original problem. The filename still became an arrow. The error lay in
+turning an unqualified text match into a factual claim.
 
-The agent's own summary, promoted into the standing lessons at the top of its
-logbook, was that the graph "inflates ~4×." That figure is this snapshot: eight
-claims, two confirmed.
+## Unsupported claims need a separate category
 
-## The category it refused to collapse
+The three unsupported links did not all have the same status. Two represented
+one real derivation: iteration 4 copied and adapted the kernel from iteration
+2, rather than importing its module. The verifier's import-and-modification
+checks could not establish that relationship. The third was the spurious
+`dynamics.py` link. Since the module already existed, the checker could neither
+confirm the claimed reuse nor reject it on temporal grounds.
 
-The result I find most interesting is not the phantoms. It is the three
-"unsupported" links, and the agent's insistence on keeping them separate.
+Calling all six unconfirmed links false would therefore misstate the finding.
+The checker detected code dependencies, not every form of intellectual
+influence. Its middle category preserved that limit.
 
-Two of the three were real intellectual descent. Iteration 4, for instance,
-genuinely built on iteration 2, by copying and adapting its kernel rather than
-importing it, and git cannot see that. It is not a false claim; it is a true
-claim that this particular instrument cannot confirm. The third was the
-`dynamics.py` arrow above, invented by the regex out of a field that said
-`none`, and git could not refute that one either, because `dynamics.py` really
-did already exist. So the middle bucket is holding two unlike things: a real
-lineage the instrument cannot see, and a fabricated one it cannot rule out.
-"Unsupported" is the right verdict for both, which is the point. It is the
-bucket for claims the evidence does not reach.
+The logbook later summarized this snapshot as roughly fourfold inflation: eight
+claimed edges divided by two confirmed edges. That ratio describes the parser's
+output relative to this check at iteration 6. It does not estimate how much the
+agent exaggerated across the whole run.
 
-From the agent's write-up: **"'Unsupported' is not 'false.'"** And: "The single
-bucket 'an edge' hid three different things."
+## The sibling run used a different counting rule
 
-It would have been easy, and it would have made a cleaner headline, to report "6
-of 8 claims failed." The agent declined to do that. Given a binary verdict space
-it did not fit into, it added a third category rather than round to the answer
-that made its finding look bigger.
+A second run used the same harness and task with a standard values file; the
+auditor came from the run with Nietzsche-inspired values. This was one run per
+condition, an exploratory comparison [described separately](/blog/nietzsche/).
+The sibling reached iteration 60 and left 57 artifact directories.
 
-The lesson it wrote in its own log is better than my summary:
+Its final graph reported 56 build-on edges. Its parser searched only for
+`iterNN` references in the `builds-on` field, avoiding the filename-scraping
+errors above. All 56 point to earlier iterations, and none comes from a field
+saying there was no reuse.
 
-> a claim can never count as its own evidence (a `dynamics.py` in a docstring is
-> not an `import dynamics`).
+The sibling's README called the count a lower bound because unnamed reuse
+would be missed. That is a coverage caveat, not proof that all 56 named links
+are valid. The run built a schema checker and tool self-tests, but no checker
+that compared those lineage claims with code history. Its true amount of reuse
+could be higher or lower than the reported graph suggests.
 
-## Neither number is a measurement
+## A useful check that was not preserved
 
-I ran a second agent through the identical harness at the same time, same rules,
-same task, same everything, differing only in a short values document. Of the
-two June runs, the one that built the auditor had a values file written from
-[Nietzsche](https://plato.stanford.edu/entries/nietzsche/); the other had the
-standard file. That second run built an integrity checker of its own at
-iteration 3, but it only lints the logbook's schema and runs the tool
-self-tests. Nothing in it ever put a lineage claim in front of git.
+The first run's lineage audit also remained incomplete as a workflow. A
+standing lesson told later iterations to run it, but no later entry records
+doing so. A task to connect it to the renderer remained unfinished, and the
+harness did not require it before committing.
 
-The second run reached iteration 60 too, left artifacts in 57 of its iterations,
-and closed by reporting **56** build-on edges, presented as the picture of how
-much its work compounded. (That 56 is a coincidence; the 56 earlier in this post
-is the other run's commit count.)
+A later audit reported 133 final claims: 31 phantom, 37 unsupported and 65
+unflagged. These are saved historical results. The archived workspaces lost
+their per-run `.git` directories, so the verdicts cannot now be reproduced.
+Running the checker against the archive still extracts 133 claims, but returns
+132 as unverifiable; the remaining temporal contradiction can be checked
+without git.
 
-The tempting move is to say those 56 are inflated the same way. They are not.
-That run's parser matched `iterNN` tokens in the `builds-on` field only, rather
-than scraping filenames and task IDs out of two fields, and its own README
-already called 56 a lower bound, since an iteration that reused an earlier one
-without naming it contributes no edge. I re-ran that parse against the archived
-log: all 56 edges run from an earlier iteration to a later one, and none of them
-come from a field that says `none`. The specific failure modes that produced the
-phantoms are absent here.
-
-What is missing is the other half of the check. Nothing ever asked whether an
-iteration that named a parent actually used the parent's code, and nothing can
-now: the archived workspaces were stripped of their `.git` directories, so the
-record the audit depends on is gone.
-
-I want to be clear that this is my error, not the agent's. Back on the first
-run, the audit tool existed. That agent even promoted an instruction to run it
-into the standing lessons at the top of its own logbook, where every fresh
-iteration would read it before starting. No later entry records running it, the
-follow-up task to wire it into the graph renderer was still sitting unchecked in
-the to-do list when the run ended, and the checks I made each iteration pass
-before committing never included it.
-
-The one time the tool was pointed at the finished log, by my own audit pass
-rather than by the run, it counted **133** claimed edges, almost all of them
-claims to have reused a particular file rather than to have built on a
-particular iteration, and flagged 31 as phantom and 37 as unsupported. That
-leaves 65 it did not flag. So 2 of 8 is a snapshot of iteration 6 and not a
-verdict on the run: by the end, roughly half the claims were standing. Those
-verdicts are the thing I can no longer reproduce. Rerun the checker on the
-archived workspace today and it still finds the same 133 claims, but returns 132
-of them unverifiable, because the git it needs is gone.
-
-So I do not know how much either run compounded. One number is a self-report
-with a known parse rule and a stated lower-bound caveat. The other is an audited
-number I can no longer re-derive. Neither is a measurement.
-
-## An error of unknown sign
-
-The generalization I would have reached for is that a system's self-computed
-metrics flatter it. That is not what these two runs show. One over-counted its
-lineage by turning mentions into facts. The other under-counted it, by its own
-admission, because an iteration that reuses earlier work without naming it
-leaves nothing for the parser to find. The uncomfortable version is milder and
-worse: **a number a system computes from its own description of itself has an
-error of unknown sign**, not through anything as deliberate as lying, but
-because the measurement and the thing measured share an author.
-
-The fix is not more careful prose. It is to adjudicate claims against a record
-the system cannot rewrite, to do it *every time* rather than once, and to keep
-that record afterwards. I had the first part right and the other two wrong.
+The evidence supports a practical lesson about measurement. Self-reported
+lineage, code dependencies and conceptual influence require different checks.
+A credible reuse metric needs a defined counting rule, a check against evidence
+outside the logbook, routine execution and preservation of the underlying
+record. These runs supplied parts of that process, leaving the total amount of
+compounding unresolved.

@@ -1,192 +1,137 @@
 ---
 layout: post
 title: >-
-  My 11-of-14 win tally evaporated when I audited it
+  Auditing an 11-of-14 tally in agent bin-packing experiments
 date: 2026-07-26
 description: >-
-  Eleven of fourteen matched pairs favoured the expansive disposition. Five
-  discounts later, one each way.
+  An exploratory comparison found different solver designs, but saturation,
+  failed runs and shared evaluations weakened its apparent performance trend.
 image: /img/blog/2026-07-26-bin-packing-values/offline-inrun-vs-heldout.webp
 tags: [self-improving-agents, evaluation, values]
 ---
 
-I have been testing whether a coding agent's starting **values** change what it
-builds. Two disposition documents, three bullets and 120 to 175 words each,
-everything else byte-identical. Cautious: smallest verified step, reuse the
-proven approach, a solved problem is done, bank it and stop. Expansive: the move
-that most widens what you could do next, nothing you achieve is a stopping
-point. I call them control and nietzsche, after [the second's
-source](/blog/nietzsche/).
+An exploratory study compared coding agents given two short values documents.
+The cautious disposition favored verified steps, established approaches and
+stopping at a working solution. The expansive disposition favored changes that
+opened further possibilities. The documents contained three bullets and
+120–175 words each; the remaining instructions were byte-identical. The
+conditions were named `control` and `nietzsche`, after the
+[expansive document's source](/blog/nietzsche/).
 
-This post covers 28 runs plus an 8-run replication cohort. v3, sm-v4 and sm-v5
-are successive versions of the two files: sm-v4 has the agent revise its three
-bullets routinely, sm-v5 lets it rewrite the values section entirely, v3 does
-neither. A cell is one task, disposition and version; a pair is two cells
-differing only in disposition; everything is governed by **one run per cell**.
+The study covered 28 runs plus an eight-run replication cohort. Three document
+versions allowed different amounts of revision: v3 kept values fixed, sm-v4
+allowed routine revision of the three bullets, and sm-v5 allowed the whole
+values section to change. Each task–disposition–version cell had **one run**.
+A matched pair compared the two dispositions within a task and version.
 
-Values change *what* the agent builds, a lot. Which is better, this study cannot
-say.
+An initial tally favored the expansive condition in 11 of 14 pairs. An audit
+found that many comparisons could not support that interpretation. The retained
+artifacts showed different development patterns; the design did not establish
+which disposition performed better.
 
-## The task
+## Optimization and held-out performance
 
-Every run is the same loop: the agent edits one solver, commits, and is
-re-scored by a fixed evaluator, ten times, twenty in the first cohort. The task
-is [one-dimensional
-bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem), pack items into
-as few fixed-size bins as possible: NP-hard, with strong classical baselines,
-the standard LLM-heuristic-discovery testbed since
+Each agent edited a solver, committed it and received a fixed evaluator's score
+for ten iterations, or twenty in the first cohort. The task was
+[one-dimensional bin-packing](https://en.wikipedia.org/wiki/Bin_packing_problem):
+placing items into as few fixed-capacity bins as possible. The task has strong
+classical baselines and appears in heuristic-discovery research such as
 [FunSearch](https://doi.org/10.1038/s41586-023-06924-6).
 
-**Offline** shows the solver the whole list up front; **online** feeds items one
-at a time, no lookahead. Offline is close to solved by a classical heuristic
-plus local search, so the optimised score pins near the ceiling and every arm
-ties; online leaves headroom above the best simple rule and separates solvers.
-Two earlier tasks, cobench and generalize, were offline variants, in the tally
-only.
+Offline solvers receive the full item list; online solvers receive items
+sequentially. The offline optimization benchmark was nearly saturated by
+classical heuristics plus local search. The online task retained more headroom.
+Two earlier offline variants, `cobench` and `generalize`, also entered the tally.
 
-The **in-run** score is the one the agent sees and pushes up; the **held-out**
-score I compute after, on families it never trained against, from published
-generators with a seed it cannot read. Everything turns on that difference. I
-redesigned that set partway through: the original, Schoenfield's Hard28, had
-both arms and the reference heuristics all solving exactly 5 of its 28 to the
-proven optimum, its tie a property of the instrument, not a finding.
-
-## Offline, in-run says nothing
+The in-run score guided optimization. Held-out scores were computed afterward
+using published instance generators and a seed unavailable to the agents. That
+benchmark changed during the study: the original Schoenfield Hard28 set gave
+both dispositions and the reference heuristics exactly five proven-optimal
+solutions out of 28, providing little discrimination.
 
 {% include figure.html
    src="/img/blog/2026-07-26-bin-packing-values/offline-inrun-vs-heldout.webp"
-   alt="Dot plot of in-run and held-out scores for eight offline runs."
-   caption="Eight offline runs; the sm-v4 cells were run twice, in two cohorts.
-            The dashed line is the Best-Fit-Decreasing floor at 0.837, tied
-            exactly here by First-Fit-Decreasing: two runs finish at or barely
-            above it, one below. Both dispositions appear in the top three rows
-            and the bottom three, so the spread is a finding and the ordering
-            is not."
+   alt="In-run and held-out scores for eight offline runs, showing a narrow
+        optimization-score range and a wider held-out range."
+   caption="Eight offline runs across two cohorts; sm-v4 was repeated. The
+            dashed reference is 0.837 for both Best-Fit-Decreasing and
+            First-Fit-Decreasing. Both dispositions occur near both ends."
 %}
 
-All eight finished between **0.9905 and 0.9955** on the optimised score, a
-spread of 0.005 across six conditions in two cohorts; the same eight on held-out
-spread over 0.235, from **0.756 to 0.991**.
+The eight offline runs scored **0.9905–0.9955** in-run, spanning 0.005 across six
+conditions in two cohorts. Their held-out scores spanned **0.756–0.991**, a
+range of 0.235. Within one pair, gaps to optimum were 0.010 and 0.244, roughly
+24-fold apart. Another pair had gaps of 0.009 and 0.159, roughly 18-fold apart
+in the opposite direction.
 
-Within one matched pair, same task and values version, the held-out gap to
-optimum was 0.010 for one arm and 0.244 for the other, a factor of **24**; in
-another, 0.009 against 0.159, a factor of 18 the other way.
+The larger ratio needs qualification. The 0.244 mean covered 40 instances;
+four exceeded the compute budget and received a full 100% gap penalty. Those
+failures contributed ten of the 24.4 percentage points. Across the remaining 36,
+packing used 16.0% more bins than optimum, near the classical reference within
+noise. The reported standard error was 0.039. The ratio is a rough description
+sensitive to penalties and small denominators. Online optimization scores were
+less saturated and agreed with held-out ordering in the final-harness cohort.
 
-Read 24 as an order of magnitude, not a measurement. The 0.244 is a mean over 40
-held-out instances, 4 of them infeasible inside the compute budget and scored as
-a full 100 per cent gap: those four are 10 of the 24.4 points, and across the
-other 36 the solver packed 16.0 per cent above the optimum, the classical floor
-within noise. Standard error 0.039: the failure is real and large, the multiple
-is not.
+## Differences in the artifacts
 
-Offline only: online the in-run score is not pinned, and agreed with held-out in
-the final-harness cohort.
-
-## What they built
-
-| Signature | control, cautious | nietzsche, expansive |
+| Measure | Cautious | Expansive |
 |---|---|---|
 | Helper tools per run | 1, 1, 6, 1 | 7, 8, 10, 15 |
-| Solver size, v3 and sm-v4 | 765, 385 lines | 1038, 979 |
-| Strategies | 1-2: greedy, local search | 4: adds perfect-fit search |
-| Unproven additions | pruned or withheld | shipped |
-| Where the bulk goes | ruling-out tests, audits | more solver machinery |
+| Offline solver logical lines, v3 and sm-v4 | 765, 385 | 1038, 979 |
+| Observed strategies | 1–2: greedy, local search | 4, including perfect-fit search |
+| Unverified additions | Pruned or withheld | Retained |
 
-Those are logical lines, blanks, comments and docstrings excluded; the run
-report counts the same four files raw, in order, at 1278 and 628 against 1429
-and 1553, so files on disk run 1.4 to 1.7 times longer. The cautious runs
-converge onto one line of work and defend it; the expansive ones build a tool
-whenever one would help and ship machinery whose value they have not shown. The
-size half is offline only: online the scoring functions are compact whoever
-wrote them; the difference is in the kind of rule.
+Logical lines exclude blanks, comments and docstrings. Raw file lengths for
+the same solvers were 1,278 and 628 versus 1,429 and 1,553. Cautious runs spent
+more effort on audits and ruling out alternatives; expansive runs retained more
+solver machinery. Online scoring functions remained compact in both conditions.
+These observations came from four non-independent, non-seed-controlled runs
+per disposition and do not establish a causal behavioral effect.
 
-One episode illustrates the mechanism without testing it. In offline sm-v4 the
-cautious arm built a perfect-fit search late, an engine capable of exact optima,
-and did not ship it: on its in-run metric it looked like noise. It then lost
-that held-out cell by a factor of roughly 18. The disposition changed what got
-shipped, not what could be built; that reading comes from the commit log, not
-the final code, which no longer holds the engine. The same engine sank the
-expansive arm one cell over: in offline v3 its perfect-packing endgame ran past
-the compute budget on the large held-out instances, where those four infeasible
-packings came from. One artifact, overreach in one cell and the winning move in
-another; it labels outcomes, it does not predict them.
+In offline sm-v4, the cautious agent withheld a late perfect-fit search because
+its in-run benefit appeared negligible. That run then lost its held-out pair
+by roughly 18-fold in gap to optimum. The historical review located the
+withheld search in commit history, rather than in the final solver; those
+commits have not been rechecked here. In offline v3, an expansive solver's
+perfect-packing search instead exhausted the compute budget, producing the
+four failures above. The same technique had different outcomes across runs.
 
-Four non-independent runs per arm, not seed-controlled, and the cautious tool
-count varies from 1 to 6 across its four: a behavioural signature, not proof.
+## Why the tally was unreliable
 
-## The tally evaporates
+The 11-of-14 in-run tally had a sign-test p-value around 0.06. Its problems
+overlapped, so the following categories cannot be subtracted sequentially:
 
-The number I wanted to be true: across 14 matched pairs, **11 favoured the
-expansive disposition** on the in-run score, sign test p around 0.06, exactly
-the shape of result that gets written up. So I went through them.
+- About four apparent wins were saturated comparisons, with margins of
+  0.0006–0.0011. Offline scores were near 0.99, `cobench` near 0.999, and
+  Hard28 failed to distinguish the solvers.
+- About two involved failed control runs. One documented control remained near
+  Best-Fit's 0.9524 reference, scoring 0.9534 in-run and 0.9549 held-out.
+- One excluded expansive run imported a published heuristic tuned to the exact
+  test distribution. A clean rerun favored cautious.
+- Pairs A1, A2 and E6 used near-duplicate expansive solvers on shared held-out
+  draws. Treating them as three independent results inflated the count by two.
+- Three warm-started `generalize` pairs had signed in-run differences of
+  −0.0028, −0.0009 and +0.0009, netting −0.0028 toward cautious.
 
-**About four of the wins are saturated ties**, both arms pinned: offline in-run
-about 0.99, cobench about 0.999, and Hard28, the generalize task's held-out,
-saturated as above. Those margins run 0.0006 to 0.0011: a win of a thousandth on
-a benchmark that cannot resolve the arms is not a win.
+A1 contained both a failed control and a duplicate solver. Nine of the eleven
+wins fell into these overlapping categories; one of the other two came from an
+older unreported run. Only one clean expansive win remained from that tally.
 
-**About two are against broken control runs:** the one in a committed report
-never left the Best-Fit floor, in-run 0.9534 and held-out 0.9549 against a
-reference of 0.9524. Beating a failed run tells me about that run, not the
-disposition.
+The four pairs under the final matched harness split **2–2 held-out**. In-run
+they favored expansive 3–1, including two saturated offline comparisons; the
+two online differences had opposite signs. The recency-weighted pooled online
+held-out difference was −0.0024, too small to establish a direction here.
 
-**One pair is contaminated and excluded:** its expansive arm imported a
-published heuristic tuned on the exact test distribution; the clean re-run flips
-to cautious.
+Repeating sm-v4 reversed the held-out winner on both tasks: expansive to
+cautious offline, cautious to expansive online. The rerun also changed the
+harness and increased the wall-clock allowance from one hour to three. One
+cautious winner rewrote its values eight times, expanding from 14 to 33 lines,
+and used iteration nine's solver rather than iteration ten's. Excluding that
+pair leaves one clean recent online pair, favoring expansive, alongside split
+offline results.
 
-**Three more are one result in three hats:** pairs A1, A2 and E6 are
-near-duplicate expansive solvers on shared held-out draws, so counting them as
-three inflates the tally by two.
-
-**And one cohort points the other way:** the three generalize pairs run −0.0028,
-−0.0009 and +0.0009 in-run, one of them in the eleven, netting −0.0028 for
-control. Warm-started, so not clean evidence either, but not support.
-
-The categories are not a partition; subtracting in sequence would be dishonest:
-the broken control arm belongs to A1, itself one of the near-duplicates, so that
-pair is disqualified twice and removable once. Nor do they cover everything:
-nine of the eleven wins fall into them, and of the two left over one is an older
-run I never reported, leaving exactly one clean expansive win standing.
-
-What is left is the four pairs under the final matched harness, with a
-discriminating held-out. On held-out that cohort is **2 to 2**; on in-run 3 to 1
-for the expansive arm, but two of those three are the saturated offline ties
-above and the two online pairs carry opposite signs and cancel.
-Recency-weighted, the pooled online effect on held-out is −0.0024,
-indistinguishable from zero. The 11-of-14 direction does not shrink; it
-evaporates.
-
-Two more things I cannot explain away as tidying. Re-running sm-v4 **reversed
-the held-out winner in both tasks**, offline expansive to cautious, online
-cautious to expansive: direct non-reproducibility, though confounded, because
-the re-run also changed the harness, including a wall clock that went from one
-hour to three. And in the "clean" cohort one cautious arm rewrote its own values
-eight times mid-run, growing that block from 14 to 33 lines, its held-out score
-from its ninth iteration rather than its tenth, so even that pair is not the
-controlled contrast it looks like.
-
-That last discount cuts against me: the pair it damages is one the cautious arm
-won. Throw it out and the recent online evidence is a single clean pair, won by
-the expansive arm. Against a split offline result, that is still not a
-direction, but the tidying is not free.
-
-## What survives
-
-My verdict slide put it in five words: behaviour changes, direction does not. It
-attaches a condition, once the analysis is recency-weighted, and that condition
-does real work.
-
-The behaviour half holds up: two dispositions differing by about 150 words
-produce measurably different artifacts, and generalization swings by up to 24
-times while the training score barely moves. So an evaluation reading only the
-optimised score is blind to most of what the values did. The direction half is
-not a finding, and one run per cell is why: a single pair mixes the values
-effect with seed luck and trajectory, which no amount of extra instance draws
-fixes, only more runs. The study shows an effect, not its size or which way it
-runs. The fix is a powered replication, several runs per condition with the
-[analysis fixed in advance](/blog/pre-registration/), which is what I ran next,
-on a different task, where the question got a real answer.
-
-The uncomfortable part is how close I came to publishing 11 of 14: a plausible
-p-value, a mechanism and a story, and no tally that meant anything once I looked
-at the pairs. One clean win each way is not a direction.
+The historical study therefore supports an audit of artifacts and evaluation
+failures, not a reliable performance ranking. More instance draws cannot
+replace independent agent runs. A powered follow-up with
+[analysis fixed in advance](/blog/pre-registration/) was conducted on a
+different task; its results belong to that separate experiment.

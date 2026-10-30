@@ -111,9 +111,9 @@ axl.text(pct, 0.20, "%.2f%%" % pct, ha="center", va="bottom", fontsize=14,
          fontweight="bold", color=BLUE)
 axl.text(35.5, -0.30,
          "63 of 112 votes, on normalized summaries.\n"
-         "The interval still includes a coin flip, and it\n"
-         "assumes 112 independent votes: they are 21\n"
-         "raters on 5 pairs, so the real one is wider.",
+         "This interval assumes 112 independent votes.\n"
+         "Repeated raters and five answer pairs require\n"
+         "a separate uncertainty analysis.",
          ha="left", va="top", fontsize=10.5, color=MUTED)
 axl.text(hi + 1.2, 0, "95%% confidence:\n%.0f%% to %.0f%%" % (lo, hi),
          ha="left", va="center", fontsize=10.5, color=MUTED)
@@ -204,7 +204,7 @@ for s in ("top", "right", "left"):
 ax.tick_params(axis="y", length=0)
 ax.tick_params(axis="x", length=3, width=0.8)
 ax.set_title("The same 112 votes, split by challenge", loc="left", pad=12)
-ax.set_xlabel("Share of the votes cast on that challenge that preferred our "
-              "agent. Blue: it won. Red: it lost.", labelpad=8)
+ax.set_xlabel("Share of votes on each challenge that preferred Caesar. "
+              "Blue: Caesar won. Red: Caesar lost.", labelpad=8)
 
 save(fig2, "human-by-challenge")

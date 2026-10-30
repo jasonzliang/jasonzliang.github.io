@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="612" viewBox="0 0 640 612" role="img" aria-labelledby="ranking-title ranking-desc">
+<title id="ranking-title">Observed paper preferences across five AI scientists</title>
+<desc id="ranking-desc">Measured results from 96 paper pairs and 384 judgments. Each pair has four votes from two judges in both paper orders. Overall percentages average the four opponent matchup rates equally. Sakana Agentic Scientist v3: 96.9 percent, 2 selected of 2 eligible papers. ScientistTwo: 73.8 percent, 29 of 86. ScientistOne: 53.8 percent, 17 of 21. Sakana AI Scientist v2: 22.5 percent, 3 of 3. Sakana AI Scientist v1: 3.1 percent, 35 of 298. Points show observed percentages, without sampling ranges. The accompanying post explains the exploratory uncertainty.</desc>
+<rect width="640" height="612" fill="#f7fafb"/>
+<g font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="#183244">
+<text x="32" y="40" font-size="24" font-weight="700">Observed paper preferences</text>
+<text x="32" y="69" font-size="17" fill="#526574">Mean of 4 opponent matchup rates (%)</text>
+<g data-agent="sakana_agentic_scientist" data-score="96.875" data-selected="2" data-eligible="2">
+<text x="32" y="111" font-size="20" font-weight="600">Sakana Agentic Scientist (v3)</text>
+<text x="608" y="111" font-size="21" font-weight="700" text-anchor="end">96.9%</text>
+<text x="32" y="136" font-size="17" fill="#526574">2 / 2 papers selected / eligible</text>
+<line x1="34" x2="606" y1="154" y2="154" stroke="#d7e2e6" stroke-width="10" stroke-linecap="round"/>
+<line x1="320" x2="320" y1="144" y2="164" stroke="#718994" stroke-width="1.5"/>
+<circle cx="588.125" cy="154" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+</g>
+<g data-agent="scientisttwo" data-score="73.75" data-selected="29" data-eligible="86">
+<text x="32" y="201" font-size="20" font-weight="600">ScientistTwo</text>
+<text x="608" y="201" font-size="21" font-weight="700" text-anchor="end">73.8%</text>
+<text x="32" y="226" font-size="17" fill="#526574">29 / 86 papers selected / eligible</text>
+<line x1="34" x2="606" y1="244" y2="244" stroke="#d7e2e6" stroke-width="10" stroke-linecap="round"/>
+<line x1="320" x2="320" y1="234" y2="254" stroke="#718994" stroke-width="1.5"/>
+<circle cx="455.850" cy="244" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+</g>
+<g data-agent="scientistone" data-score="53.75" data-selected="17" data-eligible="21">
+<text x="32" y="291" font-size="20" font-weight="600">ScientistOne</text>
+<text x="608" y="291" font-size="21" font-weight="700" text-anchor="end">53.8%</text>
+<text x="32" y="316" font-size="17" fill="#526574">17 / 21 papers selected / eligible</text>
+<line x1="34" x2="606" y1="334" y2="334" stroke="#d7e2e6" stroke-width="10" stroke-linecap="round"/>
+<line x1="320" x2="320" y1="324" y2="344" stroke="#718994" stroke-width="1.5"/>
+<circle cx="341.450" cy="334" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+</g>
+<g data-agent="sakana_ai_scientist_v2" data-score="22.5" data-selected="3" data-eligible="3">
+<text x="32" y="381" font-size="20" font-weight="600">Sakana AI Scientist (v2)</text>
+<text x="608" y="381" font-size="21" font-weight="700" text-anchor="end">22.5%</text>
+<text x="32" y="406" font-size="17" fill="#526574">3 / 3 papers selected / eligible</text>
+<line x1="34" x2="606" y1="424" y2="424" stroke="#d7e2e6" stroke-width="10" stroke-linecap="round"/>
+<line x1="320" x2="320" y1="414" y2="434" stroke="#718994" stroke-width="1.5"/>
+<circle cx="162.700" cy="424" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+</g>
+<g data-agent="sakana_ai_scientist" data-score="3.125" data-selected="35" data-eligible="298">
+<text x="32" y="471" font-size="20" font-weight="600">Sakana AI Scientist (v1)</text>
+<text x="608" y="471" font-size="21" font-weight="700" text-anchor="end">3.1%</text>
+<text x="32" y="496" font-size="17" fill="#526574">35 / 298 papers selected / eligible</text>
+<line x1="34" x2="606" y1="514" y2="514" stroke="#d7e2e6" stroke-width="10" stroke-linecap="round"/>
+<line x1="320" x2="320" y1="504" y2="524" stroke="#718994" stroke-width="1.5"/>
+<circle cx="51.875" cy="514" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+</g>
+<g font-size="17" fill="#526574">
+<text x="34" y="553" text-anchor="middle">0</text>
+<text x="320" y="553" text-anchor="middle">50</text>
+<text x="606" y="553" text-anchor="middle">100</text>
+<text x="32" y="586">96 paper pairs · 384 judgments · Source: CREST</text>
+</g></g></svg>

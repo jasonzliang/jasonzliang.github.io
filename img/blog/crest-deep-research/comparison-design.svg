@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title desc">
+  <title id="title">How 150 research answers produce 600 judgments</title>
+  <desc id="desc">Schematic of the CREST deep-research comparison. Fifty shared questions receive one answer from each of three systems, producing 150 answers. Every question has three answer pairs, two judges, and two answer orders. That produces 12 decisions per question, 600 in total, and 400 appearances for each system.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#526574"/></marker>
+  </defs>
+  <rect width="960" height="660" rx="16" fill="#f5f8f9"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172c3e">
+    <text x="40" y="49" font-size="29" font-weight="700">The same questions, balanced comparisons</text>
+    <text x="40" y="82" font-size="19" fill="#526574">Study-design schematic · counts from the completed run</text>
+    <rect x="40" y="109" width="880" height="71" rx="9" fill="#e1edef" stroke="#b5cccf"/>
+    <text x="480" y="153" text-anchor="middle" font-size="25" font-weight="700">50 shared questions</text>
+    <path d="M480 181V208M190 208H770M190 208V232M480 208V232M770 208V232" fill="none" stroke="#526574" stroke-width="2"/>
+    <rect x="50" y="233" width="280" height="91" rx="8" fill="#fff" stroke="#b5cccf"/>
+    <rect x="340" y="233" width="280" height="91" rx="8" fill="#fff" stroke="#b5cccf"/>
+    <rect x="630" y="233" width="280" height="91" rx="8" fill="#fff" stroke="#b5cccf"/>
+    <text x="190" y="268" text-anchor="middle" font-size="23" font-weight="700">Caesar</text>
+    <text x="190" y="300" text-anchor="middle" font-size="21">50 answers</text>
+    <text x="480" y="263" text-anchor="middle" font-size="22" font-weight="700">OpenAI Sol</text>
+    <text x="480" y="289" text-anchor="middle" font-size="19">with web search</text>
+    <text x="480" y="314" text-anchor="middle" font-size="18">50 answers</text>
+    <text x="770" y="268" text-anchor="middle" font-size="22" font-weight="700">Google Deep Research</text>
+    <text x="770" y="300" text-anchor="middle" font-size="21">50 answers</text>
+    <path d="M190 325V345M770 325V345M190 345H770M480 325V377" fill="none" stroke="#526574" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="50" y="389" width="860" height="103" rx="9" fill="#fff" stroke="#b5cccf"/>
+    <text x="480" y="424" text-anchor="middle" font-size="24" font-weight="700">For each question: 12 decisions</text>
+    <text x="480" y="463" text-anchor="middle" font-size="23">3 answer pairs × 2 judges × 2 answer orders</text>
+    <path d="M480 494V527" fill="none" stroke="#526574" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="480" y="563" text-anchor="middle" font-size="27" font-weight="700" fill="#0b5967">600 judgments total · 400 comparisons per system</text>
+    <text x="480" y="596" text-anchor="middle" font-size="19">Per system: 50 questions × 2 opponents × 2 judges × 2 orders</text>
+    <text x="40" y="635" font-size="17" fill="#526574">Source: CREST, Deep research comparison, October 28, 2026.</text>
+  </g>
+</svg>

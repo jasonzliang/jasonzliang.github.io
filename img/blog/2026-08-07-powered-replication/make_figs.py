@@ -171,7 +171,7 @@ fig.text(0.005, 1.005,
 
 ax.set_xlabel(
     "Cliff's delta:  +1 means every expansive run beat every cautious run,\n"
-    "0 means the two groups are indistinguishable",
+    "0 means equal rates of higher and lower scores",
     labelpad=10, fontsize=11, color=MUTED)
 
 save(fig, "cliffs-delta")

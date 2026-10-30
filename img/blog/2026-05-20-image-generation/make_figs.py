@@ -217,8 +217,8 @@ for n, (ref, colour, what) in enumerate(zip(REFS, COLOURS, WHAT), 1):
 
 axl.text(0, 0.285,
          "The boxes are drawn by hand. The run records each reference's caption\n"
-         "and the prompt written from them; which pixels a phrase became is my\n"
-         "eye, not the pipeline's bookkeeping.",
+         "and the prompt written from them. Matching phrases to image regions\n"
+         "requires visual judgment; the pipeline does not record that mapping.",
          fontsize=10.5, va="top", color=MUTED, linespacing=1.5)
 
 axl.text(0, 0.135,

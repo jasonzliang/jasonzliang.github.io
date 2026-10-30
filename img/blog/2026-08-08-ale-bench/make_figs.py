@@ -222,7 +222,7 @@ ax.legend(handles, list(TRAJ), loc="upper left",
           title="disposition", alignment="left")
 
 fig.text(0.10, 0.955,
-         "The self-modifying runs start lower and climb harder",
+         "Eight agent runs with fixed or self-modifying values",
          fontsize=15, fontweight="bold", va="top")
 fig.text(0.10, 0.895,
          "Each colour is one disposition: solid is its frozen run, dashed is "

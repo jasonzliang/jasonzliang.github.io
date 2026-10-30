@@ -1,192 +1,124 @@
 ---
 layout: post
 title: >-
-  In AI agent experiments, one run is one data point, not fifty
+  Pre-registering AI agent experiments at the run level
 date: 2026-07-24
 description: >-
-  Medicine and psychology freeze their analysis before seeing data; almost
-  nobody does this in AI. I tried it with agent runs as the unit.
+  A four-run bin-packing case study fixed its held-out analysis before scoring.
+  The result remained underpowered: each agent run was one data point.
 image: /img/blog/2026-07-24-pre-registration/verdict-gate.webp
 tags: [methodology, self-improving-agents, evaluation]
 ---
 
-Before I re-scored a single run of my last experiment, I wrote down which one
-number I was going to read, how it would be computed, and what I was not allowed
-to conclude from it. Then I committed that document to git, and the analysis
-choices in it never changed.
+A small bin-packing experiment illustrates both the purpose and the limits of
+pre-registration. Before four completed agent runs were re-scored on a rebuilt
+held-out benchmark, a committed analysis document fixed the primary metric, its
+calculation and the conclusions the sample could support. It classified the
+experiment as a descriptive case study, with no hypothesis-testing threshold.
 
-The experiment was four agent runs improving an online bin-packing heuristic, a
-program that drops arriving items into bins one at a time with no lookahead. One
-run got a control values document and one got a [Nietzsche-derived
-one](/blog/nietzsche/); that pair ran at each of two document versions, the
-second of which the agent could rewrite. The runs were already finished and
-frozen. What was still ahead of me was scoring their programs on a held-out
-benchmark I had just rebuilt, and that is what the document locked down.
+The agents improved an online bin-packing heuristic, placing arriving items
+into bins without lookahead. A control values document and a
+[Nietzsche-derived document](/blog/nietzsche/) were each tested at two document
+versions. The later documents strengthened the contrasting instructions, and
+the later Nietzsche-derived document explicitly encouraged values revision.
+All four documents allowed edits below the protected invariants. There was
+one run per condition: four runs in total, consuming about twenty hours of
+agent time in one overnight batch.
 
-This is pre-registration. Clinical trials have done it for decades. Psychology
-took it up after its replication crisis. In machine learning it barely exists
-outside the occasional workshop, and I think that is a mistake we are going to
-keep paying for.
+This was a registration before held-out scoring, rather than before the whole
+experiment. The runs were already frozen, their optimization scores were known,
+and a pilot on an offline variant had ranked the dispositions in the opposite
+order. Those observations ruled out treating a directional prediction as
+independent of prior results. The registered comparison was two-sided.
 
-## The failure it prevents
+## Fixing the analysis before scoring
 
-The failure has a name: [HARKing](https://en.wikipedia.org/wiki/HARKing),
-Hypothesizing After the Results are Known.
+[HARKing](https://en.wikipedia.org/wiki/HARKing), or hypothesizing after results
+are known, can arise without deliberate misrepresentation. An experiment may
+have a flat primary outcome and an appealing secondary result. Selecting that
+result from twelve measurements creates a multiple-comparison problem, even
+when its explanation sounds plausible. Both registrations in this project
+specified Holm correction for the family of secondary measurements.
 
-It does not require dishonesty. Here is the version that gets everybody. You run
-an experiment with a primary metric. It comes out flat. But while looking at the
-results you notice a secondary measurement that separates the conditions
-cleanly, and it has a plausible story. So you write that up.
+Three documents had distinct roles:
 
-Nothing in that sequence feels like cheating. Each step is a reasonable response
-to what you are looking at. But if you had twelve measurements and picked the
-one that separated, you have not run one experiment, you have run twelve and
-reported the winner, without the multiple-comparison correction that would
-require. Both pre-registrations below apply one, Holm's, to their secondary
-measurements as a family.
+- `PREREGISTRATION.md` fixed the descriptive analysis. Its commit preceded the
+  re-scoring commit by seven minutes.
+- `PREREGISTRATION_POWERED.md`, written the next day, was a draft plan for a
+  powered follow-up. Its tests and decision thresholds were not part of the
+  frozen case study.
+- A standing analysis playbook supplied the verdict gate used to interpret
+  comparisons between runs.
 
-The document I froze blocks the version of this I was most at risk of. It fixes
-the comparison as two-sided, predicting no direction at all, and says why: I had
-already seen the runs' scores on the set the agent optimizes against, and a
-pilot on the offline version of the same task had put the two conditions in the
-opposite order from those scores. Predicting a direction then would have been
-choosing my hypothesis to fit data I had already peeked at.
+Keeping those roles separate matters. A proposed confirmatory test cannot
+retroactively turn an exploratory case study into a powered experiment.
 
-I had already seen enough of the data to have a hunch. Writing down that I was
-not allowed to use it is the whole point.
+## The endpoint and the experimental unit
 
-## What has to be in it
+Both registrations selected one primary endpoint: the evolved program's mean
+percentage excess over a lower bound on the optimal number of bins, measured
+on uniformly distributed item sizes after optimization on Weibull-distributed
+sizes. Lower values indicate better packing under this distribution shift.
 
-Three documents, and the split between them is the honest part of this story.
+The primary held-out set contained 50 packing instances. **One agent run was
+one experimental unit**, because all 50 instances were packed by the same
+program produced by the same trajectory. Additional instances help estimate a
+program's performance; they do not supply additional independent agent runs.
+[Counting instances as runs](/blog/hub-vs-leaf/) would have inflated the sample
+size fiftyfold.
 
-The one I froze is `PREREGISTRATION.md`, committed seven minutes before the
-commit that re-scored the runs. It is deliberately modest: it calls itself a
-"descriptive case study" and sets **no accept/reject threshold at all**, because
-at one run per condition there was nothing a threshold could legitimately
-decide. The machinery for *testing* a hypothesis lives in
-`PREREGISTRATION_POWERED.md`, written the next day for a powered follow-up, and
-that one is still marked draft. The verdict gate in the next section is in
-neither: it comes from a third document, a standing analysis playbook that says
-how any two runs in this project get compared.
+The draft follow-up specified an exact two-sided
+[permutation test](https://en.wikipedia.org/wiki/Permutation_test). It would
+reassign condition labels across run scores and compare the observed difference
+with the differences produced by those assignments. At five runs per condition,
+there are 252 possible assignments. The implementation enumerates assignments
+through ten runs per condition, then uses a fixed-seed sample of 200,000.
 
-Between them the two pre-registrations pin down five things. I have marked which
-document each comes from, because three of the five are not in the frozen
-document, and a post that let you assume otherwise would be doing the thing this
-post is against.
+This test also exposes small-sample limits. With three runs per condition,
+there are only 20 assignments, so the smallest attainable two-sided p-value is
+0.1. Such a design cannot reach p below 0.05, regardless of the observed gap.
 
-**The primary endpoint** (frozen and draft). Exactly one number: how the evolved
-program packs items whose sizes are drawn uniformly, when every item it trained
-on came from a Weibull distribution. That is the distribution shift. The metric
-is the mean percentage excess over a lower bound on the optimal number of bins,
-and lower is better.
+The draft defined one percentage point of the excess metric as the smallest
+meaningful effect. That threshold could change before the pilot, never after
+its data were examined. A positive decision required both p below 0.05 and a
+difference exceeding one point. Otherwise, the report would state the minimum
+detectable effect alongside the result. If that detectable effect exceeded the
+meaningful threshold, the experiment would lack the resolution needed to
+answer its intended question.
 
-**The unit of analysis** (frozen and draft). This one is specific to agent
-research, and where I expect most people to get it wrong. My experimental unit
-is **the run**, not the instance the run's program is scored on. The primary
-held-out set is 50 packing instances, and a run that packs all 50 is one data
-point, not 50, because the 50 are not independent: they were all packed by the
-same evolved program from the same trajectory. [Counting instances instead of
-runs](/blog/hub-vs-leaf/) would have multiplied my sample size by fifty and made
-almost anything look significant.
+## Interpreting the result
 
-**The test** (draft only). A [permutation
-test](https://en.wikipedia.org/wiki/Permutation_test): take the runs' scores,
-throw away which condition each came from, and re-deal the labels. Every way of
-splitting the runs into two groups of equal size gives you one difference the
-experiment could have produced by luck alone. The p-value is the fraction of
-those re-dealt differences at least as large in magnitude as the real one. This
-is nice: the re-dealt distribution *is* your pipeline's noise floor, measured
-rather than assumed.
+The separate playbook required four possible verdicts:
 
-My implementation does not sample those re-deals, it enumerates them, which at
-five runs per condition is 252 and not the ten thousand shuffles you usually
-see; only above ten runs per condition does it fall back to a fixed-seed sample
-of 200,000. Enumerating makes one limit visible that sampling hides. At three
-runs per condition there are only 20 possible splits, so the smallest two-sided
-p the design can produce is 0.1. A pilot that size cannot reach p below 0.05 no
-matter what the data say.
-
-**The smallest effect worth caring about** (draft only). Mine is one percentage
-point of that excess metric, fixed in advance, revisable only before the pilot
-and never after seeing the data. Without this you can declare any statistically
-significant difference meaningful, however tiny.
-
-**The decision rule** (draft only). The null hypothesis is that the values
-document makes no difference at all. Reject it only if the permutation p is
-below 0.05 **and** the difference exceeds that one-point threshold. Otherwise
-report a null, with the minimum detectable effect stated alongside it: the
-smallest difference this many runs could have caught. Set that against the
-smallest effect worth caring about above, and if the first number is bigger than
-the second, the experiment could never have answered the question. The frozen
-document deliberately has no such rule.
-
-## The verdict gate
-
-The part I would most recommend stealing is in that third document. The
-playbook's rule forces every result into one of four boxes, with no exits:
-
-- **Inconclusive by saturation**: every condition is pinned at a ceiling or a
-  floor, so nothing could have been detected.
-- **Underpowered**: you cannot bound the effect.
-- **Effect**: the difference has to survive being reported as an interval rather
-  than a point, and it has to exceed the run-to-run noise.
-- **Null**: allowed only if the conditions had room to move *and* you state the
-  noise band.
+- **Inconclusive by saturation:** ceiling or floor effects leave no room to
+  detect a difference.
+- **Underpowered:** the available runs cannot adequately bound the effect.
+- **Effect:** an interval supports a difference beyond run-to-run noise.
+- **Null:** the benchmark has room to move, and the report states its noise band.
 
 {% include figure.html
    src="/img/blog/2026-07-24-pre-registration/verdict-gate.webp"
-   alt="A flowchart. Could this benchmark have shown a difference at all? No:
-        inconclusive by saturation. Can you bound the effect at this number of
-        runs? No: underpowered. Does the difference clear the measured noise
-        floor? Yes: Effect. No: Null."
-   caption="Writing the gate down before scoring is what stops the last
-            question from being the only one you ask."
+   alt="Decision flowchart checking benchmark saturation, the ability to bound
+        an effect, and whether a difference exceeds measured run-to-run noise."
+   caption="The standing playbook separates saturation and insufficient power
+            from an effect or a null result."
 %}
 
-The saturation box is the one that earns its keep, and the figure asks it first.
-If every condition scores 0.99 on a benchmark whose maximum is 1.0, you have not
-found that your intervention does nothing. You have found that your benchmark
-cannot see. Those are different conclusions and they get reported identically
-all the time.
+A score of 0.99 on a benchmark capped at 1.0 may reveal limited measurement
+headroom. It does not establish that the intervention has no effect. Likewise,
+“no detectable difference at this sample size” states a narrower conclusion
+than a general claim that values do not affect performance.
 
-The rule that goes with it, in the playbook's own words: say "no detectable
-difference at this N," never "values don't affect performance." Those sentences
-describe different worlds.
+The four-run case study was **underpowered**. One run per condition could not
+separate a disposition effect from variation between agent trajectories. The
+frozen document recorded that limit before held-out scoring.
 
-## Underpowered
+The follow-up document remained headed “Draft for review” and prohibited
+confirmatory work before freezing the plan. It did not assert a sample size;
+that required a pilot and power analysis. Later powered work on a different
+task was a separate experiment.
 
-Applying that gate, the honest verdict on the experiment was **underpowered**.
-One run per condition cannot separate a real effect from run-to-run variation,
-so nothing causal could be claimed, and the frozen document said so in advance
-rather than letting me discover a reason afterwards.
-
-That is an unsatisfying outcome for four agent runs and about twenty hours of
-agent time in one overnight batch. It is also correct, and I know it is correct
-rather than suspecting it, which is the entire return on writing the document.
-
-The follow-up is specified in the draft document, honest about its own status in
-a way worth preserving: it is headed "Draft for review," it says confirmatory
-work "must not begin until this doc is frozen," and it declines to assert a
-sample size, since picking a number before the pilot would be unprincipled. It
-is a plan for a power analysis, not a power analysis.
-
-And when I later ran a powered version of the same question on a different task,
-it reversed a headline I had believed, which is the best argument I have for
-putting the machinery in place beforehand.
-
-## Why this is not bureaucracy
-
-The objection I expect is that AI moves too fast for this, and pre-registration
-is ceremony imported from slower fields.
-
-I would put it the other way around. The faster your iteration loop, the more
-analyses you run, and the more chances you have to find a pattern that is not
-there. A field that ships experiments weekly and never freezes an analysis is
-not moving faster than medicine. It is accumulating unmeasured false-positive
-rate at unprecedented speed.
-
-The frozen document is 56 lines of markdown. Five later commits touched it, all
-of them path updates or terminology sweeps, and not one changed an analysis
-choice. You can check that from the git history rather than from my say-so,
-which is the only thing that makes a freeze worth anything. The barrier here is
-not cost.
+The frozen registration was 56 lines of Markdown. Five subsequent commits
+changed paths or terminology without changing an analysis choice. Its value
+was a reviewable record of the analysis decisions and their timing, including
+what the experiment could not establish.

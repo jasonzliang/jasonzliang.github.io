@@ -102,7 +102,7 @@ def tidy(ax):
     ax.set_axisbelow(True)
 
 
-# Left: share of modules that run on a bare Python install.
+# Left: share of modules with no detected third-party imports.
 runs, total = [24, 4], [27, 36]
 pct = [100.0 * r / t for r, t in zip(runs, total)]
 
@@ -116,7 +116,7 @@ for i, p in enumerate(pct):
 axl.set_ylim(0, 116)
 axl.set_yticks([0, 25, 50, 75, 100])
 axl.set_yticklabels(["0", "25%", "50%", "75%", "100%"])
-axl.set_title("Modules that run with no extra install", loc="left", pad=12)
+axl.set_title("Modules with no third-party imports", loc="left", pad=12)
 tidy(axl)
 
 # Right: web calls after the identical mid-run nudge.

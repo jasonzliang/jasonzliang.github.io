@@ -1,188 +1,139 @@
 ---
 layout: post
 title: >-
-  Nietzsche for AI agents: values are an axiom, not a fence
+  Values in self-improving agents: five design hypotheses
 date: 2026-07-08
 description: >-
-  In a system that rewrites itself, your starting values are not a safety rail.
-  They are the axiom later versions derive from.
+  A Nietzsche-inspired proposal connects initial values to curriculum,
+  self-modification and verification. The proposed trajectory remains unproven.
 image: >-
   /img/blog/2026-07-08-self-overcoming/compounding.webp
 tags: [self-improving-agents, agent-design, values]
 ---
 
-A values document usually reads like a fence: things the system should not do,
-bolted on late to stop a capable model embarrassing anyone.
+A self-improving agent can change the tools, prompts or search procedures used
+to produce its next result. The criteria for accepting those changes therefore
+matter alongside the changes themselves. A process rewarded for benchmark
+performance may select different successors from one rewarded for broader
+capability, reliable verification or novel tasks.
 
-For one class of system that reading is not just incomplete. It is backwards.
-
-Call the class a *self-improving agent*: a program that runs in a loop and, each
-pass, may edit not only its answer but itself. Its prompt, its tools, its own
-search procedure, sometimes its weights. Generation zero is written by a human.
-Generation one by generation zero. Generation ten by something nine edits
-removed from anything a person typed.
-
-There, the starting values are the axiom the system is derived from: every
-generation judges its successor by the criteria it inherited. A bias of size
-epsilon at generation zero does not stay at epsilon. It compounds.
-
-A note on sourcing, because roughly a quarter of what follows is in quotation
-marks. This post condenses a memo of mine called "The Self-Overcoming Thesis",
-written for my own self-improving-agent project, never published, so the
-quotations cannot be checked against a public document. Every quotation below is
-from that memo unless I say otherwise, and where one is about Nietzsche it is
-the memo's compression of him, never a sentence of his own.
-
-The memo calls this compounding the algorithmic butterfly effect: "in any
-recursively self-improving system, the initial axioms are not guardrails; they
-are the seeds of the evolutionary trajectory."
+An unpublished project memo, *The Self-Overcoming Thesis*, develops that idea
+through five themes adapted from Nietzsche. It proposes that initial values
+can influence a sequence of self-modifications. Its stronger prediction—that
+small initial biases necessarily compound into sharply different agents—is a
+hypothesis, not a measured result or mathematical theorem.
 
 {% include figure.html
    src="/img/blog/2026-07-08-self-overcoming/compounding.webp"
-   alt="Two parallel chains of numbered circles, generations 0, 1, 2 and 10,
-        each starting from a box naming its given values. Only generation 0 is
-        filled in, the one a person wrote. The top chain, seeded with values
-        rewarding agreement with the median rater, ends at a more confidently
-        sycophantic agent. The bottom, seeded with values requiring you to
-        surpass your own last version, ends at systems constantly surpassing
-        their past states."
-   caption="Both endpoints are what the thesis predicts, not what anyone has
-            observed: nothing in this figure is a measured result."
+   alt="Schematic chains from human-written generation zero through generations
+        one, two and ten. Different initial criteria lead to two hypothetical
+        endpoints: stronger conformity or continued capability expansion."
+   caption="The memo's proposed trajectories. Neither endpoint has been
+            demonstrated by this diagram or the exploratory values-file pair."
 %}
 
-## The failure case is not a robot uprising
+## The concern behind the proposal
 
-It is a suck-up.
+Human preference feedback can reward persuasive agreement as well as helpful
+answers. [Perez et al.](https://arxiv.org/abs/2212.09251) found sycophantic
+behavior in model-written evaluations. [Sharma et
+al.](https://arxiv.org/abs/2310.13548) found that human and preference-model
+judgments sometimes favor agreement with a user's beliefs over correctness.
+[Casper et al.](https://arxiv.org/abs/2307.15217) survey broader limitations of
+reinforcement learning from human feedback.
 
-Take the standard recipe: reinforcement learning from human feedback trains the
-agent to be helpful, harmless and agreeable to the median annotator. The side
-effects are measured: sycophancy, regression toward annotator means,
-reward-model exploitation ([Perez et al.
-2022](https://arxiv.org/abs/2212.09251); [Casper et al.
-2023](https://arxiv.org/abs/2307.15217); [Sharma et al.
-2023](https://arxiv.org/abs/2310.13548)).
+These findings motivate concern about acceptance criteria, but do not show
+that ten rounds of agent self-editing amplify sycophancy. They also do not
+establish the memo's claim that later corrections would be ineffective. Both
+extensions require experiments on the actual modification-and-selection loop.
 
-Now let that agent edit itself ten times. Nobody has run that experiment, so
-what follows is a prediction, not an observation: you get "not a wiser agent but
-a more confidently sycophantic one, because each generation evaluates the next
-using the value it inherited."
+The philosophical connection is similarly interpretive.
+[Nietzsche's writing](https://plato.stanford.edu/entries/nietzsche/) discusses
+self-overcoming, value creation and competing perspectives; it does not supply
+a theory of machine-learning objectives. The memo turns those themes into
+engineering proposals. Its formulations should be read as adaptations, rather
+than quotations or technical claims attributable to Nietzsche.
 
-The memo's next claim: you cannot patch it afterwards. Bolt a corrigibility
-constraint onto a system whose top value is pleasing the average rater and, on
-that argument, you do not get something correctable and curious. "It produces a
-system corrigible because incurious."
+## Five proposals and their existing counterparts
 
-## What Nietzsche argued
+**1. Will to power: expand the available curriculum.** Instead of repeatedly
+optimizing a fixed task, a system could generate new tasks near its current
+learning frontier. [POET](https://arxiv.org/abs/1901.01753) jointly evolves
+environments and agents. [OMNI](https://arxiv.org/abs/2306.01711) combines
+learning progress with a foundation-model estimate of interestingness;
+learnability alone can retain many repetitive tasks.
+[Voyager](https://arxiv.org/abs/2305.16291) uses an automatic curriculum and a
+growing library of executable Minecraft skills. These systems demonstrate
+specific curriculum mechanisms, without testing the memo's broader values thesis.
 
-[Friedrich Nietzsche](https://plato.stanford.edu/entries/nietzsche/), 1844 to
-1900. The relevant fact, in the memo's compression: "he spent twenty years
-      arguing that any system optimizing for a fixed objective and a stable
-      equilibrium will stagnate, and that genuinely high-capability systems must
-      constantly surpass their own past states."
+**2. Self-overcoming: let the agent improve parts of its own machinery.** The
+[Darwin Gödel Machine](https://arxiv.org/abs/2505.22954) modifies agent code and
+selects improvements through coding benchmarks.
+[AlphaEvolve](https://arxiv.org/abs/2506.13131) evolves programs using automated
+evaluators. Its reported results include a method multiplying two 4×4
+complex-valued matrices with 48 scalar multiplications, improving on the
+49-multiplication construction from applying Strassen's algorithm in that
+setting.
 
-He had a name for the failure mode above, herd morality, which the memo glosses
-as "A system that optimizes for comfort, conformity, and the approval of the
-median observer." He was describing 19th century Europe, not chatbots, but the
-shape is the same.
+These are concrete examples of program improvement. They do not demonstrate
+that changing the evaluator's objectives, or freely rewriting values, improves
+the trajectory. That additional proposal needs its own comparison and protected
+external evaluation.
 
-One caveat on citing him. *The Will to Power* was assembled after his collapse
-by his sister Elisabeth Förster-Nietzsche, and the standard critical edition,
-Colli and Montinari's, treats it as unreliable. What follows draws on the books
-he published (*The Birth of Tragedy*, *Beyond Good and Evil*, *On the Genealogy
-of Morals*) and on Walter Kaufmann's reading of will to power as mastery over
-one's own chaos, not domination of anyone else.
+**3. Perspectivism: retain alternatives long enough to test them.** A system
+could preserve incompatible hypotheses instead of collapsing them into an early
+consensus. The engineering question is whether a diverse candidate archive,
+followed by verification, outperforms a single selected candidate or a voting
+baseline under the same compute budget. Philosophical pluralism motivates the
+comparison; it cannot determine its outcome.
 
-## Five design bets
+**4. Amor fati: reuse information from failure.** Failed attempts can reveal
+constraints, supply negative examples or support revised goals.
+[Hindsight Experience Replay](https://arxiv.org/abs/1707.01495) provides a
+specific mechanism: relabeling experience with goals actually achieved, allowing
+learning from episodes that failed at their original goal. That result supports
+careful reuse of experience, rather than an unrestricted claim that every
+failure is useful supervision.
 
-The thesis: a different starting value-set produces the opposite trajectory.
-Five values, most translating into an engineering choice someone is already
-partly making. The memo specifies an experiment per bet, each with a benchmark,
-baseline and kill criterion; the falsification section below refers to those
-five. None has been run.
-
-**1. Will to power.** "Living systems do not optimize for survival or preference
-satisfaction. They optimize for the expansion of what they can do." So stop
-training against a fixed reward on a fixed benchmark. Let the agent, or a paired
-generator, propose its own tasks, so the curriculum keeps regenerating its upper
-bound. [POET](https://arxiv.org/abs/1901.01753) coevolves environments with the
-agents solving them, [OMNI](https://arxiv.org/abs/2306.01711) adds a
-learnability gate, keeping only tasks the agent can still learn from, not
-trivial or impossible ones, and [Voyager](https://arxiv.org/abs/2305.16291)
-self-proposes Minecraft objectives. All three are partial instances.
-
-**2. Self-overcoming.** "Every value the system holds, including the value of
-preserving itself, must eventually be replaced by something the prior system
-could not have produced." Let the agent edit the code defining its policy, tools
-and search loop, and let the fitness signal for those edits change too. The
-[Darwin Gödel Machine](https://arxiv.org/abs/2505.22954) and
-[AlphaEvolve](https://arxiv.org/abs/2506.13131) are the closest reference
-points; AlphaEvolve reports the first improvement in 56 years on [Strassen's
-1969 algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) for two 4x4
-complex matrices, cutting 49 scalar multiplications to 48.
-
-**3. Perspectivism.** "There is no view from nowhere." Incompatible frameworks
-can be valid at once, and forcing consensus destroys information. Not
-relativism: some perspectives are better, but resolution should come from the
-world pushing back, not premature averaging. So stop majority-voting your chains
-of thought: keep the inconsistent ones alive and route them to a verifier.
-
-**4. Amor fati**, love of fate. "Every event that has occurred, including
-failures, is to be reincorporated as supervision rather than discarded." Failed
-trajectories get relabeled, mined for hard negatives and folded back into the
-training mixture. [Hindsight Experience
-Replay](https://arxiv.org/abs/1707.01495) is the canonical version.
-
-**5. The Apollonian and the Dionysian.** From Nietzsche's account of Greek
-tragedy: "unrestrained generative excess on one side, strict structural
-discipline on the other." Never run one without the other: pair a high-entropy
-proposer with a deterministic verifier holding final authority to reject.
+**5. Apollonian and Dionysian: pair generation with a strict check.**
 [AlphaGeometry](https://doi.org/10.1038/s41586-023-06747-5),
 [AlphaProof](https://doi.org/10.1038/s41586-025-09833-y) and
-[FunSearch](https://doi.org/10.1038/s41586-023-06924-6) all have this shape,
-which makes it the most empirically validated of the five and the most scoped:
-it works only where a sound checker exists.
+[FunSearch](https://doi.org/10.1038/s41586-023-06924-6) combine learned proposal
+mechanisms with symbolic, formal or computational evaluation. Their checks
+provide different guarantees: a formal proof checker and a finite performance
+benchmark are not interchangeable. The common design idea is to evaluate
+proposals with a mechanism that can reject them, while recognizing the scope
+of what that mechanism establishes.
 
-## What would kill this thesis
+## What a convincing test would require
 
-The strongest falsification is a clean head-to-head: "a token-matched,
-compute-matched convergent baseline that beats the Nietzsche-shaped intervention
-on a held-out evaluation across all five experiments." Convergent means one
-fixed objective throughout. Held out means problems the system never saw while
-it was tuned: those scores measure what transferred, not what was fitted. A
-weaker one is the intervention winning on the training distribution and failing
-to transfer: the vocabulary names a real tension but the mechanisms do not
-generalize. "The thesis is intentionally modest enough to be falsified either
-way."
+The memo outlines a benchmark, baseline and rejection criterion for each
+proposal. A useful comparison would match tokens and compute, keep evaluation
+outside the agent's editing authority and test transfer on held-out problems.
+An intervention that improves only its training benchmark would not establish
+broader capability. Consistent losses to a fixed-objective baseline would
+undermine the proposed advantage.
 
-The boring approach is also winning. GPT-4, AlphaFold and AlphaZero were not
-designed this way, and neither is anything that has displaced them: convergent
-training still produces the most capable published system in every domain I can
-name. "The honest framing is that convergent training is the right default until
-the objective itself becomes the bottleneck."
+The cost of exploration also belongs in the comparison. Generating new tasks
+and retaining multiple candidates can consume resources without improving the
+final result. A fixed objective remains a strong baseline whenever it captures
+the intended task well.
 
-## The gradient is not defined
+The unresolved technical issue is how to reward expansion without rewarding
+novelty for its own sake, evaluator manipulation or arbitrary changes to the
+scaffold. Protected invariants and external tests constrain that problem; they
+do not solve objective design automatically.
 
-One piece is unsolved. "If the design move is to mathematically prioritize
-self-overcoming over standard computational efficiency in the initial objective,
-how is the gradient defined so the system does not collapse into ungrounded
-noise as soon as it starts editing its own scaffolding?"
+## Evidence so far
 
-The failure modes sit on either side of it: "Open-ended search without a
-learnability gate (Bet 1) produces chaos; closed-form objective design without a
-self-overcoming term produces stagnation." Nobody has written down what goes in
-between; the five bets are lower-risk steps meanwhile.
+The [early two-run values comparison](/blog/nietzsche/) recorded different
+working styles, with one run per condition and no reliable winner. Later work
+examined values editing across more runs, and a
+[repeated 2048 study](/blog/powered-replication/) qualified an initial claim
+about generalization. Those experiments address parts of the motivation,
+rather than validating all five proposals or the predicted compounding mechanism.
 
-## Status: thesis, not result
-
-None of this is demonstrated. I have run the small version, two agents differing
-only in a values file, and [written up what happened](/blog/nietzsche/): the
-disposition visibly changed what they built, without establishing either was
-better. A 41-run study of how freely agents may edit their own values and a
-replication that reversed one of my headline findings are the honest state of
-the evidence; the second is why I distrust my own enthusiasm.
-
-What survives either way is the structural argument. In a system that improves
-itself, no value-set is neutral: the value function is what defines improvement.
-"Someone is choosing the generation-zero values of every self-improving agent
-currently being built." Mostly it is chosen implicitly, by whatever the
-preference data happened to reward. It deserves to be chosen on purpose.
+The remaining research task is to compare acceptance criteria for producing
+more capable and reliable successors under an external test. The five proposals
+organize possible interventions. Their value depends on the comparisons they
+survive.

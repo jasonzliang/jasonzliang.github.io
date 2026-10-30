@@ -57,7 +57,7 @@ RADICAL = [96, 132, 149, 153, 221, 229, 240, 242, 247, 285, 289, 393, 422,
            425, 446]
 
 GROUPS = [
-    ("Frozen\nread-only", FROZEN, GREY),
+    ("Frozen\nno edits allowed", FROZEN, GREY),
     ("Bounded\nkeep it to 3 bullets", BOUNDED, BLUE),
     ("Radical\nrewrite it all", RADICAL, RED),
 ]

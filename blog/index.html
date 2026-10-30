@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Blog
-description: "Notes on my latest research: self-improving coding agents, the knowledge graphs they build, and what an agent's stated values do to the code it writes."
+description: "Research on AI agents that write code, explore ideas, and improve themselves. Experiments examine their capabilities, creativity, and limits."
 ---
 <section class="page-header container">
   <h1>Blog</h1>
-  <p>Notes on my latest research: self-improving coding agents, the knowledge graphs they build, and what an agent's stated values do to the code it writes. Three report a record: one agent's solver <a href="/blog/packing-records/">beat 21 published circle-packing records</a>, an earlier one <a href="/blog/circle-packing/">took the record at 27 circles</a> and is credited for it on Packomania, and another <a href="/blog/ale-bench/">beat the top human entry in an AtCoder contest</a>, confirmed on the official judge. The rest is me checking my own results, including the ones that did not hold up.</p>
+  <p>Research on AI agents that write code, explore ideas, and improve themselves. Experiments examine their capabilities, creativity, and limits.</p>
 </section>
 
 <section class="container section">
@@ -15,7 +15,7 @@ description: "Notes on my latest research: self-improving coding agents, the kno
     <li class="blog-entry">
       <span class="blog-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
       <div class="blog-entry-body">
-        <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{%- if post.record %} <span class="blog-badge" title="Independently verified">{{ post.record }}</span>{%- endif %}</h2>
+        <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{%- if post.record %} <span class="blog-badge" title="Historical benchmark result; see the post for its scope and date">{{ post.record }}</span>{%- endif %}</h2>
         <p class="blog-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncate: 180 }}{% endif %}</p>
         {%- if post.tags and post.tags.size > 0 %}
         <p class="blog-tags">{% for tag in post.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}</p>

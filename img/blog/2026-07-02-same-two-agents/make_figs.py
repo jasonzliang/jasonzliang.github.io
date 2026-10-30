@@ -150,8 +150,8 @@ note.text(0.0, 0.80,
           "Each agent picked its own target from its\n"
           "catalog and froze its own bar at iteration 1,\n"
           "so the two runs inside a mission never sat\n"
-          "the same test. Part of what I am calling\n"
-          "character is the choice of target itself.\n"
+          "the same test. The character measures\n"
+          "also reflect the choice of target itself.\n"
           "One run per cell.",
           transform=note.transAxes, ha="left", va="top", fontsize=11,
           color=MUTED, linespacing=1.4)

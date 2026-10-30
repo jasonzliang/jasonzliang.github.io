@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="570" viewBox="0 0 960 570" role="img" aria-labelledby="title desc">
+  <title id="title">Observed AI judge preferences in CREST</title>
+  <desc id="desc">Dot plot of wins divided by 400 comparisons for each system. Caesar: 390 wins, 97.5 percent, 95 percent question-bootstrap interval 95.2 to 99.2 percent. OpenAI Sol with web search: 176 wins, 44.0 percent, interval 41.0 to 47.0 percent. Google Deep Research: 34 wins, 8.5 percent, interval 5.8 to 11.5 percent. Intervals hold answers, judges, and rubric fixed and use 1,000 resamples of 50 questions.</desc>
+  <rect width="960" height="570" rx="16" fill="#f5f8f9"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172c3e">
+    <text x="40" y="49" font-size="29" font-weight="700">Observed AI judge preferences</text>
+    <text x="40" y="82" font-size="19" fill="#526574">Wins ÷ 400 comparisons per system · both opponents, judges, and orders</text>
+    <g stroke="#d7e1e6" stroke-width="1">
+      <path d="M315 135V405M445 135V405M705 135V405M835 135V405"/>
+      <path d="M315 190H835M315 280H835M315 370H835"/>
+    </g>
+    <path d="M575 135V405" stroke="#91a4ad" stroke-width="2" stroke-dasharray="6 6"/>
+    <g font-size="21" text-anchor="end">
+      <text x="288" y="181" font-weight="700">Caesar</text>
+      <text x="288" y="207" font-size="18" fill="#526574">390 / 400 wins</text>
+      <text x="288" y="266" font-weight="700">OpenAI Sol</text>
+      <text x="288" y="291" font-size="19">with web search</text>
+      <text x="288" y="316" font-size="18" fill="#526574">176 / 400 wins</text>
+      <text x="288" y="361" font-weight="700">Google Deep Research</text>
+      <text x="288" y="387" font-size="18" fill="#526574">34 / 400 wins</text>
+    </g>
+    <g stroke="#0b5967" stroke-width="4">
+      <path d="M810.30 190H831.10M810.30 182V198M831.10 182V198"/>
+      <path d="M528.20 280H559.40M528.20 272V288M559.40 272V288" stroke="#5e628c"/>
+      <path d="M344.90 370H374.80M344.90 362V378M374.80 362V378" stroke="#a65b24"/>
+    </g>
+    <circle cx="822" cy="190" r="7" fill="#0b5967" stroke="#fff" stroke-width="2"/>
+    <circle cx="543.8" cy="280" r="7" fill="#5e628c" stroke="#fff" stroke-width="2"/>
+    <circle cx="359.2" cy="370" r="7" fill="#a65b24" stroke="#fff" stroke-width="2"/>
+    <g font-size="23" font-weight="700">
+      <text x="848" y="198">97.5%</text>
+      <text x="577" y="288">44.0%</text>
+      <text x="393" y="378">8.5%</text>
+    </g>
+    <path d="M315 405H835" stroke="#526574" stroke-width="1.5"/>
+    <g font-size="18" text-anchor="middle" fill="#526574">
+      <text x="315" y="435">0%</text>
+      <text x="445" y="435">25%</text>
+      <text x="575" y="435">50%</text>
+      <text x="705" y="435">75%</text>
+      <text x="835" y="435">100%</text>
+    </g>
+    <text x="40" y="479" font-size="19">Lines: 95% question-bootstrap intervals (1,000 resamples of 50 questions).</text>
+    <text x="40" y="509" font-size="18" fill="#526574">Saved answers, judges, and rubric held fixed. No human or expert validation.</text>
+    <text x="40" y="545" font-size="17" fill="#526574">Source: CREST, Deep research comparison, October 28, 2026.</text>
+  </g>
+</svg>

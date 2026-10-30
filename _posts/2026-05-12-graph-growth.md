@@ -1,187 +1,113 @@
 ---
 layout: post
 title: >-
-  My AI agent exploring the web starts looping back early
+  How Caesar's web exploration graphs grow and reconnect
 date: 2026-05-12
 description: >-
-  Across 77 crawls the map stays a tree for a median of 150 steps, and
-  nearly half of all steps revisit a page already seen.
+  Across 77 comparable crawls, the first recorded cycle appears at a median
+  of 150 steps, and about 44% of steps revisit a page.
 image: >-
   /img/blog/2026-05-12-graph-growth/graph-growth.webp
 tags: [agents, knowledge-graphs, visualization, caesar]
 ---
 
-[Caesar](https://jasonzliang.github.io/caesar-agent/), the research agent I work
-on, explores by building a map. Each page it visits becomes a node; each link it
-decides to follow becomes an edge. It [writes its notes against that
-structure](/blog/hub-vs-leaf/), and the map is what it reasons over.
+[Caesar](https://jasonzliang.github.io/caesar-agent/) records its web exploration
+as a graph. Pages become nodes; followed links become edges. That structure
+supplies context for [note-taking](/blog/hub-vs-leaf/) and records how the
+agent moves between sources.
 
-A *step*, throughout this post, is one turn of that loop: open one page, read
-it, choose the next link. So a thousand-step run is a thousand page-opens, not a
-thousand distinct pages. Most of what follows turns on that distinction.
+Saved snapshots reveal substantial revisiting and variation across runs. In a
+comparison set of **77 crawls**, the median run spends about **44% of its steps
+reopening pages**. The first recorded graph cycle appears at a median of
+**150 steps**. A single illustrative run develops cycles much later, showing
+why one trajectory is an unreliable description of the whole system.
 
-Somewhere along the way the system started saving a snapshot of that map every
-50 steps. It was debugging instrumentation, originally. Those snapshots
-accumulated quietly: **2,382 of them, across 102 runs**, sitting on disk. As far
-as I can tell nobody had ever looked at them as a dataset.
+## The comparison set
 
-Two details, since I am quoting a count. There are 2,387 files, but five
-snapshots are stored twice, plain and gzipped, so 2,382 is the number of
-distinct snapshots. And the 50-step interval covers 88 of the 102 runs: a batch
-of older ones wrote every 10 steps, and one wrote every 5.
+A step is one turn of the exploration loop: open a page, read it and choose the
+next move. A 1,000-step crawl therefore need not contain 1,000 distinct pages.
+Each node's visit counter makes revisits directly countable.
 
-Only 80 of the 102 runs get all the way to step 1,000, and 77 of those are on
-the 50-step interval. Those 77 are the comparison set below, so that a run is
-never called early or late on the strength of a finer snapshot spacing.
+The archive contains 102 runs, of which 80 reached 1,000 steps. Of those, 77
+saved snapshots every 50 steps and form the comparison set. The consistent
+interval makes their recorded timing comparable.
 
-## Nearly half the steps are revisits
+The plotted example explores a constrained-synthesis question about inventing
+an emotion humans do not experience. It grows from 26 nodes at step 50 to
+**522 at step 1,000**. The largest graph in the comparable set reaches 941.
+Revisits can reflect backtracking through earlier branches, so their frequency
+alone cannot establish wasted effort or an optimal traversal policy.
 
-Take the 1,000-step run in the figure below, on a constrained-synthesis prompt:
-invent an emotion humans do not have. At step 50 the map has 26 nodes. At step
-1,000 it has **522**. Other runs go further; the largest of the 77 reaches
-**941**.
+Discovery rates fluctuate within individual crawls as well as between them.
+Only about a third of discovery-rate variance lies between runs. The smooth
+cumulative growth curve conceals intervals in which the agent adds pages quickly
+and others in which progress slows.
 
-Over a thousand steps, then, that run added roughly five hundred pages. The rest
-of the time it was moving to somewhere it had already been. Every node carries a
-visit counter, so revisits are countable rather than inferred: across the 77
-runs, the median one spent about **44%** of its steps opening a page it had
-opened before.
+## When cycles appear
 
-My first reaction was that this is waste, and that a better policy would revisit
-less. I have come around to thinking that is wrong. Revisiting is how
-backtracking works. To abandon an exhausted branch and pick up a promising one
-from earlier, you have to walk back through territory you have already covered.
-A crawler that never returns anywhere is not being efficient; it is being unable
-to change its mind.
+The cycle count uses the graph's undirected
+[cycle rank](https://en.wikipedia.org/wiki/Cyclomatic_number):
+**edges − nodes + [connected components](https://en.wikipedia.org/wiki/Component_%28graph_theory%29)**.
+It counts independent cycles, or the number of edges that must be removed to
+leave a forest. The formula also handles disconnected graphs. Zero means the
+undirected graph contains no cycles; it does not mean the agent never
+backtracked.
 
-What I wanted to say next was that each exploration finds a characteristic pace
-early and keeps it: steady *within* a run, varying a lot *between* runs. The
-snapshots do not support it. Cut every run into its 50-step intervals and the
-discovery rate wobbles about as much inside a single run as it does across runs
-(median within-run coefficient of variation 0.23, against 0.23 for the run
-averages), and only about a third of the variance in that rate is between-run.
-The growth curve below looks smooth because it is cumulative.
-
-## When it stops being a tree
-
-The measurement I like best is the simplest.
-
-Count the loops in the map. Treat every edge as undirected and count
-[independent cycles](https://en.wikipedia.org/wiki/Cyclomatic_number), which is
-edges minus nodes plus [connected
-components](https://en.wikipedia.org/wiki/Component_%28graph_theory%29): the
-number of edges you would have to cut to be left with a forest. Zero means every
-page was reached exactly one way. The components term is not decoration.
-Sixty-three of the 2,382 snapshots are not connected, and on 14 of them the
-shortcut version of the formula, edges minus nodes plus one, returns a negative
-number of loops.
-
-In the run I plotted, the count is **zero** for the first **400 steps**. The map
-is a pure tree, the agent fanning outward without ever closing a loop.
-
-Then one loop appears, and for the next 350 steps there is still exactly one.
-The count only breaks open in the last fifth of the run, going 1, 7, 11, 11,
-**19** over the final two hundred steps. Across the 77 runs the end-of-run count
-ranges from 0 to 126.
-
-Then I plotted the other 76, and 400 steps turned out to be the tail rather than
-the rule. The median run closes its first loop at step **150**, not 400.
-Thirty-seven of the 77 have closed one inside their first 100 steps. Only 12 are
-still trees at step 400, and exactly one never closes a loop at all in a
-thousand steps. The run I plotted is in that slow tail, and part of why is the
-question it was given: constrained-synthesis runs are the slowest as a group,
-median first loop at step 225, against step 100 for open-ended ones.
-
-The late explosion is a property of this run too, more than of the set. For the
-median run, 40% of the final loop count is already in place by step 500 and 76%
-by step 800; only 10 of the 77 take more than half their loops in the last
-fifth.
+In the example, the graph remains a tree through step 400. A cycle first
+appears in the step-450 snapshot, and the count stays at one through step 800.
+It then rises to 7, 11, 11 and **19** in the final four snapshots. Across all 77
+runs, the final count ranges from 0 to 126.
 
 {% include figure.html
    src="/img/blog/2026-05-12-graph-growth/graph-growth.webp"
-   alt="Three charts. Left: pages on the map in one 1,000-step run, climbing
-        from 26 to 522. Middle: loops in that same map, flat at zero until step
-        400, flat at one until step 800, then rising to 19. Right: a bar chart
-        of where the first loop closes across 77 runs, tallest at steps 50 and
-        100, median 150, with a tail past step 400."
-   caption="The first two panels are the same 20 snapshots, one every 50 steps,
-            which is the resolution of the claim as well as the picture: the
-            first loop is located to within 50 steps, not exactly. The third
-            panel is there because the first two are one run out of 77, and a
-            slow one: 400 steps is the tail, the median is 150."
+   alt="One crawl grows from 26 pages at step 50 to 522 at step 1,000. Its cycle
+        count stays zero through step 400, reaches one at step 450 and ends at
+        19. Across 77 crawls, the median first recorded cycle is at step 150."
+   caption="The first two panels show one crawl sampled every 50 steps. The
+            third gives its context among 77 comparable runs. Cycle onset is
+            resolved only to the snapshot interval; the example reconnects
+            later than most runs."
 %}
 
-A cycle means two independent lines of inquiry converged on the same source. In
-a tree the structure is a record of where the agent went. Once cycles appear,
-the structure starts encoding something about the *territory*: that these two
-apparently separate threads are actually connected.
+The example is in the slow tail. Thirty-seven runs already contain a cycle by
+step 100; only 12 remain trees at step 400. Seventy-six eventually contain a
+cycle, first recorded between steps 50 and 850; one remains acyclic through
+step 1,000. Among runs that develop a cycle, the median first recorded onset is 150 steps. Constrained-synthesis runs have a median onset of 225, compared with 100
+for open-ended synthesis.
 
-That transition, from tree to graph, is the point where the map stops being a
-travel log and starts being a model. Nearly every run makes it: 76 of the 77,
-somewhere between step 50 and step 850. What varies, by more than an order of
-magnitude, is when.
+Late cycle growth is also specific to the example. In the median run, 40% of
+the final cycle count is present by step 500 and 76% by step 800. Only 10 of 77
+runs gain more than half their cycles in the final fifth.
 
-## Depth comes in two bursts, not one
+A cycle records an additional connection between already connected pages. It
+may reflect convergence between lines of inquiry, but topology alone cannot
+establish a meaningful conceptual connection or improved understanding.
 
-Depth, in these snapshots, is how many links a page sits from the starting page,
-counted along the route the agent first took to it rather than the shortest one.
-The same run commits to one line and pushes it to a depth of 23 within the first
-150 steps. Then it stops going deeper for 250 steps and widens instead. Then it
-descends a second time, to 26 by step 450 and 31 by step 500, and after that the
-deepest point on the map never moves again for the remaining half of the run.
+## Depth and question type
 
-Nobody designed that schedule; the policy chooses step by step from local
-structure. I had been describing it to myself as depth first, then breadth,
-which the first 400 steps support and the second descent does not. What the
-snapshots actually show is two bursts of descent with a plateau between them,
-and then five hundred steps in which the frontier only gets wider.
+Depth here follows the route by which a page was first reached, rather than its
+shortest path from the start. The example reaches depth 23 by step 150, stays
+there through step 400, then reaches 26 at step 450 and 31 at step 500. Its
+maximum depth remains 31 for the rest of the run.
 
-The flat second half is this run's habit rather than the system's. The median
-run does take most of its depth early, 87% of its final depth by step 500, but
-48 of the 77 go deeper after that, and among those the median gain is another 36
-levels. This run is also a shallow one: it bottoms out at 31, against a median
-of 84.
+That two-burst pattern is descriptive of this trajectory. Across the full set,
+the median run reaches 87% of its final depth by step 500, but 48 runs continue
+deeper afterward. Among those, the median additional gain is 36 levels. The
+example is shallow beside the overall median final depth of 84.
 
-## Open-ended sprawls, constrained stays tree-like
+Sixty comparable runs carry one of five question types, with twelve runs per
+type. Open-ended synthesis produces the largest median graph, **678 pages**.
+The other four types have medians from 531 to 544; those small differences do
+not support a clear size ordering.
 
-Different question types produce visibly different maps, though only part of
-what I first said about them survives a recount. Across the 60 of those 77 runs
-that carry one of five question types, twelve apiece, open-ended questions
-sprawl clearly the furthest: a median of 678 pages, against 531 to 544 for
-constrained synthesis, cross-domain synthesis, meta-creativity and
-counterfactual reasoning, which are not distinguishable from each other. So the
-size contrast is not constrained against open-ended, it is open-ended against
-everything else.
+Constrained synthesis is more distinctive in connectivity: its median cycle
+count per page is 0.023, compared with 0.043 for cross-domain synthesis, 0.042
+for counterfactual reasoning, 0.033 for meta-creativity and 0.036 for open-ended
+synthesis. These are descriptive comparisons from the archived runs, without
+uncertainty intervals or a controlled test of question type.
 
-Interconnection is where constrained questions separate out. They end with 0.023
-cycles per page, the lowest of the five types, against 0.043 for cross-domain
-and 0.042 for counterfactual questions, with meta-creativity on 0.033 and
-open-ended on 0.036 in between. A tightly constrained question produces a map
-about the same size as the others and a much more tree-like one.
-
-What I originally wrote here was that constrained questions produce the smallest
-graphs and cross-domain ones sprawl the furthest. Neither holds. The first was
-reading a three-page difference in a median as a result, and on the second the
-cross-domain median of 534 sits with constrained's 531, well below open-ended's
-678.
-
-## The mildly embarrassing part
-
-These snapshots were a debugging artifact: written, rotated, ignored, for months
-before anyone plotted them. The behaviour they describe is one of the more
-interesting things our system does, and it was sitting in a results directory
-the entire time.
-
-I suspect this is common. Instrumentation gets added to answer a specific
-question, answers it, and then keeps running. If your system has been logging
-structure for a while, it is worth an afternoon to ask what the logs would say
-if you treated them as data rather than exhaust.
-
-The second afternoon is the one that costs you the title. I plotted one run,
-found something clean, and wrote it up as a fact about the system before
-plotting the other 76. Half of what I had was a fact about a run.
-
-Our logs said: about 44% of the steps are revisits; the map is a pure tree for
-the first 150 steps of a median run, and for 400 in the run I happened to pick;
-and most of the depth arrives in the first half, though most runs are still
-finding more in the second.
+The snapshots support three broad observations: substantial revisiting, early
+cycles in most runs, and continued variation in both depth and discovery rate.
+They also show the limits of an illustrative plot. The 400-step tree phase and
+flat second-half depth belong to one run; the archive supplies the denominator
+needed to interpret them.

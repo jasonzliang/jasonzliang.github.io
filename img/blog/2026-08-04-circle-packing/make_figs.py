@@ -272,8 +272,8 @@ fig.text(0.045, 0.975,
          "and bigger is better.",
          ha="left", va="bottom", fontsize=12, color=MUTED)
 fig.text(0.045, -0.130,
-         "The 2011/12 coordinates were never published, so the left panel, and "
-         "the \"old\" side of the bar chart, is our own solver's\npacking at "
+         "The 2011/12 coordinates were never published, so the left panel and "
+         "the \"old\" side of the bar chart show the generated solver's\npacking at "
          "that record's total. The bars line the two packings' radii up by "
          "size, not circle by circle.",
          ha="left", va="bottom", fontsize=10.5, color=MUTED, linespacing=1.5)

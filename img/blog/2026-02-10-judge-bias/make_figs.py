@@ -61,7 +61,7 @@ def save(fig, name, quality=88):
 JUDGES = ["Gemini", "Claude", "GPT"]
 FORMATS = [
     ("Full answer", [1.35, 0.98, -0.82], BLUE),
-    ("Explain-like-I'm-five", [-0.12, -0.20, -0.75], ORANGE),
+    ("Plain-language summary", [-0.12, -0.20, -0.75], ORANGE),
     ("450-word answer", [-0.29, -0.22, 0.97], GREY),
 ]
 
@@ -111,9 +111,9 @@ ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.11), ncol=3,
           handlelength=1.2, handleheight=1.0, columnspacing=2.0)
 
 ax.text(0.5, -0.30,
-        "Raw differences, not adjusted for how strict each judge was overall. "
-        "On full answers the GPT judge marked every\nagent about 2 points below "
-        "the other two, so its −0.82 is strictness, not self-criticism. "
+        "Raw differences, unadjusted for judge strictness. GPT's full-answer "
+        "scores averaged about 2 points below the other judges.\n"
+        "Its raw −0.82 gap alone cannot establish negative family preference. "
         "No error bars: the paper reports none.",
         transform=ax.transAxes, ha="center", va="top", fontsize=9.5,
         color=MUTED, linespacing=1.45)

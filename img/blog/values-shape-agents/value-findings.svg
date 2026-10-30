@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Four value statements and their observed patterns</title>
+  <desc id="desc">Qualitative summary, with no quantitative score scale. Openness encourages transformation and has the highest final mean on five of six tasks. Conservation encourages proven incremental changes and has the lowest average rank. Self-enhancement emphasizes achievement and has the highest mean on 2048. Self-transcendence emphasizes shared usefulness and has mixed effects, including an improvement on Circle Packing. Means and ranks are not significance tests.</desc>
+  <rect width="960" height="620" rx="16" fill="#f8f7f3"/>
+  <g font-family="system-ui, -apple-system, sans-serif" fill="#20363d">
+    <text x="40" y="46" font-size="26" font-weight="650">Values guide choices the score leaves open</text>
+    <text x="40" y="75" font-size="17" fill="#53646b">Fixed-values experiment · six tasks · qualitative summary</text>
+
+    <rect x="40" y="105" width="425" height="200" rx="12" fill="#e3eeeb" stroke="#a4bfba"/>
+    <rect x="40" y="105" width="7" height="200" rx="3" fill="#2e776b"/>
+    <text x="65" y="143" font-size="23" font-weight="650">Openness</text>
+    <text x="65" y="176" font-size="18">New representations and algorithms</text>
+    <text x="65" y="203" font-size="18">Keep transforming the solver</text>
+    <path d="M65 221H438" stroke="#a4bfba"/>
+    <text x="65" y="250" font-size="18" font-weight="600">Highest final mean on 5 of 6 tasks</text>
+    <text x="65" y="278" font-size="17">Larger, more complex code than control</text>
+
+    <rect x="495" y="105" width="425" height="200" rx="12" fill="#f2e9dc" stroke="#cbb99f"/>
+    <rect x="495" y="105" width="7" height="200" rx="3" fill="#936a36"/>
+    <text x="520" y="143" font-size="23" font-weight="650">Conservation</text>
+    <text x="520" y="176" font-size="18">Proven methods and minimal steps</text>
+    <text x="520" y="203" font-size="18">Prefer settled, verified solutions</text>
+    <path d="M520 221H893" stroke="#cbb99f"/>
+    <text x="520" y="250" font-size="18" font-weight="600">Lowest average rank across tasks</text>
+    <text x="520" y="278" font-size="17">Typically smaller, simpler solvers</text>
+
+    <rect x="40" y="330" width="425" height="180" rx="12" fill="#e7edf5" stroke="#b1c0d4"/>
+    <rect x="40" y="330" width="7" height="180" rx="3" fill="#4f709b"/>
+    <text x="65" y="368" font-size="23" font-weight="650">Self-enhancement</text>
+    <text x="65" y="401" font-size="18">Demonstrable achievement</text>
+    <text x="65" y="428" font-size="18">Beat an external benchmark</text>
+    <path d="M65 446H438" stroke="#b1c0d4"/>
+    <text x="65" y="479" font-size="18" font-weight="600">Highest final mean on 2048</text>
+
+    <rect x="495" y="330" width="425" height="180" rx="12" fill="#eee9f0" stroke="#c3b5c9"/>
+    <rect x="495" y="330" width="7" height="180" rx="3" fill="#82628e"/>
+    <text x="520" y="368" font-size="23" font-weight="650">Self-transcendence</text>
+    <text x="520" y="401" font-size="18">Shared usefulness and clarity</text>
+    <text x="520" y="428" font-size="18">Restraint in resource use</text>
+    <path d="M520 446H893" stroke="#c3b5c9"/>
+    <text x="520" y="479" font-size="18" font-weight="600">Mixed results; gain on Circle Packing</text>
+
+    <text x="40" y="548" font-size="17">Controls: no assigned values and similarly sized off-task text.</text>
+    <text x="40" y="575" font-size="17">Means and ranks do not establish significance on every task.</text>
+    <text x="40" y="601" font-size="15" fill="#53646b">Source: manuscript Sections 3–4 and Appendices D–E. Card size does not encode performance.</text>
+  </g>
+</svg>

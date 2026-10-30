@@ -1,201 +1,153 @@
 ---
 layout: post
 title: >-
-  My AI agent illustrated its own report from the pages it cited
+  Caesar illustrates reports using images from cited sources
 date: 2026-05-20
 description: >-
-  Caesar finishes a report, returns to the pages it cited, scrapes 343
-  images and keeps four. 283 are never seen.
+  One report yielded 343 candidate images from 20 cited pages. A vision
+  model scored 60 and retained four, whose details shaped the illustration.
 image: >-
   /img/blog/2026-05-20-image-generation/generated.webp
 tags: [caesar, agents, multimodal]
 ---
 
-*[Caesar](https://jasonzliang.github.io/caesar-agent/) is a research agent I
-work on: it explores the web and writes long-form answers.*
+[Caesar](https://jasonzliang.github.io/caesar-agent/) can illustrate a finished
+report using images found on its cited pages. The pipeline revisits those
+sources, filters and scores candidate images, then uses selected references to
+help write a generation prompt.
 
-A finished research report is a wall of text. The obvious fix, an image model
-drawing something from the report's title, produces generic stock-art: the model
-has no idea what the report is about, so it renders the most average
-interpretation of the words.
+A run about [biomimetic architecture](https://en.wikipedia.org/wiki/Biomimetic_architecture)
+shows both the specificity this adds and the errors it can carry forward. Four
+references contributed recognizable visual details. One incorrect description
+of stone columns as wood also reached the final image. Source-derived imagery
+therefore provides context, not a guarantee of factual accuracy.
 
-Caesar already has something better sitting unused: **the pages it cited.** It
-just cited twenty sources, and those have pictures. Whatever the report is
-about, somebody has already illustrated it, probably badly, but *accurately*.
-
-So the pipeline goes back and looks.
-
-## The funnel
-
-For one run, on a question about [biomimetic
-architecture](https://en.wikipedia.org/wiki/Biomimetic_architecture):
+## From cited pages to four references
 
 | Stage | Count |
-|---|---|
+|---|---:|
 | Cited pages revisited | 20 |
-| Candidates left after the scrape filters | **343** |
-| Scored by the vision model (the cap is 60) | **60** |
-| Kept as references (the cap is four) | **4** |
+| Candidates after scraping filters | 343 |
+| Candidates scored by the vision model | 60 |
+| References retained | 4 |
 
-Every image on every cited page gets pulled. A boilerplate filter throws out any
-URL with a path segment that is exactly `logo`, `icon`, `favicon`, `avatar`,
-`pixel` or a dozen more, duplicates collapse, and 343 is what came out the far
-side, not what went in. Nothing is filtered on size, so plenty of junk survives:
-navigation graphics the filter does not name, author photographs, decorative
-headers.
+The scraper collects image candidates from cited pages, removes duplicate URLs
+and filters known boilerplate path segments such as `logo`, `icon`, `favicon`,
+`avatar` and `pixel`. The **343** candidates are what remain after filtering.
+There is no size filter, so decorative headers, author photographs and other
+irrelevant material can survive.
 
-Scoring all 343 with a vision model is the obvious next move, and the pipeline
-refuses. The cap is 60, so **only 60 of the 343 ever get looked at** and 283 are
-never seen. Each is scored 0 to 10 as a visual reference for the report's
-opening; anything under 4.0 is dropped, the survivors ranked, the top four kept,
-with a per-domain limit of two so no image-heavy source supplies the whole set.
+The vision-scoring budget is capped at 60. In this run, the cap selected 60
+without relevance ranking; **283 candidates were never visually assessed**.
+Each selected candidate received a score from 0 to 10 for suitability as a
+reference for the report's opening. Candidates below 4.0 were discarded; the
+rest were ranked, with at most four retained and at most two from one domain.
 
-Which 60 has changed since. In this run there was no ranking: the cap just took
-60 of the 343. The pipeline now ranks all 343 with a cheap text-only heuristic
-over alt text and URL keywords, takes the top 50, and adds 10 at random from the
-tail, because a purely ranked pool only surfaces images whose alt text or URL
-already sounds relevant. Both Wikimedia references below arrived with alt text
-of exactly nothing.
+A later implementation first ranks candidates using text from alt attributes
+and URL keywords, selects the top 50, and samples 10 from the remaining pool.
+The random component allows images with poor metadata to enter consideration.
+Both Wikimedia references retained in the earlier run had empty alt text.
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/funnel.webp"
-   alt="A grid of 343 small squares, one per scraped image. Most are pale grey;
-        56 mid-grey ones were scored but not kept, scattered at random because
-        the run does not record which, and four blue ones in the bottom row
-        were kept."
-   caption="The number nobody chose is 343: 60 and four are configured caps,
-            the scoring and reference budgets."
+   alt="A schematic grid representing 343 candidate images: 283 unscored,
+        56 scored but not retained, and four retained. The positions do not
+        identify the actual candidate ordering."
+   caption="Candidate counts from one run. Sixty scored images and four
+            references are configured caps; square positions are illustrative."
 %}
 
-The four here scored **8.0, 8.0, 8.0 and 7.0**. Two are [Wikimedia
-Commons](https://commons.wikimedia.org/) files embedded in the Wikipedia article
-the report cited, neither with alt text. The other two, from a blog post on a
-video intercom company's site, have it: *"biomimetic architecture example
-trees"* and *"skyline of city using biomimetic architecture"*.
+The retained references scored **8.0, 8.0, 8.0 and 7.0**. Two were
+[Wikimedia Commons](https://commons.wikimedia.org/) files embedded in a cited
+Wikipedia article. Two came from a video-intercom company's blog, with alt text
+describing tree-inspired architecture and a biomimetic city skyline.
 
-Then a vision model writes a dense description of each survivor, and a language
-model turns the report plus those descriptions into an image prompt, which
-opens:
+A vision model described each reference. A language model then combined those
+descriptions with the report to write an image prompt, specifying an upward
+interior view, branching pale-wood ribs, faceted canopy panels and circular
+skylights.
 
-> Low-angle upward view inside a biology-logic-driven sculptural building: pale
-> wood branching ribs and faceted canopy panels form a clear load path, with
-> circular skylights and recessed round fixtures punctuating the ceiling.
-
-## Where the image came from
+## Tracing visible details
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/generated.webp"
-   alt="An upward view inside a pale wood structure with branching tree-like
-        ribs and circular skylights, lattice towers covered in greenery beyond,
-        and an inset technical diagram labelling maintenance service pods."
-   caption="Drawn from four images scraped from the report's own cited sources."
+   alt="Generated architectural illustration with pale wooden branching ribs,
+        circular skylights, lattice towers, planted high-rises and an inset
+        diagram labeling maintenance service pods."
+   caption="A generated illustration informed by four source images. It is a
+            conceptual rendering, not evidence of a built structure."
 %}
 
-The lattice towers behind the structure are one reference showing through, and
-the glass towers with vertical planting on the right another, a city skyline.
-The inset technical panel with callout labels is the better example: nobody
-specified an inset, or callouts, or labels. The template's guidance on
-references is style-level: "Anchors visual style, palette, composition, and
-lighting in the reference captions when available". One reference was a
-*labelled* photograph of deep-sea sponges, which the vision model described as:
-"Red arrows and small white marks are overlaid on the image, giving it an
-annotated, documentary look." The step read that as style and asked for a
-"documentary" inset: a quirk of one source photograph propagating into the
-finished illustration.
+The image contains lattice towers and planted high-rises resembling details in
+the selected references. An annotated deep-sea sponge photograph offers a more
+specific trace. Its caption described red arrows and white markings as giving
+the image a documentary appearance; the prompt requested a documentary inset,
+and the output contains a labeled technical panel.
 
-Where the descriptions go, the errors go too. Another reference is a photograph
-looking up inside the Sagrada Família, whose branching columns are stone. The
-vision model called them "pale wood", the prompt asked for "pale wood branching
-ribs", and the finished picture is unmistakably wood.
-
-Every clause of the prompt goes back to a reference, and from there to the
-picture by eye.
+This is an interpretation of the recorded descriptions, prompt and visible
+output. The pipeline does not log which reference controls each output region.
+The numbered provenance overlay below was matched by eye.
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/provenance.webp"
-   alt="The generated image with four numbered boxes on it, headed 'Where each
-        region came from, matched by eye', each listed against a reference and
-        its score: branching wood ribs from a photo of Sagrada Familia arches,
-        the annotated pod inset from a labelled photograph of a Venus flower
-        basket sponge, the lattice towers and green-clad high-rises from two
-        photographs on a commercial site."
-   caption="The boxes are mine, drawn by hand. The run records four captions
-            and the prompt written from them, not regions of the output, so the
-            last step of this match is my eye."
+   alt="Four manually matched regions in the generated image: branching ribs
+        associated with Sagrada Família, an annotated inset associated with a
+        sponge photograph, and towers associated with two architecture images."
+   caption="Manual visual matches to the four references. The run records
+            descriptions and the generation prompt, not region-level attribution."
 %}
 
-The illustration is specific to *these* sources, not the topic in the abstract:
-a different run, citing different pages, gets a different picture.
+The Sagrada Família reference exposes a factual failure. Its branching columns
+are stone, but the vision description called them pale wood. That material
+entered the prompt and appears in the output. Reusing sources can transmit
+misreadings along with useful details; visual resemblance alone cannot validate
+the result.
 
-## Four other reports
+## Other reports and fallback behaviour
 
-I pointed the same pipeline at four earlier reports on unrelated questions,
-changing nothing. They ran on a later build than the picture above, so they are
-comparable with each other rather than with it.
+The same pipeline processed four earlier reports on a later build. Their
+outputs vary substantially in style, but the examples do not measure image
+quality or isolate the contribution of references.
 
 {% include figure.html
    src="/img/blog/2026-05-20-image-generation/gallery.webp"
-   alt="Four generated images: a recipe calculus question gave a
-        black-and-white lithographed recipe card with a no-arbitrage loop
-        diagram, echolocation a museum alcove of textured tiles, a business
-        idea a photorealistic cashbox and receipt in a bamboo-walled clinic,
-        and creativity scoring a clean whitepaper equation figure."
-   caption="Four reports, one unchanged generator, four visual registers."
+   alt="Four generated images: a lithographed recipe-calculus card, a textured
+        echolocation museum alcove, a cashbox and receipt in a clinic, and a
+        white-background creativity-scoring equation diagram."
+   caption="Four reports processed by the same later generator configuration.
+            These examples use a different build from the architecture run."
 %}
 
-No human chooses the visual register report by report, but "nobody chose" would
-be too strong. A prompt-writing model does, from a menu of twelve the template
-supplies (etching, lithograph, blueprint, cyanotype, specimen plate and seven
-more), told to match the idiom to the subject's native register and borrow
-palette and materials from vivid reference captions.
+The prompt-writing model normally chooses among twelve visual idioms supplied
+by the template, including etching, lithograph, blueprint, cyanotype and
+specimen plate. It matches an idiom to the subject and borrows palette or
+materials from reference descriptions. A separate diagram mode, triggered by
+patterns in the report text, forces a flat technical presentation and excludes
+reference images.
 
-The fourth is the useful one. On the creativity-scoring question the agent
-scraped **171** images and the best scored 4.0, well under the 7.0 gate, so no
-reference pixels were sent and the picture came from the text alone: the
-threshold in the next section doing its job, a mediocre reference being worse
-than none. It is weaker evidence than it looks, though: that report would have
-gone text-only regardless, because a regex over the report text had already
-routed it into diagram mode, which overrides that menu, drops reference images
-by design and forces the flat whitepaper look.
+The creativity-scoring report produced 171 candidates, with a best score of
+4.0. That falls below the **7.0 best-reference gate** required to use images.
+The image was generated from text alone. Diagram mode had already disabled
+references, so the score gate did not determine that choice. This example
+cannot establish that the gate improved the result.
 
-## Two settings that matter
+## Selection settings and their limits
 
-Most of this pipeline is plumbing. Two configuration values are not.
+The 4.0 individual-candidate cutoff and 7.0 best-reference gate have different
+roles. Below the latter, the captioning pass is skipped and the prompt is
+written from the report alone. Above it, selected references can supply both
+visual input and descriptions.
 
-**The scoring model has to be a strong one.** The config comment is blunt:
+The 7.0 gate is intended to avoid distracting references, but the examples do
+not establish that this threshold is optimal.
 
-> gpt-4o collapses scores to the rubric's middle (no spread) so the rerank
-> signal dies — keep at gpt-5.4.
+A configuration comment reports another selection failure: one vision scorer
+clustered scores near the rubric's middle, leaving little signal for reranking.
+This is an implementation observation, not a controlled model comparison.
 
-A weaker vision model does not score badly, it scores *uniformly*: asked to rate
-sixty images from 0 to 10, it puts almost everything near the middle, and once
-every candidate scores about the same the ranking carries no information. The
-pipeline runs, produces output, and the selection stage silently does nothing.
-
-This failure shows up everywhere in evaluation work: a measurement that cannot
-discriminate is worse than none, because it looks like it is working. I have run
-into it with saturated benchmarks, where every method reaches the same ceiling;
-here, a vision model refusing to use the ends of its own scale.
-
-**Weak references are worse than none.** The scraped images go to the image
-model directly as visual references only if the *best* one scores at least 7.0.
-Below that, the config notes, "mid-quality refs bias the model more than they
-help": a roughly-relevant photo drags the output toward itself without
-contributing anything true. A lower threshold, a constant in the code rather
-than a config knob, drops any individual reference under 4.0, where the logos
-and interface chrome go.
-
-Below 7.0 the survivors are not even described in words: the captioning pass
-never runs and the prompt is written from the report alone. The run above
-cleared the gate.
-
-## Why I like this pattern
-
-The general shape is: **an agent that has already done work should mine that
-work before reaching for something new.** The images were already in the HTML
-Caesar downloaded when it cited those pages; using them costs one more pass over
-data it had and turns a generic illustration into a specific one grounded in the
-same sources as the text. I suspect there are several more lying around any
-agent that keeps state: the exploration graph was another, [months of snapshots
-nobody had plotted](/blog/graph-growth/), material already on disk, generated as
-a side effect of doing something else.
+The pipeline reuses material gathered during research, much as saved
+[exploration snapshots](/blog/graph-growth/) enable later analysis. Its examples
+show source-specific visual details and identifiable error propagation. A
+matched comparison with text-only generation would be needed to establish
+whether the additional scraping, scoring and captioning improve illustrations
+overall.

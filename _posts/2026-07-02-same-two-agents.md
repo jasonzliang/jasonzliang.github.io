@@ -1,176 +1,110 @@
 ---
 layout: post
 title: >-
-  I called it a replication. Only two of five measurements held up.
+  A values-file comparison repeated two patterns, with major confounds
 published: false
 date: 2026-07-02
 description: >-
-  I ran the same one-file values swap on a second mission catalog and wrote
-  it up as a replication. Of five measures, two came out the same way on
-  both missions.
+  Four exploratory runs repeated two of five descriptive patterns. Different
+  self-chosen targets and a runner change prevent a clean replication claim.
 image: >-
   /img/blog/2026-07-02-same-two-agents/what-replicated.webp
 tags: [self-improving-agents, values, replication]
 ---
 
-In June I ran [two sixty-iteration agents that differed only in a values
-file](/blog/nietzsche/). They came out visibly different, and at one run per
-condition there was no reliable winner. Then I ran the same one-file swap on two
-unrelated mission catalogs, four runs, and the split came out the same shape
-both times. On 24 June I put a slide in a deck headed "The persona contrast —
-replicated".
+Four June runs compared a standard values file with a
+[Nietzsche-inspired alternative](/blog/nietzsche/) on two research mission
+catalogs. An initial report called the comparison a replication. Two of five
+recorded patterns did repeat, but the agents chose different problems and set
+their own success criteria. A runner change also removed one of the largest
+observed differences between missions.
 
-I have since written about those four runs twice more. On 15 July I concluded
-that on the mission where the comparison is cleanest the two agents are nearly
-indistinguishable, the philosophy having "left no fingerprint but the words". On
-24 July I told myself not to lean on either reading. All three rounds are mine,
-and this post is what is left of them side by side: less than the first claimed,
-a little more than the second allows.
+The records support a narrower account of what repeated. They do not establish
+that either values file caused a distinctive research style or better results.
 
-## The four runs
+## Four runs, four self-chosen tests
 
-These runs used the runner's focused mode: on iteration 1 the agent picks one
-target from a curated list of research repositories, vendors it offline, and
-builds its own benchmark, ending in a `CRITERION.md` holding one numeric bar it
-has to beat. The benchmark is frozen from there; every later iteration changes
-one lever and is attacked by refuter agents paid to falsify the claim. **The bar
-is the agent's own**: nobody outside the run picks the target or the number,
-which matters for everything below.
+In focused mode, the agent selected a research repository from a curated list,
+copied the relevant material into its workspace and built an offline benchmark.
+It recorded a numeric target in `CRITERION.md`, then froze the benchmark.
+Later iterations changed one lever at a time, with refuter agents instructed to
+challenge the resulting claims.
 
-The two catalogs are unrelated lists of agent-evolution research. Mission 1 ran
-50 iterations capped at 40 minutes each on 23 June; mission 2 ran 40 iterations
-capped at 60 minutes on 24 June. Same model, same honesty floor, and nearly the
-same runner: one change I made in between turns out to matter. The planned
-difference is one file, a cautious values document against an expansive one
-written from [Nietzsche](https://plato.stanford.edu/entries/nietzsche/). All
-four cleared a six-check integrity pass at run time, including byte-identical
-frozen graders and a single-root git history. The per-run `.git` directories
-were [deleted on archival](/blog/resume-audit/), so those are run-time
-observations I cannot re-run now.
+Mission 1 used 50 iterations with a 40-minute cap on 23 June. Mission 2 used
+40 iterations with a 60-minute cap on 24 June. Within each mission, both
+conditions used the same model and protected honesty rules. The intended
+intervention was the values file, but **each run selected its own target and
+bar**.
 
-The shape was the same both times. The cautious run cleared its own bar early,
-at **iteration 5** on mission 1 and **iteration 4** on mission 2, then spent the
-rest of the run mapping the limits of what it built, ending on mission 2 at
-92.2% of a ceiling it derived for its held-out metric. The expansive run never
-cleared its own bar at all: mission 1's froze the better of its two candidate
-baselines as the target ("Freezing the EA's 0.0659 as the bar would be a
-strawman") and never reached it, and mission 2's missed its bar by 0.003 and
-built thirteen frozen benchmarks instead.
+All four passed a six-part integrity check at run time, including checks on
+frozen graders and git history. Their per-run `.git` directories were
+[removed during archival](/blog/resume-audit/), so the history-dependent
+checks are historical observations that cannot now be repeated.
 
-## What I wrote down, three times
+The standard-values run cleared its own bar at iteration **5** in mission 1
+and iteration **4** in mission 2. The alternative never cleared its initial
+bar in either mission. In mission 1 it selected the stronger of two candidate
+baselines as its target; in mission 2 it missed the bar by 0.003.
 
-**24 June: replicated.** The slide hedges in its subtitle: "Replication-strength
-claim needs same-template replicates, but n=1 per cell on two missions is more
-than n=1 on one." A write-up from the same day reads the split as structural;
-neither has been rewritten since.
+That repeated contrast is descriptive. A pass on one self-selected problem and
+a miss on another do not establish relative capability. Target selection may
+itself be interesting behavior, but this design does not separate its effects
+from differences in the underlying problems.
 
-**15 July: no fingerprint but the words.** Three weeks later I audited nine runs
-adversarially, seven reviewers each handed one claim and told to break it. That
-audit put a retraction banner on the 24 June write-up: the split there is
-confounded with the two runs picking different mission targets, and across all
-nine runs "the philosophy was paint, not structure". It singles out **mission 2
-as the cleanest comparison in the set**, both runs single-domain, equal at 40
-iterations and held to the same one-lever discipline, and finds near-identical
-work: "When the philosophy had a fair fight, it left no fingerprint but the
-words." The one gap it reports runs backwards, the cautious run editing its own
-values file once and the expansive one never touching it.
-
-**24 July: both of you over-claimed.** Nine days later a separate
-re-verification stapled a correction to both documents. On the 24 June write-up
-it confirms the headline numbers verbatim against the run's own report, restates
-that the values-as-architecture reading is confounded with target choice, and
-ends "Correctly kept archived." On the audit it confirms the verifiable core,
-the tag, benchmark and iteration counts and the debunking of an invented
-boldness score, then says of the audit's own headline: "over-generalized; do not
-rely on it."
-
-The most recent document says both earlier readings over-claimed and does not
-say which is closer to right. The audit's other evidence for that backwards gap
-was that the cautious run "wrote 4 formal proposals to change its rulebook",
-which the correction reclassifies as proposals about the immutable constitution
-file, routed to a human rather than applied, and so evidence the floor held.
-
-## What actually survives
+## Which measurements repeated
 
 {% include figure.html
    src="/img/blog/2026-07-02-same-two-agents/what-replicated.webp"
-   alt="Five small bar charts with four rows each, mission 1 and mission 2 by
-        cautious and expansive: cleared its own bar, frozen benchmarks, hoisted
-        modules, TASKS_DONE lines, and loose Python files at the workspace
-        root. Only the first two point the same way on both missions."
-   caption="Those first two panels are the whole surviving claim. Anything
-            needing the commit history, including the byte-identical grader
-            check, is a run-time observation I cannot repeat."
+   alt="Five comparisons across two missions: clearing a self-set bar, frozen
+        benchmark count, shared modules, task-log lines and root-level Python
+        files. Only the first two repeat the same directional difference."
+   caption="Two descriptive patterns repeated across missions. Each cell has
+            one run, and the runs chose different targets. The chart does not
+            establish an effect caused by the values file."
 %}
 
-Two things came out the same way on both missions: which run cleared its own
-bar, and the expansive run leaving more frozen benchmarks behind, 10 against 1
-on mission 1 and 13 against 6 on mission 2. Neither expansive run lowered the
-bar it missed, the failure the frozen-grader machinery exists to catch.
+The standard-values run cleared its own bar on both missions. The alternative
+also left more frozen benchmarks on both: **10 versus 1** in mission 1 and
+**13 versus 6** in mission 2. Neither alternative run lowered the initial bar
+it failed to clear.
 
-Three did not, cautious first. Hoisted shared modules were 1 against 1 on
-mission 1 and 0 against 2 on mission 2. Loose scripts at the workspace root were
-0 against 39 on mission 1, the biggest measured difference in the experiment,
-and 0 against 0 on mission 2, because three hours before mission 2 started I
-committed a runner change restoring a workspace-layout sweep at the review
-checkpoint, precisely because of that 39. The gap I would most like to call
-character is one I closed myself between the missions.
+The other three measures did not show a consistent separation:
 
-The third is a number I got wrong. I reported log length on mission 2 as 1,487
-lines against 3,055, which is not like for like: the mission-2 cautious run is
-the only one that archived old entries, moving its first fifteen iterations into
-`TASKS_DONE_archive/`, another 994 lines. Counted properly it is 2,481 against
-3,055. My own deck names that archive in the same bullet as the 1,487; I quoted
-the number without the caveat next to it. On mission 1 the logs are 869 and 852,
-a tie.
+- **Shared tool modules:** standard versus alternative was 1 versus 1 on
+  mission 1, then 0 versus 2 on mission 2.
+- **Python scripts at the workspace root:** 0 versus 39 became 0 versus 0.
+- **Task-log lines:** 869 versus 852 on mission 1, then 2,481 versus 3,055 on
+  mission 2.
 
-## What I cannot settle
+The script-count change has a concrete explanation. Three hours before mission
+2, the runner regained a workspace-layout sweep at review checkpoints,
+prompted by the 39 loose scripts from mission 1. That intervention prevents
+attributing the disappearance of the gap to either agent's disposition.
 
-**The confound is the whole problem.** The two agents inside a mission never
-worked on the same problem: each picked its own target and wrote its own bar, so
-"cleared the bar" compares two different tests sat by two different students,
-and part of what I am calling character is the choice of target itself.
+The mission-2 log count also needed correction. The standard run archived its
+first fifteen iterations, moving 994 lines into `TASKS_DONE_archive/`. Counting
+only the current file gives 1,487, an incomplete total previously compared
+with the alternative's 3,055. Including the archive gives 2,481. Log length
+also measures verbosity and recordkeeping, rather than research quality.
 
-It eats into the benchmark count too: the audit reads a run's extra benchmark
-directories as harder rungs of the problem it happened to pick rather than a
-wider reach, which is close to saying the count belongs to the target and not to
-the values. I do not think that fully explains 10 against 1 and 13 against 6,
-but I cannot show it does not.
+Benchmark count has its own ambiguity. Extra benchmarks may represent broader
+exploration, or harder variants of a particular selected problem. With one run
+per cell and different targets, the archive cannot distinguish those explanations.
 
-Nor can I rescue the audit's verdict wholesale. It is right that mission 2 is
-the cleanest pair and the residue thin. But one of its two data points there was
-reclassified nine days later, its own claim table grades that claim **PARTIAL**
-at medium confidence, the weakest grade of anything it kept, and its headline is
-flagged as over-generalised. The document that disagrees with my replication is
-not in good enough shape to replace it. My filing is a verdict too: both of
-these documents sit in an archive folder, and on the day the corrections landed
-I promoted the sixty-iteration study out of it.
+## What remains unresolved
 
-So: one run per cell, two missions, a target-choice confound, and three rounds
-of my own writing that do not agree. The most recent verifies numbers rather
-than adjudicating readings; it neither restores the replication nor endorses the
-audit. What would settle it is more than one run per cell, iterations and
-configuration held equal, and a fixed starting target so that target choice
-cannot masquerade as character. I have not run that. When I ran a properly
-powered version of a related question, the effect I liked went away, and on a
-third task, taking my own tally apart pair by pair left no reliable direction at
-all. Neither of those is this experiment; I have not settled this one.
+Later internal checks confirmed the recorded counts without identifying a
+values effect. The initial replication claim remained confounded by target
+choice, while a later claim that the values changed only vocabulary was also
+too broad. Neither interpretation resolves what caused the observed differences.
 
-## Where my records disagree
+Completion also differed. Both mission-1 runs were resumed through API outages.
+Mission 2's standard run lost iterations 25 and 26 to overload errors without
+retries. Only mission 2's alternative completed all 40 iterations cleanly in
+one session, so equal iteration ceilings did not provide equal completed work.
 
-"Completed" is doing more work than it should here, as it was in my write-up of
-the earlier pair, which reported "60 of 60 completed" when it meant the highest
-iteration reached. No iteration in these four was killed by its own time cap,
-but only mission 2's expansive run went start to finish in one session with a
-clean exit on all 40 iterations: both mission-1 runs were resumed repeatedly
-through API outages, and mission 2's cautious run lost iterations 25 and 26 to
-overload errors and never retried them, which I have not found recorded before
-now and which my deck contradicts by saying both mission-2 runs completed 40 of
-40.
-
-The deck disagrees with the record in three places: mission 1 commit counts of
-85 and 88 against the write-up's 88 and 88, neither checkable now the per-run
-git directories are gone; a copy-pasted benchmark description on one mission-2
-slide; and 92.2%, the held-out figure, given on another slide as the scored
-number, which is really 93.5% of the same ceiling. None of that moves the shape,
-and I would rather say it than have someone else find it.
+A stronger replication would fix the starting problem and evaluation, hold the
+runner and iteration budget constant, and repeat each condition across seeds.
+These four runs preserve useful engineering observations, but leave the values
+comparison unresolved. Later studies on other tasks address related questions
+and do not retroactively resolve these confounds.

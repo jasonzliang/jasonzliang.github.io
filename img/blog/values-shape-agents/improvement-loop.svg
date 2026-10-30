@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="510" viewBox="0 0 960 510" role="img" aria-labelledby="title desc">
+  <title id="title">A coding loop with fixed values and accumulating code</title>
+  <desc id="desc">Schematic, not measured results. Values, task, model, and safety rules remain fixed. Each fresh session reads committed files, edits and tests the solver, and commits code and notes. Committed files pass to the next session. A separate held-out scorer evaluates saved solvers after the run.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#456875"/></marker>
+  </defs>
+  <rect width="960" height="510" rx="16" fill="#f8f7f3"/>
+  <g font-family="system-ui, -apple-system, sans-serif" fill="#20363d">
+    <text x="40" y="45" font-size="26" font-weight="650">Fixed instructions, evolving solver</text>
+    <text x="40" y="73" font-size="17" fill="#53646b">Main experiment · 15 fresh sessions per run · schematic</text>
+    <rect x="40" y="100" width="880" height="65" rx="10" fill="#e4eceb"/>
+    <text x="65" y="127" font-size="18" font-weight="650">Held fixed within each run</text>
+    <text x="65" y="151" font-size="17">Value statement · task and scoring rules · model and harness · safety rules</text>
+    <path d="M160 165V202" stroke="#456875" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="40" y="205" width="245" height="110" rx="10" fill="#fff" stroke="#94aaa9" stroke-width="1.5"/>
+    <text x="61" y="239" font-size="20" font-weight="650">1. Read</text>
+    <text x="61" y="268" font-size="17">Restored instructions</text>
+    <text x="61" y="292" font-size="17">Committed code and notes</text>
+    <path d="M285 260H332" stroke="#456875" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="340" y="205" width="245" height="110" rx="10" fill="#fff" stroke="#94aaa9" stroke-width="1.5"/>
+    <text x="361" y="239" font-size="20" font-weight="650">2. Edit and test</text>
+    <text x="361" y="268" font-size="17">Choose a solver change</text>
+    <text x="361" y="292" font-size="17">Use development feedback</text>
+    <path d="M585 260H632" stroke="#456875" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="640" y="205" width="245" height="110" rx="10" fill="#fff" stroke="#94aaa9" stroke-width="1.5"/>
+    <text x="661" y="239" font-size="20" font-weight="650">3. Commit</text>
+    <text x="661" y="268" font-size="17">Save code and notes</text>
+    <text x="661" y="292" font-size="17">Discard uncommitted work</text>
+    <path d="M762 315V345H162V318" fill="none" stroke="#456875" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="462" y="375" text-anchor="middle" font-size="17">Next session inherits files, with no conversational memory</text>
+    <path d="M885 260H920V433H890" fill="none" stroke="#456875" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+    <rect x="40" y="407" width="845" height="75" rx="10" fill="#e9eef5"/>
+    <text x="62" y="436" font-size="19" font-weight="650">After the run: evaluate every saved solver</text>
+    <text x="62" y="462" font-size="17">Held-out data stays outside the workspace; its scores do not guide edits.</text>
+  </g>
+</svg>

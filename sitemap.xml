@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Hand-written, listing only the pages Jekyll does not already cover. The 16
+  Hand-written, listing only the pages Jekyll does not already cover. The
   blog posts live in /blog/sitemap.xml, which is a Liquid template over
   site.posts, so it carries a real per-post <lastmod> and never goes stale.
   Both files are declared in robots.txt.
