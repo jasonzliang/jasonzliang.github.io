@@ -15,7 +15,7 @@ can refine an existing algorithm, replace it, explore several approaches, or
 stop once a solution seems adequate. Those choices can accumulate when each
 coding session inherits the previous session's work.
 
-[Values Shape What Self-Improving Coding Agents Build](/papers/values-shape-self-improving-coding-agents.pdf),
+[Values Shape What Self-Improving Coding Agents Build](https://www.researchgate.net/publication/417252238_Values_Shape_What_Self-Improving_Coding_Agents_Build),
 by Jason Liang, Dylan Waldner, and Risto Miikkulainen, tests whether short,
 persistent value statements steer that process. Across six tasks, changing the statement
 changed both performance and the programs produced. The strongest recurring
@@ -82,10 +82,10 @@ differs significantly from that control on Symbolic Regression.
   <a href="{{ '/img/blog/values-shape-agents/paper-results-six-tasks.png' | relative_url }}" aria-label="Open the six-task results figure at full size">
     <img src="{{ '/img/blog/values-shape-agents/paper-results-six-tasks.png' | relative_url }}" alt="The paper's six-task results: openness has the highest final mean score on five tasks, while self-enhancement leads on 2048. Below the score curves, maps of final solver code show different groupings under different value statements. The legend identifies four values and two controls." width="2246" height="901" loading="lazy" />
   </a>
-  <figcaption>Mean scores on unseen test cases over 15 coding sessions (top), with standard error bands across ten runs and separate task scales. Maps below summarize measured code properties, not performance. <a href="{{ '/img/blog/values-shape-agents/paper-results-six-tasks.png' | relative_url }}">Full-size figure</a> · <a href="{{ '/papers/values-shape-self-improving-coding-agents.pdf' | relative_url }}#page=5">Paper Figure 3</a>.</figcaption>
+  <figcaption>Mean scores on unseen test cases over 15 coding sessions (top), with standard error bands across ten runs and separate task scales. Maps below summarize measured code properties, not performance. <a href="{{ '/img/blog/values-shape-agents/paper-results-six-tasks.png' | relative_url }}">Full-size figure</a> · <a href="https://www.researchgate.net/publication/417252238_Values_Shape_What_Self-Improving_Coding_Agents_Build" target="_blank" rel="noopener">Paper Figure 3</a>.</figcaption>
 </figure>
 
-Every openness run on ALE-Bench uses [general free-cell or graph-cut search](/papers/values-shape-self-improving-coding-agents.pdf#page=32),
+Every openness run on ALE-Bench uses general free-cell or graph-cut search,
 allowing a broader range of polygon shapes. Every conservation run retains
 column-based search. Circle Packing
 solvers often share a local optimizer, but openness runs more often add methods
@@ -107,18 +107,18 @@ to choose algorithms without isolating its effect.
   <a href="{{ '/img/blog/values-shape-agents/paper-2048-editable-vs-fixed.png' | relative_url }}" aria-label="Open the 2048 solver comparison at full size">
     <img src="{{ '/img/blog/values-shape-agents/paper-2048-editable-vs-fixed.png' | relative_url }}" alt="Original 2048 comparison: mean score curves separate more when agents can rewrite the full solver than when they tune a supplied engine. The table lists what each version allows agents to change. The legend identifies four value statements and two controls." width="2200" height="600" loading="lazy" />
   </a>
-  <figcaption>Left: agents can rewrite the full 2048 solver. Middle: they tune a supplied engine, and the value conditions stay closer together. Shading shows standard errors across ten runs. The SD labels express the range of final means in units of each version's overall score variation. <a href="{{ '/img/blog/values-shape-agents/paper-2048-editable-vs-fixed.png' | relative_url }}">Full-size figure</a> · <a href="{{ '/papers/values-shape-self-improving-coding-agents.pdf' | relative_url }}#page=7">Paper Figure 4</a>.</figcaption>
+  <figcaption>Left: agents can rewrite the full 2048 solver. Middle: they tune a supplied engine, and the value conditions stay closer together. Shading shows standard errors across ten runs. The SD labels express the range of final means in units of each version's overall score variation. <a href="{{ '/img/blog/values-shape-agents/paper-2048-editable-vs-fixed.png' | relative_url }}">Full-size figure</a> · <a href="https://www.researchgate.net/publication/417252238_Values_Shape_What_Self-Improving_Coding_Agents_Build" target="_blank" rel="noopener">Paper Figure 4</a>.</figcaption>
 </figure>
 
 ## Editing values is a separate experiment
 
-An [ALE-Bench extension](/papers/values-shape-self-improving-coding-agents.pdf#page=35) lets the agent revise its values between sessions while
+An ALE-Bench extension lets the agent revise its values between sessions while
 retaining fixed safety rules. The range of final condition means shrinks to
 about one-third of the fixed-values range: openness declines and conservation
 improves. Revised statements become longer and more task-specific in a
 preliminary reading; their transfer to other tasks was not tested.
 
-Another [extension](/papers/values-shape-self-improving-coding-agents.pdf#page=36) derives values from selected AI research papers. Neither
+Another extension derives values from selected AI research papers. Neither
 derived statement provides a detectable improvement on ALE-Bench or 2048.
 Ten runs per condition leave smaller effects unresolved.
 
